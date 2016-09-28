@@ -2,9 +2,8 @@ package gnome;
 
 /**
  * 
- * @author Nibbles and Bytes - Craig
- * Version 1
- * 
+ * @author Nibbles and Bytes 
+ * Version 1.0
  * Class InventoryStaffAccount holds the information required for the inventory staff to log into NB Gardens' order system
  *
  */
