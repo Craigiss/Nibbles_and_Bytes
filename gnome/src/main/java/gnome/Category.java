@@ -1,10 +1,16 @@
 package gnome;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
 public class Category {
 	//Connor
 
-	int Id;
-	String name;
+	@OneToMany
+	@JoinColumn(name = "id", nullable = false)
+	private int Id;
+	@JoinColumn(name = "name", nullable = false)
+	private String name;
 	/**
 	 * @return the id
 	 */
