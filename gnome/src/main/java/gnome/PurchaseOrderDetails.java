@@ -26,6 +26,7 @@ public class PurchaseOrderDetails {
 	@JoinColumn (name = "FKPurchaseOrder", nullable = false)
 	private PurchaseOrder purchaseOrder;
 	
+	@Column (name = "quantity", nullable = false)
 	private int quantity;
 	
 	
