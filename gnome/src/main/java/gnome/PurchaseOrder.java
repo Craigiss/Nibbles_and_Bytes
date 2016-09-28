@@ -1,23 +1,47 @@
 package gnome;
 
 import java.util.Date;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+
+
+
 
 /**
  * @author Nibbles and Bytes
  * @version 1.0
  * 
- *          This class is for the suppliers used by NB Gardens business and uses
- *          variables to model the data needed for the system.
- **/
+ *
+ */
+@Entity 
+@Table (name = "PurchaseOrder")
 
 public class PurchaseOrder {
+	@Id
+	@Column (name = "id")
+	@GeneratedValue (
+	strategy = GenerationType.IDENTITY	)
 	private int id;
+	
+	@Column (name = "date", nullable = false)
+	@NotNull
 	private Date date;
+	
+	@Column (name = "status", nullable = false, length = 60 )
+	@NotNull 
+	@Size (min = 2, max = 60)
 	private String status;
-
+	
+	@ManyToOne 
+	@JoinColumn(name = "FKSupplierid", nullable = false)
+	private int Supplierid;
+	
 	/**
 	 * Default Constructor
 	 */
+	
 	public PurchaseOrder() {
 
 	}
