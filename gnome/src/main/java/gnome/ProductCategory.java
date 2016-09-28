@@ -1,5 +1,11 @@
 package gnome;
 
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+
+
 /**
  * @author Nibbles and Bytes
  * @version 1.0
@@ -9,9 +15,27 @@ package gnome;
  **/
 
 
+@Entity
+@Table (name = "ProductCategory")
 public class ProductCategory {
+	
+	@Id
+	@Column(name = "categoryID")
+	@ManyToOne
+	@JoinColumn(name="FKcategoryID",
+	nullable = false)
+	@NotNull
 	int categoryID;
+	
+	@Id
+	@Column(name = "productID")
+	@ManyToOne
+	@JoinColumn(name="FKproductID",
+	nullable = false)
+	@NotNull
 	int productID;
+	
+	
 	/**
 	 * @return the categoryID
 	 */
