@@ -3,10 +3,13 @@ package gnome;
 import java.util.Date;
 
 /**
+ * @author Nibbles and Bytes
+ * @version 1.0
  * 
- * @author Nibbles and Bytes Version: 1 Class hold information on purchase
- *         orders to order stock
- */
+ *          This class is for the suppliers used by NB Gardens business and uses
+ *          variables to model the data needed for the system.
+ **/
+
 public class PurchaseOrder {
 	private int id;
 	private Date date;

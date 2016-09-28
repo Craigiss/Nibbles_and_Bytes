@@ -2,10 +2,13 @@ package gnome;
 import java.sql.Date;
 
 /**
- * @author Nibbles And Bytes
+ * @author Nibbles and Bytes
  * @version 1.0
- * Class holds information on a sales order sorted within the database
- * */
+ * 
+ *          This class is for the suppliers used by NB Gardens business and uses
+ *          variables to model the data needed for the system.
+ **/
+
 
 public class SalesOrder {
 
