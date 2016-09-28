@@ -1,5 +1,9 @@
 package gnome;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * 
  * @author Nibbles and Bytes 
@@ -8,11 +12,25 @@ package gnome;
  *
  */
 
+@Entity
+@Table (name = "InventoryStaffAccount")
 public class InventoryStaffAccount {
 	//attributes
-	
+	@Id
+	@Column (name = "email",
+			nullable = false, length = 255)
+	@NotNull
+	@Size (min = 2, max = 255)
 	private String email;
+	@Column (name = "password",
+			nullable = false, length = 255)
+	@NotNull
+	@Size (min = 2, max = 255)
 	private String password;
+	@Column (name = "name",
+			nullable = false, length = 255)
+	@NotNull
+	@Size (min = 2, max = 255)
 	private String name;
 	
 	//constructors
