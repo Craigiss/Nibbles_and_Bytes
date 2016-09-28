@@ -39,15 +39,12 @@ public class CustomerAccount {
 	@NotNull
 	@Size(min = 2, max = 5)
 	private String title;
-<<<<<<< HEAD
 	
 	@Column (name = "phoneNumber", nullable = false, length = 11 )
 	@NotNull
 	@Size(min = 2, max = 11)
-	private int phoneNumber;
-=======
 	private String phoneNumber;
->>>>>>> 75deee00b35f9d58021c82f6f2f1232c6d942193
+
 	
 	public CustomerAccount(){	
 	}
