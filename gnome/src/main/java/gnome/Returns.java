@@ -1,5 +1,8 @@
 package gnome;
 import java.sql.Date;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * @Author Nibbles And Bytes
@@ -7,12 +10,27 @@ import java.sql.Date;
  * Class Returns holds information on products that have been returned
  * */
 
+@Entity
+@Table (name = "Returns")
 public class Returns {
-	
+	//attributes
+	@Id
+	@OneToOne
+	@JoinColumn(name = "salesOrderDetails_fk")
 	private SalesOrderDetails salesOrderDetails;
+	@Column (name = "date", 
+			nullable = false)
+	@GeneratedValue(
+			strategy = GenerationType.IDENTITY)
 	private Date date;
+	@Column (name = "reason", 
+			nullable = false, length = 8000)
+	@NotNull
+	@Size (min = 2, max = 8000)
+
 	private String reason;
 	
+	//constructors	
 	public Returns(){
 		
 	}
