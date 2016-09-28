@@ -10,12 +10,14 @@ import javax.validation.constraints.Size;
 
 
 /**
+ * @author Nibbles and Bytes
+ * @version 1.0
  * 
- * @author Nibbles and Bytes Version: 1 Class hold information on purchase
- *         orders to order stock
+ *
  */
 @Entity 
 @Table (name = "PurchaseOrder")
+
 public class PurchaseOrder {
 	@Id
 	@Column (name = "id")
@@ -45,51 +47,47 @@ public class PurchaseOrder {
 	}
 
 	/**
-	 * 
-	 * @return id
+	 * @return the id
 	 */
 	public int getId() {
 		return id;
 	}
 
 	/**
-	 * 
-	 * @param id
+	 * @param id the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
 	/**
-	 * 
-	 * @return date
+	 * @return the date
 	 */
 	public Date getDate() {
 		return date;
 	}
 
 	/**
-	 * 
-	 * @param date
+	 * @param date the date to set
 	 */
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
 	/**
-	 * 
-	 * @return status
+	 * @return the status
 	 */
 	public String getStatus() {
 		return status;
 	}
 
 	/**
-	 * 
-	 * @param status
+	 * @param status the status to set
 	 */
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	
 
 }

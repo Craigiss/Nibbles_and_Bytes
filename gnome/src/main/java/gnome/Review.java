@@ -13,10 +13,13 @@ import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
 
 /**
+ * @author Nibbles and Bytes
+ * @version 1.0
  * 
- * @author Nibbles and Bytes - Jacob Version: 1 Class hold information on
- *         reviews placed by customers
- */
+ *          This class is for the suppliers used by NB Gardens business and uses
+ *          variables to model the data needed for the system.
+ **/
+
 public class Review {
 	
 	@Id
@@ -65,7 +68,7 @@ public class Review {
 
 	/**
 	 * 
-	 * @param date
+	 * @param date the date to set
 	 */
 	public void setDate(Date date) {
 		this.date = date;
@@ -81,7 +84,7 @@ public class Review {
 
 	/**
 	 * 
-	 * @param reviewText
+	 * @param reviewText the reviewText to set
 	 */
 	public void setReviewText(String reviewText) {
 		this.reviewText = reviewText;
@@ -97,7 +100,7 @@ public class Review {
 
 	/**
 	 * 
-	 * @param rating
+	 * @param rating the rating to set
 	 */
 	public void setRating(int rating) {
 		this.rating = rating;
