@@ -1,6 +1,7 @@
 package gnome;
 
 public class Category {
+	//Connor
 
 	int Id;
 	String name;
