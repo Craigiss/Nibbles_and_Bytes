@@ -1,13 +1,32 @@
 package gnome;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 /**Author Nibbles and Bytes - Cameron 
  * Version 1
  * Class holds information on a product's category.
  */
 
 public class ProductCategory {
+	
+	@Id
+	@Column(name = "categoryID")
+	@ManyToOne
+	@JoinColumn(name="FKcategoryID",
+	nullable = false)
+	@NotNull
 	int categoryID;
+	
+	@Id
+	@Column(name = "productID")
+	@ManyToOne
+	@JoinColumn(name="FKproductID",
+	nullable = false)
+	@NotNull
 	int productID;
+	
+	
 	/**
 	 * @return the categoryID
 	 */
