@@ -2,7 +2,7 @@ package gnome;
 import java.sql.Date;
 
 /**
- * @Author Nibbles And Bytes
+ * @author Nibbles And Bytes
  * @version 1.0
  * Class holds information on a sales order sorted within the database
  * */
@@ -27,7 +27,7 @@ public class SalesOrder {
 
 	/**
 	 * Sets order id of a customer order
-	 * @param Int id - email address of customer
+	 * @param id - email address of customer
 	 * */
 	public void setId(int id) {
 		this.id = id;
@@ -43,7 +43,7 @@ public class SalesOrder {
 
 	/**
 	 * Sets date of a customer order
-	 * @param String Date - email address of customer
+	 * @param date - email address of customer
 	 * */
 	public void setDate(Date date) {
 		this.date = date;
@@ -59,7 +59,7 @@ public class SalesOrder {
 
 	/**
 	 * Assigns a customer object to an order
-	 * @param Customer Object
+	 * @param customer the customer to set
 	 * */
 	public void setCustomer(CustomerAccount customer) {
 		this.customer = customer;
@@ -75,7 +75,7 @@ public class SalesOrder {
 
 	/**
 	 * Sets the status of a customer order
-	 * @param String status
+	 * @param status the status to set
 	 * */
 	public void setStatus(String status) {
 		this.status = status;

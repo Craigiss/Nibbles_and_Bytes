@@ -1,7 +1,7 @@
 package gnome;
 
 /**
- * Nibbles And Bytes
+ * @author Nibbles And Bytes
  * @version 1.0
  * Class holds information on a customer sorted within the database
  * */

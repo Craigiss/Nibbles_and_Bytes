@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * @Author Nibbles And Bytes
+ * @author Nibbles And Bytes
  * @version 1.0
  * Class Returns holds information on products that have been returned
  * */
@@ -45,7 +45,7 @@ public class Returns {
 
 	/**
 	 * Method to set an Instance of a Sales Order Details containing the returned product
-	 * @param salesOrderDetails
+	 * @param salesOrderDetails the salesOrderDetails to set
 	 */
 	public void setSalesOrderDetails(SalesOrderDetails salesOrderDetails) {
 		this.salesOrderDetails = salesOrderDetails;
@@ -53,7 +53,7 @@ public class Returns {
 
 	/**
 	 * Method to return the date of the returned product
-	 * @return
+	 * @return the date to return
 	 */
 	public Date getDate() {
 		return date;
@@ -61,7 +61,7 @@ public class Returns {
 
 	/**
 	 * Method to set the date of the returned product
-	 * @param date
+	 * @param date the date to set
 	 */
 	public void setDate(Date date) {
 		this.date = date;
@@ -77,7 +77,7 @@ public class Returns {
 
 	/**
 	 * Method to set the reason given for the returned product
-	 * @param reason
+	 * @param reason the reason to set
 	 */
 	public void setReason(String reason) {
 		this.reason = reason;

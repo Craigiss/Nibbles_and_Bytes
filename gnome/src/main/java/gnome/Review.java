@@ -30,7 +30,7 @@ public class Review {
 
 	/**
 	 * 
-	 * @param date
+	 * @param date the date to set
 	 */
 	public void setDate(Date date) {
 		this.date = date;
@@ -46,7 +46,7 @@ public class Review {
 
 	/**
 	 * 
-	 * @param reviewText
+	 * @param reviewText the reviewText to set
 	 */
 	public void setReviewText(String reviewText) {
 		this.reviewText = reviewText;
@@ -62,7 +62,7 @@ public class Review {
 
 	/**
 	 * 
-	 * @param rating
+	 * @param rating the rating to set
 	 */
 	public void setRating(int rating) {
 		this.rating = rating;
