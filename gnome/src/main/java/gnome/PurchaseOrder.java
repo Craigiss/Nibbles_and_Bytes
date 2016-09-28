@@ -20,51 +20,47 @@ public class PurchaseOrder {
 	}
 
 	/**
-	 * 
-	 * @return id
+	 * @return the id
 	 */
 	public int getId() {
 		return id;
 	}
 
 	/**
-	 * 
-	 * @param id
+	 * @param id the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
 	/**
-	 * 
-	 * @return date
+	 * @return the date
 	 */
 	public Date getDate() {
 		return date;
 	}
 
 	/**
-	 * 
-	 * @param date
+	 * @param date the date to set
 	 */
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
 	/**
-	 * 
-	 * @return status
+	 * @return the status
 	 */
 	public String getStatus() {
 		return status;
 	}
 
 	/**
-	 * 
-	 * @param status
+	 * @param status the status to set
 	 */
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	
 
 }

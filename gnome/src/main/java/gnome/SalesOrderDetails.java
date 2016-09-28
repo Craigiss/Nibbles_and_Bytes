@@ -29,7 +29,7 @@ public class SalesOrderDetails {
 	/**
 	 * Sets Id of product in an order
 	 * 
-	 * @param int - sets id of product in an order
+	 * @param productId - sets id of product in an order
 	 **/
 	public void setProductId(int productId) {
 		this.productId = productId;
@@ -47,7 +47,7 @@ public class SalesOrderDetails {
 	/**
 	 * Sets quantity of each product in an order
 	 * 
-	 * @param int - sets quantity of product in an order
+	 * @param quantity - sets quantity of product in an order
 	 **/
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
@@ -65,7 +65,7 @@ public class SalesOrderDetails {
 	/**
 	 * Sets id of the order id
 	 * 
-	 * @param int - sets id of the order id
+	 * @param salesOrderId - sets id of the order id
 	 **/
 	public void setSalesOrderId(int salesOrderId) {
 		this.salesOrderId = salesOrderId;
