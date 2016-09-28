@@ -1,5 +1,8 @@
 package gnome;
 
+import javax.persistence.*;
+import javax.validation.constraints.*;
+
 /**
  * @author Nibbles and Bytes
  * @version 1.0
@@ -8,13 +11,34 @@ package gnome;
  *          variables to model the data needed for the system.
  **/
 
+@Entity
+@Table (name = "Supplier")
 public class Supplier {
 
 	/* Variables of the supplier class */
+	@Id
+	@Column  (name = "supplierId")
+	@GeneratedValue ( strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Column (name = "company",	nullable = false, length = 225)
+	@NotNull
+	@Size (min = 2, max = 225)	
 	private String company;
+	
+	@Column (name = "name",	nullable = false, length = 225)
+	@NotNull
+	@Size (min = 2, max = 225)
 	private String name;
+	
+	@Column (name = "phone", nullable = false, length = 225)
+	@NotNull
+	@Size (min = 2, max = 225)
 	private String phone;
+	
+	@Column (name = "email", nullable = false, length = 225)
+	@NotNull
+	@Size (min = 2, max = 225)
 	private String email;
 
 	/* Getters and Setters */

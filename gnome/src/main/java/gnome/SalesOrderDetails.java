@@ -1,5 +1,8 @@
 package gnome;
 
+import javax.persistence.*;
+import javax.validation.constraints.*;
+
 /**
  * @author Nibbles and Bytes
  * @version 1.0
@@ -8,22 +11,56 @@ package gnome;
  *          variables to model the data needed for the system.
  **/
 
+@Entity
+@Table (name = "SalesOrderDetails")
 public class SalesOrderDetails {
 	
 	/* Variables of the supplier class */
-	private int productId;
+	@Id
+	@Column  (name = "Id")
+	@GeneratedValue ( strategy = GenerationType.IDENTITY)
+	private int id;	
+
+	@OneToMany
+	@Column  (name = "FKproductId", nullable = false)
+	private int FKproductId;
+	
+	@Column (name = "quantity",	nullable = false, length = 225)
+	@NotNull
+	@Size (min = 2, max = 225)	
 	private int quantity;
-	private int salesOrderId;
+	
+	@OneToMany
+	@Column  (name = "FKsalesOrderId", nullable = false)
+	private int FKsalesOrderId;
 	
 	/* Getters and Setters */
+	
+	/**
+	 * Gets Id of sales order details
+	 * 
+	 * @return id of sales order details
+	 **/
+	public int getId() {
+		return id;
+	}
+	
+	/**
+	 * Sets Id of sales order details
+	 * 
+	 * @param int - sets id of sales order details
+	 **/
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	/**
 	 * Gets Id of product in an order
 	 * 
 	 * @return id of product
 	 **/
-	public int getProductId() {
-		return productId;
+	public int getFKProductId() {
+		return FKproductId;
 	}
 	
 	/**
@@ -31,8 +68,8 @@ public class SalesOrderDetails {
 	 * 
 	 * @param int - sets id of product in an order
 	 **/
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setProductId(int FKproductId) {
+		this.FKproductId = FKproductId;
 	}
 	
 	/**
@@ -58,8 +95,8 @@ public class SalesOrderDetails {
 	 * 
 	 * @return id of sales order
 	 **/
-	public int getSalesOrderId() {
-		return salesOrderId;
+	public int getFKSalesOrderId() {
+		return FKsalesOrderId;
 	}
 	
 	/**
@@ -67,8 +104,8 @@ public class SalesOrderDetails {
 	 * 
 	 * @param int - sets id of the order id
 	 **/
-	public void setSalesOrderId(int salesOrderId) {
-		this.salesOrderId = salesOrderId;
+	public void setFKSalesOrderId(int FKsalesOrderId) {
+		this.FKsalesOrderId = FKsalesOrderId;
 	}
 	
 	
