@@ -2,6 +2,16 @@ package gnome;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+
+
+/**
+ * @author Nibbles and Bytes
+ * @version 1.0
+ * 
+ *          This class is for the suppliers used by NB Gardens business and uses
+ *          variables to model the data needed for the system.
+ **/
+
 @Entity
 @Table (name = "Product")
 public class Product {

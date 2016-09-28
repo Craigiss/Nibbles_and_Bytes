@@ -32,7 +32,7 @@ public class Supplier {
 	/**
 	 * Sets Id of supplier
 	 * 
-	 * @param int - sets id of supplier
+	 * @param id - sets id of supplier
 	 **/
 	public void setId(int id) {
 		this.id = id;
@@ -52,7 +52,7 @@ public class Supplier {
 	/**
 	 * Sets company of supplier
 	 * 
-	 * @param string - sets company of supplier
+	 * @param company - sets company of supplier
 	 **/
 	public void setCompany(String company) {
 		this.company = company;
@@ -72,7 +72,7 @@ public class Supplier {
 	/**
 	 * Sets name of contact at the supplier
 	 * 
-	 * @param string - sets name of contact at the supplier
+	 * @param name - sets name of contact at the supplier
 	 **/
 	public void setName(String name) {
 		this.name = name;
@@ -91,7 +91,7 @@ public class Supplier {
 	/**
 	 * Sets phone number of contact at the supplier
 	 * 
-	 * @param string - sets phone number of contact at the supplier
+	 * @param phone - sets phone number of contact at the supplier
 	 **/
 	public void setPhone(String phone) {
 		this.phone = phone;
@@ -109,7 +109,7 @@ public class Supplier {
 	/**
 	 * Sets email address of contact at the supplier
 	 * 
-	 * @param string - sets email address of contact at the supplier
+	 * @param email - sets email address of contact at the supplier
 	 **/
 	public void setEmail(String email) {
 		this.email = email;
