@@ -1,18 +1,48 @@
 package gnome;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * @Author Nibbles And Bytes
  * @version 1.0
  * Class holds information on a customer sorted within the database
  * */
 
-
+@Entity
+@Table (name = "CustomerAccount")
 public class CustomerAccount {
+	
+	@Id
+	@Column (name = "email", nullable = false, length = 255)
+	@NotNull
+	@Size(min = 2, max = 225)
 	private String email;
+	
+	@Column (name = "password", nullable = false, length = 255 )
+	@NotNull
+	@Size(min = 2, max = 225)
 	private String password;
+	
+	@Column (name = "firstName", nullable = false, length = 255 )
+	@NotNull
+	@Size(min = 2, max = 225)
 	private String firstName;
+	
+	@Column (name = "surname", nullable = false, length = 255 )
+	@NotNull
+	@Size(min = 2, max = 225)
 	private String surname;
+	
+	@Column (name = "title", nullable = false, length = 5 )
+	@NotNull
+	@Size(min = 2, max = 5)
 	private String title;
+	
+	@Column (name = "phoneNumber", nullable = false, length = 11 )
+	@NotNull
+	@Size(min = 2, max = 11)
 	private int phoneNumber;
 	
 	public CustomerAccount(){	

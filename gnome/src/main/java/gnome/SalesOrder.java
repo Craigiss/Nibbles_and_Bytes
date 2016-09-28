@@ -1,6 +1,15 @@
 package gnome;
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * @Author Nibbles And Bytes
  * @version 1.0
@@ -9,9 +18,23 @@ import java.sql.Date;
 
 public class SalesOrder {
 
+	@Id
+	@Column (name = "id")
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	
+	@Column (name = "date", nullable = false)
+	@NotNull
 	private Date date;
+	
+	@ManyToOne
+	@JoinColumn (name = "FKCustomerId", nullable= false)
 	private CustomerAccount customer;
+	
+	@Column (name = "status", nullable = false, length = 255 )
+	@NotNull
+	@Size(min = 2, max = 225)
 	private String status;
 
 	public SalesOrder(){	
