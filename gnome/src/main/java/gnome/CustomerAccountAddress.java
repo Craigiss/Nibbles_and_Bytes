@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 public class CustomerAccountAddress {
+	// Connor
 	@OneToMany
 	@JoinColumn(name="username_fk", nullable = false)
 	private CustomerAccount username;

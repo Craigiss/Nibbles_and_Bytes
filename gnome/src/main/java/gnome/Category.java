@@ -4,7 +4,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 public class Category {
-	//Connor
+	// Connor
 
 	@OneToMany
 	@JoinColumn(name = "id", nullable = false)
