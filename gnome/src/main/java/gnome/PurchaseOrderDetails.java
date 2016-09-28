@@ -63,7 +63,7 @@ public class PurchaseOrderDetails {
 
 	/**
 	 * Method to set the product ordered within the purchase order detail instance
-	 * @param product Input is the product object to be linked with the instance
+	 * @param productId Input is the product object to be linked with the instance
 	 */
 	public void setProduct(int productId) {
 		this.productId = productId;

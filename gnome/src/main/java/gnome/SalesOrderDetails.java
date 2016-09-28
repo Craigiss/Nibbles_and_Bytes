@@ -48,7 +48,7 @@ public class SalesOrderDetails {
 	/**
 	 * Sets Id of sales order details
 	 * 
-	 * @param int - sets id of sales order details
+	 * @param id - sets id of sales order details
 	 **/
 	public void setId(int id) {
 		this.id = id;
@@ -66,7 +66,7 @@ public class SalesOrderDetails {
 	/**
 	 * Sets Id of product in an order
 	 * 
-	 * @param productId - sets id of product in an order
+	 * @param FKproductId - sets id of product in an order
 	 **/
 	public void setProductId(int FKproductId) {
 		this.FKproductId = FKproductId;
@@ -102,7 +102,7 @@ public class SalesOrderDetails {
 	/**
 	 * Sets id of the order id
 	 * 
-	 * @param salesOrderId - sets id of the order id
+	 * @param FKsalesOrderId - sets id of the order id
 	 **/
 	public void setFKSalesOrderId(int FKsalesOrderId) {
 		this.FKsalesOrderId = FKsalesOrderId;
