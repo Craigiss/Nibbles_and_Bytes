@@ -1,17 +1,44 @@
 package gnome;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * @author Nibbles and Bytes
  * @version 1.0.0
  */
 
+@Entity
+@Table (name = "Address")
 public class Address {
-
+	@Id
+	@Column (name = "id")
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Column (name = "line1", nullable = false, length = 255)
+	@NotNull
+	@Size (min = 2, max = 255)
 	private String line1;
+	
+	@Column (name = "line2", nullable = true, length = 255)
+	@Size (min = 2, max = 255)
 	private String line2;
+	
+	@Column (name = "town", nullable = false, length = 255)
+	@NotNull
+	@Size (min = 2, max = 255)
 	private String town;
+	
+	@Column (name = "county", nullable = false, length = 255)
+	@NotNull
+	@Size (min = 2, max = 255)
 	private String county;
+	
+	@Column (name = "postcode", nullable = false, length = 8)
+	@NotNull
+	@Size (min = 5, max = 8)
 	private String postcode;
 
 	/**
