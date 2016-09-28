@@ -1,9 +1,29 @@
 package gnome;
 
-public class Category {
+import javax.persistence.*;
+import javax.validation.constraints.*;
+/**
+ * @author Nibbles and Bytes
+ * @version 1.0
+ * 
+ *          This class is for the suppliers used by NB Gardens business and uses
+ *          variables to model the data needed for the system.
+ **/
 
-	int Id;
-	String name;
+
+@Entity
+@Table(name = "Category")
+public class Category {
+	// Connor
+
+	@OneToMany
+	@JoinColumn(name = "id", nullable = false)
+	private int Id;
+	@Id
+	@Column(name = "name", nullable = false, length =225)
+	@NotNull
+	@Size(min = 2, max = 225)
+	private String name;
 	/**
 	 * @return the id
 	 */

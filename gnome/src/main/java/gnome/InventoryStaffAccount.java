@@ -1,19 +1,36 @@
 package gnome;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * 
- * @author Nibbles and Bytes - Craig
- * Version 1
- * 
+ * @author Nibbles and Bytes 
+ * Version 1.0
  * Class InventoryStaffAccount holds the information required for the inventory staff to log into NB Gardens' order system
  *
  */
 
+@Entity
+@Table (name = "InventoryStaffAccount")
 public class InventoryStaffAccount {
 	//attributes
-	
+	@Id
+	@Column (name = "email",
+			nullable = false, length = 255)
+	@NotNull
+	@Size (min = 2, max = 255)
 	private String email;
+	@Column (name = "password",
+			nullable = false, length = 255)
+	@NotNull
+	@Size (min = 2, max = 255)
 	private String password;
+	@Column (name = "name",
+			nullable = false, length = 255)
+	@NotNull
+	@Size (min = 2, max = 255)
 	private String name;
 	
 	//constructors
@@ -26,7 +43,7 @@ public class InventoryStaffAccount {
 	}
 	/**
 	 * Method to set the inventory staff email address 
-	 * @param email
+	 * @param email the email to set
 	 */
 	public void setEmail(String email) {
 		this.email = email;
@@ -40,7 +57,7 @@ public class InventoryStaffAccount {
 	}
 	/**
 	 * Method to set the inventory staff password 
-	 * @param password
+	 * @param password the password to set
 	 */
 	public void setPassword(String password) {
 		this.password = password;
@@ -54,7 +71,7 @@ public class InventoryStaffAccount {
 	}
 	/**
 	 * Method to set the inventory staff name 
-	 * @param name
+	 * @param name the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
