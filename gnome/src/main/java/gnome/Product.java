@@ -22,7 +22,7 @@ public class Product {
 		return productID;
 	}
 	/**
-	 * @param productID the productID to set
+	 * @param productID the productID to set 
 	 */
 	public void setProductID(int productID) {
 		this.productID = productID;
