@@ -1,20 +1,44 @@
 package gnome;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
-/**Author Nibbles and Bytes - Cameron 
- * Version 1
- * Class holds information on an individual product.
- */
 
+
+/**
+ * @author Nibbles and Bytes
+ * @version 1.0
+ * 
+ *          This class is for the suppliers used by NB Gardens business and uses
+ *          variables to model the data needed for the system.
+ **/
+
+@Entity
+@Table (name = "Product")
 public class Product {
 
-	
+	@Id
+	@Column(name = "productID")
 	int productID;
-	String productName;
-	String description;
-	double price;
-	int stockLevel;
-	int supplierID;
 	
+	@Column(name = "productName")
+	String productName;
+	
+	@Column(name = "description")
+	String description;
+	
+	@Column(name = "price")
+	double price;
+	
+	@Column(name = "stockLevel")
+	int stockLevel;
+	
+	@Column(name = "supplierID")
+	@ManyToOne
+	@JoinColumn(name="FKCategoryID",
+	nullable = false)
+	@NotNull
+	int supplierID;
+
 	/**
 	 * @return the productID
 	 */

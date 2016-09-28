@@ -1,15 +1,33 @@
 package gnome;
 
+import javax.persistence.*;
+
 /**
  * @author Nibbles and Bytes
- * @version 1.0.0
- */
+ * @version 1.0
+ * 
+ *          This class is for the suppliers used by NB Gardens business and uses
+ *          variables to model the data needed for the system.
+ **/
 
+@Entity
+@Table (name = "PurchaseOrderDetails")
 public class PurchaseOrderDetails {
 	
-	private int quantity;
-	private Product product;
+	@Id
+	@GeneratedValue
+	private long id;
+	
+	@OneToMany
+	@JoinColumn (name = "FKProductId", nullable = false)
+	private int productId;
+	
+	@OneToMany
+	@JoinColumn (name = "FKPurchaseOrder", nullable = false)
 	private PurchaseOrder purchaseOrder;
+	
+	private int quantity;
+	
 	
 	/**
 	 * Default constructor taking no arguments
@@ -38,16 +56,16 @@ public class PurchaseOrderDetails {
 	 * Method to get the product ordered within the purchase order detail instance
 	 * @return Returns product object ordered within the purchase order detail instance
 	 */
-	public Product getProduct() {
-		return product;
+	public int getProductId() {
+		return productId;
 	}
 
 	/**
 	 * Method to set the product ordered within the purchase order detail instance
 	 * @param product Input is the product object to be linked with the instance
 	 */
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProduct(int productId) {
+		this.productId = productId;
 	}
 
 	/**
