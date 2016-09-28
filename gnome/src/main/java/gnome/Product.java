@@ -1,6 +1,13 @@
 package gnome;
 
+/**Author Nibbles and Bytes - Cameron 
+ * Version 1
+ * Class holds information on an individual product.
+ */
+
 public class Product {
+
+	
 	int productID;
 	String productName;
 	String description;

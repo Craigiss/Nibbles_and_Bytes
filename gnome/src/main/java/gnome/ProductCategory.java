@@ -1,5 +1,10 @@
 package gnome;
 
+/**Author Nibbles and Bytes - Cameron 
+ * Version 1
+ * Class holds information on a product's category.
+ */
+
 public class ProductCategory {
 	int categoryID;
 	int productID;
