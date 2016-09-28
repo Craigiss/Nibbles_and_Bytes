@@ -5,10 +5,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * @author Nibbles And Bytes
+ * @author Nibbles and Bytes
  * @version 1.0
- * Class Returns holds information on products that have been returned
- * */
+ * 
+ *          This class is for the suppliers used by NB Gardens business and uses
+ *          variables to model the data needed for the system.
+ **/
 
 @Entity
 @Table (name = "Returns")

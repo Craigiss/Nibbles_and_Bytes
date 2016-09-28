@@ -3,10 +3,13 @@ package gnome;
 import java.util.Date;
 
 /**
+ * @author Nibbles and Bytes
+ * @version 1.0
  * 
- * @author Nibbles and Bytes - Jacob Version: 1 Class hold information on
- *         reviews placed by customers
- */
+ *          This class is for the suppliers used by NB Gardens business and uses
+ *          variables to model the data needed for the system.
+ **/
+
 public class Review {
 	private Date date;
 	private String reviewText;

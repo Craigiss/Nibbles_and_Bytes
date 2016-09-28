@@ -3,6 +3,13 @@ package gnome;
 import java.util.List;
 
 import javax.persistence.*;
+/**
+ * @author Nibbles and Bytes
+ * @version 1.0
+ * 
+ *          This class is for the suppliers used by NB Gardens business and uses
+ *          variables to model the data needed for the system.
+ **/
 
 public class CustomerAccountAddress {
 	// Connor

@@ -1,9 +1,13 @@
 package gnome;
 
-/**Author Nibbles and Bytes - Cameron 
- * Version 1
- * Class holds information on a product's category.
- */
+/**
+ * @author Nibbles and Bytes
+ * @version 1.0
+ * 
+ *          This class is for the suppliers used by NB Gardens business and uses
+ *          variables to model the data needed for the system.
+ **/
+
 
 public class ProductCategory {
 	int categoryID;
