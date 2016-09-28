@@ -16,18 +16,19 @@ public class Returns {
 	//attributes
 	@Id
 	@OneToOne
-	@JoinColumn(name = "salesOrderDetails_fk")
+	@JoinColumn(name = "FKsalesOrderDetails")
 	private SalesOrderDetails salesOrderDetails;
+	
 	@Column (name = "date", 
 			nullable = false)
 	@GeneratedValue(
 			strategy = GenerationType.IDENTITY)
 	private Date date;
+	
 	@Column (name = "reason", 
 			nullable = false, length = 8000)
 	@NotNull
 	@Size (min = 2, max = 8000)
-
 	private String reason;
 	
 	//constructors	
