@@ -18,15 +18,27 @@ public class CategoryRepositoryOffline implements CategoryRepository {
 	}
 
 	@Override
-	public List<Address> findCategory(Category c) {
-		// TODO Auto-generated method stub
+	public Category findCategory(Category c) {
+		for(Category cat : initialData.getCategories())
+		{
+			if( cat.getId() == c.getId())
+			{
+				return cat;
+			}
+		}
 		return null;
 	}
-
+	
 	@Override
 	public void updateCategory(Category c) {
-		// TODO
-		
+		for(Category cat : initialData.getCategories())
+		{
+			if( cat.getId() == c.getId())
+			{
+				cat.setId(c.getId());
+				cat.setName(c.getName());
+			}
+		}
 	}
 
 }

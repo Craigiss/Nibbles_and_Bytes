@@ -14,7 +14,7 @@ public interface CategoryRepository {
 	public void persistCategory(Category c);
 	
 	//Read
-	public List<Address> findCategory(Category c);
+	public Category findCategory(Category c);
 	
 	//Update
 	public void updateCategory(Category c);// TODO
