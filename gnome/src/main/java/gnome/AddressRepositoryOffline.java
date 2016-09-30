@@ -10,8 +10,11 @@ public class AddressRepositoryOffline implements AddressRepository{
 	private InitialData initialData;
 
 	//Create
+	@Override
 	public void persistAddress(Address a){
 		initialData.addAddress(a);
 	}
 	
+	//Read method called from Customer
+	//Update or delete methods are not necessary
 }

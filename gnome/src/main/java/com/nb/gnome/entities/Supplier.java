@@ -24,12 +24,12 @@ public class Supplier {
 	@Column (name = "company",	nullable = false, length = 225)
 	@NotNull
 	@Size (min = 2, max = 225)	
-	private String company;
+	private static String company;
 	
 	@Column (name = "name",	nullable = false, length = 225)
 	@NotNull
 	@Size (min = 2, max = 225)
-	private String name;
+	private static String name;
 	
 	@Column (name = "phone", nullable = false, length = 225)
 	@NotNull
@@ -68,7 +68,7 @@ public class Supplier {
 	 * 
 	 * @return company of supplier
 	 **/
-	public String getCompany() {
+	public static String getCompany() {
 		return company;
 	}
 	
@@ -88,7 +88,7 @@ public class Supplier {
 	 * 
 	 * @return name of contact at the supplier
 	 **/
-	public String getName() {
+	public static String getName() {
 		return name;
 	}
 	
