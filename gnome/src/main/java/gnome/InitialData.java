@@ -3,13 +3,16 @@ package gnome;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import javax.ejb.*;
 
 import com.nb.gnome.entities.*;
 
 @Startup
 @Singleton
+
 public class InitialData {
+
 
 	private List<Address> addresses = new ArrayList<Address>();
 	private List<Category> categories = new ArrayList<Category>();
@@ -235,5 +238,5 @@ public class InitialData {
 	public void addSupplier(Supplier s){
 		suppliers.add(s);
 	}
-	
+
 }
