@@ -40,4 +40,29 @@ public class InventoryStaffAccountRepositoryOffline implements InventoryStaffAcc
 		
 	}
 
+	public void persistInventoryStaffAccount(InventoryStaffAccount isa) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List<InventoryStaffAccount> findInventoryStaffAccount(InventoryStaffAccount isa) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void updateInventoryStaffAccountName(InventoryStaffAccount isa) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void updateInventoryStaffAccountEmail(InventoryStaffAccount isa) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void updateInventoryStaffAccountPassword(InventoryStaffAccount isa) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
