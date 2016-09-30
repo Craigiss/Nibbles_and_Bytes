@@ -29,7 +29,7 @@ public class Supplier {
 	@Column (name = "name",	nullable = false, length = 225)
 	@NotNull
 	@Size (min = 2, max = 225)
-	private String name;
+	private static String name;
 	
 	@Column (name = "phone", nullable = false, length = 225)
 	@NotNull
@@ -88,7 +88,7 @@ public class Supplier {
 	 * 
 	 * @return name of contact at the supplier
 	 **/
-	public String getName() {
+	public static String getName() {
 		return name;
 	}
 	
