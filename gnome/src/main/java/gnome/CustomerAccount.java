@@ -44,6 +44,11 @@ public class CustomerAccount {
 	@NotNull
 	@Size(min = 2, max = 11)
 	private String phoneNumber;
+	
+	@Column (name = "status", nullable = false, length = 11 )
+	@NotNull
+	@Size(min = 2, max = 11)
+	private String status;
 
 	
 	public CustomerAccount(){	

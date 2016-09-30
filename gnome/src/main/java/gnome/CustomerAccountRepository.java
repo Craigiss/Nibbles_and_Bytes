@@ -1,5 +1,8 @@
 package gnome;
 
-public class CustomerAccountRepository {
+public interface CustomerAccountRepository {
 
+	
+	
+	
 }
