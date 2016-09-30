@@ -5,6 +5,21 @@ import java.util.List;
 
 import javax.ejb.*;
 
+import com.nb.gnome.entities.Address;
+import com.nb.gnome.entities.Category;
+import com.nb.gnome.entities.CustomerAccount;
+import com.nb.gnome.entities.CustomerAccountAddress;
+import com.nb.gnome.entities.InventoryStaffAccount;
+import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.ProductCategory;
+import com.nb.gnome.entities.PurchaseOrder;
+import com.nb.gnome.entities.PurchaseOrderDetails;
+import com.nb.gnome.entities.Returns;
+import com.nb.gnome.entities.Review;
+import com.nb.gnome.entities.SalesOrder;
+import com.nb.gnome.entities.SalesOrderDetails;
+import com.nb.gnome.entities.Supplier;
+
 @Startup
 @Singleton
 public class InitialData {
