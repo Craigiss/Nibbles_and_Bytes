@@ -15,5 +15,8 @@ public interface CategoryRepository {
 	
 	//Read
 	public List<Address> findCategory(Category c);
+	
+	//Update
+	public void updateCategory(Category c);// TODO
 
 }
