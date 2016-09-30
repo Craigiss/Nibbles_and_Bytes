@@ -12,6 +12,11 @@ import javax.validation.constraints.Size;
  *          variables to model the data needed for the system.
  **/
 
+@NamedQueries ({
+	@NamedQuery (name=Address.FIND_ADDRESSES, query = "SELECT a.line1, a.line2, a.town, a.county, a.postcode FROM CustomerAccountAddress caa JOIN Address a ON caa.address_id = a.id WHERE caa.customer_id = :customer_id")
+
+})
+
 @Entity
 @Table (name = "Address")
 public class Address {
@@ -43,6 +48,8 @@ public class Address {
 	@NotNull
 	@Size (min = 5, max = 8)
 	private String postcode;
+	
+	public static final String FIND_ADDRESSES = "Address.findAddress";
 
 	/**
 	 * Default constructor taking no arguments
