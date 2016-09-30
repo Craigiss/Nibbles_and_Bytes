@@ -1,4 +1,6 @@
 package com.nb.gnome.entities;
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -38,6 +40,9 @@ public class Product {
 	nullable = false)
 	@NotNull
 	int supplierID;
+	
+	@ManyToMany(targetEntity=Category.class)
+	private List<Category> categories;
 
 	/**
 	 * @return the productID
