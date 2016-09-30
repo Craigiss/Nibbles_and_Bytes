@@ -16,7 +16,4 @@ public interface SupplierRepository {
 	//Read
 	public Supplier findSupplier(Supplier s);
 	
-	//Update
-	public Supplier updateSupplier(Supplier s);
-	
 }

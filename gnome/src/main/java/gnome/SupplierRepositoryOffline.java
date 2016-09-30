@@ -17,16 +17,16 @@ public class SupplierRepositoryOffline {
 	}
 
 	//Read
-	public Supplier findSupplierByName(String s) {
-		do{
-			
-		}while(Supplier.getName()!=s);
-		return null;
-	}
-	
-	//Update
-	public void updateSupplier(Supplier s) {
-		
+	public Supplier findSupplierByCompany(String s) {
+		Supplier newOne = new Supplier();
+		for(Supplier company : initialData.getSuppliers()){
+			//Supplier.getCompany()!=s){
+			if (company.getCompany() == s){
+				newOne = company;
+				break;
+			}
+		}
+		return newOne;
 	}
 	
 }
