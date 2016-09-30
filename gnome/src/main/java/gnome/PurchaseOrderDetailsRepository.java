@@ -1,6 +1,8 @@
 package gnome;
 
-import com.nb.gnome.entities.Product;
+import java.util.List;
+
+import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.PurchaseOrderDetails;
 
 public interface PurchaseOrderDetailsRepository {
@@ -9,7 +11,6 @@ public interface PurchaseOrderDetailsRepository {
 	public void persistPOD(PurchaseOrderDetails pod);
 	
 	//Read
-	public Product getPODProduct(PurchaseOrderDetails pod);
-	public int getPODQuantity(PurchaseOrderDetails pod);
+	public List<PurchaseOrderDetails> getPurchaseOrderDetails(PurchaseOrder po);
 
 }
