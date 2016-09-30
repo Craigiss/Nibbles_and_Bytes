@@ -6,7 +6,24 @@ import java.util.List;
 
 import javax.ejb.*;
 
+
+import com.nb.gnome.entities.Address;
+import com.nb.gnome.entities.Category;
+import com.nb.gnome.entities.CustomerAccount;
+import com.nb.gnome.entities.CustomerAccountAddress;
+import com.nb.gnome.entities.ISAccount;
+import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.ProductCategory;
+import com.nb.gnome.entities.PurchaseOrder;
+import com.nb.gnome.entities.PurchaseOrderDetails;
+import com.nb.gnome.entities.Returns;
+import com.nb.gnome.entities.Review;
+import com.nb.gnome.entities.SalesOrder;
+import com.nb.gnome.entities.SalesOrderDetails;
+import com.nb.gnome.entities.Supplier;
+
 import com.nb.gnome.entities.*;
+
 
 @Startup
 @Singleton
@@ -18,7 +35,7 @@ public class InitialData {
 	private List<Category> categories = new ArrayList<Category>();
 	private List<CustomerAccount> customerAccounts = new ArrayList<CustomerAccount>();
 	private List<CustomerAccountAddress> customerAccountAddresses = new ArrayList<CustomerAccountAddress>();
-	private List<InventoryStaffAccount> inventoryStaffAccounts = new ArrayList<InventoryStaffAccount>();
+	private List<ISAccount> iSAccounts = new ArrayList<ISAccount>();
 	private List<Product> products = new ArrayList<Product>();
 	private List<ProductCategory> productCategories = new ArrayList<ProductCategory>();
 	private List<PurchaseOrder> purchaseOrders = new ArrayList<PurchaseOrder>();
@@ -92,16 +109,16 @@ public class InitialData {
 	/**
 	 * @return the inventoryStaffAccounts
 	 */
-	public List<InventoryStaffAccount> getInventoryStaffAccounts() {
-		return inventoryStaffAccounts;
+	public List<ISAccount> getInventoryStaffAccounts() {
+		return iSAccounts;
 	}
 	
 	/**
 	 * Adds an inventory staff account to the data set
 	 * @param isa Input is new inventory staff account to be added
 	 */
-	public void addInventoryStaffAccount(InventoryStaffAccount isa ){
-		inventoryStaffAccounts.add(isa);
+	public void addInventoryStaffAccount(ISAccount isa ){
+		iSAccounts.add(isa);
 	}
 
 	/**
