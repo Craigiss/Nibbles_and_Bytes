@@ -14,7 +14,6 @@ import javax.validation.constraints.*;
 @Entity
 @Table(name = "Category")
 public class Category {
-	// Connor
 
 	@OneToMany
 	@JoinColumn(name = "id", nullable = false)
