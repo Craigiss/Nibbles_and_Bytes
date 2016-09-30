@@ -1,4 +1,4 @@
-package gnome;
+package com.nb.gnome.entities;
 
 
 import javax.persistence.*;

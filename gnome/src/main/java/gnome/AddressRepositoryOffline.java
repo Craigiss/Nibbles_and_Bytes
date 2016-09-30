@@ -1,8 +1,8 @@
 package gnome;
 
-import java.util.List;
-
 import javax.inject.Inject;
+
+import com.nb.gnome.entities.Address;
 
 public class AddressRepositoryOffline implements AddressRepository{
 	
@@ -12,11 +12,6 @@ public class AddressRepositoryOffline implements AddressRepository{
 	//Create
 	public void persistAddress(Address a){
 		initialData.addAddress(a);
-	}
-
-	public List<Address> findCustomerAddresses(CustomerAccount c) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 }

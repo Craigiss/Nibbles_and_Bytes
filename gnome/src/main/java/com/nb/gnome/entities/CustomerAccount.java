@@ -1,4 +1,6 @@
-package gnome;
+package com.nb.gnome.entities;
+
+import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -50,6 +52,8 @@ public class CustomerAccount {
 	@Size(min = 2, max = 11)
 	private String status;
 
+	@ManyToMany(targetEntity=Address.class)
+	private List<Address> addresses;
 	
 	public CustomerAccount(){	
 	}
