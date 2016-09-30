@@ -1,9 +1,10 @@
 package gnome;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import com.nb.gnome.entities.Review;
 
 public class ReviewRepositoryOffline implements ReviewRepository {
 	@Inject

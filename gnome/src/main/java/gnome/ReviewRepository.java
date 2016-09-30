@@ -2,6 +2,8 @@ package gnome;
 
 import java.util.List;
 
+import com.nb.gnome.entities.Review;
+
 /**
  * Interface for PurchaseOrderManager classes
  * PurchaseOrderManagers will have these methods

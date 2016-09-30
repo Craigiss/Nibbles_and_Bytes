@@ -2,6 +2,8 @@ package gnome;
 
 import java.util.List;
 
+import com.nb.gnome.entities.InventoryStaffAccount;
+
 /**
  * Interface for InventoryStaffAccount Manager classes
  * InventoryStaffAccount Managers will have these methods

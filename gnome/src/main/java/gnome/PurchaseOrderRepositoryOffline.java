@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.nb.gnome.entities.PurchaseOrder;
+
 public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 	@Inject
 	private InitialData initialData;

@@ -1,4 +1,4 @@
-package gnome;
+package com.nb.gnome.entities;
 import java.sql.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
