@@ -38,9 +38,7 @@ public class InitialData {
 	public void addAddress(Address a){
 		addresses.add(a);
 	}
-	
-	
-	
+		
 	
 	/**
 	 * @return the categories
