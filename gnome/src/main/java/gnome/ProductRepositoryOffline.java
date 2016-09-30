@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 
+import com.nb.gnome.entities.Category;
 import com.nb.gnome.entities.Product;
 
 
@@ -34,6 +35,12 @@ public class ProductRepositoryOffline implements ProductRepository {
 		ArrayList<Product> p = new ArrayList<Product>();
 		
 		return(p);
+	}
+	
+	public List<Category> getProductCategories(){
+		ArrayList<Category> c = new ArrayList<Category>();
+		
+		return(c);
 	}
 	
 	public Product getProductByID(int id){
