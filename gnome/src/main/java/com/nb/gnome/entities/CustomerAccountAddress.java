@@ -11,7 +11,7 @@ import javax.persistence.*;
  *          This class is for the suppliers used by NB Gardens business and uses
  *          variables to model the data needed for the system.
  **/
-@Deprecated
+
 public class CustomerAccountAddress {
 	// Connor
 	@OneToMany
@@ -25,7 +25,7 @@ public class CustomerAccountAddress {
 	/**
 	 * @return the username
 	 */
-	@Deprecated
+
 	public CustomerAccount getUsername() {
 		return username;
 	}
@@ -33,7 +33,7 @@ public class CustomerAccountAddress {
 	/**
 	 * @param username the username to set
 	 */
-	@Deprecated
+
 	public void setUsername(CustomerAccount username) {
 		this.username = username;
 	}
@@ -41,7 +41,7 @@ public class CustomerAccountAddress {
 	/**
 	 * @return the address
 	 */
-	@Deprecated
+	
 	public List<Address> getAddress() {
 		return address;
 	}
@@ -49,7 +49,7 @@ public class CustomerAccountAddress {
 	/**
 	 * @param address the address to set
 	 */
-	@Deprecated
+
 	public void setAddress(List<Address> address) {
 		this.address = address;
 	}
