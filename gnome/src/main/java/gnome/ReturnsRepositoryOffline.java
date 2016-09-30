@@ -1,5 +1,5 @@
 package gnome;
 
-public class ReturnsRepositoryOffline {
+public class ReturnsRepositoryOffline implements ReturnsRepository{
 
 }
