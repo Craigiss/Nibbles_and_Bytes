@@ -17,6 +17,20 @@
    background:#6cf;
 }
 
+#product{
+	background-image: url("../img/productBackground.png");
+	margin-left: 20%;
+    margin-right: 20%;
+	text-decoration:none;
+}
+
+#productRow{
+	text-align: center;
+	margin-right:0px;
+	padding-bottom:20px;
+	
+}
+
 /* moves search bar along 200 pixels from the left
 of the page*/
 .searchIcon {
