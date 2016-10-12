@@ -52,12 +52,15 @@ width:100%;
 #products{
 	
 }
+
+
 .sidebar{
-	padding:20px;
-	width: 150px;
-	height: 100%;
+	padding-right:20px;
+	height:100%;
+       top: 40px; /* Header Height */
+       bottom: 20px; /* Footer Height */
+       width: 100%;
 	background: white;
-	float: left;
 	border-right: 1px dashed purple; 
 }
 .sidebar h1{
