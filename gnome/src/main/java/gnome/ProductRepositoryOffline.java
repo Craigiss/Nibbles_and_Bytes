@@ -26,7 +26,8 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	//Read
 	public List<Product> getProductByKeyword(String keyword){
-		ArrayList<Product> p = new ArrayList<Product>();
+		List<Product> p = initialData.getProducts();
+		
 		
 		return(p);
 	}
