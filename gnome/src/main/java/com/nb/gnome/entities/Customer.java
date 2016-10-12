@@ -14,9 +14,14 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table (name = "CustomerAccount")
-public class CustomerAccount {
+public class Customer {
 	
 	@Id
+	@Column (name = "id", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
+	private int id;
+
 	@Column (name = "email", nullable = false, length = 255)
 	@NotNull
 	@Size(min = 2, max = 225)
@@ -55,7 +60,7 @@ public class CustomerAccount {
 	@ManyToMany(targetEntity=Address.class)
 	private List<Address> addresses;
 	
-	public CustomerAccount(){	
+	public Customer(){	
 	}
 
 	/**
@@ -149,5 +154,47 @@ public class CustomerAccount {
 	 * */
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	/**
+	 * @return the addresses
+	 */
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+
+	/**
+	 * @param addresses the addresses to set
+	 */
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 }

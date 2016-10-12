@@ -33,7 +33,7 @@ public class SalesOrder {
 	
 	@ManyToOne
 	@JoinColumn (name = "FKCustomerId", nullable= false)
-	private CustomerAccount customer;
+	private Customer customer;
 	
 	@Column (name = "status", nullable = false, length = 255 )
 	@NotNull
@@ -79,7 +79,7 @@ public class SalesOrder {
 	 * Returns an instance of a customer that placed the order
 	 * @return Customer object
 	 * */
-	public CustomerAccount getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
 
@@ -87,7 +87,7 @@ public class SalesOrder {
 	 * Assigns a customer object to an order
 	 * @param customer the customer to set
 	 * */
-	public void setCustomer(CustomerAccount customer) {
+	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 

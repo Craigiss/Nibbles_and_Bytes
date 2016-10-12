@@ -16,7 +16,7 @@ public class CustomerAccountAddress {
 	// Connor
 	@OneToMany
 	@JoinColumn(name="username_fk", nullable = false)
-	private CustomerAccount username;
+	private Customer username;
 	
 	@ManyToOne
 	@JoinColumn(name="address_fk", nullable = false)
@@ -26,7 +26,7 @@ public class CustomerAccountAddress {
 	 * @return the username
 	 */
 
-	public CustomerAccount getUsername() {
+	public Customer getUsername() {
 		return username;
 	}
 
@@ -34,7 +34,7 @@ public class CustomerAccountAddress {
 	 * @param username the username to set
 	 */
 
-	public void setUsername(CustomerAccount username) {
+	public void setUsername(Customer username) {
 		this.username = username;
 	}
 

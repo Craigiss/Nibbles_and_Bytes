@@ -13,10 +13,6 @@ import javax.validation.constraints.Size;
  *          This class is for the suppliers used by NB Gardens business and uses
  *          variables to model the data needed for the system.
  **/
-
-@NamedQueries ({
-	@NamedQuery (name=Address.FIND_ADDRESSES, query = "SELECT a.line1, a.line2, a.town, a.county, a.postcode FROM CustomerAccountAddress caa JOIN Address a ON caa.address_id = a.id WHERE caa.customer_id = :customer_id")
-})
 @Entity
 @Table (name = "Address")
 public class Address {
@@ -49,11 +45,10 @@ public class Address {
 	@Size (min = 5, max = 8)
 	private String postcode;
 	
-	@ManyToMany(targetEntity=CustomerAccount.class, mappedBy="CustomerAccountAddress")
-	private List<CustomerAccount> customerAccounts;
-	
-	public static final String FIND_ADDRESSES = "Address.findAddress";
+	@ManyToMany(targetEntity=Customer.class, mappedBy="CustomerAccountAddress")
+	private List<Customer> customers;
 
+	
 	/**
 	 * Default constructor taking no arguments
 	 */

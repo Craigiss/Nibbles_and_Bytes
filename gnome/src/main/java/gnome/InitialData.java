@@ -2,8 +2,6 @@ package gnome;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
 import javax.ejb.*;
 import com.nb.gnome.entities.*;
 
@@ -16,7 +14,7 @@ public class InitialData {
 
 	private List<Address> addresses = new ArrayList<Address>();
 	private List<Category> categories = new ArrayList<Category>();
-	private List<CustomerAccount> customerAccounts = new ArrayList<CustomerAccount>();
+	private List<Customer> customers = new ArrayList<Customer>();
 	private List<CustomerAccountAddress> customerAccountAddresses = new ArrayList<CustomerAccountAddress>();
 	private List<ISAccount> iSAccounts = new ArrayList<ISAccount>();
 	private List<Product> products = new ArrayList<Product>();
@@ -62,16 +60,16 @@ public class InitialData {
 	/**
 	 * @return the customerAccounts
 	 */
-	public List<CustomerAccount> getCustomerAccounts() {
-		return customerAccounts;
+	public List<Customer> getCustomerAccounts() {
+		return customers;
 	}
 	
 	/**
 	 * Adds a customer account to the dummy data
 	 * @param ca Input is new customer account to be added
 	 */
-	public void addCustomerAccount(CustomerAccount ca){
-		customerAccounts.add(ca);
+	public void addCustomerAccount(Customer ca){
+		customers.add(ca);
 	}
 
 	/**
