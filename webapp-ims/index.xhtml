@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="https://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets">
+ 
+ <h:head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+
+  <title>Inventory Management System</title>  
+</h:head>
+
+
+<f:view>
+  <body>
+    <div class="container">
+      
+      <div class="row">
+          <div class = col-sm-12  id="header">Inventory Management System</div>
+      </div>
+
+      <div class="row" id="search">
+          <div class = col-sm-11 id="searchText">
+             <h:form>
+              <h:inputText placeholder="Search..." label="Search Bar IMS System" 
+                  value="#{search.term}"/>
+             </h:form>
+          </div>
+          <div class = col-sm-1>
+            <h:form>  
+              <h:commandLink class="hovering" action="#{search.search()}"> 
+                  <h:graphicImage class="glass_back" value="glass.png"/>
+              </h:commandLink>
+            </h:form>
+          </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-4" id="prod">
+            <h:output value="products.xhtml">Products
+              <div>
+                <h:graphicImage id="gnome" value="gnome.png">
+              </div>
+            </h:output>  
+        </div>
+       
+        <div class="col-sm-4" id="supplier">
+            <h:output value="suppliers.xhtml">Suppliers
+              <div>
+                <h:graphicImage value="supplier.png">
+              </div>
+            </h:output> 
+        </div>
+
+        <div class="col-sm-4" id="po">
+            <h:output value="po.xhtml">Purchase Orders
+              <div>
+                <h:graphicImage value="po.png">
+              </div> 
+            </h:output> 
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4" id="admin">
+            <h:output value="#">Admin
+              <div>
+                <h:graphicImage value="admin.png">
+              </div>
+            </h:output>
+        </div>
+
+        <div class="col-sm-4" id="analy">
+            <h:output value="analytics.xhtml">Analytics
+              <div>
+                <h:graphicImage value="anal.png">
+              </div>
+            </h:output>
+        </div>
+
+        <div class="col-sm-4" id="log">
+            <h:output value="#">Logout
+              <div>
+                <h:graphicImage value="log.png">
+              </div>
+            </h:output>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class = col-sm-12 id="help">
+            <h:output value="index.xhtml">Help
+              <div>
+                <h:graphicImage id="helpImg" value="help.png">
+              </div>
+            </h:output>
+          </div>
+          
+      </div>
+
+    </div>
+
+  </body>
+</f:view>
+</html>
