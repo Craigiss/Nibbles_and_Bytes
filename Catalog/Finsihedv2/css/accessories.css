@@ -67,10 +67,12 @@ margin-right:5px;
 padding:10px;
 min-height: 220px;
 min-width: 220px;
+background: #efecee;
 }
 
 .figureStyle p{
 	color:grey;
+	
 }
 
 
