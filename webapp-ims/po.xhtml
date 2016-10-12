@@ -1,0 +1,80 @@
+<ui:composition
+	xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="templates/main.xhtml">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Tab title defined -->
+		<ui:define name="title">
+			Purchase Order - IMS
+		</ui:define>
+
+		<!-- Title appearing in top left of the page -->
+		<ui:define name="pagetitle">
+			Purchase Order
+		</ui:define>
+
+		<!-- Breadcrumbs appearing in top right of the page -->
+		<ui:define name="breadcrumbs">
+			<a href="index.xhtml">Home</a> > Purchase Orders
+		</ui:define>
+
+		<!-- Operations buttons - add/edit/delete -->
+		<ui:define name="addbtn">
+			<!-- Would bring up a form for new supplier -->
+			<h:outputLink value="index.xhtml">
+		</ui:define>
+
+		<ui:define name="editbutton">
+			<!-- Would bring up editable supplier details page -->
+			<h:outputLink value="index.xhtml">
+		</ui:define>
+
+		<ui:define name="deletebtn">
+			<!-- Would mark supplier as deleted -->
+			<h:outputLink value="index.xhtml">
+		</ui:define>
+
+		<!-- Main content of  -->
+		<ui:define name="maincontent">
+
+			<!-- Grid for suppliers -->
+		  	<div class="row" id="table">
+		  		<div class="col-sm-4 heading supDetails">
+		  			Supplier Name
+		  		</div>
+		   		<div class="col-sm-4 heading supDetails">
+	     			Product Ordered
+	    		</div>
+	    		<div class="col-sm-4 heading supDetails">
+		      		Quantity Ordered
+		   		</div>
+		  	</div>
+
+		  	<!-- Generation of suppliers into grid -->
+		  	<ui:repeat var="po" value="#{po.dataModel}">
+		  		<div class="row" id="table">
+					<div class="col-sm-4 supDetails">
+						<h:form>
+							<h:commandLink action="#{po.view(po.id)}" value="#{po.supplier}"/>
+						</h:form>
+					</div>
+			    	<div class="col-sm-4 supDetails">
+			    		<h:form>
+			      			<h:commandLink action="#{po.view(po.id)}" value="#{po.product}"/>
+			      		</h:form>
+			    	</div>
+			    	<div class="col-sm-4 supDetails">
+			      		<h:outputText value="#{po.quanity}"/>
+			   		</div>
+		   		</div>
+		   	</ui:repeat>
+
+		</ui:define>
+
+<!-- Add pagination here -->
+
+</ui:composition>
