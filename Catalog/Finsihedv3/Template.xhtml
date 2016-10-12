@@ -14,11 +14,13 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 <title>
 	<ui:insert name="title"/>
 </title>
-
-<link rel="stylesheet" href="css/Template.css"/>
+<h:outputStylesheet libary="css" name="Template.css"/>
+<h:outputStylesheet libary="css" name="homePage.css"/>
+<h:outputStylesheet libary="css" name="bootstrap.css"/>
+<!--<link rel="stylesheet" href="css/Template.css"/>
 <link rel="stylesheet" href="css/homePage.css"/>
 <link rel="stylesheet" href="css/bootstrap.css"/>
-
+-->
 </h:head>
 <f:view>
 <body >
@@ -45,10 +47,10 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 					<a class="navbar-brand" href="homePage.html">
 					<img src="img/lgo.png" width="250px"/> </a>
 						<center>
-						  <form class="navbar-form navbar-left searchBar"  >
+						  <h:form class="navbar-form navbar-left searchBar"  >
 							
 							<button type="submit" class="btn btn-default">Submit</button>
-						  </form>
+						  </h:form>
 						</center>
 					  <ul class="nav navbar-nav navbar-right pull-right">
 						<li id="leftBorder"><a href="homePage.xhtml">Home</a></li>
@@ -140,11 +142,9 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 			</div>
 		</div>
    </div>
-	
-
-   </div>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </f:view>
 </html>
