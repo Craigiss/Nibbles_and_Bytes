@@ -1,0 +1,148 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/template.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+
+</head>
+<body >
+<div id="container">
+   <div id="header">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				  <a class="navbar-brand" href="homePage.html"><img src="img/lgo.png" width="250" > </a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<center>
+						  <form class="navbar-form navbar-left searchBar"  >
+							<div class="form-group">
+							  <input type="text" class="form-control" placeholder="Search">	  
+							</div>
+							<button type="submit" class="btn btn-default">Submit</button>
+						  </form>
+						</center>
+					  <ul class="nav navbar-nav navbar-right pull-right">
+						<li id="leftBorder"><a href="homePage.html">Home</a></li>
+						<li id="leftBorder"><a href="loginPage.html">Login</a></li>
+						<li id="leftBorder"><a href="#">Basket</a></li>
+						<li><a href="#">Account</a></li>
+					  </ul>
+
+				    <div class="secondNav" >
+					
+					  <ul class="nav navbar-nav ">
+						<li><a href="#">Gnomes</a></li>
+						<li><a href="#">Pools & HotTubs</a></li>
+						<li><a href="#">Gnomes Accessories</a></li>
+						<li><a href="#">Garden Ornaments</a></li>
+						<li><a href="#">Gnome Care</a></li>
+					  </ul>	
+
+					</div>
+				</div>
+			</div>
+		</nav>
+		
+	</div>
+   <div id="body"> 
+		<form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="signIn()" >Sign in</button>
+      </form>
+	  <form class="form-signUp">
+        <h2 class="form-signUp-heading">New User</h2>
+		<label for="inputName" class="sr-only">Full Name</label>
+        <input type="text" id="inputName" class="form-control" placeholder="Full Name" required="">
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+		<label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPasswordConfirm" class="form-control" placeholder="Confirm Password" required="">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
+      </form>
+   </div>
+   <div id="footer"> 
+		<div id="siteMap" class="container-fluid">
+			<div class="row">
+				<div class="col-md-3">
+				</div>
+				<div class="col-xs-12 col-md-1">
+					<ul>
+						<li><h4><a href="#">Gnomes</a> </h4></li>
+						<li><a href="#">Themed </a></li>
+						<li><a href="#">Seasonal </a></li>
+						<li><a href="#">Classic </a></li>
+						<li><a href="#">Specialist</a> </li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-md-1">
+				<ul>
+					<li><h4><a href="#">Pools & Hot Tubs</a></h4> </li>
+					<li><a href="#">Pools </a></li>
+					<li><a href="#">Hot Tubs </a></li>
+				</ul>
+				</div>
+				<div class="col-xs-12 col-md-1">
+				<ul>
+					<li><h4><a href="#">Gnomes and accessories</a></h4> </li>
+					<li><a href="#">Equipment</a> </li>
+					<li><a href="#">Clothes </a></li>
+				</ul>
+				</div>
+				<div class="col-xs-12 col-md-1">
+				<ul>
+					<li><h4><a href="#">Garden Ornaments</a></h4> </li>
+					<li><a href="#">Patio </a></li>
+					<li><a href="#">Tree</a> </li>
+					<li><a href="#">Wall </a></li>
+					<li><a href="#">Lawn </a></li>
+				</ul>
+				</div>
+				<div class="col-xs-12 col-md-1">
+				<ul>
+					<li><h4><a href="#">Garden Care</a></h4> </li>
+					<li><a href="#">Brushes </a></li>
+					<li><a href="#">Polish/Wax </a></li>
+					<li><a href="#">Paint </a></li>
+					<li><a href="#">Porous </a></li>
+				</ul>
+				</div>
+				<div class="col-xs-12 col-md-1">
+				<ul>
+					<li><h4><a href="#">Help & FAQ</a></h4> </li>
+					<li><h4><a href="#">Contact Us</a></h4> </li>
+					<li><h4><a href="#">Delivery/Returns</a></h4> </li>
+					<li><h4><a href="#">Account</a></h4> </li>
+					<li><h4><a href="#">About</a></h4> </li>
+				</ul>
+				</div>
+				<div class="col-md-3">
+				</div>
+			</div>
+		</div>
+		<div class="row" id="footerName">
+			<div  class="col-xs-12 col-md-12">
+				<h4>Nibbles and Bytes - NB Gardens</h4>
+			</div>
+		</div>
+   </div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/login.js"></script>
+   </div>
+</body>
+</html>

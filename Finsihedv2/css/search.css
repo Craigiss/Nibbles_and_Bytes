@@ -1,0 +1,199 @@
+
+#thickLine{
+    border: none;
+    height: 5px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+	padding: 0px 0px 0px 200px;
+    background-color: #333; /* Modern Browsers */
+}
+
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:160px; 
+   background:#6cf;
+}
+
+/* moves search bar along 200 pixels from the left
+of the page*/
+.searchIcon {
+	padding: 0px 0px 0px 200px;
+	float: left;
+}
+
+/**/
+.homeButtons{
+	padding: 0px 0px 0px 0px;
+}
+
+/* aligns the home buttons at the top of the page to the right
+maintaining a central view for the list, without bullet points*/
+.homeButtons li{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	float: right;
+	width: 6%;
+}
+
+/* removes the underline from the hyperlink from the word Account 
+from the search icon area; sets the writing colour to black*/
+.searchIcon a{
+	color: #290025;
+    text-decoration: none;
+}
+
+/* moves the search results writing along 200 pixels
+from the left of the page*/.search{
+	padding: 0px 0px 0px 200px; 
+	float: left;
+}
+
+/* removes the underline from the hyperlink from the words in the
+previous/next page words; sets the writing colour to black*/
+.pageFilter a{
+	color: #290025;
+    text-decoration: none;
+}
+
+/*.button {
+    position:relative;
+    padding:60px 15px;
+    left:80px;
+    border:2px solid #207cca;
+    background-color:#207cca;
+    color:#fafafa;
+}*/
+
+/* extends/shortens (depending on the width percentage) the 
+search bar when the cursor clicks on it*/
+/*input[type=text]:focus{
+	width: 50%
+}*/
+
+/* sets the navigation buttons below the home buttons to a table
+instead of a list, aligns them, centres them and allows them to 
+fit on the page; sets the font bold*/
+.navigation li {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	float: right;
+	width: 16.67%;
+	font-weight: bold;
+}
+
+/* when the cursor hovers over the navigation buttons, they 
+highlight in the background of the text area the colour set 
+below */
+.navigation li:hover {
+	background-color: #ffff00;
+}
+
+/*
+.navigation { 
+	font-weight: bold;
+	background-color: #b19cd9;
+}*/
+
+/* aligns the page filter navigation to the appropriate
+size and position below the search results*/
+.pageFilter {
+	color: #290025;
+	padding: 0px 0px 0px 0px;
+	width: 80%;
+	float: right;
+	display: table;
+}
+
+#padImage{
+	padding: 0px 0px 0px 100px;
+}
+
+/* handles the list as a table to help display it in the
+desired format across the page*/
+.pageFilter li{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	float: middle;
+	width: 5%;
+}
+
+.pageFilter ol {
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+a {
+	text-decoration:none;
+}
+/* controls the hover cover over any area that has the
+id of hover*/
+#hov:hover {
+	/*background-color: #3333ff;*/
+	background-color: #ffff00;
+	color: #290025;
+}
+
+/* controls the hover cover over any area that has the
+id of hovImage - for images as it reduces the transparency 
+of the hover to allow the user to see an image*/
+#hovImage:hover{
+	background-color: #ffff00;
+	opacity: 0.75;
+	color: #290025;
+}
+
+/* controls the background for the images and their 
+final positioning*/
+.imageSet1 {
+	color: #FFFFFF;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 180px;
+	width: 100%;
+	float: center;
+	display: table;
+}
+
+/* centres the list of images as a table with a solid white 
+line surrounding it and a background fill colour*/
+.imageSet1 li {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	float: middle;
+	width: 10%;
+	border: 3px solid white; 
+	background-color: #828489;
+	opacity: 1.0;
+	padding: 5px 0px 0px 0px;
+}
+
+.imageSet1 a{
+	color: #FFFFFF;
+    text-decoration: none;
+}
+
+/*
+.imageSet2 li {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	float: middle;
+	width: 10%;
+}*/
+
+
+/*
+.imageSet2 {
+    padding: 400px 30px;
+    background-color: #b19cd9;
+    margin: 100px;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 60px;
+    width: 39px;
+}*/

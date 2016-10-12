@@ -1,0 +1,208 @@
+html {
+background:#dbd6e1;
+font-family:helvetica
+}
+body {
+   margin:10px;
+
+
+   background:white;
+}
+#container {
+   min-height:100%;
+   position:relative;
+}
+
+#logo{
+	float:left;
+}
+
+
+div#navLeft {
+  float: left;
+  width: 100px;
+  height: 100%;
+  background: white;
+}
+
+
+
+#topBar {
+	padding:10px;
+	background: white;
+	border-bottom: 4px solid purple; 
+	
+}
+
+
+
+#banner {
+
+	background: white;
+	height: 130px;
+	border-bottom: 4px solid purple; 
+}
+
+div#search {
+	border-style: solid; 
+	border-width: 1px;
+	border-color: purple;
+	padding: 1px;
+	float: left;
+}
+
+#navBar {
+	float: right;
+}
+
+#navBarBottom {
+	padding-top: 30px;
+	float: bottom;
+}
+
+#content{
+	
+	
+}
+
+#products{
+	
+}
+.sidebar{
+	padding:20px;
+	width: 100px;
+	height: 100%;
+	background: white;
+	float: left;
+	border-right: 1px dashed purple; 
+}
+.sidebar h1{
+	color:purple;
+	font-size:20px;
+	text-align: left;
+	font-weight: bold;
+}
+
+.sidebar h2{
+	color:purple;
+	font-size:12px;
+	text-align: left;
+	font-weight: bold;
+	padding-left:5px;
+	
+}
+
+.sidebar h3{
+	color:grey;
+	padding-left:10px;
+	font-size:12px;
+	text-align: left;
+}
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF FOUR  */
+.span_4_of_4 {
+	width: 100%;
+}
+.span_3_of_4 {
+	width: 74.6%;
+}
+.span_2_of_4 {
+	width: 49.2%;
+}
+.span_1_of_4 {
+	width: 23.8%;
+}
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_1_of_4, .span_2_of_4, .span_3_of_4, .span_4_of_4 { width: 100%; }
+}
+
+
+
+div#footer {
+
+
+  bottom: 0;
+
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  
+    clear: both;
+    position: relative;
+    z-index: 10;
+    margin-top: -3em;
+}
+
+#siteMap {
+  width: 70%;
+  background: #eee;
+  margin: 10px auto;
+  position: relative;
+  text-align:center;
+}
+
+.siteMapBox{
+	display:inline-block;
+	vertical-align:top;
+	padding:10px;
+}
+
+.siteMapBox h1{
+	color:purple;
+	font-size:14px;
+	text-align: left;
+}
+
+.siteMapBox h2{
+	color:grey;
+	font-size:12px;
+	text-align: left;
+}
+
+.siteMapBox h3{
+	color:grey;
+	font-size:10px;
+	text-align: left;
+}
+
+
+.button {
+    background-color: white;
+    border: none;
+    color: black;
+    padding:7px 16px;
+    text-align: center;
+    text-decoration: none;
+    text-
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button:hover{
+	background-color: #dbd6e1;
+}
