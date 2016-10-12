@@ -27,10 +27,11 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 	public PurchaseOrder getPurchaseOrderById(PurchaseOrder a) {
 		for(PurchaseOrder p : initialData.getPurchaseOrders()){
 			if(p.getId() == a.getId()){
-				list.add(a);
+				//list.add(a);
 			}
 		
 	}
+		return a;
 		
 }
 }
