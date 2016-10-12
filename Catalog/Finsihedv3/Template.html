@@ -1,11 +1,27 @@
-<html>
-<head>
+<!DOCTYPE html>
+<html lang="en"
+xmlns ="https://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initialscale=1" />
+
+<title>
+	<ui:insert name="title"/>
+</title>
+
 <link rel="stylesheet" href="css/Template.css">
 <link rel="stylesheet" href="css/homePage.css">
 <link rel="stylesheet" href="css/bootstrap.css">
 
-</head>
-<body  >
+</h:head>
+<f:view>
+<body >
 <div id="container">
    <div id="header">
 		<nav class="navbar navbar-default">
@@ -18,22 +34,23 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-				  
+				  <a class="navbar-brand" href="homePage.html"><img src="img/lgo.png" width="250" > </a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<a class="navbar-brand" href="homePage.html"><img src="img/lgo.png" width="250" > </a>
 						<center>
 						  <form class="navbar-form navbar-left searchBar"  >
 							<div class="form-group">
-							  <input type="text" class="form-control" placeholder="Search">	  
+							  <h:input type="text" class="form-control" 
+							  placeholder="Search" value="#{search.navTerm}" 
+							  onchange="#{search.navSearch()}" />	  
 							</div>
 							<button type="submit" class="btn btn-default">Submit</button>
 						  </form>
 						</center>
 					  <ul class="nav navbar-nav navbar-right pull-right">
-						<li id="leftBorder"><a href="homePage.html">Home</a></li>
-						<li id="leftBorder"><a href="loginPage.html">Login</a></li>
+						<li id="leftBorder"><a href="homePage.xhtml">Home</a></li>
+						<li id="leftBorder"><a href="loginPage.xhtml">Login</a></li>
 						<li id="leftBorder"><a href="#">Basket</a></li>
 						<li><a href="#">Account</a></li>
 					  </ul>
@@ -43,7 +60,7 @@
 					  <ul class="nav navbar-nav ">
 						<li><a href="Search.html">Gnomes</a></li>
 						<li><a href="#">Pools & HotTubs</a></li>
-						<li><a href="Accessories.html">Gnomes Accessories</a></li>
+						<li><a href="Accessories.xhtml">Gnomes Accessories</a></li>
 						<li><a href="#">Garden Ornaments</a></li>
 						<li><a href="#">Gnome Care</a></li>
 					  </ul>	
@@ -55,109 +72,16 @@
 		
 	</div>
 	
-   <div id="body"> 
-		 <!-- Jumbotron -->
-      <div class="jumbotron">
-		<br>
-        <h1>Spook the snails!</h1>
-        <p class="lead">Check out the Halloween Range Today</p>
-      </div>
-
-      <!-- Example row of columns -->
-        <div id = "productRow" class="row">
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="Product.html">
-						<img src="img/kingofthe7.gif" alt="placeholder" height="100" width="100">
-						<h4>King of the 7 Gnomedoms</h4>
-						<p>&pound17.99 </p>
-						<p> ****</p>
-					</a>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-						<img src="img/Laundry.gif" alt="placeholder" height="100" width="100">
-						<h4>The Laundry Line</h4>
-						<p>&pound2.99 </p>
-						<p> **</p>
-					</a>
-				</div>
-		   </div>
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/GnomeTrek.gif" alt="placeholder" height="100" width="100">
-					<h4>Gnome Trek Set</h4>
-					<p>&pound24.99 </p>
-					<p> ***</p>
-					</a>
-				</div>
-			</div>
-		  
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/mushrooms.gif" alt="placeholder" height="100" width="100">
-					<h4>Mini-mushrooms</h4>
-					<p>&pound4.99 </p>
-					<p> ****</p>
-					</a>
-				</div>
-			</div>
-		</div>
-		<div id = "productRow" class="row" >
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/MrandMrs.gif" alt="placeholder" height="100" width="100">
-					<h4>Mr and Mrs</h4>
-					<p>&pound7.99 </p>
-					<p> ***</p>
-					</a>
-				</div>
-		   </div>
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/Boots.gif" alt="placeholder" height="100" width="100">
-					<h4>Christmas Boots</h4>
-					<p>&pound4.99 </p>
-					<p> **</p>
-					</a>
-				</div>
-			</div>
-		  
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/Flamingo.gif" alt="placeholder" height="100" width="100">
-					<h4>Lawn Flamingo</h4>
-					<p>&pound14.99 </p>
-					<p> ****</p>
-					</a>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-						<img src="img/Benny.gif" alt="placeholder" height="100" width="100">
-						<h4>Benny</h4>
-						<p>&pound8.99 </p>
-						<p> ****</p>
-					</a>
-				</div>
-		   </div>
-	    </div>
-      </div>   
+    <div id="body"> 
+	<hr />
+    </div>   
    
    <div id="footer"> 
 		<div id="siteMap" class="container-fluid">
 			<div class="row">
 				<div class="col-md-3">
 				</div>
-				<div class="col-xs-12 col-md-1">
+				<div class="col-xs-12 col-md-1  ">
 					<ul>
 						<li><h4><a href="#">Gnomes</a> </h4></li>
 						<li><a href="#">Themed </a></li>
@@ -223,4 +147,5 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
+</f:view>
 </html>

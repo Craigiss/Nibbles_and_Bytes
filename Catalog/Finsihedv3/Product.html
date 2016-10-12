@@ -1,9 +1,8 @@
 <html>
 <head>
-<link rel="stylesheet" href="css/Template.css">
-<link rel="stylesheet" href="css/homePage.css">
 <link rel="stylesheet" href="css/bootstrap.css">
-
+<link rel="stylesheet" href="css/Template.css">
+<link rel="stylesheet" href="css/Product.css">
 </head>
 <body  >
 <div id="container">
@@ -18,11 +17,10 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-				  
+				  <a class="navbar-brand" href="homePage.html"><img src="img/lgo.png" width="250" > </a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<a class="navbar-brand" href="homePage.html"><img src="img/lgo.png" width="250" > </a>
 						<center>
 						  <form class="navbar-form navbar-left searchBar"  >
 							<div class="form-group">
@@ -55,102 +53,91 @@
 		
 	</div>
 	
-   <div id="body"> 
-		 <!-- Jumbotron -->
-      <div class="jumbotron">
-		<br>
-        <h1>Spook the snails!</h1>
-        <p class="lead">Check out the Halloween Range Today</p>
-      </div>
-
-      <!-- Example row of columns -->
-        <div id = "productRow" class="row">
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="Product.html">
-						<img src="img/kingofthe7.gif" alt="placeholder" height="100" width="100">
-						<h4>King of the 7 Gnomedoms</h4>
-						<p>&pound17.99 </p>
-						<p> ****</p>
-					</a>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-						<img src="img/Laundry.gif" alt="placeholder" height="100" width="100">
-						<h4>The Laundry Line</h4>
-						<p>&pound2.99 </p>
-						<p> **</p>
-					</a>
-				</div>
-		   </div>
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/GnomeTrek.gif" alt="placeholder" height="100" width="100">
-					<h4>Gnome Trek Set</h4>
-					<p>&pound24.99 </p>
-					<p> ***</p>
-					</a>
-				</div>
-			</div>
-		  
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/mushrooms.gif" alt="placeholder" height="100" width="100">
-					<h4>Mini-mushrooms</h4>
-					<p>&pound4.99 </p>
-					<p> ****</p>
-					</a>
-				</div>
-			</div>
+     <div id="body" style = "padding-left:22%; height:1200px">
+		<div id = "productImage">
+			<img src="img/GameofGnomes.jpg" alt="productImage" style="width:370px;height:370px;">
+		</div> 
+		<div id = "smallerImages">
+			<img src="img/angle1.jpeg" alt="productImage" style="width: 92px;height:92px;">
+			<br>
+			<img src="img/angle2.jpeg" alt="productImage" style="width: 92px;height:92px;">
+			<br>
+			<img src="img/angle3.jpg" alt="productImage" style="width: 92px;height:92px;">
+			<br>
+			<span>&#8681;</span>
 		</div>
-		<div id = "productRow" class="row" >
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/MrandMrs.gif" alt="placeholder" height="100" width="100">
-					<h4>Mr and Mrs</h4>
-					<p>&pound7.99 </p>
-					<p> ***</p>
-					</a>
-				</div>
-		   </div>
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/Boots.gif" alt="placeholder" height="100" width="100">
-					<h4>Christmas Boots</h4>
-					<p>&pound4.99 </p>
-					<p> **</p>
-					</a>
-				</div>
+		<div id = "productTitle">
+			<h1>
+			King of the Seven Gnomedoms
+			</h1>
+		</div>
+		<div id = "descriptionTitle">
+			<h2>
+			Description
+			</h2>
+		</div>
+		<div id = "price">
+			<p>
+				&pound9.99
+			</p>
+		</div>
+		<br><br><br>
+		<div id = "description">
+			<p>
+			Every now and again a piece of wordplay comes along that's so sumptuous, so irresistible that it would be a travesty to not bring it to life (Robocup anyone?). We present to you... Game of Gnomes.  The original may have been forged from a thousand swords in the fiery exhalation of a dragon named 'Balerion the Black Dread', but this slightly diminutive version is appropriately made up of an assortment of rusty gardening tools.
+			</p>
+		</div>
+		<div id = "quantityTitle">
+			<h3>
+			Quantity 
+			</h3>
+		</div> 
+		<div id="myDropdown">
+			<select>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+			</select>
+		</div>
+		<br><br><br><br>
+		<div id = "relatedProducts">
+			<h2>
+				Related Products 
+			</h2>
+		</div>
+		<div id = "relatedSet">
+			<ol>
+			<li><a  href="#Gnomes"> <img src="img/Related1.jpeg" alt="productImage" style="width:110px;height:130px;"></a></li>
+			<li><a  href="#Gnomes"><img src="img/ToiletGnome.jpeg" alt="productImage" style="width:110px;height:130px;"></a></li>
+			<li><a  href="#Gnomes"><img src="img/TheGnominator.jpg" alt="productImage" style="width:110px;height:130px;"></a></li>
+			<li><a  href="#Gnomes"><img src="img/NoChristmasGnome.jpeg" alt="productImage" style="width:110px;height:130px;"></a></li>
+			</ol>
+		</div>
+		<br> <br><br>
+		<div id = "reviews">
+			<h2>
+				Reviews
+			</h2>
+			<div id = "radioButtons">
+				<input type="radio" name="group1" value="excelent"> Excellent
+				<input type="radio" name="group1" value="Very Good"> Very Good
+				<input type="radio" name="group1" value="Average"> Average
+				<input type="radio" name="group1" value="Poor"> Poor
+				<input type="radio" name="group1" value="Terrible"> Terrible
 			</div>
-		  
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/Flamingo.gif" alt="placeholder" height="100" width="100">
-					<h4>Lawn Flamingo</h4>
-					<p>&pound14.99 </p>
-					<p> ****</p>
-					</a>
-				</div>
+			<div class="speech-bubble">
+			<p> "An enGNOMEous garden/home ornament for the anyone who is a Throne fanatic. get one to keep those happy smiling gnomes in order or else!!" </p>
 			</div>
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-						<img src="img/Benny.gif" alt="placeholder" height="100" width="100">
-						<h4>Benny</h4>
-						<p>&pound8.99 </p>
-						<p> ****</p>
-					</a>
-				</div>
-		   </div>
-	    </div>
-      </div>   
+			<div class="speech-bubble">
+			<p> "The gnome was lighter than expected but that is not a problem. Excellent product, bought as a gift for my son who will love it" </p>
+			</div>
+			<div class="speech-bubble">
+			<p> "Amazing - He will sit on his Throne in my garden, Lord of all he surveys and like Jon Snow he will know nothing and keep all my secrets." </p>
+			</div>
+			
+		</div>
+		</div>
    
    <div id="footer"> 
 		<div id="siteMap" class="container-fluid">
@@ -163,7 +150,7 @@
 						<li><a href="#">Themed </a></li>
 						<li><a href="#">Seasonal </a></li>
 						<li><a href="#">Classic </a></li>
-						<li><a href="#">Specialist</a> </li>
+						<li><a href="#">specialist</a> </li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-1">
@@ -203,7 +190,7 @@
 					<li><h4><a href="#">Help & FAQ</a></h4> </li>
 					<li><h4><a href="#">Contact Us</a></h4> </li>
 					<li><h4><a href="#">Delivery/Returns</a></h4> </li>
-					<li><h4><a href="#">Account</a></h4> </li>
+					<li><h4><a href="loginPage.html">Account</a></h4> </li>
 					<li><h4><a href="#">About</a></h4> </li>
 				</ul>
 				</div>
@@ -217,10 +204,8 @@
 			</div>
 		</div>
    </div>
-	
-
-   </div>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+   </div>
 </body>
 </html>

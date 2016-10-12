@@ -1,11 +1,11 @@
 <html>
 <head>
-<link rel="stylesheet" href="css/Template.css">
-<link rel="stylesheet" href="css/homePage.css">
+<link rel="stylesheet" href="css/template.css">
+<link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet" href="css/bootstrap.css">
 
 </head>
-<body  >
+<body >
 <div id="container">
    <div id="header">
 		<nav class="navbar navbar-default">
@@ -18,11 +18,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-				  
+				 
 				</div>
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<a class="navbar-brand" href="homePage.html"><img src="img/lgo.png" width="250" > </a>
+				 <a class="navbar-brand" href="homePage.html"><img src="img/lgo.png" width="250px" > </a>
 						<center>
 						  <form class="navbar-form navbar-left searchBar"  >
 							<div class="form-group">
@@ -41,9 +41,9 @@
 				    <div class="secondNav" >
 					
 					  <ul class="nav navbar-nav ">
-						<li><a href="Search.html">Gnomes</a></li>
+						<li><a href="#">Gnomes</a></li>
 						<li><a href="#">Pools & HotTubs</a></li>
-						<li><a href="Accessories.html">Gnomes Accessories</a></li>
+						<li><a href="#">Gnomes Accessories</a></li>
 						<li><a href="#">Garden Ornaments</a></li>
 						<li><a href="#">Gnome Care</a></li>
 					  </ul>	
@@ -54,104 +54,28 @@
 		</nav>
 		
 	</div>
-	
    <div id="body"> 
-		 <!-- Jumbotron -->
-      <div class="jumbotron">
-		<br>
-        <h1>Spook the snails!</h1>
-        <p class="lead">Check out the Halloween Range Today</p>
-      </div>
-
-      <!-- Example row of columns -->
-        <div id = "productRow" class="row">
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="Product.html">
-						<img src="img/kingofthe7.gif" alt="placeholder" height="100" width="100">
-						<h4>King of the 7 Gnomedoms</h4>
-						<p>&pound17.99 </p>
-						<p> ****</p>
-					</a>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-						<img src="img/Laundry.gif" alt="placeholder" height="100" width="100">
-						<h4>The Laundry Line</h4>
-						<p>&pound2.99 </p>
-						<p> **</p>
-					</a>
-				</div>
-		   </div>
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/GnomeTrek.gif" alt="placeholder" height="100" width="100">
-					<h4>Gnome Trek Set</h4>
-					<p>&pound24.99 </p>
-					<p> ***</p>
-					</a>
-				</div>
-			</div>
-		  
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/mushrooms.gif" alt="placeholder" height="100" width="100">
-					<h4>Mini-mushrooms</h4>
-					<p>&pound4.99 </p>
-					<p> ****</p>
-					</a>
-				</div>
-			</div>
-		</div>
-		<div id = "productRow" class="row" >
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/MrandMrs.gif" alt="placeholder" height="100" width="100">
-					<h4>Mr and Mrs</h4>
-					<p>&pound7.99 </p>
-					<p> ***</p>
-					</a>
-				</div>
-		   </div>
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/Boots.gif" alt="placeholder" height="100" width="100">
-					<h4>Christmas Boots</h4>
-					<p>&pound4.99 </p>
-					<p> **</p>
-					</a>
-				</div>
-			</div>
-		  
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-					<img src="img/Flamingo.gif" alt="placeholder" height="100" width="100">
-					<h4>Lawn Flamingo</h4>
-					<p>&pound14.99 </p>
-					<p> ****</p>
-					</a>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<div id="product">
-					<a href="#">
-						<img src="img/Benny.gif" alt="placeholder" height="100" width="100">
-						<h4>Benny</h4>
-						<p>&pound8.99 </p>
-						<p> ****</p>
-					</a>
-				</div>
-		   </div>
-	    </div>
-      </div>   
-   
+		<form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="signIn()" >Sign in</button>
+      </form>
+	  <form class="form-signUp">
+        <h2 class="form-signUp-heading">New User</h2>
+		<label for="inputName" class="sr-only">Full Name</label>
+        <input type="text" id="inputName" class="form-control" placeholder="Full Name" required="">
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+		<label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPasswordConfirm" class="form-control" placeholder="Confirm Password" required="">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
+      </form>
+   </div>
    <div id="footer"> 
 		<div id="siteMap" class="container-fluid">
 			<div class="row">
@@ -217,10 +141,9 @@
 			</div>
 		</div>
    </div>
-	
-
-   </div>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/login.js"></script>
+   </div>
 </body>
 </html>
