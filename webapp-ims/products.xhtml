@@ -1,0 +1,80 @@
+<ui:composition
+	xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="templates/main.xhtml">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Tab title defined -->
+		<ui:define name="title">
+			Products - IMS
+		</ui:define>
+
+		<!-- Title appearing in top left of the page -->
+		<ui:define name="pagetitle">
+			Products
+		</ui:define>
+
+		<!-- Breadcrumbs appearing in top right of the page -->
+		<ui:define name="breadcrumbs">
+			<a href="index.xhtml">Home</a> > Products
+		</ui:define>
+
+		<!-- Operations buttons - add/edit/delete -->
+		<ui:define name="addbtn">
+			<!-- Would bring up a form for new product -->
+			<h:outputLink value="index.xhtml">
+		</ui:define>
+
+		<ui:define name="editbutton">
+			<!-- Would bring up editable product details page -->
+			<h:outputLink value="index.xhtml">
+		</ui:define>
+
+		<ui:define name="deletebtn">
+			<!-- Would mark product as deleted -->
+			<h:outputLink value="index.xhtml">
+		</ui:define>
+
+		<!-- Main content of  -->
+		<ui:define name="maincontent">
+
+			<!-- Grid for products -->
+		  	<div class="row" id="table">
+		  		<div class="col-sm-2 heading prodDetails">
+		  			Product ID
+		  		</div>
+		   		<div class="col-sm-8 heading prodDetails">
+	     			Product Name
+	    		</div>
+	    		<div class="col-sm-2 heading prodDetails">
+		      		Stock Level
+		   		</div>
+		  	</div>
+
+		  	<!-- Generation of products into grid -->
+		  	<ui:repeat var="product" value="#{products.dataModel}">
+		  		<div class="row" id="table">
+					<div class="col-sm-2 prodDetails">
+						<h:form>
+							<h:commandLink action="#{product.view(product.id)}" value="#{product.id}"/>
+						</h:form>
+					</div>
+			    	<div class="col-sm-8 prodDetails">
+			    		<h:form>
+			      			<h:commandLink action="#{product.view(product.id)}" value="#{product.name}"/>
+			      		</h:form>
+			    	</div>
+			    	<div class="col-sm-2 prodDetails">
+			      		<h:outputText value="#{product.quantity}"/>
+			   		</div>
+		   		</div>
+		   	</ui:repeat>
+
+		</ui:define>
+
+<!-- Add pagination here -->
+
+</ui:composition>
