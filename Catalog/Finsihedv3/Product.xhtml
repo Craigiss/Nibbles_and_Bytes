@@ -45,7 +45,7 @@ Product Page
 				<br/><br/><br/>
 				<div id = "description">
 					<p>
-					<h:outputText value ="#{productDescription}" style = "font-weight:bold"/>
+					<h:outputText value ="#{productDescription}" style = "font-weight:normal"/>
 					</p>
 				</div>
 				<div id = "quantityTitle">
@@ -168,9 +168,9 @@ Product Page
 						</div>
 					<div class="col-sm-4">
 						<div class="speech-bubble">
-							<p> "Amazing - He will sit on his Throne in my garden, Lord of all he surveys and like Jon Snow he will know nothing and keep all my secrets." </p>
+							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
 							<figure class="figure">	
-								<figcaption class="figure-caption">CRAIG GRAY :(</figcaption>
+								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" style = "font-weight:bold"/> :(</figcaption>
 								</div>
 							</figure>
 					</div>
