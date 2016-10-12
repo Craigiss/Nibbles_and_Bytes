@@ -1,6 +1,8 @@
 package com.nb.gnome.entities;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -37,6 +39,9 @@ public class PurchaseOrder {
 	@ManyToOne 
 	@JoinColumn(name = "FKSupplierid", nullable = false)
 	private int Supplierid;
+	
+	@OneToMany(targetEntity=PurchaseOrderDetails.class)
+	private List<PurchaseOrderDetails> addresses;
 	
 	/**
 	 * Default Constructor

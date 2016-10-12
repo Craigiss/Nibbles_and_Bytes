@@ -15,6 +15,7 @@ public interface ProductRepository {
 	//Read
 	public List<Product> getProductByKeyword(String keyword);
 	public List<Product> getProductByName(String name);
+	public List<Category> getProductCategories();
 	public Product getProductByID(int id);
 	public int getStockLevel(int id);
 	
