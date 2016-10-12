@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+	<title>Purchase Orders - IMS</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- Page header begins -->
+	<header>
+		<div class="container">
+
+		<div class="row" id="topline">
+			<div id="title">
+				Purchase Orders
+			</div>
+			<p id="bread"><a href="#">Home</a> > Purchase Orders</p>
+			<div style="clear: both;"></div>
+		</div>
+
+		<div class="row">
+           
+           <div class = col-sm-3 id = "back">
+              <a href="index.html" class="hovering">
+                <img class="glass_back" src="back.png">
+                </a>
+            </div>
+
+        <div class col-sm-9 id="search">
+          <div class = col-sm-8 id="searchText">
+             <input type="text" placeholder="Search..." />
+          </div>
+
+          <div class = col-sm-1>
+            <a href="#" class="hovering">
+              <img class="glass_back" src="glass.png">
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+
+		</div>
+	</header>
+
+<!-- Content goes here -->
+	<div class="container" id="content">
+		<div class="row" id="operations">
+			<div class="col-sm-4 nbbutton" id="add">
+				<a href="#">
+					Add <img src="add.png" class="icon"/>
+				</a>
+			</div>
+			<div class="col-sm-4 nbbutton" id="edit">
+				<a href="#">
+					Edit <img src="edit.png" class="icon"/>
+				</a>
+			</div>
+			<div class="col-sm-4 nbbutton" id="delete">
+				<a href="#">
+					Delete <img src="bin.png" class="icon"/>
+				</a>
+			</div>
+		</div>
+
+<!-- Grid for suppliers -->	
+  		<div class="row" id="table">
+    		<div class="col-sm-4 heading supDetails">
+      			Supplier Name
+    		</div>
+    		<div class="col-sm-4 heading supDetails">
+      			Product Ordered
+   			</div>
+    		<div class="col-sm-4 heading supDetails">
+      			Quantity Ordered
+    		</div>
+  		</div>
+
+  		<div class="row" id="table">
+  			<a href="#Supplier">
+  				<div class="col-sm-4 supDetails">
+  					Sample Supplier
+  				</div>
+  			</a>
+	    		<div class="col-sm-4 supDetails">
+	      			Game Of Gnome
+	    		</div>
+	    	<a href="#Contact">
+	    		<div class="col-sm-4 supDetails">
+	      			150 
+	   			</div>
+	   		</a>
+   		</div>
+
+   		  		<div class="row" id="table">
+  			<a href="#Supplier">
+  				<div class="col-sm-4 supDetails">
+  					Sample Supplier
+  				</div>
+  			</a>
+	    		<div class="col-sm-4 supDetails">
+	      			Gnom
+	    		</div>
+	    	<a href="#Contact">
+	    		<div class="col-sm-4 supDetails">
+	      			250
+	   			</div>
+	   		</a>
+   		</div>
+	
+<!-- Footer starts -->
+			  <div class="row">
+          <div class = col-sm-12 id="help">
+            <a href="#">Help
+              <div>
+                <img id="helpImg" src="help.png">
+              </div>
+            </a>
+          </div>
+      </div>
+		</div>
+	</div>
+
+</body>
+
+</html>
