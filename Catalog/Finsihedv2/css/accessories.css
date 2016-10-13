@@ -53,6 +53,10 @@ width:100%;
 	
 }
 
+.pageNav a{
+line-height:0%;
+display:inline
+}
 
 .picture img{
 max-height: 200px;
