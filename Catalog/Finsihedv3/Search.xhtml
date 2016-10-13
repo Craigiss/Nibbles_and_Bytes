@@ -9,198 +9,81 @@ template="Template.xhtml">
 Search
 </ui:define>
 <ui:define name="maincontent">
-	<!-- search page results -->
-	<div class="container">
-		<div class="row" id="search">
-			<div class="col-xs-4"><h2>Search results for "fun gnome"</h2></div>
-		</div>
-	</div>
-	<br/>
-	<br/>
-	<br/>
-	<!-- paginator at top of page -->
-	<div class="row row-offcanvas row-offcanvas-left">
-		<div class="col-xs-12 col-sm-9">
-			<p class="pull-left visible-xs">
-				<button data-toggle="offcanvas" 
-				class="btn btn-primary btn-xs"
-				type="button">Quick Links</button>
-			</p>
-			<div class="jumbotron">
-				<h1>Catalogue</h1>
-				<p>Welcome to the catalogue!</p>
-			</div>
-			<div class="row">
-				<h:form>
-					<h:outputText escape="false"
-					value="No Products Found"
-					rendered="#{products.dataModel.rowCount == 0}" />
-					<h:panelGroup rendered="#{products.dataModel.rowCount > 0}">
-						<h:outputText value="#{products.pagination.pageFirstItem + 1}.. 
-						#{products.pagination.pageLastItem + 1}
-						/#{products.pagination.itemsCount}" />
-						<h:commandLink
-						action="#{products.previous}"
-						value="Previous #{products.pagination.pageSize}"
-						rendered="#{products.pagination.hasPreviousPage}" />
-						<h:commandLink 
-						action="#{products.next}"
-						rendered="#{products.pagination.hasNextPage}"
-						value="Next #{products.pagination.pageSize}" />
-						<div>
-							<ui:repeat var="product"
-							value="#{products.dataModel}">
-								<div class="col-xs-6 col-lg-4">
-									<h:commandLink
-									action="#{products.view(product.id)}"
-									value="#{product.name}" />
-									<p><h:outputText
-									value="#{product.description}" /></p>
-								</div>
-							</ui:repeat>
-						</div>
-					</h:panelGroup>
-				</h:form>
-			</div>
-		</div>
-	</div>
-	<br/>
-	<!-- product grid-->
-	<div class="container">
-		<div id="productRow" class="row">
-			<div class="col-sm-3"> 
-				<div id="product">
-					<a href="Product.html" >
-						<img src="img/king_of_7_gnomedoms.png" alt="placeholder" height="100" width="100"/>
-						<h4>King of the 7 Gnomedoms</h4>
-						<p>&#163;17.99 </p> 
-						<p>****</p>
-					</a>
-				</div>
-			</div>
-			<div class="col-sm-3"> 
-				<div id="product">
-					<a href="">
-						<img src="img/gnome_pacino.png" alt="placeholder" height="100" width="100"/>
-						<h4>Gnome Pacino </h4>
-						<p>&#163;15.99 </p>
-						<p>****</p>
-					</a>
-				</div>	
-			</div>
-			<div class="col-sm-3"> 
-				<div id="product">
-					<a href="">
-						<img src="img/gnome_trek_set.png" alt="placeholder" height="100" width="100"/>
-						<h4>Gnome Trek Set </h4>
-						<p>&#163;24.99 </p>
-						<p>***</p>
-					</a>
-				</div>	
-			</div>
-			<div class="col-sm-3"> 
-				<div id="product">
-					<a href="">
-						<img src="img/gnomezilla.png" alt="placeholder" height="100" width="100"/>
-						<h4>Gnomezilla </h4>
-						<p>&#163;17.99 </p>
-						<p>****</p>
-					</a>
-				</div>	
-			</div>
-		</div>
-		<div id="productRow" class="row">
-			<div class="col-sm-3"> 
-				<div id="product">
-					<a href="">
-						<img src="img/sasquatch_and_gnome.png" alt="placeholder" height="100" width="100"/>
-						<h4>Sasquatch and Gnome </h4>
-						<p>&#163;16.99 </p>
-						<p>***</p>
-					</a>
-				</div>	
-			</div>
-			<div class="col-sm-3"> 
-				<div id="product">
-					<a href="">
-						<img src="img/gnom.png" alt="placeholder" height="100" width="100"/>
-						<h4>Gnom </h4>
-						<p>&#163;15.99 </p>
-						<p>*****</p>
-					</a>
-				</div>	
-			</div>
-			<div class="col-sm-3"> 
-				<div id="product">
-					<a href="">
-						<img src="img/ninja_gnome.png" alt="placeholder" height="100" width="100"/>
-						<h4>Ninja Gnome </h4>
-						<p>&#163;11.99 </p>
-						<p>****</p>
-					</a>
-				</div>	
-			</div>
-			<div class="col-sm-3"> 
-				<div id="product">
-					<a href="">
-						<img src="img/benny.png" alt="placeholder" height="100" width="100"/>
-						<h4>Benny </h4>
-						<p>&#163;8.99 </p>
-						<p>****</p>
-					</a>
-				</div>	
-			</div>
-		</div>
-		<div id="productRow" class="row">
-			<div class="col-sm-3"> 
-				<div id="product">
-					<a href="">
-						<img src="img/gnome_under_fire.png" alt="placeholder" height="100" width="100"/>
-						<h4>Gnome Under Fire </h4>
-						<p>&#163;14.99 </p>
-						<p>****</p>
-					</a>
-				</div>	
-			</div>
-			<div class="col-sm-3"> 
-				<div id="product">
-					<a href="">
-						<img src="img/angry_gnome.png" alt="placeholder" height="100" width="100"/>
-						<h4>Angry Gnome </h4>
-						<p>&#163;15.99 </p>
-						<p>****</p>
-					</a>
-				</div>	
-			</div>
-			<div class="col-sm-3"> 
-				<div id="product">
-					<a href="">
-						<img src="img/army_gnome.png" alt="placeholder" height="100" width="100"/>
-						<h4>Army Gnome </h4>
-						<p>&#163;10.99 </p>
-						<p>***</p>
-					</a>
-				</div>	
-			</div>
-			<div class="col-sm-3"> 
-				<div id="product">
-					<a href="">
-						<img src="img/spok_gnome.png" alt="placeholder" height="100" width="100"/>
-						<h4>Spok Gnome </h4>
-						<p>&#163;17.99 </p>
-						<p>****</p>
-					</a>
-				</div>	
-			</div>
-		</div>
-	</div>
-	<br/>
-	<!-- page navigation -->
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-4"><a href="">Previous page</a></div>
-			<div class="col-xs-4">Page 2 of 19</div>
-			<div class="col-xs-4"><a href="">Next page</a></div>
+			<h:form>
+				<!-- search page results -->
+				<h:outputText escape="false" 
+				value="No Products Found"
+				rendered="#{products.dataModel.rowCount == 0}"
+				/>
+				<h:panelGroup rendered="#{products.dataModel.rowCount > 0}" >
+					<h:outputText 
+					value="#{products.pagination.pageFirstItem + 1} 
+					#{products.pagination.pageLastItem + 1}/ #{products.pagination.itemsCount}"
+					/>
+				<!-- page navigation at top of page -->
+				<div class="col-xs-4">
+					<h:commandLink
+					action="#{products.previous}"
+					value="Previous page #{products.pagination.pageSize}"
+					rendered="#{products.pagination.hasPreviousPage}"
+					/>
+				</div>
+				<div class="col-xs-4">
+					<h:outputText 
+					value="#{products.pagination.pageFirstItem + 1} 
+					to #{products.pagination.pageLastItem + 1}/#{supplier.pagination.itemsCount}"
+					/>
+				</div>
+				<div class="col-xs-4">
+					<h:commandLink
+					action="#{products.next}"
+					rendered="#{products.pagination.hasNextPage}"
+					value="Next #{products.pagination.pageSize}"
+					/>
+				</div>
+				<!-- product grid-->
+				<div>
+					<ui:repeat var="product"
+					value="#{products.dataModel}">
+						<div class="col-sm-3">
+							<h:commandLink
+							action="#{products.view(product.id)}"
+							value="#{product.img}"
+							/>
+							<p><h:outputText
+							value="#{product.name}"/></p>
+							<p><h:outputText
+							value="#{product.price}"/></p>
+							<p><h:outputText
+							value="#{product.rating}"/></p>
+						</div>
+					</ui:repeat>
+				</div>
+				<!-- page navigation at bottom of page -->
+				<div class="col-xs-4">
+					<h:commandLink
+					action="#{products.previous}"
+					value="Previous page #{products.pagination.pageSize}"
+					rendered="#{products.pagination.hasPreviousPage}"
+					/>
+				</div>
+				<div class="col-xs-4">
+					<h:outputText 
+					value="#{products.pagination.pageFirstItem + 1} 
+					to #{products.pagination.pageLastItem + 1}/#{supplier.pagination.itemsCount}"
+					/>
+				</div>
+				<div class="col-xs-4">
+					<h:commandLink
+					action="#{products.next}"
+					rendered="#{products.pagination.hasNextPage}"
+					value="Next #{products.pagination.pageSize}"
+					/>
+				</div>
+				</h:panelGroup>
+			</h:form>
 		</div>
 	</div>
 </ui:define>

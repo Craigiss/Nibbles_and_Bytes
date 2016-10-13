@@ -45,18 +45,13 @@ Basket Page
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<!-- Single button -->
 				<div class="btn-group">
-					<button type="button" class="btn btn-danger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Cancel 	
-					</button>
+					<h:commandButton value="Cancel" type="button" action ="#{basket.cancel}"/>
 				</div>
 			</div>    
 			<div class="col-md-6">
 				<div class="btn-group pull-right">
-					<button type="button" class="btn btn-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Checkout 
-					</button>
+					<h:commandButton value="Checkout" type="button" action ="#{order.checkout}"/>					
 				</div>
 			</div>
 		</div>

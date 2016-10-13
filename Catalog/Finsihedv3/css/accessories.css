@@ -66,8 +66,10 @@ margin-left:5px;
 margin-right:5px;
 padding:10px;
 min-height: 220px;
-min-width: 220px;
+max-width: 220px;
 background: #efecee;
+text-align:center;
+
 }
 
 .figureStyle p{

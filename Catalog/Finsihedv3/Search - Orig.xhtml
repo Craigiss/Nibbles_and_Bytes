@@ -18,14 +18,34 @@ Search
 	<br/>
 	<br/>
 	<br/>
-	<!-- page navigation -->
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-4"><a href="">Previous page</a></div>
-			<div class="col-xs-4">Page 2 of 19</div>
-			<div class="col-xs-4"><a href="">Next page</a></div>
+	<!-- paginator at top of page -->
+	<h:form>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-4">
+					<h:commandLink
+					action="#{products.previous}"
+					value="Previous page #{products.pagination.pageSize}"
+					rendered="#{products.pagination.hasPreviousPage}"
+					/>
+				</div>
+				<div class="col-xs-4">
+					<h:outputText 
+					value="#{products.pagination.pageFirstItem + 1} 
+					to #{products.pagination.pageLastItem + 1}/#{supplier.pagination.itemsCount}"
+					/>
+				</div>
+				<div class="col-xs-4">
+					<h:commandLink
+					action="#{products.next}"
+					rendered="#{products.pagination.hasNextPage}"
+					value="Next #{products.pagination.pageSize}"
+					/>
+				</div>
+			</div>
 		</div>
-	</div>
+	</h:form>
+
 	<br/>
 	<!-- product grid-->
 	<div class="container">
@@ -158,12 +178,31 @@ Search
 	</div>
 	<br/>
 	<!-- page navigation -->
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-4"><a href="">Previous page</a></div>
-			<div class="col-xs-4">Page 2 of 19</div>
-			<div class="col-xs-4"><a href="">Next page</a></div>
+	<h:form>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-4">
+					<h:commandLink
+					action="#{products.previous}"
+					value="Previous page #{products.pagination.pageSize}"
+					rendered="#{products.pagination.hasPreviousPage}"
+					/>
+				</div>
+				<div class="col-xs-4">
+					<h:outputText 
+					value="#{products.pagination.pageFirstItem + 1} 
+					to #{products.pagination.pageLastItem + 1}/#{supplier.pagination.itemsCount}"
+					/>
+				</div>
+				<div class="col-xs-4">
+					<h:commandLink
+					action="#{products.next}"
+					rendered="#{products.pagination.hasNextPage}"
+					value="Next #{products.pagination.pageSize}"
+					/>
+				</div>
+			</div>
 		</div>
-	</div>
+	</h:form>
 </ui:define>
 </ui:composition>
