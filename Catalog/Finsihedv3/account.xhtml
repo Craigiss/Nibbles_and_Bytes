@@ -26,24 +26,29 @@ Account Page
 	  Update Account details
 	  
 		<div class="input-group" style="margin-top:10px">
-		  <input type="text" class="form-control" placeholder="Name" />
+			<label for="Name" class="sr-only">Name</label>
+		    <h:inputText id="Name" type="text" class="form-control" value="#{account.Name}"/>
 		</div>
 		<div class="input-group">
-		  <input type="text" class="form-control" placeholder="Address Line 1" />
+			<label for="Line1" class="sr-only">Address Line 1</label>
+		    <h:inputText id ="Line1" type="text" class="form-control" value="#{account.Line1}"/>
 		</div>
 		<div class="input-group">
-		  <input type="text" class="form-control" placeholder="Address Line 2" />
+			<label for="Line2" class="sr-only">Address Line 2</label>
+		    <h:inputText id="Line2" type="text" class="form-control" value="#{account.Line2}" />
 		</div>
 		<div class="input-group">
-		  <input type="text" class="form-control" placeholder="County" />
+			<label for="County" class="sr-only">County</label>
+		    <h:inputText id="County" type="text" class="form-control" value="#{account.County}" />
 		</div>
 		<div class="input-group">
-		  <input type="text" class="form-control" placeholder="Post Code" />
+			<label for="postCode" class="sr-only">Post Code</label>
+		    <h:inputText id="postCode" type="text" class="form-control" value="#{account.postCode}" />
 		</div>
 		<div class="btn-group pull-right">
-			<button type="button" class="btn btn-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Update 
-			</button>
+			<h:commandButton type="button" class="btn btn-success" data-toggle="dropdown"
+			aria-haspopup="true" aria-expanded="false"
+			value="Update" action="#{account.updateDetails}"/>
 		</div>
 	  </div>
 	</div>

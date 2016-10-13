@@ -25,7 +25,7 @@ Login Page
 	type="submit" action="#{login.login()}" value="Sign In" />
 </form>
 
-<form class="form-signUp">
+<h:form class="form-signUp">
 	<h2 class="form-signUp-heading">New User</h2>
 	<label for="inputName" class="sr-only">Full Name</label>
 	<h:inputText value="#{signup.name}" type="text" id="inputName"
@@ -43,7 +43,7 @@ Login Page
 	<h:inputSecret value="#{signup.passwordConfirm}" type="password" id="inputPassword" 
 	class="form-control" placeholder="Password" required="true"
 	requiredMessage="Please Enter Password"/> 
-	<button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
- </form>
+	<h:commandButton class="btn btn-lg btn-primary btn-block" type="submit" value="Create Account" action="#{login.newUser}"/>
+ </h:form>
 </ui:define>
 </ui:composition>
