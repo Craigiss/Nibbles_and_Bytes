@@ -47,6 +47,7 @@
 	background-image: url("../img/productBackground.png");
 	padding-left:50px;
 	margin-right:2%;
+	
 }
 #reviews{
 padding-top: 5px;
@@ -54,7 +55,7 @@ clear:both;
 padding-left: 190px;
 }
 #relatedSet img {
-
+	
 }
 #relatedSet a{
 	padding-right: 60px;
@@ -95,13 +96,19 @@ span {
 	  margin-top: 15px;
 	  COLOR: #662f8c;
 	  
+	  
 }
 
 .figure{
-font-weight: bold;
+	font-weight: bold;
 }
 
-
+.RelatedText{
+	font-weight: bold;
+	text-align: center;
+	COLOR: #662f8c;
+	padding-right: 50px;
+}
 
   
   
