@@ -18,50 +18,12 @@ Search
 	<br/>
 	<br/>
 	<br/>
-	<!-- paginator at top of page -->
-	<div class="row row-offcanvas row-offcanvas-left">
-		<div class="col-xs-12 col-sm-9">
-			<p class="pull-left visible-xs">
-				<button data-toggle="offcanvas" 
-				class="btn btn-primary btn-xs"
-				type="button">Quick Links</button>
-			</p>
-			<div class="jumbotron">
-				<h1>Catalogue</h1>
-				<p>Welcome to the catalogue!</p>
-			</div>
-			<div class="row">
-				<h:form>
-					<h:outputText escape="false"
-					value="No Products Found"
-					rendered="#{products.dataModel.rowCount == 0}" />
-					<h:panelGroup rendered="#{products.dataModel.rowCount > 0}">
-						<h:outputText value="#{products.pagination.pageFirstItem + 1}.. 
-						#{products.pagination.pageLastItem + 1}
-						/#{products.pagination.itemsCount}" />
-						<h:commandLink
-						action="#{products.previous}"
-						value="Previous #{products.pagination.pageSize}"
-						rendered="#{products.pagination.hasPreviousPage}" />
-						<h:commandLink 
-						action="#{products.next}"
-						rendered="#{products.pagination.hasNextPage}"
-						value="Next #{products.pagination.pageSize}" />
-						<div>
-							<ui:repeat var="product"
-							value="#{products.dataModel}">
-								<div class="col-xs-6 col-lg-4">
-									<h:commandLink
-									action="#{products.view(product.id)}"
-									value="#{product.name}" />
-									<p><h:outputText
-									value="#{product.description}" /></p>
-								</div>
-							</ui:repeat>
-						</div>
-					</h:panelGroup>
-				</h:form>
-			</div>
+	<!-- page navigation -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-4"><a href="">Previous page</a></div>
+			<div class="col-xs-4">Page 2 of 19</div>
+			<div class="col-xs-4"><a href="">Next page</a></div>
 		</div>
 	</div>
 	<br/>

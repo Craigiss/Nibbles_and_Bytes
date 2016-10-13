@@ -73,8 +73,19 @@
 		   		</div>
 		   	</ui:repeat>
 
+		   	<h:form>
+			   	<div class="row">
+	   				<div class="col-sm-4 nbbuttonp">
+	   					<h:commandLink action="#{suppliers.previous}" value="Previous #{suppliers.pagination.pageSize}" rendered="#{suppliers.pagination.hasPreviousPage}" />
+	   				</div>
+		   			<div class="col-sm-4 nbbuttonp">
+		   				<h:outputText value="#{suppliers.pagination.pageFirstItem + 1} to #{suppliers.pagination.pageLastItem + 1}/#{suppliers.pagination.itemsCount}" />
+		   			</div>
+		   			<div class="col-sm-4 nbbuttonp">
+		   				<h:commandLink action="#{suppliers.next}" rendered="#{suppliers.pagination.hasNextPage}" value="#Next #{suppliers.pagination.pageSize}" />
+		   			</div>
+		   		</div>
+		   	</h:form>
 		</ui:define>
-
-<!-- Add pagination here -->
 
 </ui:composition>

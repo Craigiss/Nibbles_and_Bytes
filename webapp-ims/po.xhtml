@@ -55,16 +55,16 @@
 		  	</div>
 
 		  	<!-- Generation of suppliers into grid -->
-		  	<ui:repeat var="po" value="#{po.dataModel}">
+		  	<ui:repeat var="po" value="#{pos.dataModel}">
 		  		<div class="row" id="table">
 					<div class="col-sm-4 supDetails">
 						<h:form>
-							<h:commandLink action="#{po.view(po.id)}" value="#{po.supplier}"/>
+							<h:commandLink action="#{pos.view(po.id)}" value="#{po.supplier}"/>
 						</h:form>
 					</div>
 			    	<div class="col-sm-4 supDetails">
 			    		<h:form>
-			      			<h:commandLink action="#{po.view(po.id)}" value="#{po.product}"/>
+			      			<h:commandLink action="#{pos.view(po.id)}" value="#{po.product}"/>
 			      		</h:form>
 			    	</div>
 			    	<div class="col-sm-4 supDetails">
@@ -72,6 +72,21 @@
 			   		</div>
 		   		</div>
 		   	</ui:repeat>
+
+
+		   	<h:form>
+			   	<div class="row">
+	   				<div class="col-sm-4 nbbuttonp">
+	   					<h:commandLink action="#{pos.previous}" value="Previous #{pos.pagination.pageSize}" rendered="#{pos.pagination.hasPreviousPage}" />
+	   				</div>
+		   			<div class="col-sm-4 nbbuttonp">
+		   				<h:outputText value="#{pos.pagination.pageFirstItem + 1} to #{pos.pagination.pageLastItem + 1}/#{pos.pagination.itemsCount}" />
+		   			</div>
+		   			<div class="col-sm-4 nbbuttonp">
+		   				<h:commandLink action="#{pos.next}" rendered="#{pos.pagination.hasNextPage}" value="#Next #{pos.pagination.pageSize}" />
+		   			</div>
+		   		</div>
+		   	</h:form>
 
 		</ui:define>
 
