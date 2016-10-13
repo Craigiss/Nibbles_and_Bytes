@@ -1,7 +1,8 @@
 package com.nb.gnome.controllers;
 
 import java.io.Serializable;
-import javax.enterprise.context.SessionScoped;
+
+import javax.faces.bean.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
