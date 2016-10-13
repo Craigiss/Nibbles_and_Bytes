@@ -45,19 +45,33 @@ public class SupplierController implements Serializable{
 	public DataModel<Supplier> getDataModel() {
 		if (dataModel ==null)
 			dataModel = getPagination().createPageDataModel();
-		System.out.println("Delete this after checking GIT works");
-		System.out.println("Delete this after checking GIT works");
-		System.out.println("Delete this after checking GIT works");
-		System.out.println("Delete this after checking GIT works");
-		System.out.println("Delete this after checking GIT works");
-		System.out.println("Delete this after checking GIT works");
-		System.out.println("Delete this after checking GIT works");
 		return dataModel;
 		
 	}
 	
-	// Delete this after checking GIT works
+	public String next() {
+		getPagination().nextPage();
+		recreateModel();
+		return "imsSuppliers";
+	}
 	
+	public String previous() {
+		getPagination().previousPage();
+		recreateModel();
+		return "imsSuppliers";
+	}
 	
+	public Supplier view(long id) {
+		supplier = supplierRepository.findSupplierById(id);
+		return supplier;
+	}
+	
+	public Supplier getSupplier() {
+		return supplier;
+	}
+	
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}	
 	}
 
