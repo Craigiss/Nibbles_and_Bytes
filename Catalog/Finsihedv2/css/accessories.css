@@ -53,14 +53,11 @@ width:100%;
 	
 }
 
-.pageNav a{
-line-height:0%;
-display:inline
-}
 
 .picture img{
 max-height: 200px;
   max-width: 200px;
+  display: inline-block
 }
 .figureStyle{
 border: 1px dashed purple;
@@ -71,7 +68,10 @@ margin-right:5px;
 padding:10px;
 min-height: 220px;
 min-width: 220px;
+max-width: 220px;
 background: #efecee;
+text-align:center;
+display: inline-block;
 }
 
 .figureStyle p{
