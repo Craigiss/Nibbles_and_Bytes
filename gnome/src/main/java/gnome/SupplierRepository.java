@@ -17,7 +17,10 @@ public interface SupplierRepository {
 	
 	//Read
 	public Supplier findSupplier(Supplier s);
-
-	public List<?> findAll();
+	
+	//Read by id (partially copied from James's code)
+	public Supplier findSupplierById(long id);
+	
+	public List<Supplier> findAll();
 	
 }
