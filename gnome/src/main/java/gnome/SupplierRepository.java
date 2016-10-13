@@ -1,5 +1,7 @@
 package gnome;
 
+import java.util.List;
+
 import com.nb.gnome.entities.Supplier;
 
 /**
@@ -18,5 +20,7 @@ public interface SupplierRepository {
 	
 	//Read by id (partially copied from James's code)
 	public Supplier findSupplierById(long id);
+	
+	public List<Supplier> findAll();
 	
 }

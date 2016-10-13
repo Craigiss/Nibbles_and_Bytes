@@ -24,14 +24,15 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 		return initialData.getPurchaseOrders();
 	}
 	@Override
-	public PurchaseOrder getPurchaseOrderById(PurchaseOrder a) {
+	public PurchaseOrder findPurchaseOrderById(long id) {
 		for(PurchaseOrder p : initialData.getPurchaseOrders()){
-			if(p.getId() == a.getId()){
+			if(p.getId() == id){
 				//list.add(a);
+				return p;
 			}
+		}
+		return null;
 		
-	}
-		return a;
 		
 }
 }

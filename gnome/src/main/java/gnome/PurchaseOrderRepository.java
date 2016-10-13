@@ -17,4 +17,6 @@ public interface PurchaseOrderRepository {
 		public List<PurchaseOrder> findPurchaseOrder();
 		
 		public PurchaseOrder findPurchaseOrderById(long id);
+		
+		public List<PurchaseOrder> findAll();
 }
