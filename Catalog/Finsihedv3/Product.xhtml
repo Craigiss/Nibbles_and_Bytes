@@ -12,16 +12,16 @@ Product Page
 		<div class="container">
 			<div class="col-sm-3">
 				<div id = "productImage">
-					<img src="img/GameofGnomes.jpg" alt="productImage" style="width:370px;height:370px;"/>
+					<h:graphicImage value="img/GameofGnomes.jpg" width="370" height="370" />
 				</div> 
 			</div>
 			<div class="col-sm-2">
 				<div id = "smallerImages">
-					<img src="img/angle1.jpeg" alt="productImage" style="width: 92px;height:92px;"/>
+					<h:graphicImage value="img/angle1.jpeg" width="92" height="92" />
 					<br/>
-					<img src="img/angle2.jpeg" alt="productImage" style="width: 92px;height:92px;"/>
+					<h:graphicImage value="img/angle2.jpeg" width="92" height="92" />
 					<br/>
-					<img src="img/angle3.jpg" alt="productImage" style="width: 92px;height:92px;"/>
+					<h:graphicImage value="img/angle3.jpeg" width="92" height="92" />
 					<br/>
 					<span>&#8681;</span>
 				</div>
@@ -29,7 +29,7 @@ Product Page
 			<div class="col-sm-7">
 				<div id = "productTitle">
 					<h1>
-					<h:outputText value ="#{productTitle}" style = "font-weight:bold"/>
+						<h:outputText value ="#{product.title}" style = "font-weight:bold"/>
 					</h1>
 				</div>
 				<div id = "descriptionTitle">
@@ -39,30 +39,31 @@ Product Page
 				</div>
 				<div id = "price">
 					<p>
-						&#163;9.99
+						&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/>
 					</p>
 				</div>
 				<br/><br/><br/>
 				<div id = "description">
 					<p>
-					<h:outputText value ="#{productDescription}" style = "font-weight:normal"/>
+						<h:outputText value ="#{product.description}" style = "font-weight:normal"/>
 					</p>
 				</div>
 				<div id = "quantityTitle">
 					<h3>
-					Quantity 
+						Quantity 
 					</h3>
 				</div> 
 				<div id="myDropdown">
-					<select>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-					</select>
+					<h:selectOneMenu value="#{user.quantity}">
+						<f:selectItem itemValue="1" itemLabel="1" />
+						<f:selectItem itemValue="2" itemLabel="2" />
+						<f:selectItem itemValue="3" itemLabel="3" />
+					</h:selectOneMenu>
 				</div>
+				
 				<div class = "button">
-					<button type="button">Add to Basket</button>
+					<h:commandButton value="#{messages.basketLable}"
+                     action="#{basket.addToBasket}" />
 				</div>
 			</div>
 		</div>
@@ -80,38 +81,46 @@ Product Page
 					<ol>
 						<div class="col-sm-3">
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption">Gandalf Gnome</figcaption>
+								<figcaption class="figure-caption"><h:outputText value ="#{product.name}" style = "font-weight:bold"/></figcaption>
 							</figure>
-							<li><a  href="#Gnomes"> <img src="img/Related1.jpeg" alt="productImage" style="width:110px;height:130px;"/></a></li>
+							<h:link outcome="product.name" >
+								<h:graphicImage value="img/Related1.jpeg" width="110" height="130" />
+							</h:link>
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;3.99</figcaption>
-							</figure>
-						</div>
-						<div class="col-sm-3">
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption">Toilet Gnome</figcaption>
-							</figure>
-							<li><a  href="#Gnomes"><img src="img/ToiletGnome.jpeg" alt="productImage" style="width:110px;height:130px;"/></a></li>
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;99.99</figcaption>
+								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/></figcaption>
 							</figure>
 						</div>
 						<div class="col-sm-3">
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption">Terminator Gnome</figcaption>
+								<figcaption class="figure-caption"><h:outputText value ="#{product.name}" style = "font-weight:bold"/></figcaption>
 							</figure>
-							<li><a  href="#Gnomes"><img src="img/TheGnominator.jpg" alt="productImage" style="width:110px;height:130px;"/></a></li>
+							<h:link outcome="product.name" >
+								<h:graphicImage value="img/ToiletGnome.jpeg"  width="110" height="130" />
+							</h:link>
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;6.99</figcaption>
+								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/></figcaption>
 							</figure>
 						</div>
 						<div class="col-sm-3">
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption">Angry Gnome</figcaption>
+								<figcaption class="figure-caption"><h:outputText value ="#{product.name}" style = "font-weight:bold"/></figcaption>
 							</figure>
-							<li><a  href="#Gnomes"><img src="img/NoChristmasGnome.jpeg" alt="productImage" style="width:110px;height:130px;"/></a></li>
+							<h:link outcome="product.name" >
+								<h:graphicImage value="img/TheGnominator.jpg"  width="110" height="130" />
+							</h:link>
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;19.99</figcaption>
+								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/></figcaption>
+							</figure>
+						</div>
+						<div class="col-sm-3">
+							<figure class="RelatedText">	
+								<figcaption class="figure-caption"><h:outputText value ="#{product.name}" style = "font-weight:bold"/></figcaption>
+							</figure>
+							<h:link outcome="product.name" >
+								<h:graphicImage value="img/NoChristmasGnome.jpeg" width="110" height="130" />
+							</h:link>
+							<figure class="RelatedText">	
+								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/></figcaption>
 							</figure>
 						</div>
 					</ol>
@@ -130,21 +139,23 @@ Product Page
 			<div class="container">
 				<div class = "row text-center">
 					<div id = "radioButtons">
+						<h:selectOneRadio value="#{user.reviewRating}">
 						<div class="col-sm-2">
-							<input type="radio" name="group1" value="excelent"/>Excellent
+							<f:selectItem itemValue="excellent" itemLabel="Excellent" />
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="group1" value="Very Good"/> Very Good
+							<f:selectItem itemValue="veryGood" itemLabel="Very Good" />
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="group1" value="Average"/> Average
+							<f:selectItem itemValue="average" itemLabel="Average" />
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="group1" value="Poor"/> Poor
+							<f:selectItem itemValue="poor" itemLabel="Poor" />
 						</div>
 						<div class="col-sm-4">
-							<input type="radio" name="group1" value="Terrible"/> Terrible
+							<f:selectItem itemValue="terrible" itemLabel="Terrible" />
 						</div>
+						</h:selectOneRadio>
 					</div>
 				</div>
 			</div>
@@ -152,31 +163,30 @@ Product Page
 				<div class ="row text-center">
 					<div class="col-sm-4">
 						<div class="speech-bubble">
-							<p> "An enGNOMEous garden/home ornament for the anyone who is a Throne fanatic. get one to keep those happy smiling gnomes in order or else!!" </p>
+							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
 							<figure class="figure">	
-								<figcaption class="figure-caption">JoeBloggs :)</figcaption>
-								</div>	
-							</figure>
-						</div>
+								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" style = "font-weight:bold"/></figcaption>
+							</figure>	
+						</div>	
+					</div>
 					<div class="col-sm-4">
 						<div class="speech-bubble">
-							<p> "The gnome was lighter than expected but that is not a problem. Excellent product, bought as a gift for my son Josh who will love it" </p>
+							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
 							<figure class="figure">	
-								<figcaption class="figure-caption">Connor Clarkson ;)</figcaption>
-								</div>
+								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" style = "font-weight:bold"/></figcaption>
 							</figure>
 						</div>
+					</div>
 					<div class="col-sm-4">
 						<div class="speech-bubble">
 							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
 							<figure class="figure">	
 								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" style = "font-weight:bold"/> :(</figcaption>
-								</div>
 							</figure>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 </ui:define>
 </ui:composition>
