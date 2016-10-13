@@ -1,10 +1,7 @@
 package gnome;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
-import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Category;
 
 public class CategoryRepositoryOffline implements CategoryRepository {

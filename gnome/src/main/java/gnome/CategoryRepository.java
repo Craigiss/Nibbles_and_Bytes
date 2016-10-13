@@ -1,8 +1,6 @@
 package gnome;
 
-import java.util.List;
-
-import com.nb.gnome.entities.*;
+import com.nb.gnome.entities.Category;
 
 /**
  * Interface for CategoryRepository 

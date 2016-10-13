@@ -1,5 +1,7 @@
 package gnome;
 
+import java.util.List;
+
 import com.nb.gnome.entities.Supplier;
 
 /**
@@ -15,5 +17,7 @@ public interface SupplierRepository {
 	
 	//Read
 	public Supplier findSupplier(Supplier s);
+
+	public List<?> findAll();
 	
 }
