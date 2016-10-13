@@ -84,7 +84,4 @@ public class PurchaseOrderDetails {
 	public void setPurchaseOrder(PurchaseOrder purchaseOrder) {
 		this.purchaseOrder = purchaseOrder;
 	}
-	
-
-
 }

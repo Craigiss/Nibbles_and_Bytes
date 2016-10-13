@@ -3,9 +3,9 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="templates/main.xhtml">
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+	template="templates/imsTemplate.xhtml">
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 		<!-- Tab title defined -->
 		<ui:define name="title">
@@ -19,23 +19,23 @@
 
 		<!-- Breadcrumbs appearing in top right of the page -->
 		<ui:define name="breadcrumbs">
-			<a href="index.xhtml">Home</a> > Purchase Orders
+			<a href="imsIndex.xhtml">Home</a> > Purchase Orders
 		</ui:define>
 
 		<!-- Operations buttons - add/edit/delete -->
 		<ui:define name="addbtn">
 			<!-- Would bring up a form for new supplier -->
-			<h:outputLink value="index.xhtml">
+			<h:outputLink value="imsIndex.xhtml">
 		</ui:define>
 
 		<ui:define name="editbutton">
 			<!-- Would bring up editable supplier details page -->
-			<h:outputLink value="index.xhtml">
+			<h:outputLink value="imsIndex.xhtml">
 		</ui:define>
 
 		<ui:define name="deletebtn">
 			<!-- Would mark supplier as deleted -->
-			<h:outputLink value="index.xhtml">
+			<h:outputLink value="imsIndex.xhtml">
 		</ui:define>
 
 		<!-- Main content of  -->
@@ -73,6 +73,7 @@
 		   		</div>
 		   	</ui:repeat>
 
+
 		   	<h:form>
 			   	<div class="row">
 	   				<div class="col-sm-4 nbbuttonp">
@@ -88,5 +89,7 @@
 		   	</h:form>
 
 		</ui:define>
+
+<!-- Add pagination here -->
 
 </ui:composition>

@@ -64,7 +64,11 @@ public class ProductRepositoryOffline implements ProductRepository {
 		
 	}
 	
-	 
+    public List<Product> findAll(){
+    	List<Product> p = initialData.getProducts();
+    	return p;
+    	
+    }
 	
 	
 

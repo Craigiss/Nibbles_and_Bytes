@@ -18,6 +18,7 @@ public interface ProductRepository {
 	public List<Category> getProductCategories();
 	public Product getProductByID(int id);
 	public int getStockLevel(int id);
+	public List<Product> findAll();
 	
 	//Update
 	public void incrementStock(int id, int quantity);
