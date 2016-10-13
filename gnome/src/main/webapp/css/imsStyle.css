@@ -248,6 +248,28 @@ a:hover {
 	text-decoration: none;
 }
 
+.nbbuttonp{
+	height: 50px;
+	padding: 0px;
+	padding-left: 15px;
+    padding-top: 5px;
+	font-size: 1em;
+	color: black;
+	text-align: center;
+}
+
+.nbbuttonp a{
+	text-decoration: none;
+	color: black;
+	text-align: center;
+}
+
+.nbbuttonp a:visited{
+	text-decoration: none;
+	color: black;
+	text-align: center;
+}
+
 #add{
 	background-color: #00b050;
 }
