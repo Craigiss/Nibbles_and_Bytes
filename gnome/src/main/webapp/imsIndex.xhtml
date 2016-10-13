@@ -20,17 +20,17 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
     <div class="container">
       
       <div class="row">
-          <div class = col-sm-12  id="header">Inventory Management System</div>
+          <div class ="col-sm-12" id="header">Inventory Management System</div>
       </div>
 
       <div class="row" id="search">
-          <div class = col-sm-11 id="searchText">
+          <div class ="col-sm-11" id="searchText">
              <h:form>
               <h:inputText placeholder="Search..." label="Search Bar IMS System" 
                   value="#{search.term}"/>
              </h:form>
           </div>
-          <div class = col-sm-1>
+          <div class ="col-sm-1">
             <h:form>  
               <h:commandLink class="hovering" action="#{search.search()}"> 
                   <h:graphicImage class="glass_back" value="img/glass.png"/>
@@ -44,7 +44,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
         <div class="col-sm-4" id="prod">
             <h:outputLink value="imsProducts.xhtml">Products
               <div>
-                <h:graphicImage id="gnome" value="img/gnome.png">
+                <h:graphicImage id="gnome" value="img/gnome.png"/>
               </div>
             </h:outputLink>  
         </div>
@@ -52,7 +52,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
         <div class="col-sm-4" id="supplier">
             <h:outputLink value="imsSuppliers.xhtml">Suppliers
               <div>
-                <h:graphicImage value="img/supplier.png">
+                <h:graphicImage value="img/supplier.png"/>
               </div>
             </h:outputLink> 
         </div>
@@ -60,7 +60,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
         <div class="col-sm-4" id="po">
             <h:outputLink value="imsPo.xhtml">Purchase Orders
               <div>
-                <h:graphicImage value="img/po.png">
+                <h:graphicImage value="img/po.png"/>
               </div> 
             </h:outputLink> 
         </div>
@@ -70,7 +70,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
         <div class="col-sm-4" id="admin">
             <h:outputLink value="#">Admin
               <div>
-                <h:graphicImage value="img/admin.png">
+                <h:graphicImage value="img/admin.png"/>
               </div>
             </h:outputLink>
         </div>
@@ -78,7 +78,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
         <div class="col-sm-4" id="analy">
             <h:outputLink value="imsAnalytics.xhtml">Analytics
               <div>
-                <h:graphicImage value="img/anal.png">
+                <h:graphicImage value="img/anal.png"/>
               </div>
             </h:outputLink>
         </div>
@@ -86,17 +86,17 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
         <div class="col-sm-4" id="log">
             <h:outputLink value="#">Logout
               <div>
-                <h:graphicImage value="img/log.png">
+                <h:graphicImage value="img/log.png"/>
               </div>
             </h:outputLink>
         </div>
       </div>
 
       <div class="row">
-          <div class = col-sm-12 id="help">
+          <div class ="col-sm-12" id="help">
             <h:outputLink value="imsIndex.xhtml">Help
               <div>
-                <h:graphicImage id="helpImg" value="img/help.png">
+                <h:graphicImage id="helpImg" value="img/help.png"/>
               </div>
             </h:outputLink>
           </div>
