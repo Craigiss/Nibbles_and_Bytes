@@ -58,6 +58,18 @@ public class Review {
 
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public int getProductid() {
+		return Productid;
+	}
+
+	public int getCustomerid() {
+		return Customerid;
+	}
+
 	/**
 	 * 
 	 * @return date
