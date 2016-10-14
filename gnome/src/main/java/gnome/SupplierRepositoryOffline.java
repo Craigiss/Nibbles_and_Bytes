@@ -1,9 +1,11 @@
 package gnome;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Supplier;
 
+@Default
 public class SupplierRepositoryOffline {
 
 	@Inject

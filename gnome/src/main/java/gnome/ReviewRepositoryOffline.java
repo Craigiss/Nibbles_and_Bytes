@@ -2,10 +2,11 @@ package gnome;
 
 import java.util.List;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Review;
-
+@Default
 public class ReviewRepositoryOffline implements ReviewRepository {
 	@Inject
 	private InitialData initialData;
