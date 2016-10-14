@@ -79,5 +79,7 @@ public class ProductController implements Serializable {
 	public void setProduct(Product product){
 		this.product = product; 
 	}
-
+	public String testName(){
+		return "TESTING";
+	}
 }

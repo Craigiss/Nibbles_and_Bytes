@@ -30,43 +30,46 @@ Product Page
 				</div>
 			</div>
 			<div class="col-sm-7">
-				<div id = "productTitle">
-					<h1>
-						<h:outputText value ="#{product.title}" style = "font-weight:bold"/>
-					</h1>
-				</div>
-				<div id = "descriptionTitle">
-					<h2>
-					Description
-					</h2>
-				</div>
-				<div id = "price">
-					<p>
-						&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/>
-					</p>
-				</div>
-				<br/><br/><br/>
-				<div id = "description">
-					<p>
-						<h:outputText value ="#{product.description}" style = "font-weight:normal"/>
-					</p>
-				</div>
-				<div id = "quantityTitle">
-					<h3>
-						Quantity 
-					</h3>
-				</div> 
-				<div id="myDropdown">
-					<h:selectOneMenu value="#{user.quantity}">
-						<f:selectItem itemValue="1" itemLabel="1" />
-						<f:selectItem itemValue="2" itemLabel="2" />
-						<f:selectItem itemValue="3" itemLabel="3" />
-					</h:selectOneMenu>
-				</div>
+				<h:form var = "product" value="#{products.dataModel}">
+					<div id = "productTitle">
+						<h1>
+							<h:outputText action="#{product.view(product.productID)}" value="#{product.productID}" style = "font-weight:bold"/>
+						</h1>
+					</div>
+				</h:form>
+					<div id = "descriptionTitle">
+						<h2>
+						Description
+						</h2>
+					</div>
+					<div id = "price">
+						<p>
+							&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/>
+						</p>
+					</div>
+					<br/><br/><br/>
+					<div id = "description">
+						<p>
+							<h:outputText value ="#{product.description}" style = "font-weight:normal"/>
+						</p>
+					</div>
+					<div id = "quantityTitle">
+						<h3>
+							Quantity 
+						</h3>
+					</div> 
+					<div id="myDropdown">
+						<h:selectOneMenu value="#{user.quantity}">
+							<f:selectItem itemValue="1" itemLabel="1" />
+							<f:selectItem itemValue="2" itemLabel="2" />
+							<f:selectItem itemValue="3" itemLabel="3" />
+						</h:selectOneMenu>
+					</div>
+					
+					<div class = "button">
+						 <h:commandButton value="Basket" type="button" action ="#{basket.addToBasket}"/>
+					</div>
 				
-				<div class = "button">
-					 <h:commandButton value="Basket" type="button" action ="#{basket.addToBasket}"/>
-				</div>
 			</div>
 		</div>
 		<div class = "related">
