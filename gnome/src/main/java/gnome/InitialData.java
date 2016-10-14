@@ -11,7 +11,6 @@ import com.nb.gnome.entities.*;
 
 public class InitialData {
 
-
 	private List<Address> addresses = new ArrayList<Address>();
 	private List<Category> categories = new ArrayList<Category>();
 	private List<Customer> customers = new ArrayList<Customer>();
@@ -26,6 +25,17 @@ public class InitialData {
 	private List<SalesOrder> salesOrders = new ArrayList<SalesOrder>();
 	private List<SalesOrderDetails> salesOrderDetails = new ArrayList<SalesOrderDetails>();
 	private List<Supplier> suppliers = new ArrayList<Supplier>();
+	
+	public InitialData(){
+		Product p1 = new Product();
+		p1.setProductName("Lawn Flamingo");
+		p1.setProductID(001);
+		p1.setDescription("A beautiful pink plastic flamingo to place in your tropical garden");
+		p1.setPrice(15.99);
+		p1.setStockLevel(115);
+		products.add(p1);
+	}
+	
 	
 	/**
 	 * @return the addresses
