@@ -1,0 +1,13 @@
+.panel{
+	margin-top:10%;
+}
+.btn-success{
+	right:0;
+	position: absolute;
+}
+#body{
+	    min-height: 686px !important;
+    height: 100% !important;
+    width: 100%;
+    display: inline-block;
+}
