@@ -1,5 +1,8 @@
 package com.nb.gnome.managers;
 
+import java.util.List;
+
+import com.nb.gnome.entities.SalesOrder;
 import com.nb.gnome.entities.SalesOrderDetails;
 
 /**
@@ -14,6 +17,8 @@ public interface SalesOrderDetailsRepository {
 	public void persistSalesOrderDetails(SalesOrderDetails s);
 	
 	//Read
-	public SalesOrderDetails findSalesOrderDetails(SalesOrderDetails s);
+	public List<SalesOrderDetails> findSalesOrderDetailsByOrder(SalesOrder so);
+	
+	public SalesOrderDetails findSalesOrderDetailsById(long id);
 	
 }
