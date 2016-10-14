@@ -3,8 +3,8 @@
 xmlns ="https://www.w3.org/1999/xhtml"
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:h="http://java.sun.com/jsf/html"
-xmlns:ui="http://java.sun.com/jsf/facelets">
-
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 
 <meta charset="utf-8" />
@@ -14,13 +14,11 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 <title>
 	<ui:insert name="title"/>
 </title>
-<h:outputStylesheet libary="css" name="css/Template.css"/>
+<link href="css/Template.css" rel="stylesheet"/>
+<ui:insert name="css"/>
+<link href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
 
-<h:outputStylesheet libary="css" name="css/bootstraps-3.3.7-dist/bootstrap.css"/>
-<!--<link rel="stylesheet" href="css/Template.css"/>
-<link rel="stylesheet" href="css/homePage.css"/>
-<link rel="stylesheet" href="css/bootstrap.css"/>
--->
+
 </h:head>
 <f:view>
 <body >
@@ -39,9 +37,11 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 				  </button>
 				</div>
 				<div class="form-group">
-					<h:input type="text" class="form-control" 
-					placeholder="Search" value="#{search.navTerm}" 
-					onchange="#{search.navSearch()}" />	  
+				<h:form>
+					<h:inputText type="text" class="form-control" 
+					a:placeholder="Search" value="#{search.navTerm}" 
+					 />	  
+					 </h:form>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<a class="navbar-brand" href="homePage.html">
@@ -49,7 +49,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 						<center>
 						  <h:form class="navbar-form navbar-left searchBar"  >
 							
-							<button type="submit" class="btn btn-default">Submit</button>
+							<h:commandButton type="submit" class="btn btn-default" value="Search" action="#{search.navSearch()}"/>
 						  </h:form>
 						</center>
 					  <ul class="nav navbar-nav navbar-right pull-right">
@@ -144,7 +144,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
 </f:view>
 </html>

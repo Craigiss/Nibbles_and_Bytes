@@ -8,10 +8,13 @@ template="templates/Template.xhtml">
 <ui:define name="title">
 Home Page
 </ui:define>
-<h:outputStylesheet libary="css" name="css/homePage.css"/>
-<ui:define name="maincontent">
+<ui:define name="css">
+	<link href="css/homePage.css" rel="stylesheet"/>
+</ui:define>
 
-<div class="jumbotron">
+<ui:define name="mainContent">
+
+<div class="jumbotron" style="background-image: img/Bannger.png;">
 	<br/>
 	<h1>Spook the snails!</h1>
 	<p class="lead">Check out the Halloween Range Today</p>
@@ -20,7 +23,7 @@ Home Page
 	<div class="col-md-3 col-sm-6">
 		<div id="product">
 			<a href="Product.html">
-			<img src="img/kingofthe7.gif" alt="placeholder" height="100" width="100"/>
+			<img src="img/Kingofthe7.gif" alt="placeholder" height="100" width="100"/>
 			<h4>King of the 7 Gnomedoms</h4>
 			<p>&#163;17.99 </p>
 			<p> ****</p>
