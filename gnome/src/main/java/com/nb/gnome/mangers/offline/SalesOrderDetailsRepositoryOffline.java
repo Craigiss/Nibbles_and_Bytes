@@ -1,9 +1,13 @@
 package com.nb.gnome.mangers.offline;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import com.nb.gnome.entities.SalesOrder;
 import com.nb.gnome.entities.SalesOrderDetails;
 import com.nb.gnome.managers.SalesOrderDetailsRepository;
 
@@ -22,21 +26,26 @@ public class SalesOrderDetailsRepositoryOffline implements SalesOrderDetailsRepo
 	}
 
 	//Read
-	public SalesOrderDetails findSalesOrderDetailsById(int s) {
-		SalesOrderDetails newOne = new SalesOrderDetails();
+	public SalesOrderDetails findSalesOrderDetailsById(long id) {
+		SalesOrderDetails sod = new SalesOrderDetails();
 		for(SalesOrderDetails deets : initialData.getSalesOrdersDetails()){
-			if (deets.getId() == s){
-				newOne = deets;
+			if(deets.getId() == id){
+				sod = deets;
 				break;
 			}
 		}
-		return newOne;
+		return sod;
 	}
 
 	@Override
-	public SalesOrderDetails findSalesOrderDetails(SalesOrderDetails s) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<SalesOrderDetails> findSalesOrderDetailsByOrder(SalesOrder so) {
+		List<SalesOrderDetails> newOne = new ArrayList<SalesOrderDetails>();
+		for(SalesOrderDetails deets : initialData.getSalesOrdersDetails()){
+			if (deets.getFKSalesOrderId() == deets.getFKSalesOrderId()){
+				newOne.add(deets);
+			}
+		}
+		return newOne;
 	}
 	
 }
