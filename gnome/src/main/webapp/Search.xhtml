@@ -8,7 +8,9 @@ template="Template.xhtml">
 <ui:define name="title">
 Search
 </ui:define>
-<h:outputStylesheet libary="css" name="css/search.css"/>
+<ui:define name="css">
+	<link href="css/search.css" rel="stylesheet"/>
+</ui:define>
 <ui:define name="maincontent">
 	<div class="container">
 		<div class="row">
