@@ -78,15 +78,16 @@
 
 		   	
 		   	<h:form>
-			   	<div class="row table">
-	   				<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
-	   					<h:commandLink action="#{products.previous()}" value="Previous #{products.pagination.pageSize}" rendered="#{products.pagination.hasPreviousPage}" />
+
+			   	<div class="row">
+	   				<div class="col-sm-4 col-xs-4 nbbuttonp">
+	   					<h:commandLink action="#{products.previous()}" value="Previous" rendered="#{products.pagination.hasPreviousPage}" />
 	   				</div>
 		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
 		   				<h:outputText value="Showing products #{products.pagination.pageFirstItem + 1} to #{products.pagination.getPageLastItem() + 1} of #{products.pagination.itemsCount}" />
 		   			</div>
-		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
-		   				<h:commandLink action="#{products.next}" rendered="#{products.pagination.hasNextPage}" value="Next #{products.pagination.pageSize}" />
+		   			<div class="col-sm-4 col-xs-4 nbbuttonp">
+		   				<h:commandLink action="#{products.next}" rendered="#{products.pagination.hasNextPage}" value="Next" />
 		   			</div>
 		   		</div>
 		   	</h:form>
