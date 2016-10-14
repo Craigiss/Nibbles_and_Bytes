@@ -3,11 +3,12 @@ package gnome;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.PurchaseOrderDetails;
-
+@Default
 public class PurchaseOrderDetailsRepositoryOffline implements PurchaseOrderDetailsRepository{
 
 	@Inject

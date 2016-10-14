@@ -1,9 +1,10 @@
 package gnome;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Address;
-
+@Default
 public class AddressRepositoryOffline implements AddressRepository{
 	
 	@Inject

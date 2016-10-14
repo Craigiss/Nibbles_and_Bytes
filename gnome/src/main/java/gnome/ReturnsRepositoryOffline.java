@@ -2,8 +2,10 @@ package gnome;
 
 import java.util.List;
 
-import com.nb.gnome.entities.Returns;
+import javax.enterprise.inject.Default;
 
+import com.nb.gnome.entities.Returns;
+@Default
 public class ReturnsRepositoryOffline implements ReturnsRepository{
 
 	@Override

@@ -2,10 +2,11 @@ package gnome;
 
 import java.util.List;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.ISAccount;
-
+@Default
 public class ISAccountRepositoryOffline implements ISAccountRepository{
 	
 	@Inject

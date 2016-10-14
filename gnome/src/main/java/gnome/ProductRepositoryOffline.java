@@ -4,6 +4,8 @@
 package gnome;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Category;
@@ -15,6 +17,7 @@ import com.nb.gnome.entities.Product;
 
  * @author Nibbles and Bytes
  */
+@Default
 public class ProductRepositoryOffline implements ProductRepository {
 	@Inject
 	private InitialData initialData;
