@@ -35,6 +35,14 @@ public class InitialData {
 		p1.setStockLevel(115);
 		products.add(p1);
 		
+		Product p2 = new Product();
+		p2.setProductName("Godzilla gnome");
+		p2.setProductID(002);
+		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
+		p2.setPrice(24.99);
+		p2.setStockLevel(115);
+		products.add(p2);
+		
 		Supplier s1 = new Supplier();
 		s1.setCompany("LawnFlamingosWholesale");
 		s1.setId(001);
@@ -42,6 +50,22 @@ public class InitialData {
 		s1.setPhone("01645839242");
 		s1.setEmail("mynameisaugustineandmyparentslovepoutine@lawnflamingoswholesale.lol");
 		suppliers.add(s1);
+		
+		Supplier s2 = new Supplier();
+		s2.setCompany("LawnFlamingosWholesale");
+		s2.setId(002);
+		s2.setName("Augustine Loris Poutine III");
+		s2.setPhone("01645839242");
+		s2.setEmail("mynameisaugustineandmyparentslovepoutine@lawnflamingoswholesale.lol");
+		suppliers.add(s2);
+		
+		Supplier s3 = new Supplier();
+		s3.setCompany("LawnFlamingosWholesale");
+		s3.setId(003);
+		s3.setName("Augustine Loris Poutine III");
+		s3.setPhone("01645839242");
+		s3.setEmail("mynameisaugustineandmyparentslovepoutine@lawnflamingoswholesale.lol");
+		suppliers.add(s3);
 	}
 	
 	
