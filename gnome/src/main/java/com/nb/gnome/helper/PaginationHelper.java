@@ -25,13 +25,14 @@ public abstract class PaginationHelper{
 		int i = getPageFirstItem() + itemsPerPage - 1;
 		int count = getItemsCount() - 1;
 		if (count > i){
-			i = count;
+			//i = count;
 		}
 		else{
 			i = getItemsCount() - 1;
 		}
-		if (i < 0)
+		if (i < 0){
 			i = 0;
+		}
 		return i;
 	}
 	
