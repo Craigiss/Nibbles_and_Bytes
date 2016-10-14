@@ -36,22 +36,22 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 					<span class="icon-bar"></span>
 				  </button>
 				</div>
-				<div class="form-group">
-				<h:form>
-					<h:inputText type="text" class="form-control" 
-					a:placeholder="Search" value="#{search.navTerm}" 
-					 />	  
-					 </h:form>
-				</div>
+				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<a class="navbar-brand" href="homePage.html">
-					<img src="img/lgo.png" width="250px"/> </a>
-						<center>
-						  <h:form class="navbar-form navbar-left searchBar"  >
-							
+						<img src="img/lgo.png" width="250px"/> 
+					</a>
+					
+				
+						<h:form class="navbar-form navbar-left searchBar"  >
+						<div class="form-group">
+							<h:inputText type="text" class="form-control" 
+							a:placeholder="Search" value="#{search.navTerm}" 
+							 />	   </div>	
 							<h:commandButton type="submit" class="btn btn-default" value="Search" action="#{search.navSearch()}"/>
-						  </h:form>
-						</center>
+						
+						 </h:form>
+					
 					  <ul class="nav navbar-nav navbar-right pull-right">
 						<li id="leftBorder"><a href="homePage.xhtml">Home</a></li>
 						<li id="leftBorder"><a href="loginPage.xhtml">Login</a></li>
