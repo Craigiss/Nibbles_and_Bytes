@@ -34,6 +34,14 @@ public class InitialData {
 		p1.setPrice(15.99);
 		p1.setStockLevel(115);
 		products.add(p1);
+		
+		Supplier s1 = new Supplier();
+		s1.setCompany("LawnFlamingosWholesale");
+		s1.setId(001);
+		s1.setName("Augustine Loris Poutine III");
+		s1.setPhone("01645839242");
+		s1.setEmail("mynameisaugustineandmyparentslovepoutine@lawnflamingoswholesale.lol");
+		suppliers.add(s1);
 	}
 	
 	
