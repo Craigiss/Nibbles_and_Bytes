@@ -1,0 +1,56 @@
+<ui:composition
+xmlns="https://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+template="Template.xhtml">
+<meta charset="utf-8" />
+<ui:define name="title">
+Account Page
+</ui:define>
+<h:outputStylesheet libary="css" name="account.css"/>
+<ui:define name="maincontent">
+
+	<div id="sidebar">
+		<ul class="nav nav-pills nav-stacked">
+		  <li role="presentation" class="active"><a href="#">Account Options</a></li>
+		  <li role="presentation"><a href="#">Orders</a></li>
+		  <li role="presentation"><a href="#">Log Out</a></li>
+		</ul>
+	</div>
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+		<h3 class="panel-title">Account Options</h3>
+	  </div>
+	  <div class="panel-body">
+	  Update Account details
+	  
+		<div class="input-group" style="margin-top:10px">
+			<label for="Name" class="sr-only">Name</label>
+		    <h:inputText id="Name" type="text" class="form-control" value="#{account.Name}"/>
+		</div>
+		<div class="input-group">
+			<label for="Line1" class="sr-only">Address Line 1</label>
+		    <h:inputText id ="Line1" type="text" class="form-control" value="#{account.Line1}"/>
+		</div>
+		<div class="input-group">
+			<label for="Line2" class="sr-only">Address Line 2</label>
+		    <h:inputText id="Line2" type="text" class="form-control" value="#{account.Line2}" />
+		</div>
+		<div class="input-group">
+			<label for="County" class="sr-only">County</label>
+		    <h:inputText id="County" type="text" class="form-control" value="#{account.County}" />
+		</div>
+		<div class="input-group">
+			<label for="postCode" class="sr-only">Post Code</label>
+		    <h:inputText id="postCode" type="text" class="form-control" value="#{account.postCode}" />
+		</div>
+		<div class="btn-group pull-right">
+			<h:commandButton type="button" class="btn btn-success" data-toggle="dropdown"
+			aria-haspopup="true" aria-expanded="false"
+			value="Update" action="#{account.updateDetails}"/>
+		</div>
+	  </div>
+	</div>
+ </ui:define>
+</ui:composition>
