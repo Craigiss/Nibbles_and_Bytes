@@ -5,6 +5,7 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.SalesOrderDetails;
+import com.nb.gnome.managers.SalesOrderDetailsRepository;
 
 import gnome.InitialData;
 @Default
