@@ -1,0 +1,192 @@
+<ui:composition
+xmlns="https://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+template="Template.xhtml">
+<meta charset="utf-8" />
+<ui:define name="title">
+Product Page
+</ui:define>
+<h:outputStylesheet libary="css" name="Product.css"/>
+<ui:define name="maincontent">
+		<div class="container">
+			<div class="col-sm-3">
+				<div id = "productImage">
+					<h:graphicImage value="img/productImage.jpg" width="370" height="370" />
+				</div> 
+			</div>
+			<div class="col-sm-2">
+				<div id = "smallerImages">
+					<h:graphicImage value="img/angle1.jpeg" width="92" height="92" />
+					<br/>
+					<h:graphicImage value="img/angle2.jpeg" width="92" height="92" />
+					<br/>
+					<h:graphicImage value="img/angle3.jpeg" width="92" height="92" />
+					<br/>
+					<span>&#8681;</span>
+				</div>
+			</div>
+			<div class="col-sm-7">
+				<div id = "productTitle">
+					<h1>
+						<h:outputText value ="#{product.title}" style = "font-weight:bold"/>
+					</h1>
+				</div>
+				<div id = "descriptionTitle">
+					<h2>
+					Description
+					</h2>
+				</div>
+				<div id = "price">
+					<p>
+						&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/>
+					</p>
+				</div>
+				<br/><br/><br/>
+				<div id = "description">
+					<p>
+						<h:outputText value ="#{product.description}" style = "font-weight:normal"/>
+					</p>
+				</div>
+				<div id = "quantityTitle">
+					<h3>
+						Quantity 
+					</h3>
+				</div> 
+				<div id="myDropdown">
+					<h:selectOneMenu value="#{user.quantity}">
+						<f:selectItem itemValue="1" itemLabel="1" />
+						<f:selectItem itemValue="2" itemLabel="2" />
+						<f:selectItem itemValue="3" itemLabel="3" />
+					</h:selectOneMenu>
+				</div>
+				
+				<div class = "button">
+					 <h:commandButton value="Basket" type="button" action ="#{basket.addToBasket}"/>
+				</div>
+			</div>
+		</div>
+		<div class = "related">
+		<br/><br/><br/><br/>
+		<div class="container">
+		<div id = "relatedProducts">
+			<h2>
+				Related Products 
+			</h2>
+		</div>
+		
+		<div id = "relatedSet">
+				<div class = "row text-center">
+					<ol>
+						<div class="col-sm-3">
+							<figure class="RelatedText">	
+								<figcaption class="figure-caption"><h:outputText value ="#{product.name}" style = "font-weight:bold"/></figcaption>
+							</figure>
+							<h:link outcome="product.name" >
+								<h:graphicImage value="img/Related1.jpeg" width="110" height="130" />
+							</h:link>
+							<figure class="RelatedText">	
+								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/></figcaption>
+							</figure>
+						</div>
+						<div class="col-sm-3">
+							<figure class="RelatedText">	
+								<figcaption class="figure-caption"><h:outputText value ="#{product.name}" style = "font-weight:bold"/></figcaption>
+							</figure>
+							<h:link outcome="product.name" >
+								<h:graphicImage value="img/ToiletGnome.jpeg"  width="110" height="130" />
+							</h:link>
+							<figure class="RelatedText">	
+								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/></figcaption>
+							</figure>
+						</div>
+						<div class="col-sm-3">
+							<figure class="RelatedText">	
+								<figcaption class="figure-caption"><h:outputText value ="#{product.name}" style = "font-weight:bold"/></figcaption>
+							</figure>
+							<h:link outcome="product.name" >
+								<h:graphicImage value="img/TheGnominator.jpg"  width="110" height="130" />
+							</h:link>
+							<figure class="RelatedText">	
+								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/></figcaption>
+							</figure>
+						</div>
+						<div class="col-sm-3">
+							<figure class="RelatedText">	
+								<figcaption class="figure-caption"><h:outputText value ="#{product.name}" style = "font-weight:bold"/></figcaption>
+							</figure>
+							<h:link outcome="product.name" >
+								<h:graphicImage value="img/NoChristmasGnome.jpeg" width="110" height="130" />
+							</h:link>
+							<figure class="RelatedText">	
+								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/></figcaption>
+							</figure>
+						</div>
+					</ol>
+				</div>
+			</div>
+		</div>
+		</div>
+		<br/><br/><br/>
+		
+		
+		
+		<div id = "reviews">
+			<h2>
+				Reviews
+			</h2>
+			<div class="container">
+				<div class = "row text-center">
+					<div id = "radioButtons">
+						<h:selectOneRadio value="#{user.reviewRating}">
+						<div class="col-sm-2">
+							<f:selectItem itemValue="excellent" itemLabel="Excellent" />
+						</div>
+						<div class="col-sm-2">
+							<f:selectItem itemValue="veryGood" itemLabel="Very Good" />
+						</div>
+						<div class="col-sm-2">
+							<f:selectItem itemValue="average" itemLabel="Average" />
+						</div>
+						<div class="col-sm-2">
+							<f:selectItem itemValue="poor" itemLabel="Poor" />
+						</div>
+						<div class="col-sm-4">
+							<f:selectItem itemValue="terrible" itemLabel="Terrible" />
+						</div>
+						</h:selectOneRadio>
+					</div>
+				</div>
+			</div>
+			<div class="reviewcontainer">
+				<div class ="row text-center">
+					<div class="col-sm-4">
+						<div class="speech-bubble">
+							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
+							<figure class="figure">	
+								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" style = "font-weight:bold"/></figcaption>
+							</figure>	
+						</div>	
+					</div>
+					<div class="col-sm-4">
+						<div class="speech-bubble">
+							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
+							<figure class="figure">	
+								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" style = "font-weight:bold"/></figcaption>
+							</figure>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="speech-bubble">
+							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
+							<figure class="figure">	
+								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" style = "font-weight:bold"/> :(</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</ui:define>
+</ui:composition>
