@@ -5,12 +5,12 @@ import javax.faces.model.DataModel;
 /* Code taken from the lectures for pagination */
 
 public abstract class PaginationHelper{
-	private int pageSize;
+	private int itemsPerPage;
 	private int page;
 	
 	
-	public PaginationHelper(int pageSize){
-		this.pageSize = pageSize;
+	public PaginationHelper(int itemsPerPage){
+		this.itemsPerPage = itemsPerPage;
 		page = 0;
 	}
 	
@@ -18,11 +18,11 @@ public abstract class PaginationHelper{
 	public abstract DataModel createPageDataModel();
 	
 	public int getPageFirstItem(){
-		return page * pageSize + 1;
+		return page * itemsPerPage;
 	}
 	
 	public int getPageLastItem(){
-		int i = getPageFirstItem() + pageSize - 1;
+		int i = getPageFirstItem() + itemsPerPage - 1;
 		int count = getItemsCount() - 1;
 		if (count > i){
 			i = count;
@@ -36,7 +36,7 @@ public abstract class PaginationHelper{
 	}
 	
 	public boolean isHasNextPage(){
-		return (page + 1) * pageSize + 1 <= getItemsCount();
+		return (page + 1) * itemsPerPage + 1 <= getItemsCount();
 	}
 	
 	public boolean isHasPreviousPage(){
@@ -54,10 +54,10 @@ public abstract class PaginationHelper{
 	}
 	
 	public int getPageSize(){
-		return pageSize;
+		return itemsPerPage;
 	}
 	
-	public void setPageSize(int pageSize){
-		this.pageSize = pageSize;
+	public void setPageSize(int itemsPerPage){
+		this.itemsPerPage = itemsPerPage;
 	}
 }
