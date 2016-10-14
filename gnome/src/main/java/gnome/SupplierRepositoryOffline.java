@@ -11,7 +11,7 @@ import com.nb.gnome.entities.Supplier;
 
 @Stateless
 @Default
-public class SupplierRepositoryOffline {
+public class SupplierRepositoryOffline implements SupplierRepository{
 
 	@Inject
 	private InitialData initialData;
@@ -21,17 +21,17 @@ public class SupplierRepositoryOffline {
 		initialData.addSupplier(s);
 	}
 
-	//Read
-	public Supplier findSupplierByCompany(String s) {
-		Supplier newOne = new Supplier();
-		for(Supplier company : initialData.getSuppliers()){
-			if (company.getCompany() == s){
-				newOne = company;
-				break;
-			}
-		}
-		return newOne;
-	}
+//	//Read
+//	public Supplier findSupplierByCompany(String s) {
+//		Supplier newOne = new Supplier();
+//		for(Supplier company : initialData.getSuppliers()){
+//			if (company.getCompany() == s){
+//				newOne = company;
+//				break;
+//			}
+//		}
+//		return newOne;
+//	}
 	
 	public Supplier findSupplierById(long id){
 		return new Supplier();
@@ -40,6 +40,12 @@ public class SupplierRepositoryOffline {
 	public List<Supplier> findAll(){
 		return new ArrayList<Supplier>();
 		
+	}
+
+	@Override
+	public Supplier findSupplier(Supplier s) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
