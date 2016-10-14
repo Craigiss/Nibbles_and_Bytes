@@ -101,6 +101,7 @@ img{
     box-sizing: border-box;
     font-size: 18px;
 	color: white;
+	margin-top: 30px;
 }
 
 #helpImg{
@@ -134,54 +135,6 @@ a:hover {
 .col-sm-4 a:visited, .col-sm-1 a:visited, .col-sm-12 a:visited, .col-sm-3 a:visited  {
 	color: white;
 }
-
-
-
-
-
-@media screen and (max-width: 770px){
-
-	#search{
-		height: 90px;
-	}
-
-	input{
-		text-align: center;
-	}
-
-	.supDetails, .prodDetails{
-	width: 33%;
-	float: left;
-	padding-top: initial;
-	padding-right: initial;
-	margin: initial;
-	font-size: 1.3em;
-    text-align: center;
-	}
-
-	.text{
-	padding-left: 47px;
-	padding-right: 47px;
-	}
-
-
-}
-
-
-@media screen and (max-width: 534px){
-
-	#header{
-		font-size: 32px;
-	}
-
-	.supDetails, .prodDetails{
-	font-size: 1em;
-	}
-
-
-}
-
-
 
 /*end of homepage css*/
 
@@ -308,15 +261,15 @@ a:hover {
 	margin-bottom: 15px;
 }
 
-#table{
+.table{
 	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-bottom: 25px;
 	width: 100%;
 	height: 25px;
 
 }
 
-#table a{
+.table a{
 	color: black;
 }
 
@@ -325,7 +278,7 @@ a:hover {
 	color: black;
 }
 
-.supDetails, .prodDetails{
+.supDetails, .prodDetails, .pageing{
 	color: black;
 	height: 25px;
 	font-size: 18px;
@@ -404,3 +357,51 @@ ul{
 .text:hover{
 	 opacity: 1;
 	}
+
+	
+	
+
+
+@media screen and (max-width: 770px){
+
+	#search{
+		height: 90px;
+	}
+
+	input{
+		text-align: center;
+	}
+
+	.supDetails, .prodDetails, .pageing{
+	width: 33%;
+	float: left;
+	padding-top: initial;
+	padding-right: initial;
+	margin: initial;
+	font-size: 1.3em;
+    text-align: center;
+	}
+
+	.text{
+	padding-left: 47px;
+	padding-right: 47px;
+	}
+}
+
+
+@media screen and (max-width: 534px){
+
+	#header{
+		font-size: 32px;
+	}
+
+	.supDetails, .prodDetails, .pageing{
+	font-size: 1em;
+	}
+	
+	.page{
+	font-size: 0.9em!important;
+	}
+
+
+}

@@ -26,8 +26,10 @@ public class SupplierController implements Serializable{
 	}
 	
 	public PaginationHelper getPagination() {
-		if (pagination == null)	pagination = new PaginationHelper(10){
-		@Override public int getItemsCount() {
+		if (pagination == null)	
+			pagination = new PaginationHelper(10){
+		@Override 
+		public int getItemsCount() {
 			return supplierRepository.findAll().size();
 		}
 	

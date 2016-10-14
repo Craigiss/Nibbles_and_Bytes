@@ -10,6 +10,7 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Category;
+import com.nb.gnome.entities.Customer;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.managers.ProductRepository;
 
@@ -28,11 +29,13 @@ public class ProductRepositoryOffline implements ProductRepository {
 	private InitialData initialData;
 	
 	//Create
+	@Override
 	public void persistProduct(Product p){
 		initialData.addProduct(p);
 	}
 	
 	//Read
+	@Override
 	public List<Product> getProductByKeyword(String keyword){
 		List<Product> p = initialData.getProducts();
 		
@@ -40,23 +43,39 @@ public class ProductRepositoryOffline implements ProductRepository {
 		return(p);
 	}
 	
+	@Override
 	public List<Product> getProductByName(String name){
-		ArrayList<Product> p = new ArrayList<Product>();
-		
-		return(p);
+		Product prod = new Product();
+		ArrayList<Product> prodlist = new ArrayList<Product>();
+		for (Product p: initialData.getProducts()){
+			if (p.getProductName() == name)
+			{
+				prodlist.add(prod);				
+			}
+		}
+		return prodlist;
 	}
 	
+	@Override
 	public List<Category> getProductCategories(){
 		ArrayList<Category> c = new ArrayList<Category>();
 		
 		return(c);
 	}
 	
+	@Override
 	public Product getProductByID(int id){
-		Product p = new Product();
-		return (p);
+		Product prod = new Product();
+		for (Product p: initialData.getProducts()){
+			if (p.getProductID() == id)
+			{
+				prod = p;
+			}
+		}
+		return prod;
 	}
 	
+	@Override
 	public int getStockLevel(int id){
 		int stockLevel = 0;
 		
@@ -64,15 +83,18 @@ public class ProductRepositoryOffline implements ProductRepository {
 	}
 	
 	//Update
+	@Override
 	public void incrementStock(int id, int quantity){
 		
 	}
 	
+	@Override
 	public void decrementStock(int id, int quantity){
 		
 	}
 	
-    public List<Product> findAll(){
+    @Override
+	public List<Product> findAll(){
     	List<Product> p = initialData.getProducts();
     	return p;
     	
