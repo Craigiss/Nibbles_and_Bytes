@@ -10,8 +10,7 @@ import javax.inject.Named;
 
 import com.nb.gnome.entities.SalesOrder;
 import com.nb.gnome.helper.PaginationHelper;
-
-import gnome.SalesOrderRepository;
+import com.nb.gnome.managers.SalesOrderRepository;
 
 @Named ("order")
 @SessionScoped
