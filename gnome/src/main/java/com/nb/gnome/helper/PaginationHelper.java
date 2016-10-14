@@ -11,7 +11,7 @@ public abstract class PaginationHelper{
 	
 	public PaginationHelper(int pageSize){
 		this.pageSize = pageSize;
-		page = 1;
+//		page = 1;
 	}
 	
 	public abstract int getItemsCount();
