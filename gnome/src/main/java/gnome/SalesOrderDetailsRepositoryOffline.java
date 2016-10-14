@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import com.nb.gnome.entities.SalesOrderDetails;
 @Default
 @Stateless
-public class SalesOrderDetailsRepositoryOffline {
+public class SalesOrderDetailsRepositoryOffline implements SalesOrderDetailsRepository {
 
 	@Inject
 	private InitialData initialData;
@@ -27,6 +27,12 @@ public class SalesOrderDetailsRepositoryOffline {
 			}
 		}
 		return newOne;
+	}
+
+	@Override
+	public SalesOrderDetails findSalesOrderDetails(SalesOrderDetails s) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

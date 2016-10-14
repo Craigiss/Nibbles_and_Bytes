@@ -1,5 +1,5 @@
 package gnome;
 
-public class SalesOrderRepository {
+public interface SalesOrderRepository {
 
 }

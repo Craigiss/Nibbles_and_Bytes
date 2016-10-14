@@ -5,6 +5,6 @@ import javax.enterprise.inject.Default;
 
 @Default
 @Stateless
-public class SalesOrderRepositoryOffline {
+public class SalesOrderRepositoryOffline implements SalesOrderRepository  {
 
 }
