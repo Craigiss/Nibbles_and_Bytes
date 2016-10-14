@@ -10,6 +10,7 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Category;
+import com.nb.gnome.entities.Customer;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.managers.ProductRepository;
 
@@ -44,9 +45,15 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	@Override
 	public List<Product> getProductByName(String name){
-		ArrayList<Product> p = new ArrayList<Product>();
-		
-		return(p);
+		Product prod = new Product();
+		ArrayList<Product> prodlist = new ArrayList<Product>();
+		for (Product p: initialData.getProducts()){
+			if (p.getProductName() == name)
+			{
+				prodlist.add(prod);				
+			}
+		}
+		return prodlist;
 	}
 	
 	@Override
@@ -58,8 +65,14 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	@Override
 	public Product getProductByID(int id){
-		Product p = new Product();
-		return (p);
+		Product prod = new Product();
+		for (Product p: initialData.getProducts()){
+			if (p.getProductID() == id)
+			{
+				prod = p;
+			}
+		}
+		return prod;
 	}
 	
 	@Override
