@@ -3,6 +3,7 @@ xmlns="https://www.w3.org/1999/xhtml"
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:h="http://java.sun.com/jsf/html"
 xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 template="templates/Template.xhtml">
 <meta charset="utf-8" />
 <ui:define name="title">
@@ -29,24 +30,22 @@ Account Page
 	  Update Account details
 	  
 		<div class="input-group" style="margin-top:10px">
-			<label for="Name" class="sr-only">Name</label>
-		    <h:inputText id="Name" type="text" class="form-control" value="#{account.Name}"/>
+
+		    <h:inputText id="Name" type="text" placeholder="Name" class="form-control" value="#{account.Name}"/>
 		</div>
 		<div class="input-group">
-			<label for="Line1" class="sr-only">Address Line 1</label>
-		    <h:inputText id ="Line1" type="text" class="form-control" value="#{account.Line1}"/>
+
+		    <h:inputText id ="Line1" type="text" placeholder="Address Line 1" class="form-control" value="#{account.Line1}"/>
 		</div>
 		<div class="input-group">
-			<label for="Line2" class="sr-only">Address Line 2</label>
-		    <h:inputText id="Line2" type="text" class="form-control" value="#{account.Line2}" />
+		    <h:inputText id="Line2" type="text" placeholder="Address Line 2" class="form-control" value="#{account.Line2}" />
 		</div>
 		<div class="input-group">
-			<label for="County" class="sr-only">County</label>
-		    <h:inputText id="County" type="text" class="form-control" value="#{account.County}" />
+
+		    <h:inputText id="County" type="text" placeholder="County" class="form-control" value="#{account.County}" />
 		</div>
 		<div class="input-group">
-			<label for="postCode" class="sr-only">Post Code</label>
-		    <h:inputText id="postCode" type="text" class="form-control" value="#{account.postCode}" />
+		    <h:inputText id="postCode" type="text" placeholder="Postcode" class="form-control" value="#{account.postCode}" />
 		</div>
 		<div class="btn-group pull-right">
 			<h:commandButton type="button" class="btn btn-success" data-toggle="dropdown"
