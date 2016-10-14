@@ -1,13 +1,16 @@
 package gnome;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Supplier;
 
-@Default
 @Stateless
+@Default
 public class SupplierRepositoryOffline {
 
 	@Inject
@@ -28,6 +31,15 @@ public class SupplierRepositoryOffline {
 			}
 		}
 		return newOne;
+	}
+	
+	public Supplier findSupplierById(long id){
+		return new Supplier();
+	}
+	
+	public List<Supplier> findAll(){
+		return new ArrayList<Supplier>();
+		
 	}
 	
 }
