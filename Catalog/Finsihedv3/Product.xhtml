@@ -3,12 +3,14 @@ xmlns="https://www.w3.org/1999/xhtml"
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:h="http://java.sun.com/jsf/html"
 xmlns:ui="http://java.sun.com/jsf/facelets"
-template="Template.xhtml">
+template="templates/Template.xhtml">
 <meta charset="utf-8" />
 <ui:define name="title">
 Product Page
 </ui:define>
-<h:outputStylesheet libary="css" name="Product.css"/>
+<ui:define name="css">
+	<link href="css/Product.css" rel="stylesheet"/>
+</ui:define>
 <ui:define name="maincontent">
 		<div class="container">
 			<div class="col-sm-3">
