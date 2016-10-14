@@ -18,7 +18,7 @@ public abstract class PaginationHelper{
 	public abstract DataModel createPageDataModel();
 	
 	public int getPageFirstItem(){
-		return page * pageSize;
+		return page * pageSize + 1;
 	}
 	
 	public int getPageLastItem(){
@@ -28,7 +28,7 @@ public abstract class PaginationHelper{
 			i = count;
 		}
 		else{
-			i = getItemsCount() - 1 - page*pageSize;
+			i = getItemsCount() - 1;
 		}
 		if (i < 0)
 			i = 0;
