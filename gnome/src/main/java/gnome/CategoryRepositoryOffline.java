@@ -2,12 +2,14 @@ package gnome;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Category;
 @Default
+@Stateless
 public class CategoryRepositoryOffline implements CategoryRepository {
 	@Inject
 	private InitialData initialData;

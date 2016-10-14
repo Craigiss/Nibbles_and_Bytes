@@ -12,8 +12,9 @@ import javax.inject.Inject;
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.PurchaseOrderDetails;
 import com.nb.gnome.entities.Supplier;
-@Stateless
+
 @Default
+@Stateless
 public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 	@Inject
 	private InitialData initialData;

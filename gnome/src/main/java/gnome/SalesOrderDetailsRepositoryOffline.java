@@ -1,10 +1,12 @@
 package gnome;
 
+import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.SalesOrderDetails;
 @Default
+@Stateless
 public class SalesOrderDetailsRepositoryOffline {
 
 	@Inject

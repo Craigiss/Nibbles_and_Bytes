@@ -1,9 +1,11 @@
 package gnome;
 
+import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import com.nb.gnome.entities.Customer;
 @Default
+@Stateless
 public class CustomerRepositoryOffline implements CustomerRepository {
 
 	@Inject
