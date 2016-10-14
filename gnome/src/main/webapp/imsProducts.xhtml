@@ -24,16 +24,21 @@
 
 		<!-- Operations buttons - add/edit/delete -->
 		<ui:define name="addbtn">
+			<a href="imsIndex.xhtml">
 			Add <img src="img/add.png" class="icon opsicon"/>
+			</a>
 		</ui:define>
 
-		<ui:define name="editbutton">
-			
-			
+		<ui:define name="editbtn">
+			<a href="imsIndex.xhtml">
+			Edit <img src="img/edit.png" class="icon opsicon"/>
+			</a>
 		</ui:define>
 
 		<ui:define name="deletebtn">
-			
+			<a href="imsIndex.xhtml">
+			Delete <img src="img/bin.png" class="icon opsicon"/>
+			</a>
 		</ui:define>
 
 		<!-- Main content of  -->
@@ -74,13 +79,13 @@
 		   	
 		   	<h:form>
 			   	<div class="row">
-	   				<div class="col-sm-4 nbbuttonp">
+	   				<div class="col-sm-4 col-xs-4 nbbuttonp">
 	   					<h:commandLink action="#{products.previous}" value="Previous #{products.pagination.pageSize}" rendered="#{products.pagination.hasPreviousPage}" />
 	   				</div>
-		   			<div class="col-sm-4 nbbuttonp">
+		   			<div class="col-sm-4 col-xs-4 nbbuttonp">
 		   				<h:outputText value="#{products.pagination.pageFirstItem + 1} to #{products.pagination.pageLastItem + 1}/#{products.pagination.itemsCount}" />
 		   			</div>
-		   			<div class="col-sm-4 nbbuttonp">
+		   			<div class="col-sm-4 col-xs-4 nbbuttonp">
 		   				<h:commandLink action="#{products.next}" rendered="#{products.pagination.hasNextPage}" value="#Next #{products.pagination.pageSize}" />
 		   			</div>
 		   		</div>

@@ -24,18 +24,21 @@
 
 		<!-- Operations buttons - add/edit/delete -->
 		<ui:define name="addbtn">
-			<!-- Would bring up a form for new supplier -->
-			<h:outputLink value="imsIndex.xhtml">
+			<a href="imsIndex.xhtml">
+			Add <img src="img/add.png" class="icon opsicon"/>
+			</a>
 		</ui:define>
 
-		<ui:define name="editbutton">
-			<!-- Would bring up editable supplier details page -->
-			<h:outputLink value="imsIndex.xhtml">
+		<ui:define name="editbtn">
+			<a href="imsIndex.xhtml">
+			Edit <img src="img/edit.png" class="icon opsicon"/>
+			</a>
 		</ui:define>
-
+		
 		<ui:define name="deletebtn">
-			<!-- Would mark supplier as deleted -->
-			<h:outputLink value="imsIndex.xhtml">
+			<a href="imsIndex.xhtml">
+			Delete <img src="img/bin.png" class="icon opsicon"/>
+			</a>
 		</ui:define>
 
 		<!-- Main content of  -->
@@ -75,13 +78,13 @@
 
 		   	<h:form>
 			   	<div class="row">
-	   				<div class="col-sm-4 nbbuttonp">
+	   				<div class="col-sm-4 col-xs-4 nbbuttonp">
 	   					<h:commandLink action="#{suppliers.previous}" value="Previous #{suppliers.pagination.pageSize}" rendered="#{suppliers.pagination.hasPreviousPage}" />
 	   				</div>
-		   			<div class="col-sm-4 nbbuttonp">
+		   			<div class="col-sm-4 col-xs-4 nbbuttonp">
 		   				<h:outputText value="#{suppliers.pagination.pageFirstItem + 1} to #{suppliers.pagination.pageLastItem + 1}/#{suppliers.pagination.itemsCount}" />
 		   			</div>
-		   			<div class="col-sm-4 nbbuttonp">
+		   			<div class="col-sm-4 col-xs-4 nbbuttonp">
 		   				<h:commandLink action="#{suppliers.next}" rendered="#{suppliers.pagination.hasNextPage}" value="#Next #{suppliers.pagination.pageSize}" />
 		   			</div>
 		   		</div>
