@@ -10,8 +10,7 @@ import javax.inject.Named;
 
 import com.nb.gnome.entities.SalesOrder;
 import com.nb.gnome.helper.PaginationHelper;
-
-import gnome.SalesOrderRepository;
+import com.nb.gnome.managers.SalesOrderRepository;
 
 @Named ("order")
 @SessionScoped
@@ -27,17 +26,18 @@ public class OrderController implements Serializable {
 		dataModel = null; 
 	}
 	
-	public PaginationHelper getPagination(){
-		if (pagination == null) pagination = new PaginationHelper(10){
-			@Override public int getItemsCount(){
-				return salesOrderManager.findAll().size();
-			}
-			
-			@Override public DataModel<SalesOrder>createPageDataModel(){
-				try{ 
-					return new ListDataModel<SalesOrder>(salesOrderManager.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
-				} catch (Exception e){ return new ListDataModel<SalesOrder>(salesOrderManager.findAll().subList(getPageFirstItem(),getItemsCount()));
-			}
-		}
-	}
+//	public PaginationHelper getPagination(){
+//		if (pagination == null) 
+//			pagination = new PaginationHelper(10){
+//			@Override public int getItemsCount(){
+//				return salesOrderManager.findAll().size();
+//			}
+//			
+//			@Override public DataModel<SalesOrder>createPageDataModel(){
+//				try{ 
+//					return new ListDataModel<SalesOrder>(salesOrderManager.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
+//				} catch (Exception e){ return new ListDataModel<SalesOrder>(salesOrderManager.findAll().subList(getPageFirstItem(),getItemsCount()));
+//			}
+//		}
+//	}
 }
