@@ -1,0 +1,48 @@
+<ui:composition
+xmlns="https://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+template="Template.xhtml">
+<meta charset="utf-8" />
+<ui:define name="title">
+Login Page
+</ui:define>
+<ui:define name="maincontent">
+
+<form class="form-signin">
+	<h2 class="form-signin-heading">Please sign in</h2>
+	<label for="inputEmail" class="sr-only">Email address</label>
+	<h:inputText value="#{login.email}"  type="email" id="inputEmail"
+	class="form-control" placeholder="Email address" required="true" autofocus=""
+	requiredMessage="Please Enter Email"/>
+	<label for="inputPassword" class="sr-only">Password</label>
+	<h:inputSecret value="#{login.password}" type="password" id="inputPassword" 
+	class="form-control" placeholder="Password" required="true"
+	requiredMessage="Please Enter Password" />
+	<h:commandButton class="btn btn-lg btn-primary btn-block" 
+	type="submit" action="#{login.login()}" value="Sign In" />
+</form>
+
+<form class="form-signUp">
+	<h2 class="form-signUp-heading">New User</h2>
+	<label for="inputName" class="sr-only">Full Name</label>
+	<h:inputText value="#{signup.name}" type="text" id="inputName"
+	class="form-control" placeholder="Full Name" required="true"
+	requiredMessage="Please Enter Your Name"/>
+	<label for="inputEmail" class="sr-only">Email address</label>
+	<h:inputText  value="#{signup.email}" type="email" id="inputEmail"
+	class="form-control" placeholder="Email address" required="true" autofocus=""
+	requiredMessage="Please Enter Email"/>
+	<label for="inputPassword" class="sr-only">Password</label>
+	<h:inputSecret value="#{signup.password}" type="password" id="inputPassword" 
+	class="form-control" placeholder="Password" required="true"
+	requiredMessage="Please Enter Password" />
+	<label for="inputPassword" class="sr-only">Password</label>
+	<h:inputSecret value="#{signup.passwordConfirm}" type="password" id="inputPassword" 
+	class="form-control" placeholder="Password" required="true"
+	requiredMessage="Please Enter Password"/> 
+	<button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
+ </form>
+</ui:define>
+</ui:composition>
