@@ -9,7 +9,7 @@ import com.nb.gnome.entities.SalesOrderDetails;
 import gnome.InitialData;
 @Default
 @Stateless
-public class SalesOrderDetailsRepositoryOffline {
+public class SalesOrderDetailsRepositoryOffline implements SalesOrderDetailsRepository {
 
 	@Inject
 	private InitialData initialData;
@@ -29,6 +29,12 @@ public class SalesOrderDetailsRepositoryOffline {
 			}
 		}
 		return newOne;
+	}
+
+	@Override
+	public SalesOrderDetails findSalesOrderDetails(SalesOrderDetails s) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
