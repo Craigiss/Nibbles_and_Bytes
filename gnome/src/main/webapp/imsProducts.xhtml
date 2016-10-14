@@ -62,16 +62,16 @@
 		  		<div class="row" id="table">
 					<div class="col-sm-2 prodDetails">
 						<h:form>
-							<h:commandLink action="#{product.view(product.id)}" value="#{product.id}"/>
+							<h:commandLink action="#{product.view(product.productID)}" value="#{product.productID}"/>
 						</h:form>
 					</div>
 			    	<div class="col-sm-8 prodDetails">
 			    		<h:form>
-			      			<h:commandLink action="#{product.view(product.id)}" value="#{product.name}"/>
+			      			<h:commandLink action="#{product.view(product.productID)}" value="#{product.productName}"/>
 			      		</h:form>
 			    	</div>
 			    	<div class="col-sm-2 prodDetails">
-			      		<h:outputText value="#{product.quantity}"/>
+			      		<h:outputText value="#{product.stockLevel}"/>
 			   		</div>
 		   		</div>
 		   	</ui:repeat>
@@ -80,13 +80,13 @@
 		   	<h:form>
 			   	<div class="row">
 	   				<div class="col-sm-4 col-xs-4 nbbuttonp">
-	   					<h:commandLink action="#{products.previous()}" value="Previous #{products.pagination.pageSize}" rendered="#{products.pagination.isHasPreviousPage}" />
+	   					<h:commandLink action="#{products.previous()}" value="Previous #{products.pagination.pageSize}" rendered="#{products.pagination.hasPreviousPage}" />
 	   				</div>
 		   			<div class="col-sm-4 col-xs-4 nbbuttonp">
-		   				<h:outputText value="#{products.pagination.pageFirstItem + 1} to #{products.pagination.getPageLastItem + 1}/#{products.pagination.itemsCount}" />
+		   				<h:outputText value="#{products.pagination.pageFirstItem + 1} to #{products.pagination.getPageLastItem() + 1}/#{products.pagination.itemsCount}" />
 		   			</div>
 		   			<div class="col-sm-4 col-xs-4 nbbuttonp">
-		   				<h:commandLink action="#{products.next}" rendered="#{products.pagination.isHasNextPage}" value="#Next #{products.pagination.pageSize}" />
+		   				<h:commandLink action="#{products.next}" rendered="#{products.pagination.hasNextPage}" value="Next #{products.pagination.pageSize}" />
 		   			</div>
 		   		</div>
 		   	</h:form>
