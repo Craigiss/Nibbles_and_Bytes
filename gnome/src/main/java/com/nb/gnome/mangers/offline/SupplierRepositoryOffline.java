@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import com.nb.gnome.entities.Customer;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.SupplierRepository;
 
@@ -25,26 +26,22 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 		initialData.addSupplier(s);
 	}
 
-//	//Read
-//	public Supplier findSupplierByCompany(String s) {
-//		Supplier newOne = new Supplier();
-//		for(Supplier company : initialData.getSuppliers()){
-//			if (company.getCompany() == s){
-//				newOne = company;
-//				break;
-//			}
-//		}
-//		return newOne;
-//	}
-	
 	@Override
 	public Supplier findSupplierById(long id){
-		return new Supplier();
+		Supplier sup = new Supplier();
+		for (Supplier s : initialData.getSuppliers()){
+			if (s.getId() == id)
+			{
+				sup = s;
+			}
+		}
+		return sup;
 	}
 	
 	@Override
 	public List<Supplier> findAll(){
-		return new ArrayList<Supplier>();
+		List<Supplier> s = initialData.getSuppliers();
+		return s;
 		
 	}
 

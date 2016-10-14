@@ -24,12 +24,12 @@ public class Supplier {
 	@Column (name = "company",	nullable = false, length = 225)
 	@NotNull
 	@Size (min = 2, max = 225)	
-	private static String company;
+	private String company;
 	
 	@Column (name = "name",	nullable = false, length = 225)
 	@NotNull
 	@Size (min = 2, max = 225)
-	private static String name;
+	private String name;
 	
 	@Column (name = "phone", nullable = false, length = 225)
 	@NotNull
@@ -68,7 +68,7 @@ public class Supplier {
 	 * 
 	 * @return company of supplier
 	 **/
-	public static String getCompany() {
+	public String getCompany() {
 		return company;
 	}
 	
@@ -79,7 +79,7 @@ public class Supplier {
 	 * @param company - sets company of supplier
 	 **/
 	public void setCompany(String company) {
-		Supplier.company = company;
+		this.company = company;
 	}
 	
 
@@ -88,7 +88,7 @@ public class Supplier {
 	 * 
 	 * @return name of contact at the supplier
 	 **/
-	public static String getName() {
+	public String getName() {
 		return name;
 	}
 	
@@ -99,7 +99,7 @@ public class Supplier {
 	 * @param name - sets name of contact at the supplier
 	 **/
 	public void setName(String name) {
-		Supplier.name = name;
+		this.name = name;
 	}
 	
 	/**

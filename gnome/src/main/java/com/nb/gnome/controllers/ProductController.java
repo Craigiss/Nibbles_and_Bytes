@@ -34,7 +34,7 @@ public class ProductController implements Serializable {
 				}
 
 				@Override
-				public DataModel<Product> createPageDataModel() {
+				public DataModel<Product>createPageDataModel() {
 					try {
 						return new ListDataModel<Product>(
 								productRepository.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
