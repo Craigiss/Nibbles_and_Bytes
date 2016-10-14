@@ -2,21 +2,20 @@ package com.nb.gnome.controllers;
 
 import java.io.Serializable;
 
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.inject.Named;
 import com.nb.gnome.helper.*;
+import com.nb.gnome.managers.ProductRepository;
 import com.nb.gnome.entities.Product;
-
-import gnome.ProductRepository;
 
 @Named("products")
 @SessionScoped
 public class ProductController implements Serializable {
 	@Inject
-	private ProductRepository prodManager;
+	private ProductRepository productRepository;
 	private Product product;
 	private PaginationHelper pagination;
 	private int selected;
@@ -31,17 +30,17 @@ public class ProductController implements Serializable {
 			pagination = new PaginationHelper(1) {
 				@Override
 				public int getItemsCount() {
-					return prodManager.findAll().size();
+					return productRepository.findAll().size();
 				}
 
 				@Override
 				public DataModel<Product> createPageDataModel() {
 					try {
 						return new ListDataModel<Product>(
-								prodManager.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+								productRepository.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
 						return new ListDataModel<Product>(
-								prodManager.findAll().subList(getPageFirstItem(), getItemsCount()));
+								productRepository.findAll().subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 
@@ -54,21 +53,6 @@ public class ProductController implements Serializable {
 		if (dataModel == null)
 			dataModel = getPagination().createPageDataModel();
 		return dataModel;
-	}
-
-	private void updateCurrentItem() {
-		int count = prodManager.findAll().size();
-		if (selected >= count) {
-			selected = count - 1;
-			if (pagination.getPageFirstItem() >= count)
-				pagination.previousPage();
-		}
-		if (selected >= 0)
-			try {
-				setProduct(prodManager.findAll().subList(selected, selected + 1).get(0));
-			} catch (Exception e) {
-				setProduct(prodManager.findAll().subList(selected, count).get(0));
-			}
 	}
 	
 	public String next(){
@@ -84,7 +68,7 @@ public class ProductController implements Serializable {
 	}
 	
 	public String view (int id){
-		product = prodManager.getProductByID(id);
+		product = productRepository.getProductByID(id);
 		return "product";
 	}
 	

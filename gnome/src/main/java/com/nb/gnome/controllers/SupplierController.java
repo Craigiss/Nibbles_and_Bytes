@@ -3,8 +3,7 @@ package com.nb.gnome.controllers;
 import java.io.Serializable;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.helper.PaginationHelper;
-import gnome.SupplierRepository;
-
+import com.nb.gnome.managers.SupplierRepository;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;

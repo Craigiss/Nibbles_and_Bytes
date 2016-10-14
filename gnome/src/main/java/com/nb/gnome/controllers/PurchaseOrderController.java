@@ -3,8 +3,7 @@ package com.nb.gnome.controllers;
 import java.io.Serializable;
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.helper.PaginationHelper;
-import gnome.PurchaseOrderRepository;
-
+import com.nb.gnome.managers.PurchaseOrderRepository;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;

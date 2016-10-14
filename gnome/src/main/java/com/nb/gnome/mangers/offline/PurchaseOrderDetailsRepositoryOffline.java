@@ -1,4 +1,4 @@
-package gnome;
+package com.nb.gnome.mangers.offline;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,9 @@ import javax.inject.Inject;
 
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.PurchaseOrderDetails;
+import com.nb.gnome.managers.PurchaseOrderDetailsRepository;
+
+import gnome.InitialData;
 @Default
 @Stateless
 public class PurchaseOrderDetailsRepositoryOffline implements PurchaseOrderDetailsRepository{

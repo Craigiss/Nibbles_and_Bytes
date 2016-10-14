@@ -1,4 +1,4 @@
-package gnome;
+package com.nb.gnome.mangers.offline;
 
 import java.util.List;
 
@@ -7,6 +7,9 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Review;
+import com.nb.gnome.managers.ReviewRepository;
+
+import gnome.InitialData;
 @Default
 @Stateless
 public class ReviewRepositoryOffline implements ReviewRepository {

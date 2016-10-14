@@ -1,4 +1,4 @@
-package gnome;
+package com.nb.gnome.mangers.offline;
 
 import java.util.List;
 
@@ -8,6 +8,9 @@ import javax.inject.Inject;
 
 import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Category;
+import com.nb.gnome.managers.CategoryRepository;
+
+import gnome.InitialData;
 @Default
 @Stateless
 public class CategoryRepositoryOffline implements CategoryRepository {

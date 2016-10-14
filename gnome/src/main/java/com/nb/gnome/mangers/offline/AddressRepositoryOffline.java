@@ -1,10 +1,13 @@
-package gnome;
+package com.nb.gnome.mangers.offline;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Address;
+import com.nb.gnome.managers.AddressRepository;
+
+import gnome.InitialData;
 @Default
 @Stateless
 public class AddressRepositoryOffline implements AddressRepository{

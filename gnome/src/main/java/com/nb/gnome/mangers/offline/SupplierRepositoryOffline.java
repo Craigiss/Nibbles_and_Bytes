@@ -1,4 +1,4 @@
-package gnome;
+package com.nb.gnome.mangers.offline;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,9 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Supplier;
+import com.nb.gnome.managers.SupplierRepository;
+
+import gnome.InitialData;
 
 @Stateless
 @Default

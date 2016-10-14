@@ -80,7 +80,7 @@
 		   	<h:form>
 			   	<div class="row">
 	   				<div class="col-sm-4 col-xs-4 nbbuttonp">
-	   					<h:commandLink action="#{products.previous}" value="Previous #{products.pagination.pageSize}" rendered="#{products.pagination.isHasPreviousPage}" />
+	   					<h:commandLink action="#{products.previous()}" value="Previous #{products.pagination.pageSize}" rendered="#{products.pagination.isHasPreviousPage}" />
 	   				</div>
 		   			<div class="col-sm-4 col-xs-4 nbbuttonp">
 		   				<h:outputText value="#{products.pagination.pageFirstItem + 1} to #{products.pagination.getPageLastItem + 1}/#{products.pagination.itemsCount}" />

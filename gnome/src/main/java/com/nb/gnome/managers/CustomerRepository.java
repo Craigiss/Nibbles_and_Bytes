@@ -1,4 +1,4 @@
-package gnome;
+package com.nb.gnome.managers;
 import com.nb.gnome.entities.Customer;
 
 public interface CustomerRepository {

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package gnome;
+package com.nb.gnome.mangers.offline;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +11,9 @@ import javax.inject.Inject;
 
 import com.nb.gnome.entities.Category;
 import com.nb.gnome.entities.Product;
+import com.nb.gnome.managers.ProductRepository;
+
+import gnome.InitialData;
 
 
 /**

@@ -1,4 +1,4 @@
-package gnome;
+package com.nb.gnome.mangers.offline;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 
 import com.nb.gnome.entities.Returns;
+import com.nb.gnome.managers.ReturnsRepository;
 @Default
 @Stateless
 public class ReturnsRepositoryOffline implements ReturnsRepository{
