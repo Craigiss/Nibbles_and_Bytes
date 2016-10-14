@@ -29,19 +29,17 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 	}
 	@Override
 	public PurchaseOrder findPurchaseOrderById(long id) {
+		PurchaseOrder po = new PurchaseOrder();
 		for(PurchaseOrder p : initialData.getPurchaseOrders()){
 			if(p.getId() == id){
-				//list.add(a);
-				return p;
+				po = p;
 			}
 		}
-		return null;
-		
-		
+		return po;	
 }
 	@Override
 	public List<PurchaseOrder> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<PurchaseOrder> po = initialData.getPurchaseOrders();
+		return po;
 	}
 }
