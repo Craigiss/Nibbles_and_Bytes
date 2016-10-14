@@ -1,5 +1,6 @@
 package gnome;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.*;
@@ -74,6 +75,18 @@ public class InitialData {
 		s3.setPhone("01645839242");
 		s3.setEmail("mynameisaugustineandmyparentslovepoutine@lawnflamingoswholesale.lol");
 		suppliers.add(s3);
+		
+		PurchaseOrder po1 = new PurchaseOrder();
+		po1.setId(001);
+		po1.setDate(new Date(2016,05,01));
+		po1.setStatus("Archived");
+		purchaseOrders.add(po1);
+		
+		PurchaseOrder po2 = new PurchaseOrder();
+		po2.setId(002);
+		po2.setDate(new Date(2016,11,22));
+		po2.setStatus("Waiting Payment");
+		purchaseOrders.add(po2);
 	}
 	
 	
