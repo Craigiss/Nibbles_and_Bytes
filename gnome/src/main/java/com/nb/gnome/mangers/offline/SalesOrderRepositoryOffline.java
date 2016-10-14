@@ -17,31 +17,31 @@ import gnome.InitialData;
 public class SalesOrderRepositoryOffline implements SalesOrderRepository  {
 	private InitialData initialData; 
 	
-//	@Override
-//	public void persistSalesOrder(SalesOrder a) {
-//		initialData.addSalesOrder(a);
-//	}
-//	
-//	@Override
-//	public List<SalesOrder> findSalesOrder() {
-//		return initialData.getSalesOrders();
-//
-//	}
-//
-//	@Override
-//	public SalesOrder findSalesOrderById(long id) {
-//		for(SalesOrder p : initialData.getSalesOrders()){
-//			if(p.getId() == id){
-//				return p;
-//			}
-//		}
-//		return null; 
-//	}
-//
-//	@Override
-//	public List<SalesOrder> findAll() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+
+	public void persistSalesOrder(SalesOrder a) {
+		initialData.addSalesOrder(a);
+	}
+	
+
+	public List<SalesOrder> findSalesOrder() {
+		return initialData.getSalesOrders();
+
+	}
+
+
+	public SalesOrder findSalesOrderById(long id) {
+		for(SalesOrder p : initialData.getSalesOrders()){
+			if(p.getId() == id){
+				return p;
+			}
+		}
+		return null; 
+	}
+
+
+	public List<SalesOrder> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

@@ -24,8 +24,12 @@ public abstract class PaginationHelper{
 	public int getPageLastItem(){
 		int i = getPageFirstItem() + pageSize - 1;
 		int count = getItemsCount() - 1;
-		if (count > i)
+		if (count > i){
 			i = count;
+		}
+		else{
+			i = getItemsCount() - 1 - page*pageSize;
+		}
 		if (i < 0)
 			i = 0;
 		return i;

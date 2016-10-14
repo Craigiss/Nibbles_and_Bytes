@@ -43,6 +43,14 @@ public class InitialData {
 		p2.setStockLevel(115);
 		products.add(p2);
 		
+		Product p3 = new Product();
+		p3.setProductName("Timtim the timmy tim gnome");
+		p3.setProductID(003);
+		p3.setDescription("tim loves java and being in the garden");
+		p3.setPrice(24.99);
+		p3.setStockLevel(1015);
+		products.add(p3);
+		
 		Supplier s1 = new Supplier();
 		s1.setCompany("LawnFlamingosWholesale");
 		s1.setId(001);
