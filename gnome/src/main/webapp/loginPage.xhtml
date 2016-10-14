@@ -9,12 +9,12 @@ template="templates/Template.xhtml">
 Login Page
 </ui:define>
 <ui:define name="css">
-	<link href="css/loginPage.css" rel="stylesheet"/>
+	<link href="css/login.css" rel="stylesheet"/>
 </ui:define>
 
 <ui:define name="mainContent">
 
-<form class="form-signin">
+<h:form class="form-signin">
 	<h2 class="form-signin-heading">Please sign in</h2>
 	<label for="inputEmail" class="sr-only">Email address</label>
 	<h:inputText value="#{login.email}"  type="email" id="inputEmail"
@@ -26,7 +26,7 @@ Login Page
 	requiredMessage="Please Enter Password" />
 	<h:commandButton class="btn btn-lg btn-primary btn-block" 
 	type="submit" action="#{login.login()}" value="Sign In" />
-</form>
+</h:form>
 
 <h:form class="form-signUp">
 	<h2 class="form-signUp-heading">New User</h2>
@@ -42,8 +42,8 @@ Login Page
 	<h:inputSecret value="#{signup.password}" type="password" id="inputPassword" 
 	class="form-control" placeholder="Password" required="true"
 	requiredMessage="Please Enter Password" />
-	<label for="inputPassword" class="sr-only">Password</label>
-	<h:inputSecret value="#{signup.passwordConfirm}" type="password" id="inputPassword" 
+	<label for="inputPassword1" class="sr-only">Password</label>
+	<h:inputSecret value="#{signup.passwordConfirm}" type="password" id="inputPassword1" 
 	class="form-control" placeholder="Password" required="true"
 	requiredMessage="Please Enter Password"/> 
 	<h:commandButton class="btn btn-lg btn-primary btn-block" type="submit" value="Create Account" action="#{login.newUser}"/>

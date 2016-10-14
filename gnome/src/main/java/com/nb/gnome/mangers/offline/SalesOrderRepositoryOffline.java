@@ -28,7 +28,7 @@ public class SalesOrderRepositoryOffline implements SalesOrderRepository  {
 
 	}
 
-	
+
 	public SalesOrder findSalesOrderById(long id) {
 		for(SalesOrder p : initialData.getSalesOrders()){
 			if(p.getId() == id){
@@ -38,7 +38,7 @@ public class SalesOrderRepositoryOffline implements SalesOrderRepository  {
 		return null; 
 	}
 
-	
+
 	public List<SalesOrder> findAll() {
 		// TODO Auto-generated method stub
 		return null;
