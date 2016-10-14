@@ -28,11 +28,13 @@ public class ProductRepositoryOffline implements ProductRepository {
 	private InitialData initialData;
 	
 	//Create
+	@Override
 	public void persistProduct(Product p){
 		initialData.addProduct(p);
 	}
 	
 	//Read
+	@Override
 	public List<Product> getProductByKeyword(String keyword){
 		List<Product> p = initialData.getProducts();
 		
@@ -40,23 +42,27 @@ public class ProductRepositoryOffline implements ProductRepository {
 		return(p);
 	}
 	
+	@Override
 	public List<Product> getProductByName(String name){
 		ArrayList<Product> p = new ArrayList<Product>();
 		
 		return(p);
 	}
 	
+	@Override
 	public List<Category> getProductCategories(){
 		ArrayList<Category> c = new ArrayList<Category>();
 		
 		return(c);
 	}
 	
+	@Override
 	public Product getProductByID(int id){
 		Product p = new Product();
 		return (p);
 	}
 	
+	@Override
 	public int getStockLevel(int id){
 		int stockLevel = 0;
 		
@@ -64,15 +70,18 @@ public class ProductRepositoryOffline implements ProductRepository {
 	}
 	
 	//Update
+	@Override
 	public void incrementStock(int id, int quantity){
 		
 	}
 	
+	@Override
 	public void decrementStock(int id, int quantity){
 		
 	}
 	
-    public List<Product> findAll(){
+    @Override
+	public List<Product> findAll(){
     	List<Product> p = initialData.getProducts();
     	return p;
     	

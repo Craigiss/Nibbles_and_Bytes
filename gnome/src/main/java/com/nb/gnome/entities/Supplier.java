@@ -79,7 +79,7 @@ public class Supplier {
 	 * @param company - sets company of supplier
 	 **/
 	public void setCompany(String company) {
-		this.company = company;
+		Supplier.company = company;
 	}
 	
 
@@ -99,7 +99,7 @@ public class Supplier {
 	 * @param name - sets name of contact at the supplier
 	 **/
 	public void setName(String name) {
-		this.name = name;
+		Supplier.name = name;
 	}
 	
 	/**

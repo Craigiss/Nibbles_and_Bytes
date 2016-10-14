@@ -20,6 +20,7 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 	private InitialData initialData;
 
 	//Create
+	@Override
 	public void persistSupplier(Supplier s){
 		initialData.addSupplier(s);
 	}
@@ -36,10 +37,12 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 //		return newOne;
 //	}
 	
+	@Override
 	public Supplier findSupplierById(long id){
 		return new Supplier();
 	}
 	
+	@Override
 	public List<Supplier> findAll(){
 		return new ArrayList<Supplier>();
 		
