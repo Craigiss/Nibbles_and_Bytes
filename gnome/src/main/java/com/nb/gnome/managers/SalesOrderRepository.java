@@ -2,6 +2,7 @@ package com.nb.gnome.managers;
 
 import java.util.List;
 
+import com.nb.gnome.entities.Customer;
 import com.nb.gnome.entities.SalesOrder;
 
 public interface SalesOrderRepository {
@@ -10,7 +11,7 @@ public interface SalesOrderRepository {
 
 	SalesOrder findSalesOrderById(long id);
 
-	List<SalesOrder> findSalesOrder();
+	List<SalesOrder> findSalesOrderByCustomer(Customer c);
 
 	void persistSalesOrder(SalesOrder a);
 
