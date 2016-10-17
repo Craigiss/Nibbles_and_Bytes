@@ -1,6 +1,8 @@
 package com.nb.gnome.controllers;
 
 import java.io.Serializable;
+import java.util.List;
+
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.helper.PaginationHelper;
 import com.nb.gnome.managers.PurchaseOrderRepository;
@@ -62,9 +64,22 @@ public class PurchaseOrderController implements Serializable{
 		return "imsPo";
 	}
 	
-	public PurchaseOrder view(long id) {
+	/**
+	 * Find Purchase Order by ID
+	 * @param id
+	 * @return
+	 */
+	public PurchaseOrder findPurchaseOrderById(long id) {
 		purchaseOrder = purchaseOrderService.findPurchaseOrderById(id);
 		return purchaseOrder;
+	}
+	
+	/**
+	 * Retrieve all purchase orders on the system
+	 * @return
+	 */
+	public List<PurchaseOrder> findAll(){
+		return purchaseOrderService.findAll();
 	}
 	
 	public PurchaseOrder getPurchaseOrder() {

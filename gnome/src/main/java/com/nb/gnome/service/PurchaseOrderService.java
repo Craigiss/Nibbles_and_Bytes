@@ -1,5 +1,7 @@
 package com.nb.gnome.service;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -31,5 +33,13 @@ public class PurchaseOrderService {
 		return findPurchaseOrderById(Long.parseLong(id));
 	}
 	
+	/**
+	 * Calls method within purchaseOrderManager to return all Purchase Orders
+	 * @return
+	 */
+	public List<PurchaseOrder> findAll(){
+		return purchaseOrderManager.findAll();
+	}
+
 	
 }

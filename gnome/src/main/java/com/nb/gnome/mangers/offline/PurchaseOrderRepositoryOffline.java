@@ -25,8 +25,6 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 	}
 	@Override
 	public List<PurchaseOrder> findPurchaseOrder() {
-		
-		
 		return initialData.getPurchaseOrders();
 	}
 	
