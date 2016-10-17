@@ -44,16 +44,15 @@ public class ProductRepositoryOffline implements ProductRepository {
 	}
 	
 	@Override
-	public List<Product> getProductByName(String name){
+	public Product getProductByName(String name){
 		Product prod = new Product();
-		ArrayList<Product> prodlist = new ArrayList<Product>();
 		for (Product p: initialData.getProducts()){
 			if (p.getProductName() == name)
 			{
-				prodlist.add(prod);				
+				prod = p;				
 			}
 		}
-		return prodlist;
+		return prod;
 	}
 	
 	@Override
@@ -138,6 +137,12 @@ public class ProductRepositoryOffline implements ProductRepository {
     	return p;
     	
     }
+
+	@Override
+	public List<Category> getProductCategories() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 	
