@@ -42,7 +42,7 @@ public class InitialData {
 		p2.setProductID("002");
 		p2.setImgPath("img/Laundry.gif");
 		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
-		p2.setPrice(24.99);
+		p2.setPrice(2.99);
 		p2.setStockLevel(115);
 		products.add(p2);
 		
@@ -51,9 +51,9 @@ public class InitialData {
 		p3.setProductID("003");
 		p3.setImgPath("img/GnomeTrek.gif");
 		p3.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
-		p3.setPrice(24.99);
+		p3.setPrice(4.99);
 		p3.setStockLevel(115);
-		products.add(p2);
+		products.add(p3);
 		
 		Product p4 = new Product();
 		p4.setProductName("Minimushrooms");
@@ -62,40 +62,44 @@ public class InitialData {
 		p4.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p4.setPrice(24.99);
 		p4.setStockLevel(115);
-		products.add(p2);
+		products.add(p4);
 		
 		
 		
 		Product p5 = new Product();
-		p3.setProductName("Mr and Mrs");
-		p3.setProductID("005");
-		p3.setDescription("when these gnomes are rockin', don't come-a-knockin'!!!");
-		p3.setPrice(7.99);
-		p3.setStockLevel(8008135);
+		p5.setProductName("Mr and Mrs");
+		p5.setProductID("005");
+		p5.setImgPath("img/MrandMrs.gif");
+		p5.setDescription("when these gnomes are rockin', don't come-a-knockin'!!!");
+		p5.setPrice(7.99);
+		p5.setStockLevel(8008135);
 		products.add(p5);
 		
 		Product p6 = new Product();
-		p3.setProductName("Christmas Boots");
-		p3.setProductID("006");
-		p3.setDescription("a snazzy pair of sneaks for the Christmas gimp");
-		p3.setPrice(4.99);
-		p3.setStockLevel(8008135);
+		p6.setProductName("Christmas Boots");
+		p6.setProductID("006");
+		p6.setImgPath("img/Boots.gif");
+		p6.setDescription("a snazzy pair of sneaks for the Christmas gimp");
+		p6.setPrice(4.99);
+		p6.setStockLevel(8008135);
 		products.add(p6);
 		
 		Product p7 = new Product();
-		p3.setProductName("Lawn Flamingo");
-		p3.setProductID("007");
-		p3.setDescription("a dainty pair of Tim's favourite lawn ornaments");
-		p3.setPrice(14.99);
-		p3.setStockLevel(8008135);
+		p7.setProductName("Lawn Flamingo");
+		p7.setProductID("007");
+		p7.setImgPath("img/Flamingo.gif");
+		p7.setDescription("a dainty pair of Tim's favourite lawn ornaments");
+		p7.setPrice(14.99);
+		p7.setStockLevel(8008135);
 		products.add(p7);
 		
 		Product p8 = new Product();
-		p3.setProductName("Benny");
-		p3.setProductID("008");
-		p3.setDescription("the worst gnome in existence; the dumpy little guy from gnomeo and juliet");
-		p3.setPrice(8.99);
-		p3.setStockLevel(8008135);
+		p8.setProductName("Benny");
+		p8.setProductID("008");
+		p8.setImgPath("img/Benny.gif");
+		p8.setDescription("the worst gnome in existence; the dumpy little guy from gnomeo and juliet");
+		p8.setPrice(8.99);
+		p8.setStockLevel(8008135);
 		products.add(p8);
 		
 		Supplier s1 = new Supplier();
