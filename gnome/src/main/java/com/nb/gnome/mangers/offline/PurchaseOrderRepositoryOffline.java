@@ -48,12 +48,12 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 	
 	@Override
 	public List<PurchaseOrder> findPurchaseOrderBySupplier(Supplier s) {
-		List<PurchaseOrder> po = new ArrayList<PurchaseOrder>();
-		for(PurchaseOrder p : initialData.getPurchaseOrders()){
-			if(p.getSupplierid() == s.getId()){
-				po.add(p);
-			}
-		}
-		return po;	
+//		List<PurchaseOrder> po = new ArrayList<PurchaseOrder>();
+//		for(PurchaseOrder p : initialData.getPurchaseOrders()){
+//			if(p.getSupplierid() == s.getId()){
+//				po.add(p);
+//			}
+//		}
+		return null;	
 	}
 }
