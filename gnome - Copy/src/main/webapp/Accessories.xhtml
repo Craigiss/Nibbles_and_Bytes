@@ -1,0 +1,147 @@
+<ui:composition
+xmlns="https://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+template="templates/Template.xhtml">
+	<meta charset="utf-8" />
+	<ui:define name="title">
+NB Gardens | Gnome Accessories
+	</ui:define>
+	<ui:define name="css">
+	<link href="css/accessories.css" rel="stylesheet"/>
+</ui:define>
+
+	
+	<ui:define name="mainContent">
+
+
+
+						<div id="banner">
+
+							<h:graphicImage value="img\banner.jpg" height="124px" />
+						</div>
+
+						<div class="container">
+							<div class="row pageNav">
+								<div class="col-sm-12">										
+									<table style="width:100%">
+										<tr>
+											<th>
+												<div style="text-align:left" >
+													<h:commandLink action="#{products.previous}" value="Previous #{products.pagination.pageSize}" rendered="#{products.pagination.hasPreviousPage}" />
+												</div>
+											</th>
+											<th>
+												<div style="text-align:left">
+													Page 1 of 1 
+												</div>
+											</th> 
+											<th>
+												<div style="text-align:right">
+													<h:commandLink action="#{products.next}" rendered="#{products.pagination.hasNextPage}" value="#Next #{products.pagination.pageSize}" />
+												</div>
+											</th>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row"  >
+								<div class="col-sm-2" align="center">
+
+									<div class="sidebar">
+										<h1>Gnome</h1>
+										<h2>Section</h2>
+										<h3>Themed</h3>
+										<h3>Seasonal</h3>
+										<h3>Classic</h3>
+										<h3>Specialist</h3>
+										<h2>Related Areas</h2>
+										<h3>Gnome Accessories</h3>
+										<h3>Gnome Care</h3>
+									</div>
+								</div>
+
+								<div class="col-sm-10" style="margin-top:15px">
+									<div class="container-fluid">
+										<div class="row text-center">
+										<h:form>
+										<h:outputText escape="false" value="No Products Found" rendered="#{products.dataModel.rowCount== 0}" />
+											<h:panelGroup rendered="#{products.dataModel.rowCount> 0}">
+											<div>
+											
+											<ui:repeat var="product" value="#{products.dataModel}">
+											<div class="col-sm-3 picture">
+												<figure class="figureStyle">
+													<h:graphicImage value="#{product.image}" height="200px"/>
+													<figcaption>
+														<p>
+															<h:link value="The Product Name" outcome="The_Product_Link.html" />
+															<br/>
+															<h:outputText value ="#{review.a}" style = "font-weight:normal"/>
+															<br/>
+															<h:outputText value ="#{product.price}" style = "font-weight:normal"/>
+														</p>
+													</figcaption>
+												</figure>
+											</div>
+											</ui:repeat>
+											
+											</div>
+											</h:panelGroup>
+											
+										</h:form>
+										</div>
+
+
+									</div>
+
+
+
+
+
+
+								</div>
+							</div>
+
+							<div class="row pageNav">
+								<div class="col-sm-12">										
+									<table style="width:100%">
+										<tr>
+											<th>
+												<div style="text-align:left" >
+													<h:commandLink action="#{products.previous}" value="Previous #{products.pagination.pageSize}" rendered="#{products.pagination.hasPreviousPage}" />
+												</div>
+											</th>
+											<th>
+												<div style="text-align:left">
+													Page 1 of 1 
+												</div>
+											</th> 
+											<th>
+												<div style="text-align:right">
+													<h:commandLink action="#{products.next}" rendered="#{products.pagination.hasNextPage}" value="#Next #{products.pagination.pageSize}" />
+												</div>
+											</th>
+										</tr>
+									</table>
+								</div>
+							</div>
+
+
+
+
+
+						</div>
+	
+
+
+
+
+
+
+
+
+
+</ui:define>
+</ui:composition>

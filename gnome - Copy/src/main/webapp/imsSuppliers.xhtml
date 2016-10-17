@@ -1,0 +1,94 @@
+<ui:composition
+	xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="templates/imsTemplate.xhtml">
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+		<!-- Tab title defined -->
+		<ui:define name="title">
+			Suppliers - IMS
+		</ui:define>
+
+		<!-- Title appearing in top left of the page -->
+		<ui:define name="pagetitle">
+			Suppliers
+		</ui:define>
+
+		<!-- Breadcrumbs appearing in top right of the page -->
+		<ui:define name="breadcrumbs">
+			<a href="imsIndex.xhtml">Home</a> > Suppliers
+		</ui:define>
+
+		<!-- Operations buttons - add/edit/delete -->
+		<ui:define name="addbtn">
+			<a href="imsIndex.xhtml">
+			Add <img src="img/add.png" class="icon opsicon"/>
+			</a>
+		</ui:define>
+
+		<ui:define name="editbtn">
+			<a href="imsIndex.xhtml">
+			Edit <img src="img/edit.png" class="icon opsicon"/>
+			</a>
+		</ui:define>
+		
+		<ui:define name="deletebtn">
+			<a href="imsIndex.xhtml">
+			Delete <img src="img/bin.png" class="icon opsicon"/>
+			</a>
+		</ui:define>
+
+		<!-- Main content of  -->
+		<ui:define name="maincontent">
+
+			<!-- Grid for suppliers -->
+		  	<div class="row" id="table">
+		  		<div class="col-sm-4 heading supDetails">
+		  			Supplier Name
+		  		</div>
+		   		<div class="col-sm-4 heading supDetails">
+	     			Supplier Number
+	    		</div>
+	    		<div class="col-sm-4 heading supDetails">
+		      		Contact Person
+		   		</div>
+		  	</div>
+
+		  	<!-- Generation of suppliers into grid -->
+		  	<ui:repeat var="supplier" value="#{suppliers.dataModel}">
+		  		<div class="row" id="table">
+					<div class="col-sm-4 supDetails">
+						<h:form>
+							<h:commandLink action="#{supplier.view(supplier.id)}" value="#{supplier.company}"/>
+						</h:form>
+					</div>
+			    	<div class="col-sm-4 supDetails">
+			    		<h:form>
+			      			<h:commandLink action="#{supplier.view(supplier.id)}" value="#{supplier.phone}"/>
+			      		</h:form>
+			    	</div>
+			    	<div class="col-sm-4 supDetails">
+			      		<h:outputText value="#{supplier.name}"/>
+			   		</div>
+		   		</div>
+		   	</ui:repeat>
+
+		   	<h:form>   		
+		   			<div class="row">
+	   				<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+	   					<h:commandLink action="#{suppliers.previous()}" value="Previous" rendered="#{suppliers.pagination.hasPreviousPage}" />
+	   				</div>
+		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+		   				<h:outputText value="Showing suppliers #{suppliers.pagination.pageFirstItem + 1} to #{suppliers.pagination.getPageLastItem() + 1} of #{suppliers.pagination.itemsCount}" />
+		   			</div>
+		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+		   				<h:commandLink action="#{suppliers.next}" rendered="#{suppliers.pagination.hasNextPage}" value="Next" />
+		   			</div>
+		   		</div>
+		   	</h:form>
+		</ui:define>
+
+</ui:composition>

@@ -1,0 +1,83 @@
+<ui:composition
+	xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="templates/imsTemplateDetails.xhtml">
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<ui:define name="title">
+			Product details - IMS
+	</ui:define>
+
+	<!-- Title appearing in top left of the page -->
+	<ui:define name="pagetitle">
+			Products
+	</ui:define>
+
+	<!-- Breadcrumbs appearing in top right of the page -->
+	<ui:define name="breadcrumbs">
+			<a href="imsIndex.xhtml">Home</a> > <a href="imsProducts.xhtml">Products</a> > Product Deets
+	</ui:define>
+
+
+<!-- Content goes here -->
+<ui:define name="maincontent">
+	<div class = "row">
+		<div class="col-sm-12">
+			<p class="detail_headers"> Product Information </p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-5">
+			<h:graphicImage name="product image" value="#{product.image}"/>		
+		</div>
+		<div class="col-sm-7 text">
+			<h:outputText value="#{product.description}"/>
+		</div>
+	</div>
+	<div class = "row">
+		<div class = "col-sm-12">
+			<p class="detail_headers"> Supplier Details </p>
+		</div>
+	</div>
+	<div class = "row">
+		<div class = "col-sm-12 text">
+			<h:outputText value="#{supplier.name}"/>
+			<br/>
+		 	<h:outputText value="#{supplier.description}"/>
+		</div>
+	</div>
+	<div class = "row">
+		<div class="col-sm-6 buttonOfJoy col-xs-6">
+			<p id="email_text">email</p>
+		</div>
+		<div class="col-sm-2 buttonOfJoy col-xs-2">
+		    <h:form>	
+            	<h:commandLink class="hovering" action="#{product.email()}"> 
+              		<h:graphicImage class="sys" value="img/email.png"/>
+           		</h:commandLink>
+            </h:form>
+		</div>
+		<div class="col-sm-2 buttonOfJoy col-xs-2">
+			<p id="print_text">print</p>
+		</div>
+		<div class="col-sm-2 buttonOfJoy col-xs-2">
+			<h:form>	
+            	<h:commandLink class="hovering" action="#{product.print()}"> 
+              		<h:graphicImage class="sys" value="img/print.png"/>
+           		</h:commandLink>
+        	</h:form>
+		</div>
+	</div>
+	<div class = "row">
+		<div class = "col-sm-12">
+			<p class="detail_headers"> Analytics</p>
+		</div>
+	</div>
+		<ul>
+		<li><h:graphicImage id="graph" value="img/graph.png"/></li>
+	</ul>
+	</ui:define>
+</ui:composition>
