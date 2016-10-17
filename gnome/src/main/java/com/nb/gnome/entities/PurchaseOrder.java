@@ -40,6 +40,34 @@ public class PurchaseOrder {
 	@JoinColumn(name = "FKSupplierid", nullable = false)
 	private int Supplierid;
 	
+	/**
+	 * @return the supplierid
+	 */
+	public int getSupplierid() {
+		return Supplierid;
+	}
+
+	/**
+	 * @param supplierid the supplierid to set
+	 */
+	public void setSupplierid(int supplierid) {
+		Supplierid = supplierid;
+	}
+
+	/**
+	 * @return the addresses
+	 */
+	public List<PurchaseOrderDetails> getAddresses() {
+		return addresses;
+	}
+
+	/**
+	 * @param addresses the addresses to set
+	 */
+	public void setAddresses(List<PurchaseOrderDetails> addresses) {
+		this.addresses = addresses;
+	}
+
 	@OneToMany(targetEntity=PurchaseOrderDetails.class)
 	private List<PurchaseOrderDetails> addresses;
 	
