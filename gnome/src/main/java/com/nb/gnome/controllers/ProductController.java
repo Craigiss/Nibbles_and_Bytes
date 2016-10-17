@@ -28,7 +28,7 @@ public class ProductController implements Serializable {
 
 	public PaginationHelper getPagination() {
 		if (pagination == null)
-			pagination = new PaginationHelper(2) {
+			pagination = new PaginationHelper(8) {
 				@Override
 				public int getItemsCount() {
 					return productRepository.findAll().size();

@@ -22,115 +22,23 @@ Home Page
 
 <!-- Generation of products into grid -->
 <div id = "productRow" class="row">
-		  	<ui:repeat var="product" value="#{products.dataModel}">
-				<div class="col-md-3 col-sm-6">
-					<div id="product">
-						
-						
-						<h:form>
-						
-						<h:commandLink action="#{products.view(product.productID)}"  >
-							
-								<h:graphicImage value="img/Kingofthe7.gif" alt="placeholder" height="100" width="100"/>
-							<h4>
-								<h:outputText value="#{product.productName}" style = "font-weight:bold"/>
-							</h4>
+  	<ui:repeat var="product" value="#{products.dataModel}">
+		<div class="col-md-3 col-sm-6">
+			<div id="product">					
+				<h:form>			
+				<h:commandLink action="#{products.view(product.productID)}"  >
+					
+						<h:graphicImage value="#{product.imgPath}" alt="placeholder" height="100" width="100"/>
+					<h4>
+						<h:outputText value="#{product.productName}" style = "font-weight:bold"/>
+					</h4>
+						<h:outputText value="&#163;#{product.price}" style = "font-weight:bold"/>
+				</h:commandLink>
+				</h:form>
 
-								<h:outputText value="&#163;#{product.price}" style = "font-weight:bold"/>
-
-						</h:commandLink>
-						</h:form>
-
-					</div>
-				</div>
-		   	</ui:repeat>
-
-<!-- 
-<div id = "productRow" class="row">
-	<div class="col-md-3 col-sm-6">
-		<div id="product">
-			<a href="Product.xhtml">
-			<img src="img/Kingofthe7.gif" alt="placeholder" height="100" width="100"/>
-			<h4>King of the 7 Gnomedoms</h4>
-			<p>&#163;17.99 </p>
-			<p> ****</p>
-			</a>
+			</div>
 		</div>
-	</div>
-	<div class="col-md-3 col-sm-6">
-		<div id="product">
-			<a href="#">
-			<img src="img/Laundry.gif" alt="placeholder" height="100" width="100"/>
-			<h4>The Laundry Line</h4>
-			<p>&#163;2.99 </p>
-			<p> **</p>
-			</a>
-		</div>
-	</div>
-	<div class="col-md-3 col-sm-6">
-		<div id="product">
-			<a href="#">
-			<img src="img/GnomeTrek.gif" alt="placeholder" height="100" width="100"/>
-			<h4>Gnome Trek Set</h4>
-			<p>&#163;24.99 </p>
-			<p> ***</p>
-			</a>
-		</div>
-	</div>
-
-	<div class="col-md-3 col-sm-6">
-		<div id="product">
-			<a href="#">
-			<img src="img/mushrooms.gif" alt="placeholder" height="100" width="100"/>
-			<h4>Mini-mushrooms</h4>
-			<p>&#163;4.99 </p>
-			<p> ****</p>
-			</a>
-		</div>
-	</div>
-	</div>
-	<div id = "productRow" class="row">
-	<div class="col-md-3 col-sm-6">
-		<div id="product">
-			<a href="#">
-			<img src="img/MrandMrs.gif" alt="placeholder" height="100" width="100"/>
-			<h4>Mr and Mrs</h4>
-			<p>&#163;7.99 </p>
-			<p> ***</p>
-			</a>
-		</div>
-	</div>
-	<div class="col-md-3 col-sm-6">
-		<div id="product">
-			<a href="#">
-			<img src="img/Boots.gif" alt="placeholder" height="100" width="100"/>
-			<h4>Christmas Boots</h4>
-			<p>&#163;4.99 </p>
-			<p> **</p>
-			</a>
-		</div>
-	</div>
-
-	<div class="col-md-3 col-sm-6">
-		<div id="product">
-			<a href="#">
-			<img src="img/Flamingo.gif" alt="placeholder" height="100" width="100"/>
-			<h4>Lawn Flamingo</h4>
-			<p>&#163;14.99 </p>
-			<p> ****</p>
-			</a>
-		</div>
-	</div>
-	<div class="col-md-3 col-sm-6">
-		<div id="product">
-			<a href="#">
-			<img src="img/Benny.gif" alt="placeholder" height="100" width="100"/>
-			<h4>Benny</h4>
-			<p>&#163;8.99 </p>
-			<p> ****</p>
-			</a>
-		</div>
-	</div> -->
+   	</ui:repeat>
 </div>
 </ui:define>
 </ui:composition>

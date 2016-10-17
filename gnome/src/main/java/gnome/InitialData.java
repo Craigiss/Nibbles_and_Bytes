@@ -29,28 +29,47 @@ public class InitialData {
 	
 	public InitialData(){
 		Product p1 = new Product();
-		p1.setProductName("Lawn Flamingo");
-		p1.setProductID(001);
-		p1.setDescription("A beautiful pink plastic flamingo to place in your tropical garden");
-		p1.setPrice(15.99);
+		p1.setProductName("King of the 7 Gnomedoms");
+		p1.setProductID("001");
+		p1.setImgPath("img/GameofGnomes.jpg");
+		p1.setDescription("Every now and again a piece of wordplay comes along that's so sumptuous, so irresistible that it would be a travesty to not bring it to life (Robocup anyone?). We present to you... Game of Gnomes. The original may have been forged from a thousand swords in the fiery exhalation of a dragon named 'Balerion the Black Dread', but this slightly diminutive version is appropriately made up of an assortment of rusty gardening tools.");
+		p1.setPrice(17.99);
 		p1.setStockLevel(115);
 		products.add(p1);
 		
 		Product p2 = new Product();
-		p2.setProductName("Godzilla gnome");
-		p2.setProductID(002);
+		p2.setProductName("The Laundry Line");
+		p2.setProductID("002");
+		p2.setImgPath("img/Laundry.gif");
 		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p2.setPrice(24.99);
 		p2.setStockLevel(115);
 		products.add(p2);
 		
 		Product p3 = new Product();
-		p3.setProductName("Timtim the timmy tim gnome");
-		p3.setProductID(003);
-		p3.setDescription("tim loves java and being in the garden");
+		p3.setProductName("Gnome Trek Set");
+		p3.setProductID("003");
+		p3.setImgPath("img/GnomeTrek.gif");
+		p3.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p3.setPrice(24.99);
-		p3.setStockLevel(1015);
-		products.add(p3);
+		p3.setStockLevel(115);
+		products.add(p2);
+		
+		Product p4 = new Product();
+		p4.setProductName("Minimushrooms");
+		p4.setProductID("004");
+		p4.setImgPath("img/mushrooms.gif");
+		p4.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
+		p4.setPrice(24.99);
+		p4.setStockLevel(115);
+		products.add(p2);
+		
+		
+		
+		
+		
+		
+		
 		
 		Supplier s1 = new Supplier();
 		s1.setCompany("LawnFlamingosWholesale");
