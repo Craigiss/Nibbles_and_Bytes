@@ -69,7 +69,7 @@ public class ProductController implements Serializable {
 		return "browse";
 	}
 	
-	public String view (int id){
+	public String view (String id){
 		System.out.println(">>>> selected ID: " + id);
 		product.setProduct(productRepository.getProductByID(id));
 

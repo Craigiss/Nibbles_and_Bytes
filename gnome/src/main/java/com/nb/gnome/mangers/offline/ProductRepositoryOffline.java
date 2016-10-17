@@ -80,7 +80,7 @@ public class ProductRepositoryOffline implements ProductRepository {
 	}
 	
 	@Override
-	public Product getProductByID(int id){
+	public Product getProductByID(String id){
 		Product prod = new Product();
 		for (Product p: initialData.getProducts()){
 			if (p.getProductID() == id)
@@ -92,7 +92,7 @@ public class ProductRepositoryOffline implements ProductRepository {
 	}
 	
 	@Override
-	public int getStockLevel(int id){
+	public int getStockLevel(String id){
 		int stockLevel=-1;
 		Product prod = new Product();
 		for (Product p: initialData.getProducts()){
@@ -107,7 +107,7 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	//Update
 	@Override
-	public void incrementStock(int id, int quantity){
+	public void incrementStock(String id, int quantity){
 		for (Product p: initialData.getProducts()){
 			if (p.getProductID() == id)
 			{
@@ -120,7 +120,7 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	
 	@Override
-	public void decrementStock(int id, int quantity){
+	public void decrementStock(String id, int quantity){
 		for (Product p: initialData.getProducts()){
 			if (p.getProductID() == id)
 			{

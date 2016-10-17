@@ -15,12 +15,12 @@ template="templates/Template.xhtml">
 		<div class="container">
 			<div class="col-sm-3">
 				<div id = "productImage">
-					<h:graphicImage value="img/GameofGnomes.jpg" width="370" height="370" />
+					<h:graphicImage value="#{selected.product.imgPath}" width="300" height="300" />
 				</div> 
 			</div>
 			<div class="col-sm-2">
 				<div id = "smallerImages">
-					<h:graphicImage value="img/angle1.jpeg" width="92" height="92" />
+					<h:graphicImage value="img/angle2.jpeg" width="92" height="92" />
 					<br/>
 					<h:graphicImage value="img/angle2.jpeg" width="92" height="92" />
 					<br/>
@@ -82,58 +82,20 @@ template="templates/Template.xhtml">
 		</div>
 		
 		<div id = "relatedSet">
-				<div class = "row text-center">
-					<ol>
-						<div class="col-sm-3">
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
-							</figure>
-							<li><h:link outcome="product.name" >
-								<h:graphicImage value="img/Related1.jpeg" width="110" height="130" />
-							</h:link></li>
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
-							</figure>
-						</div>
-						<div class="col-sm-3">
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
-							</figure>
-							<li>
-							<h:link outcome="product.name" >
-								<h:graphicImage value="img/ToiletGnome.jpeg"  width="110" height="130" />
-							</h:link>
-							</li>
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
-							</figure>
-						</div>
-						<div class="col-sm-3">
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
-							</figure>
-							<li><h:link outcome="product.name" >
-								<h:graphicImage value="img/TheGnominator.jpg"  width="110" height="130" />
-							</h:link>
-							</li>
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
-							</figure>
-						</div>
-						<div class="col-sm-3">
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
-							</figure>
-							<li>
-							<h:link outcome="product.name" >
-								<h:graphicImage value="img/NoChristmasGnome.jpeg" width="110" height="130" />
-							</h:link>
-							</li>
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
-							</figure>
-						</div>
-					</ol>
+			<div class = "row text-center">
+				<ui:repeat var="product" value="#{products.dataModel}">
+					<div class="col-sm-3">
+						<figure class="RelatedText">	
+							<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
+						</figure>
+						<li><h:link outcome="product.name" >
+							<h:graphicImage value="img/Related1.jpeg" width="110" height="130" />
+						</h:link></li>
+						<figure class="RelatedText">	
+							<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
+						</figure>
+					</div>
+   				</ui:repeat>
 				</div>
 			</div>
 		</div>

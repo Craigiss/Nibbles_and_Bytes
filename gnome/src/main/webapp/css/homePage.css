@@ -19,8 +19,14 @@
 	background-image: url("../img/productBackground.png");
 	margin-left: 20%;
     margin-right: 15%;
+
 	text-decoration:none;
 	clear:both;
+	
+}
+#productCol{
+	padding-bottom:50px;
+	    max-height: 180px;	
 	
 }
 #product a:hover, a:visited, a:link, a:active
