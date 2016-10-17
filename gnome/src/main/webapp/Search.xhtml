@@ -14,7 +14,7 @@ Search
 
 
 <ui:define name="mainContent">
-	<div class="container">
+
 		
 			<h:form>
 				<!-- search page results -->
@@ -22,39 +22,38 @@ Search
 				value="No Products Found"
 				rendered="#{products.dataModel.rowCount == 0}"
 				/>
-				<h:panelGroup rendered="#{products.dataModel.rowCount > 0}" >
-					<h:outputText 
-					value="#{products.pagination.pageFirstItem + 1} 
-					#{products.pagination.pageLastItem + 1} #{products.pagination.itemsCount}"
-					/>
+				<h:panelGroup rendered="#{searchProducts.dataModel.rowCount > 0}" >
+				
+				<h4 >SEARCH TERM</h4>
 				<div class="row">
 					<!-- page navigation at top of page -->
 					<div class="col-xs-4">
 						<h:commandLink
-						action="#{products.previous}"
-						value="Previous page #{products.pagination.pageSize}"
-						rendered="#{products.pagination.hasPreviousPage}"
+						action="#{searchProducts.previous()}"
+						value="Previous page #{searchProducts.pagination.pageSize}"
+						rendered="#{searchProducts.pagination.hasPreviousPage}"
 						/>
 					</div>
 					<div class="col-xs-4">
 						<h:outputText 
-						value="#{products.pagination.pageFirstItem + 1} 
-						to #{products.pagination.pageLastItem + 1} #{supplier.pagination.itemsCount}"
+						value="#{searchProducts.pagination.pageFirstItem + 1} 
+						to #{searchProducts.pagination.pageLastItem + 1} #{supplier.pagination.itemsCount}"
 						/>
 					</div>
 					<div class="col-xs-4">
 						<h:commandLink
-						action="#{products.next}"
-						rendered="#{products.pagination.hasNextPage}"
-						value="Next #{products.pagination.pageSize}"
+						action="#{searchProducts.next()}"
+						rendered="#{searchProducts.pagination.hasNextPage}"
+						value="Next #{searchProducts.pagination.pageSize}"
 						/>
 					</div>
 				</div>
 				<div class="row">
 					<!-- product grid-->
 						<ui:repeat var="product"
-						value="#{products.dataModel}">
+						value="#{searchProducts.dataModel}">
 							<div class="col-sm-3">
+							<h:commandLink action="#{searchProducts.view(product.productID)}"  >
 								<h:graphicImage 
 								
 								value="#{product.imgPath}"
@@ -64,6 +63,7 @@ Search
 								value="#{product.productName}"/></p>
 								<p><h:outputText
 								value="#{product.price}"/></p>
+								</h:commandLink>
 							</div>
 						</ui:repeat>
 
@@ -73,27 +73,26 @@ Search
 					<!-- page navigation at bottom of page -->
 					<div class="col-xs-4">
 						<h:commandLink
-						action="#{products.previous}"
-						value="Previous page #{products.pagination.pageSize}"
-						rendered="#{products.pagination.hasPreviousPage}"
+						action="#{searchProducts.previous()}"
+						value="Previous page #{searchProducts.pagination.pageSize}"
+						rendered="#{searchProducts.pagination.hasPreviousPage}"
 						/>
 					</div>
 					<div class="col-xs-4">
 						<h:outputText 
-						value="#{products.pagination.pageFirstItem + 1} 
-						to #{products.pagination.pageLastItem + 1}  #{supplier.pagination.itemsCount}"
+						value="#{searchProducts.pagination.pageFirstItem + 1} 
+						to #{searchProducts.pagination.pageLastItem + 1}  #{supplier.pagination.itemsCount}"
 						/>
 					</div>
 					<div class="col-xs-4">
 						<h:commandLink
-						action="#{products.next}"
-						rendered="#{products.pagination.hasNextPage}"
-						value="Next #{products.pagination.pageSize}"
+						action="#{searchProducts.next()}"
+						rendered="#{searchProducts.pagination.hasNextPage}"
+						value="Next #{searchProducts.pagination.pageSize}"
 						/>
 					</div>
 				</div>
 				</h:panelGroup>
 			</h:form>
-		</div>
 </ui:define>
 </ui:composition>

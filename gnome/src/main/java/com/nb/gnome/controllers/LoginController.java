@@ -1,13 +1,16 @@
 package com.nb.gnome.controllers;
 
 
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.nb.gnome.service.LoginService;
+import java.io.Serializable;
 
 @Named("login")
-public class LoginController {
+@SessionScoped
+public class LoginController implements Serializable {
 	@Inject
 	LoginService loginService;
 	
@@ -28,7 +31,7 @@ public class LoginController {
 			password = "";
 			return "loginPage";
 		}
-		return("homepage");
+		return("homePage");
 	}
 
 	/**

@@ -16,7 +16,7 @@ public class LoginService {
 		if (customer == null){
 			return false;
 		}
-		if(customer.getPassword() == pass){
+		if(customer.getPassword().matches(pass)){
 			return true; 
 		}
 		

@@ -59,7 +59,7 @@ template="templates/Template.xhtml">
 						</h3>
 					</div> 
 					<div id="myDropdown">
-						<h:selectOneMenu value="#{user.quantity}">
+						<h:selectOneMenu >
 							<f:selectItem itemValue="1" itemLabel="1" />
 							<f:selectItem itemValue="2" itemLabel="2" />
 							<f:selectItem itemValue="3" itemLabel="3" />
@@ -84,16 +84,14 @@ template="templates/Template.xhtml">
 		<div id = "relatedSet">
 			<div class = "row text-center">
 				<ui:repeat var="product" value="#{products.dataModel}">
-					<div class="col-sm-3">
-						<figure class="RelatedText">	
-							<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
-						</figure>
-						<li><h:link outcome="product.name" >
-							<h:graphicImage value="img/Related1.jpeg" width="110" height="130" />
-						</h:link></li>
-						<figure class="RelatedText">	
-							<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
-						</figure>
+					<div class="col-sm-3">						
+						<h:form>			
+							<h:commandLink action="#{products.view(product.productID)}"  >						
+								<h:graphicImage value="#{product.imgPath}" alt="placeholder" height="100" width="100"/>		
+								<h:outputText class="figure-caption" value="#{product.productName}"/>
+								<h:outputText class="figure-caption" value="&#163;#{product.price}" />
+							</h:commandLink>
+						</h:form>
 					</div>
    				</ui:repeat>
 				</div>
@@ -111,7 +109,7 @@ template="templates/Template.xhtml">
 			<div class="container">
 				<div class = "row text-center">
 					<div id = "radioButtons">
-						<h:selectOneRadio value="#{user.reviewRating}">
+						<h:selectOneRadio >
 						<div class="col-sm-2">
 							<f:selectItem itemValue="excellent" itemLabel="Excellent" />
 						</div>
@@ -135,7 +133,7 @@ template="templates/Template.xhtml">
 				<div class ="row text-center">
 					<div class="col-sm-4">
 						<div class="speech-bubble">
-							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
+							<p> <h:outputText  style = "font-weight:normal"/> </p>
 							<figure class="figure">	
 								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" /></figcaption>
 							</figure>	

@@ -64,8 +64,6 @@ public class InitialData {
 		p4.setStockLevel(115);
 		products.add(p4);
 		
-		
-		
 		Product p5 = new Product();
 		p5.setProductName("Mr and Mrs");
 		p5.setProductID("005");
@@ -101,6 +99,96 @@ public class InitialData {
 		p8.setPrice(8.99);
 		p8.setStockLevel(8008135);
 		products.add(p8);
+		
+		
+		
+		
+		
+		Product p11 = new Product();
+		p11.setProductName("King of the 7 Gnomedoms");
+		p11.setProductID("001");
+		p11.setImgPath("img/GameofGnomes.jpg");
+		p11.setDescription("Every now and again a piece of wordplay comes along that's so sumptuous, so irresistible that it would be a travesty to not bring it to life (Robocup anyone?). We present to you... Game of Gnomes. The original may have been forged from a thousand swords in the fiery exhalation of a dragon named 'Balerion the Black Dread', but this slightly diminutive version is appropriately made up of an assortment of rusty gardening tools.");
+		p11.setPrice(17.99);
+		p11.setStockLevel(115);
+		products.add(p11);
+		
+		Product p12 = new Product();
+		p12.setProductName("The Laundry Line");
+		p12.setProductID("002");
+		p12.setImgPath("img/Laundry.gif");
+		p12.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
+		p12.setPrice(2.99);
+		p12.setStockLevel(115);
+		products.add(p12);
+		
+		Product p13 = new Product();
+		p13.setProductName("Gnome Trek Set");
+		p13.setProductID("003");
+		p13.setImgPath("img/GnomeTrek.gif");
+		p13.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
+		p13.setPrice(4.99);
+		p13.setStockLevel(115);
+		products.add(p13);
+		
+		Product p14 = new Product();
+		p14.setProductName("Minimushrooms");
+		p14.setProductID("004");
+		p14.setImgPath("img/mushrooms.gif");
+		p14.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
+		p14.setPrice(24.99);
+		p14.setStockLevel(115);
+		products.add(p14);
+		
+		Product p15 = new Product();
+		p15.setProductName("Mr and Mrs");
+		p15.setProductID("005");
+		p15.setImgPath("img/MrandMrs.gif");
+		p15.setDescription("when these gnomes are rockin', don't come-a-knockin'!!!");
+		p15.setPrice(7.99);
+		p15.setStockLevel(8008135);
+		products.add(p15);
+		
+		Product p16 = new Product();
+		p16.setProductName("Christmas Boots");
+		p16.setProductID("006");
+		p16.setImgPath("img/Boots.gif");
+		p16.setDescription("a snazzy pair of sneaks for the Christmas gimp");
+		p16.setPrice(4.99);
+		p16.setStockLevel(8008135);
+		products.add(p16);
+		
+		Product p17 = new Product();
+		p17.setProductName("Lawn Flamingo");
+		p17.setProductID("007");
+		p17.setImgPath("img/Flamingo.gif");
+		p17.setDescription("a dainty pair of Tim's favourite lawn ornaments");
+		p17.setPrice(14.99);
+		p17.setStockLevel(8008135);
+		products.add(p17);
+		
+		Product p18 = new Product();
+		p18.setProductName("Benny");
+		p18.setProductID("008");
+		p18.setImgPath("img/Benny.gif");
+		p18.setDescription("the worst gnome in existence; the dumpy little guy from gnomeo and juliet");
+		p18.setPrice(8.99);
+		p18.setStockLevel(8008135);
+		products.add(p18);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		Supplier s1 = new Supplier();
 		s1.setCompany("LawnFlamingosWholesale");

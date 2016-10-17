@@ -28,6 +28,7 @@ public class ProductController implements Serializable {
 
 	public PaginationHelper getPagination() {
 		if (pagination == null)
+		
 			pagination = new PaginationHelper(8) {
 				@Override
 				public int getItemsCount() {
