@@ -139,9 +139,11 @@ public class ProductRepositoryOffline implements ProductRepository {
     }
 
 	@Override
-	public List<Category> getProductCategories() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Category> getProductCategories(Product prodprod) {
+		List<Category> cat = new ArrayList<Category>();
+		cat = prodprod.getCategories();	
+		
+		return cat;
 	}
 
 
