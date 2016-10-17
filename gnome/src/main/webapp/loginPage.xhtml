@@ -33,6 +33,14 @@ Login Page
 	<h:inputText value="#{signup.name}" type="text" id="inputName"
 	class="form-control" a:placeholder="Full Name" required="true"
 	requiredMessage="Please Enter Your Name"/>
+	
+	<h:inputText  value="#{signup.addressLine1}" type="text" id="inputAddrLine1"
+	class="form-control" a:placeholder="Address Line 1" required="true" autofocus=""
+	requiredMessage="Please Enter address line 1 including house number"/>
+	
+		<h:inputText  value="#{signup.postcode}" type="text" id="postcode"
+	class="form-control" a:placeholder="Postcode" required="true" autofocus=""
+	requiredMessage="Please Enter your postcode"/>
 
 	<h:inputText  value="#{signup.email}" type="email" id="inputEmail"
 	class="form-control" a:placeholder="Email address" required="true" autofocus=""
@@ -44,6 +52,9 @@ Login Page
 	<h:inputSecret value="#{signup.passwordConfirm}" type="password" id="inputPassword1" 
 	class="form-control" a:placeholder="Re-Enter Password" required="true"
 	requiredMessage="Please Enter Password"/> 
+	
+	
+	
 	<h:commandButton class="btn btn-lg btn-primary btn-block" type="submit" value="Create Account" action="#{login.newUser}"/>
  </h:form>
 </ui:define>
