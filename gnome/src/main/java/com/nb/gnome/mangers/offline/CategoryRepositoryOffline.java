@@ -16,7 +16,6 @@ public class CategoryRepositoryOffline implements CategoryRepository {
 	
 	@Override
 	public void persistCategory(Category c) {
-		// TODO Auto-generated method stub
 		initialData.addCategory(c);
 	}
 

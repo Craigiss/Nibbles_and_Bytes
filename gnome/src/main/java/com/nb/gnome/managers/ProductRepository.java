@@ -14,14 +14,18 @@ public interface ProductRepository {
 	
 	//Read
 	public List<Product> getProductByKeyword(String keyword);
+
 	public Product getProductByName(String name);
 	public List<Category> getProductCategories();
+
 	public Product getProductByID(int id);
 	public int getStockLevel(int id);
 	public List<Product> findAll();
 	
 	//Update
 	public void incrementStock(int id, int quantity);
-	public void decrementStock(int id, int quantity); 
+	public void decrementStock(int id, int quantity);
+
+	List<Product> getProductByCategory(String category); 
 	
 }

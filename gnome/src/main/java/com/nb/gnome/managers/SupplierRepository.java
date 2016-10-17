@@ -16,7 +16,7 @@ public interface SupplierRepository {
 	public void persistSupplier(Supplier s);
 	
 	//Read
-	public Supplier findSupplier(Supplier s);
+	public List<Supplier> findSupplierByCompany(String company);
 	
 	//Read by id (partially copied from James's code)
 	public Supplier findSupplierById(long id);

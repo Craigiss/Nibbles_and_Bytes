@@ -19,11 +19,11 @@ public class SalesOrderDetails {
 	@Id
 	@Column  (name = "Id")
 	@GeneratedValue ( strategy = GenerationType.IDENTITY)
-	private int id;	
+	private long id;	
 
 	@OneToMany
 	@Column  (name = "FKproductId", nullable = false)
-	private int FKproductId;
+	private long FKproductId;
 	
 	@Column (name = "quantity",	nullable = false, length = 225)
 	@NotNull
@@ -32,7 +32,7 @@ public class SalesOrderDetails {
 	
 	@OneToMany
 	@Column  (name = "FKsalesOrderId", nullable = false)
-	private int FKsalesOrderId;
+	private long FKsalesOrderId;
 	
 	/* Getters and Setters */
 	
@@ -41,7 +41,7 @@ public class SalesOrderDetails {
 	 * 
 	 * @return id of sales order details
 	 **/
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	
@@ -59,7 +59,7 @@ public class SalesOrderDetails {
 	 * 
 	 * @return id of product
 	 **/
-	public int getFKProductId() {
+	public long getFKProductId() {
 		return FKproductId;
 	}
 	
@@ -95,7 +95,7 @@ public class SalesOrderDetails {
 	 * 
 	 * @return id of sales order
 	 **/
-	public int getFKSalesOrderId() {
+	public long getFKSalesOrderId() {
 		return FKsalesOrderId;
 	}
 	
@@ -104,7 +104,7 @@ public class SalesOrderDetails {
 	 * 
 	 * @param FKsalesOrderId - sets id of the order id
 	 **/
-	public void setFKSalesOrderId(int FKsalesOrderId) {
+	public void setFKSalesOrderId(long FKsalesOrderId) {
 		this.FKsalesOrderId = FKsalesOrderId;
 	}
 	

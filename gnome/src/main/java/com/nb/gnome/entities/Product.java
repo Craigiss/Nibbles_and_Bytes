@@ -116,7 +116,12 @@ public class Product {
 	public void setSupplierID(int supplierID) {
 		this.supplierID = supplierID;
 	}
-	
+	/**
+	 * @return the categories
+	 */
+	public List<Category> getCategories() {
+		return categories;
+	}
 	
 
 }

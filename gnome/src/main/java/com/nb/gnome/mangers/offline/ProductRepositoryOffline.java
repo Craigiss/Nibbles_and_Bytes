@@ -36,11 +36,11 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	//Read
 	@Override
-	public List<Product> getProductByKeyword(String keyword){
-		List<Product> p = initialData.getProducts();
+	public List<Product> getProductByKeyword(String keyword){ // To sort out
+//  How would this be possible?
 		
 		
-		return(p);
+		return null; // ben's favourite
 	}
 	
 	@Override
@@ -56,10 +56,27 @@ public class ProductRepositoryOffline implements ProductRepository {
 	}
 	
 	@Override
-	public List<Category> getProductCategories(){
-		ArrayList<Category> c = new ArrayList<Category>();
+	public List<Product> getProductByCategory(String category){ // To sort out
+//		List<Product> prod = new ArrayList<Product>();
+//		for (Product p: initialData.getProducts()){
+//			List<Category> categories = new ArrayList<Category>();
+//			categories.add((Category) p.getCategories());			
+//			for (Category c : categories){
+//				if (c.getName() == category){
+//					prod.add
+//				}
+//			}
+//			
+//			
+//			
+//			if (p.getCategories() == category)
+//			{
+//				prod = p;
+//			}
+//		}
+//		stockLevel=prod.getStockLevel();		
 		
-		return(c);
+		return null; //ben's favourite
 	}
 	
 	@Override
@@ -76,30 +93,57 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	@Override
 	public int getStockLevel(int id){
-		int stockLevel = 0;
-		
-		return(stockLevel);
+		int stockLevel=-1;
+		Product prod = new Product();
+		for (Product p: initialData.getProducts()){
+			if (p.getProductID() == id)
+			{
+				prod = p;
+			}
+		}
+		stockLevel=prod.getStockLevel();
+		return stockLevel;
 	}
 	
 	//Update
 	@Override
 	public void incrementStock(int id, int quantity){
+		for (Product p: initialData.getProducts()){
+			if (p.getProductID() == id)
+			{
+				p.setStockLevel(p.getStockLevel()+quantity);
+			}
+		}
 		
 	}
+		
+	
 	
 	@Override
 	public void decrementStock(int id, int quantity){
+		for (Product p: initialData.getProducts()){
+			if (p.getProductID() == id)
+			{
+				p.setStockLevel(p.getStockLevel()-quantity);
+			}
+		}
 		
 	}
 	
     @Override
 	public List<Product> findAll(){
     	List<Product> p = initialData.getProducts();
+    	
     	return p;
     	
     }
-	
-	
+
+	@Override
+	public List<Category> getProductCategories() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	
 }

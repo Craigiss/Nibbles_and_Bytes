@@ -46,9 +46,16 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 	}
 
 	@Override
-	public Supplier findSupplier(Supplier s) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Supplier> findSupplierByCompany(String company) {
+		List<Supplier> sup = new ArrayList<Supplier>();
+		for (Supplier s : initialData.getSuppliers()){
+			if (s.getCompany().contains(company))
+			{
+				sup.add(s);
+			}
+		}
+		return sup;
+		
 	}
 	
 }

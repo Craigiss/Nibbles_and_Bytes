@@ -20,7 +20,7 @@ public class CustomerRepositoryOffline implements CustomerRepository {
 	}
 
 	@Override
-	public Customer getCustomerById(int id) {
+	public Customer getCustomerById(long id) {
 		Customer cust = new Customer();
 		for (Customer c : initialData.getCustomerAccounts()){
 			if (c.getId() == id)
