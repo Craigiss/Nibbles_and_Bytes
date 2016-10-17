@@ -6,7 +6,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets"
 template="templates/Template.xhtml">
 <meta charset="utf-8" />
 <ui:define name="title">
-Product Page
+	<h:outputText value="#{selected.product.productName}"/>
 </ui:define>
 <ui:define name="css">
 	<link href="css/Product.css" rel="stylesheet"/>
@@ -30,13 +30,13 @@ Product Page
 				</div>
 			</div>
 			<div class="col-sm-7">
-				<h:form var = "product" value="#{products.dataModel}">
+
 					<div id = "productTitle">
 						<h1>
-							<h:outputText action="#{product.view(product.productID)}" value="#{product.productID}" style = "font-weight:bold"/>
+							<h:outputText value="#{selected.product.productName}"/>
 						</h1>
 					</div>
-				</h:form>
+
 					<div id = "descriptionTitle">
 						<h2>
 						Description
@@ -44,13 +44,13 @@ Product Page
 					</div>
 					<div id = "price">
 						<p>
-							&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/>
+							&#163;<h:outputText value ="#{selected.product.price}" />
 						</p>
 					</div>
 					<br/><br/><br/>
 					<div id = "description">
 						<p>
-							<h:outputText value ="#{product.description}" style = "font-weight:normal"/>
+							<h:outputText value ="#{selected.product.description}" />
 						</p>
 					</div>
 					<div id = "quantityTitle">
@@ -86,18 +86,18 @@ Product Page
 					<ol>
 						<div class="col-sm-3">
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption"><h:outputText value ="#{product.name}" style = "font-weight:bold"/></figcaption>
+								<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
 							</figure>
 							<li><h:link outcome="product.name" >
 								<h:graphicImage value="img/Related1.jpeg" width="110" height="130" />
 							</h:link></li>
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/></figcaption>
+								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
 							</figure>
 						</div>
 						<div class="col-sm-3">
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption"><h:outputText value ="#{product.name}" style = "font-weight:bold"/></figcaption>
+								<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
 							</figure>
 							<li>
 							<h:link outcome="product.name" >
@@ -105,24 +105,24 @@ Product Page
 							</h:link>
 							</li>
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/></figcaption>
+								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
 							</figure>
 						</div>
 						<div class="col-sm-3">
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption"><h:outputText value ="#{product.name}" style = "font-weight:bold"/></figcaption>
+								<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
 							</figure>
 							<li><h:link outcome="product.name" >
 								<h:graphicImage value="img/TheGnominator.jpg"  width="110" height="130" />
 							</h:link>
 							</li>
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/></figcaption>
+								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
 							</figure>
 						</div>
 						<div class="col-sm-3">
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption"><h:outputText value ="#{product.name}" style = "font-weight:bold"/></figcaption>
+								<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
 							</figure>
 							<li>
 							<h:link outcome="product.name" >
@@ -130,7 +130,7 @@ Product Page
 							</h:link>
 							</li>
 							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" style = "font-weight:bold"/></figcaption>
+								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
 							</figure>
 						</div>
 					</ol>
@@ -175,7 +175,7 @@ Product Page
 						<div class="speech-bubble">
 							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
 							<figure class="figure">	
-								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" style = "font-weight:bold"/></figcaption>
+								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" /></figcaption>
 							</figure>	
 						</div>	
 					</div>
@@ -183,7 +183,7 @@ Product Page
 						<div class="speech-bubble">
 							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
 							<figure class="figure">	
-								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" style = "font-weight:bold"/></figcaption>
+								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" /></figcaption>
 							</figure>
 						</div>
 					</div>
@@ -191,7 +191,7 @@ Product Page
 						<div class="speech-bubble">
 							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
 							<figure class="figure">	
-								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" style = "font-weight:bold"/> :(</figcaption>
+								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}"/> :(</figcaption>
 							</figure>
 						</div>
 					</div>
