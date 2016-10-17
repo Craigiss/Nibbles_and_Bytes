@@ -2,7 +2,6 @@
 .settings/
 .classpath
 .project
-.properties
 target/
 
 # Mobile Tools for Java (J2ME)
