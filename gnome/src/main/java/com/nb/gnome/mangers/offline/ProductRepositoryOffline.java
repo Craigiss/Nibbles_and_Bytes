@@ -57,7 +57,7 @@ public class ProductRepositoryOffline implements ProductRepository {
 	}
 	
 	@Override
-	public List<Category> getProductByCategory(String category){ // To sort out
+	public List<Product> getProductByCategory(String category){ // To sort out
 //		List<Product> prod = new ArrayList<Product>();
 //		for (Product p: initialData.getProducts()){
 //			List<Category> categories = new ArrayList<Category>();
