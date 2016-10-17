@@ -16,7 +16,6 @@ import javax.inject.Named;
 @SessionScoped
 public class SupplierController implements Serializable{
 	@Inject
-	private SupplierRepository supplierRepository;
 	private SupplierService supplierService;
 	private  Supplier supplier;
 	private PaginationHelper pagination;
@@ -65,7 +64,7 @@ public class SupplierController implements Serializable{
 	}
 	
 	public Supplier view(long id) {
-		supplier = supplierRepository.findSupplierById(id);
+		supplier = supplierService.findSupplierById(id);
 		return supplier;
 	}
 	

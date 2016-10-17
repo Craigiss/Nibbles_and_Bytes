@@ -32,5 +32,14 @@ public class SupplierService {
 		return s;
 		
 	}
+	
+	/**
+	 *  finds a particular supplier from a given id that matches said id
+	 * @param id
+	 * @return
+	 */
+	public Supplier findSupplierById(long id){
+		return supplierManager.findSupplierById(id);
+	}
 
 }
