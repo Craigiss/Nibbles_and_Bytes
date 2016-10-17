@@ -1,11 +1,12 @@
 package com.nb.gnome.mangers.offline;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 
-
+import com.nb.gnome.entities.Customer;
 import com.nb.gnome.entities.SalesOrder;
 import com.nb.gnome.managers.SalesOrderRepository;
 
@@ -23,29 +24,32 @@ public class SalesOrderRepositoryOffline implements SalesOrderRepository  {
 		initialData.addSalesOrder(a);
 	}
 	
-
 	@Override
-	public List<SalesOrder> findSalesOrder() {
-		return initialData.getSalesOrders();
-
+	public List<SalesOrder> findSalesOrderByCustomer(Customer mCust) {
+		List<SalesOrder> so = new ArrayList<SalesOrder>();
+		for(SalesOrder s: initialData.getSalesOrders()){
+			if(s.getCustomer() == mCust){
+				so.add(s);
+			}
+		}
+		return so;
 	}
-
 
 	@Override
 	public SalesOrder findSalesOrderById(long id) {
+		SalesOrder mSales = new SalesOrder();
 		for(SalesOrder p : initialData.getSalesOrders()){
 			if(p.getId() == id){
-				return p;
+				mSales = p;
+				break;
 			}
 		}
-		return null; 
+		return mSales; 
 	}
-
 
 	@Override
 	public List<SalesOrder> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return initialData.getSalesOrders();
 	}
 
 }

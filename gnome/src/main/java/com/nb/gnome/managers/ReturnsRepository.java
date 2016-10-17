@@ -13,9 +13,9 @@ import com.nb.gnome.entities.Returns;
 public interface ReturnsRepository {
 	
 	//Create
-	public void persistReturns();
+	public void persistReturns(Returns r);
 	
 	//Read
-	public List<Returns> findReturns(Returns r);
+	public List<Returns> findReturnsBySalesOrder(long id);
 
 }

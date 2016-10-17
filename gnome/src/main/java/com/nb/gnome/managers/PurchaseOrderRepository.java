@@ -3,6 +3,7 @@ package com.nb.gnome.managers;
 import java.util.List;
 
 import com.nb.gnome.entities.PurchaseOrder;
+import com.nb.gnome.entities.Supplier;
 
 /**
  * Interface for PurchaseOrderManager classes
@@ -17,6 +18,8 @@ public interface PurchaseOrderRepository {
 		public List<PurchaseOrder> findPurchaseOrder();
 		
 		public PurchaseOrder findPurchaseOrderById(long id);
+		
+		public List<PurchaseOrder> findPurchaseOrderBySupplier(Supplier s);
 		
 		public List<PurchaseOrder> findAll();
 }

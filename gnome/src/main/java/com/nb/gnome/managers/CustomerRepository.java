@@ -7,7 +7,7 @@ public interface CustomerRepository {
 	public void persistCustomer(Customer c);
 	
 	//Read
-	public Customer getCustomerById(int id);
+	public Customer getCustomerById(long id);
 	public Customer getCustomerByEmail(String email);
 	
 	//Update
