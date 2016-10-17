@@ -80,6 +80,7 @@ public class InitialData {
 		po1.setId(001);
 		po1.setDate(new Date(2016,05,01));
 		po1.setStatus("Archived");
+		po1.setSupplier(s1);
 		purchaseOrders.add(po1);
 		
 		PurchaseOrder po2 = new PurchaseOrder();
