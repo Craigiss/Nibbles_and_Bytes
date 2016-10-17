@@ -4,6 +4,7 @@ import java.io.Serializable;
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.helper.PaginationHelper;
 import com.nb.gnome.managers.PurchaseOrderRepository;
+import com.nb.gnome.service.PurchaseOrderService;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
@@ -15,6 +16,7 @@ import javax.inject.Named;
 @SessionScoped
 public class PurchaseOrderController implements Serializable{
 	@Inject
+	private PurchaseOrderService purchaseOrderService;
 	private PurchaseOrderRepository purchaseOrderRepository;
 	private PurchaseOrder purchaseOrder;
 	private PaginationHelper pagination;
@@ -61,7 +63,7 @@ public class PurchaseOrderController implements Serializable{
 	}
 	
 	public PurchaseOrder view(long id) {
-		purchaseOrder = purchaseOrderRepository.findPurchaseOrderById(id);
+		purchaseOrder = purchaseOrderService.findPurchaseOrderById(id);
 		return purchaseOrder;
 	}
 	
