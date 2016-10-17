@@ -57,26 +57,18 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	@Override
 	public List<Product> getProductByCategory(String category){ // To sort out
-//		List<Product> prod = new ArrayList<Product>();
-//		for (Product p: initialData.getProducts()){
-//			List<Category> categories = new ArrayList<Category>();
-//			categories.add((Category) p.getCategories());			
-//			for (Category c : categories){
-//				if (c.getName() == category){
-//					prod.add
-//				}
-//			}
-//			
-//			
-//			
-//			if (p.getCategories() == category)
-//			{
-//				prod = p;
-//			}
-//		}
-//		stockLevel=prod.getStockLevel();		
-		
-		return null; //ben's favourite
+		List<Product> prod = new ArrayList<Product>();
+		for (Product p: initialData.getProducts()){
+			List<Category> categories = new ArrayList<Category>();
+			categories = p.getCategories();			
+			for (Category c : categories){
+				if (c.getName() == category){
+					prod.add(p);
+					break;
+				}
+			}
+		}
+		return prod;
 	}
 	
 	@Override
