@@ -9,7 +9,6 @@ import com.nb.gnome.entities.*;
 
 @Startup
 @Singleton
-
 public class InitialData {
 
 	private List<Address> addresses = new ArrayList<Address>();

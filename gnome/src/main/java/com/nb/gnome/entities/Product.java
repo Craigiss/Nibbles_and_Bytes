@@ -20,6 +20,8 @@ public class Product {
 
 	@Id
 	@Column(name = "productID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	int productID;
 	
 	@Column(name = "productName")

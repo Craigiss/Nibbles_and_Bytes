@@ -19,7 +19,6 @@ public class ProductController implements Serializable {
 	@Inject
 	private SelectedProduct product;
 	private PaginationHelper pagination;
-	private int selected;
 	private DataModel<Product> dataModel = null;
 
 	private void recreateModel() {
