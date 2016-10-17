@@ -31,12 +31,12 @@ public class Address {
 	private String line2;
 	
 	@Column (name = "town", nullable = false, length = 255)
-	@NotNull
+
 	@Size (min = 2, max = 255)
 	private String town;
 	
 	@Column (name = "county", nullable = false, length = 255)
-	@NotNull
+
 	@Size (min = 2, max = 255)
 	private String county;
 	

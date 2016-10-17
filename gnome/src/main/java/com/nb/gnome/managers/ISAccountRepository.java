@@ -16,7 +16,7 @@ public interface ISAccountRepository {
 	public void persistISAccount(ISAccount isa);
 	
 	//Read
-	public List<ISAccount> findISAccount(ISAccount isa);
+	public ISAccount findISAccountByEmail(String email);
 	
 	//Update
 	public void updateISAccountName(ISAccount isa);
