@@ -19,7 +19,6 @@ import javax.inject.Named;
 public class PurchaseOrderController implements Serializable{
 	@Inject
 	private PurchaseOrderService purchaseOrderService;
-	private PurchaseOrderRepository purchaseOrderRepository;
 	private PurchaseOrder purchaseOrder;
 	private PaginationHelper pagination;
 	private int selected;
@@ -32,13 +31,13 @@ public class PurchaseOrderController implements Serializable{
 	public PaginationHelper getPagination() {
 		if (pagination == null)	pagination = new PaginationHelper(10){
 		@Override public int getItemsCount() {
-			return purchaseOrderRepository.findAll().size();
+			return purchaseOrderService.findAll().size();
 		}
 	
 		@Override public DataModel<PurchaseOrder>createPageDataModel(){
 			try{
-				return new ListDataModel<PurchaseOrder>(purchaseOrderRepository.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
-			} catch (Exception e) { return new ListDataModel<PurchaseOrder>(purchaseOrderRepository.findAll().subList(getPageFirstItem(),getItemsCount()));
+				return new ListDataModel<PurchaseOrder>(purchaseOrderService.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
+			} catch (Exception e) { return new ListDataModel<PurchaseOrder>(purchaseOrderService.findAll().subList(getPageFirstItem(),getItemsCount()));
 		}
 		}
 		};
