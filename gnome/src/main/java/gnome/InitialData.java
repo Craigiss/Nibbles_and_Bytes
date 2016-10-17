@@ -52,6 +52,38 @@ public class InitialData {
 		p3.setStockLevel(1015);
 		products.add(p3);
 		
+		Product p5 = new Product();
+		p3.setProductName("Mr and Mrs");
+		p3.setProductID(005);
+		p3.setDescription("when these gnomes are rockin', don't come-a-knockin'!!!");
+		p3.setPrice(7.99);
+		p3.setStockLevel(8008135);
+		products.add(p5);
+		
+		Product p6 = new Product();
+		p3.setProductName("Christmas Boots");
+		p3.setProductID(006);
+		p3.setDescription("a snazzy pair of sneaks for the Christmas gimp");
+		p3.setPrice(4.99);
+		p3.setStockLevel(8008135);
+		products.add(p6);
+		
+		Product p7 = new Product();
+		p3.setProductName("Lawn Flamingo");
+		p3.setProductID(007);
+		p3.setDescription("a dainty pair of Tim's favourite lawn ornaments");
+		p3.setPrice(14.99);
+		p3.setStockLevel(8008135);
+		products.add(p7);
+		
+		Product p8 = new Product();
+		p3.setProductName("Benny");
+		p3.setProductID(008);
+		p3.setDescription("the worst gnome in existence; the dumpy little guy from gnomeo and juliet");
+		p3.setPrice(8.99);
+		p3.setStockLevel(8008135);
+		products.add(p8);
+		
 		Supplier s1 = new Supplier();
 		s1.setCompany("LawnFlamingosWholesale");
 		s1.setId(001);
