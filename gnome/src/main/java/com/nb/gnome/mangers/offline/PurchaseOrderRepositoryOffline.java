@@ -1,5 +1,6 @@
 package com.nb.gnome.mangers.offline;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -47,7 +48,12 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 	
 	@Override
 	public List<PurchaseOrder> findPurchaseOrderBySupplier(Supplier s) {
-		// TODO Auto-generated method stub
-		return null;
+//		List<PurchaseOrder> po = new ArrayList<PurchaseOrder>();
+//		for(PurchaseOrder p : initialData.getPurchaseOrders()){
+//			if(p.getSupplierid() == s.getId()){
+//				po.add(p);
+//			}
+//		}
+		return null;	
 	}
 }

@@ -7,10 +7,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-
-
-
-
 /**
  * @author Nibbles and Bytes
  * @version 1.0
@@ -38,8 +34,36 @@ public class PurchaseOrder {
 	
 	@ManyToOne 
 	@JoinColumn(name = "FKSupplierid", nullable = false)
-	private int Supplierid;
+	private Supplier supplier;
 	
+	/**
+	 * @return the supplierid
+	 */
+	public Supplier getSupplierid() {
+		return supplier;
+	}
+
+	/**
+	 * @param supplierid the supplierid to set
+	 */
+	public void setSupplierid(Supplier supplier) {
+		this.supplier = supplier;
+	}
+
+	/**
+	 * @return the addresses
+	 */
+	public List<PurchaseOrderDetails> getAddresses() {
+		return addresses;
+	}
+
+	/**
+	 * @param addresses the addresses to set
+	 */
+	public void setAddresses(List<PurchaseOrderDetails> addresses) {
+		this.addresses = addresses;
+	}
+
 	@OneToMany(targetEntity=PurchaseOrderDetails.class)
 	private List<PurchaseOrderDetails> addresses;
 	
@@ -92,7 +116,13 @@ public class PurchaseOrder {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
 	
+	public Supplier getSupplier(Supplier s){
+		return supplier;
+	}
+	
+	public void setSupplier(Supplier s){
+		this.supplier = s;
+	}
 
 }

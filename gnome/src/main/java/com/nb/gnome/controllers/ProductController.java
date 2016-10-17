@@ -16,7 +16,8 @@ import com.nb.gnome.entities.Product;
 public class ProductController implements Serializable {
 	@Inject
 	private ProductRepository productRepository;
-	private Product product;
+	@Inject
+	private SelectedProduct product;
 	private PaginationHelper pagination;
 	private int selected;
 	private DataModel<Product> dataModel = null;
@@ -55,6 +56,7 @@ public class ProductController implements Serializable {
 		return dataModel;
 	}
 	
+	
 	public String next(){
 		getPagination().nextPage();
 		recreateModel();
@@ -68,16 +70,10 @@ public class ProductController implements Serializable {
 	}
 	
 	public String view (int id){
-		product = productRepository.getProductByID(id);
-		return "product";
-	}
-	
-	public Product getProduct(){
-		return product;
-	}
-	
-	public void setProduct(Product product){
-		this.product = product; 
-	}
+		System.out.println(">>>> selected ID: " + id);
+		product.setProduct(productRepository.getProductByID(id));
 
+		return "Product";
+	}
+	
 }
