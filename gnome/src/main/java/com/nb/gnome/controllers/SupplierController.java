@@ -4,6 +4,7 @@ import java.io.Serializable;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.helper.PaginationHelper;
 import com.nb.gnome.managers.SupplierRepository;
+import com.nb.gnome.service.SupplierService;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
@@ -15,7 +16,7 @@ import javax.inject.Named;
 @SessionScoped
 public class SupplierController implements Serializable{
 	@Inject
-	private SupplierRepository supplierRepository;
+	private SupplierService supplierService;
 	private  Supplier supplier;
 	private PaginationHelper pagination;
 	private int selected;
@@ -30,13 +31,13 @@ public class SupplierController implements Serializable{
 			pagination = new PaginationHelper(10){
 		@Override 
 		public int getItemsCount() {
-			return supplierRepository.findAll().size();
+			return supplierService.findAll().size();
 		}
 	
 		@Override public DataModel<Supplier>createPageDataModel(){
 			try{
-				return new ListDataModel<Supplier>(supplierRepository.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
-			} catch (Exception e) { return new ListDataModel<Supplier>(supplierRepository.findAll().subList(getPageFirstItem(),getItemsCount()));
+				return new ListDataModel<Supplier>(supplierService.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
+			} catch (Exception e) { return new ListDataModel<Supplier>(supplierService.findAll().subList(getPageFirstItem(),getItemsCount()));
 		}
 		}
 		};
@@ -63,7 +64,7 @@ public class SupplierController implements Serializable{
 	}
 	
 	public Supplier view(long id) {
-		supplier = supplierRepository.findSupplierById(id);
+		supplier = supplierService.findSupplierById(id);
 		return supplier;
 	}
 	
@@ -73,6 +74,15 @@ public class SupplierController implements Serializable{
 	
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
-	}	
+	}
+	
+	/**
+	 *  adds a new supplier via various convoluted methods in different classes
+	 * @param suup
+	 */
+	public void persistSupplier(Supplier suup){
+		supplierService.persistSupplier(suup);
+	}
+	
 	}
 

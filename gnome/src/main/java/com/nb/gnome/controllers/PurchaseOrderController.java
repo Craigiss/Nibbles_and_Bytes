@@ -1,9 +1,12 @@
 package com.nb.gnome.controllers;
 
 import java.io.Serializable;
+import java.util.List;
+
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.helper.PaginationHelper;
 import com.nb.gnome.managers.PurchaseOrderRepository;
+import com.nb.gnome.service.PurchaseOrderService;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
@@ -15,7 +18,7 @@ import javax.inject.Named;
 @SessionScoped
 public class PurchaseOrderController implements Serializable{
 	@Inject
-	private PurchaseOrderRepository purchaseOrderRepository;
+	private PurchaseOrderService purchaseOrderService;
 	private PurchaseOrder purchaseOrder;
 	private PaginationHelper pagination;
 	private int selected;
@@ -28,13 +31,13 @@ public class PurchaseOrderController implements Serializable{
 	public PaginationHelper getPagination() {
 		if (pagination == null)	pagination = new PaginationHelper(10){
 		@Override public int getItemsCount() {
-			return purchaseOrderRepository.findAll().size();
+			return purchaseOrderService.findAll().size();
 		}
 	
 		@Override public DataModel<PurchaseOrder>createPageDataModel(){
 			try{
-				return new ListDataModel<PurchaseOrder>(purchaseOrderRepository.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
-			} catch (Exception e) { return new ListDataModel<PurchaseOrder>(purchaseOrderRepository.findAll().subList(getPageFirstItem(),getItemsCount()));
+				return new ListDataModel<PurchaseOrder>(purchaseOrderService.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
+			} catch (Exception e) { return new ListDataModel<PurchaseOrder>(purchaseOrderService.findAll().subList(getPageFirstItem(),getItemsCount()));
 		}
 		}
 		};
@@ -60,9 +63,22 @@ public class PurchaseOrderController implements Serializable{
 		return "imsPo";
 	}
 	
-	public PurchaseOrder view(long id) {
-		purchaseOrder = purchaseOrderRepository.findPurchaseOrderById(id);
+	/**
+	 * Find Purchase Order by ID
+	 * @param id
+	 * @return
+	 */
+	public PurchaseOrder findPurchaseOrderById(long id) {
+		purchaseOrder = purchaseOrderService.findPurchaseOrderById(id);
 		return purchaseOrder;
+	}
+	
+	/**
+	 * Retrieve all purchase orders on the system
+	 * @return
+	 */
+	public List<PurchaseOrder> findAll(){
+		return purchaseOrderService.findAll();
 	}
 	
 	public PurchaseOrder getPurchaseOrder() {
