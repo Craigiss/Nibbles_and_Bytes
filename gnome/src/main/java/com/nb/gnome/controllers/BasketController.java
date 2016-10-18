@@ -18,24 +18,34 @@ public class BasketController {
 	@Inject
 	ProductRepository productManager;
 	
+	ArrayList<Product> products = new ArrayList<Product>();
 	
 	public void addProduct(int id){
 		ids.add(id);
 	}
 	
-	public ArrayList<Product> getProducts(){
+	public String fillBasket(){
 
-		ArrayList<Product> p = new ArrayList<Product>();
+		
 		
 		if (ids.size() == 0){									// If no products exist in basket
-			return null; 										// Return null
+			return "Basket"; 										
 			}
 		
 		for (int s : ids){										// If items exist then match the basket ids with the products.
-			p.add(productManager.getProductByID(s));
+			products.add(productManager.getProductByID(s));
 		}
 		
-		return(p);
+		return "Basket";
 	}
-			
+
+	/**
+	 * @param products the products to set
+	 */
+	
+	public ArrayList<Product> getProducts() {
+		return this.products;
+	}
+		
+	
 }
