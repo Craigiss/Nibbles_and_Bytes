@@ -29,17 +29,16 @@ public class PurchaseOrderController implements Serializable{
 	
 	public PaginationHelper getPagination() {
 		if (pagination == null)	pagination = new PaginationHelper(10){
-			@Override public int getItemsCount() {
-				return purchaseOrderService.findAll().size();
-			}
-		
-			@Override public DataModel<PurchaseOrder>createPageDataModel(){
-				try{
-					return new ListDataModel<PurchaseOrder>(purchaseOrderService.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
-				} catch (Exception e) {
-					return new ListDataModel<PurchaseOrder>(purchaseOrderService.findAll().subList(getPageFirstItem(),getItemsCount()));
-				}
-			}
+		@Override public int getItemsCount() {
+			return purchaseOrderService.findAll().size();
+		}
+	
+		@Override public DataModel<PurchaseOrder>createPageDataModel(){
+			try{
+				return new ListDataModel<PurchaseOrder>(purchaseOrderService.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
+			} catch (Exception e) { return new ListDataModel<PurchaseOrder>(purchaseOrderService.findAll().subList(getPageFirstItem(),getItemsCount()));
+		}
+		}
 		};
 		return pagination;
 	}

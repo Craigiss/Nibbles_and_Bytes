@@ -16,8 +16,8 @@ import com.nb.gnome.entities.Product;
 public class ProductController implements Serializable {
 	@Inject
 	private ProductRepository productRepository;
-	@Inject
-	private SelectedProduct product;
+	@Inject private SelectedProduct product;
+	@Inject private SelectedDataModel selectedDataModel;
 	private PaginationHelper pagination;
 	private DataModel<Product> dataModel = null;
 
@@ -54,7 +54,6 @@ public class ProductController implements Serializable {
 			dataModel = getPagination().createPageDataModel();
 		return dataModel;
 	}
-	
 	
 	public String next(){
 		getPagination().nextPage();

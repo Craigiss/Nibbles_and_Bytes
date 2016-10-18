@@ -2,6 +2,7 @@
 package com.nb.gnome.controllers;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -23,17 +24,16 @@ public class SearchController{
 	
 	@Inject private SearchService searchServ;
 	@Inject private SelectedProduct selectedProd;
+	@Inject private SelectedDataModel selectedDataModel;
 	private PaginationHelper pagination;
 	private DataModel<Product> dataModel = null;
-	private List<Product> productsFoundByKeyword;
+	private List<Product> productsFoundByKeyword = new ArrayList<Product>();
 	
 	public String searchProd(String service){
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + service + " TERM " + term);
 		String returnValue = "";
 		Product p = searchServ.findProductById(term);
-		//System.out.println(p.getImgPath());
-		//System.out.println(p.getProductName());
-		List<Product> pList = searchServ.findProductByKeyword(term);
+		ArrayList<Product> pList = (ArrayList<Product>)searchServ.findProductByKeyword(term);
 		if (p !=null && service.equals("cat")){
 			selectedProd.setProduct(p);	
 			returnValue = "Product";
@@ -43,9 +43,12 @@ public class SearchController{
 			selectedProd.setProduct(p);
 			returnValue = "imsProdDeets";
 		}
-		else if (pList.size() > 0 && service.equals("cat")){
+		else if (pList.size() > 0){
 			for(Product prod : pList){
 				productsFoundByKeyword.add(prod);
+				getPagination().createPageDataModel();
+				selectedDataModel.setProductDataModel(dataModel);
+				returnValue = "imsProducts";
 			}
 		}
 		else{
@@ -64,7 +67,7 @@ public class SearchController{
 			pagination = new PaginationHelper(2) {
 				@Override
 				public int getItemsCount() {
-					return searchServ.getProductRepository().findAll().size();
+					return productsFoundByKeyword.size();
 				}
 
 				@Override
