@@ -133,30 +133,16 @@ template="templates/Template.xhtml">
 			</div>
 			<div class="reviewcontainer">
 				<div class ="row text-center">
+				<ui:repeat var="product" value="#{products.}">
 					<div class="col-sm-4">
 						<div class="speech-bubble">
-							<p> <h:outputText value ="#{review.description}" /> </p>
+							<p> <h:outputText value ="#{.description}" /> </p>
 							<figure class="figure">	
 								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" /></figcaption>
 							</figure>	
 						</div>	
 					</div>
-					<div class="col-sm-4">
-						<div class="speech-bubble">
-							<p> <h:outputText value ="#{review.description}" /> </p>
-							<figure class="figure">	
-								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" /></figcaption>
-							</figure>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="speech-bubble">
-							<p> <h:outputText value ="#{review.description}" /> </p>
-							<figure class="figure">	
-								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}"/> :(</figcaption>
-							</figure>
-						</div>
-					</div>
+					</ui:repeat>
 				</div>
 			</div>
 		</div>

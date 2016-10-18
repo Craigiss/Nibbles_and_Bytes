@@ -15,6 +15,7 @@ import java.io.Serializable;
 public class LoginController implements Serializable {
 	@Inject
 	LoginService loginService;
+	@Inject
 	UserCredentials userCredentials;
 	private String email;
 	private String password;

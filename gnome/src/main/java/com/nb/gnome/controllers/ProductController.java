@@ -61,7 +61,14 @@ public class ProductController implements Serializable {
 			dataModel = getPagination().createPageDataModel();
 		return dataModel;
 	}
-	
+	public List<Review> getReviewModel(){
+		if (reviewModel == null)
+		{
+			return null;//new List<Review>(ReviewRepository.findAll());
+		}
+		return reviewModel;
+		
+	}
 	
 	public String next(){
 		getPagination().nextPage();
