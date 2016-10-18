@@ -25,7 +25,7 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 	public void persistSupplier(Supplier s){
 		initialData.addSupplier(s);
 	}
-
+	
 	@Override
 	public Supplier findSupplierById(long id){
 		Supplier sup = new Supplier();

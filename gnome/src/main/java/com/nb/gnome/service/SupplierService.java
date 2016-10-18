@@ -23,7 +23,7 @@ public class SupplierService {
 	public void persistSupplier(Supplier supsup){
 		supplierManager.persistSupplier(supsup);
 	}
-
+	
 	/**
 	 *  finds all suppliers and returns these deets as a list
 	 * @return

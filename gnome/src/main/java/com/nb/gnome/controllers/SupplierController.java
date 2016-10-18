@@ -89,8 +89,6 @@ public class SupplierController implements Serializable{
 			}
 		}
 		System.out.println("lastId.getId()+1 = " + lastId.getId()+1);
-		supplier = new Supplier();
-		supplier.setId(lastId.getId()+1);
 		supplierService.persistSupplier(supplier);
 		recreateModel();
 	}
