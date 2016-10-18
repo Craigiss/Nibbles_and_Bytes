@@ -62,9 +62,8 @@ public class ProductController implements Serializable {
 		return dataModel;
 	}
 	public List<Review> getReviewModel(){
-		if (reviewModel == null)
-		{
-			return null;//new List<Review>(ReviewRepository.findAll());
+		if (reviewModel == null){
+			return null;
 		}
 		return reviewModel;
 		

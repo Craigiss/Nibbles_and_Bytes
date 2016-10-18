@@ -28,6 +28,24 @@ public class InitialData {
 	private List<Supplier> suppliers = new ArrayList<Supplier>();
 	
 	public InitialData(){
+		
+		Review r1 = new Review();
+		r1.setDate(new Date(2016,11,12));
+		r1.setRating(4);
+		r1.setReviewText(" Perfect for my garden 1");
+		reviews.add(r1);
+		Review r2 = new Review();
+		r2.setDate(new Date(2016,11,12));
+		r2.setRating(4);
+		r2.setReviewText(" Perfect for my garden 2");
+		reviews.add(r2);
+		Review r3 = new Review();
+		r3.setDate(new Date(2016,11,12));
+		r3.setRating(4);
+		r3.setReviewText(" Perfect for my garden 3");
+		reviews.add(r3);
+		
+		
 		Product p1 = new Product();
 		p1.setProductName("King of the 7 Gnomedoms");
 		p1.setProductID(1);
