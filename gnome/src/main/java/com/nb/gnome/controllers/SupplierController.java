@@ -92,6 +92,7 @@ public class SupplierController implements Serializable{
 		supplier = new Supplier();
 		supplier.setId(lastId.getId()+1);
 		supplierService.persistSupplier(supplier);
+		recreateModel();
 	}
 	
 	/**
