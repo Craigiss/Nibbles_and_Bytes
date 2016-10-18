@@ -89,15 +89,6 @@ public class SupplierController implements Serializable{
 	 */
 	public void findSupplierByCompany(String comp){
 		supplierService.findSupplierByCompany(comp);
-	}
-	
-	/**
-	 *  finds a supplier by a given company name
-	 * @param comp
-	 */
-	public void findSupplierByCompany(String comp){
-		supplierService.findSupplierByCompany(comp);
-	}
-	
+	}	
 	}
 
