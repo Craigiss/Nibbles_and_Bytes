@@ -80,6 +80,7 @@ public class SupplierController implements Serializable{
 	 *  adds a new supplier via various convoluted methods in different classes
 	 */
 	public String persistSupplier(){
+		supplier = new Supplier();
 		System.out.println("<><><><><><><><><><><><><><><><><><><><><><>supplier company at beginning of persist supplier = " + supplier.getCompany());
 		Supplier lastId = new Supplier();
 		lastId.setId(0);
