@@ -30,15 +30,15 @@ body {
 	padding-left:5px;
 	padding-right:5px;
 	text-decoration: none;
-	padding-top: 5px;
-	min-width: 50px;
+	padding-top: 8px;
+	min-width: 60px !important;
 	color: #777;
 }
 #leftBorder form > a{
 	text-decoration: none;
 	padding-top: 5px;
 	color: #777;
-		min-width: 50px;
+		min-width: 60px !important;
 }
 .navbar{
 	margin-bottom:0px !important;
@@ -69,7 +69,7 @@ body {
 }
 
 #body {
-min-height:681px !important;
+min-height:799px !important;
    padding-top:0px;
 	padding-left:5%;
 	padding-right:5%;

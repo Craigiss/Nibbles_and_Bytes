@@ -21,7 +21,7 @@ public interface ProductRepository {
 	public Product getProductByID(int id);
 	public int getStockLevel(int id);
 	public List<Product> findAll();
-	
+	public void setQuantity(int id, int quantity);
 	//Update
 	public void incrementStock(int id, int quantity);
 	public void decrementStock(int id, int quantity);

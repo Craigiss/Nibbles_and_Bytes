@@ -60,17 +60,21 @@ template="templates/Template.xhtml">
 							Quantity 
 						</h3>
 					</div> 
+					<h:form>
 					<div id="myDropdown">
-						<h:selectOneMenu >
-							<f:selectItem itemValue="1" itemLabel="1" />
-							<f:selectItem itemValue="2" itemLabel="2" />
-							<f:selectItem itemValue="3" itemLabel="3" />
+						<h:selectOneMenu value="#{products.selectedComboItem}">
+							<f:selectItems value="#{products.availableItems}" />
 						</h:selectOneMenu>
 					</div>
 					
 					<div class = "button">
-						 <h:commandButton value="Basket" type="button" action ="#{Basket.addProduct(selected.product.productID)}"/>
+					
+						 <h:commandLink action="#{Basket.addProduct(selected.product.productID, products.selectedComboItem)}">
+							 <h:commandButton  class="btn btn-success" value="Basket" type="button" />
+						 </h:commandLink>
+					
 					</div>
+					</h:form>
 				
 			</div>
 			</div>

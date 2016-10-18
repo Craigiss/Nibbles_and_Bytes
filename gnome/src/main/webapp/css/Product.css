@@ -5,7 +5,9 @@
 #s{
 	width:900px;
 }
-
+.button{
+	margin-top:15px;
+}
 #productImage{
 	float: left;
 	padding-top: 40px;

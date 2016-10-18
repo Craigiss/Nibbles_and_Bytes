@@ -144,6 +144,16 @@ public class ProductRepositoryOffline implements ProductRepository {
 		return null;
 	}
 
+	@Override
+	public void setQuantity(int id, int quantity) {
+		for (Product p: initialData.getProducts()){
+			if (p.getProductID() == id)
+			{
+			 	p.setQuantity(quantity);	
+			}
+		}
+	}
+
 
 	
 }
