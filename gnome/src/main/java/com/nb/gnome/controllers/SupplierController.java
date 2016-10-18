@@ -80,21 +80,24 @@ public class SupplierController implements Serializable{
 	 *  adds a new supplier via various convoluted methods in different classes
 	 */
 	public String persistSupplier(){
+		System.out.println("<><><><><><><><><><><><><><><><><><><><><><>supplier company at beginning of persist supplier = " + supplier.getCompany());
 		Supplier lastId = new Supplier();
 		lastId.setId(0);
 		ArrayList<Supplier> sups=(ArrayList<Supplier>) supplierService.findAll();
 		for(Supplier sup:sups){
 			if (sup.getId()>lastId.getId()){
 				lastId=sup;
+				System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><> inside sup/lastid for/if loop last.getid = " + lastId.getId());
 			}
 		}
-		System.out.println("lastId.getId()+1 = " + lastId.getId()+1);
+		System.out.println("<><><><><><><><><><><><><><><><><><><><><><>lastId.getId() = " + lastId.getId());
+		supplier.setId(lastId.getId()+1);
 		supplierService.persistSupplier(supplier);
 		recreateModel();
 		
 		//Remove this afterwards
 		for(Supplier s: supplierService.findAll()){
-			System.out.println(s.getCompany());
+			System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><><><><><>" + s.getCompany());
 		}
 		
 		return "imsSuppliers";
