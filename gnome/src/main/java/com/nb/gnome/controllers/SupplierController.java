@@ -17,9 +17,8 @@ import javax.inject.Named;
 public class SupplierController implements Serializable{
 	@Inject
 	private SupplierService supplierService;
-	private  Supplier supplier;
+	private Supplier supplier;
 	private PaginationHelper pagination;
-	private int selected;
 	private DataModel<Supplier> dataModel = null;
 
 	private void recreateModel() {
@@ -80,8 +79,16 @@ public class SupplierController implements Serializable{
 	 *  adds a new supplier via various convoluted methods in different classes
 	 * @param suup
 	 */
-	public void persistSupplier(Supplier suup){
-		supplierService.persistSupplier(suup);
+	public void persistSupplier(){
+		supplierService.persistSupplier(supplier);
+	}
+	
+	/**
+	 *  finds a supplier by a given company name
+	 * @param comp
+	 */
+	public void findSupplierByCompany(String comp){
+		supplierService.findSupplierByCompany(comp);
 	}
 	
 	}

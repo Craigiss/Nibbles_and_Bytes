@@ -55,7 +55,6 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 			}
 		}
 		return sup;
-		
 	}
 	
 }
