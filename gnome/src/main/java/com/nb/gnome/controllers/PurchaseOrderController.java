@@ -21,7 +21,6 @@ public class PurchaseOrderController implements Serializable{
 	private PurchaseOrderService purchaseOrderService;
 	private PurchaseOrder purchaseOrder;
 	private PaginationHelper pagination;
-	private int selected;
 	private DataModel<PurchaseOrder> dataModel = null;
 
 	private void recreateModel() {

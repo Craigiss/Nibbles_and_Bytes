@@ -19,7 +19,6 @@ public class SupplierController implements Serializable{
 	private SupplierService supplierService;
 	private  Supplier supplier;
 	private PaginationHelper pagination;
-	private int selected;
 	private DataModel<Supplier> dataModel = null;
 
 	private void recreateModel() {
@@ -82,6 +81,14 @@ public class SupplierController implements Serializable{
 	 */
 	public void persistSupplier(Supplier suup){
 		supplierService.persistSupplier(suup);
+	}
+	
+	/**
+	 *  finds a supplier by a given company name
+	 * @param comp
+	 */
+	public void findSupplierByCompany(String comp){
+		supplierService.findSupplierByCompany(comp);
 	}
 	
 	}

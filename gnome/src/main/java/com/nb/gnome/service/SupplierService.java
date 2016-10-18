@@ -1,5 +1,6 @@
 package com.nb.gnome.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -42,4 +43,13 @@ public class SupplierService {
 		return supplierManager.findSupplierById(id);
 	}
 
+	/**
+	 *  finds a supplier by a given company name
+	 * @param company
+	 * @return
+	 */
+	public List<Supplier> findSupplierByCompany(String company) {
+		return supplierManager.findSupplierByCompany(company);
+	}
+	
 }
