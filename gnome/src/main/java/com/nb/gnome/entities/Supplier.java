@@ -40,6 +40,19 @@ public class Supplier {
 	@NotNull
 	@Size (min = 2, max = 225)
 	private String email;
+	
+	
+	public Supplier(){
+		
+	}
+	
+	public Supplier(int id, String company, String name, String phone, String email){
+		this.id = id;
+		this.company = company;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+	}
 
 	/* Getters and Setters */
 

@@ -18,7 +18,11 @@ import javax.inject.Named;
 public class SupplierController implements Serializable{
 	@Inject
 	private SupplierService supplierService;
-	private Supplier supplier = new Supplier();
+	private Supplier supplier;
+	private String company;
+	private String name;
+	private String email;
+	private String phone;
 	private PaginationHelper pagination;
 	private DataModel<Supplier> dataModel = null;
 
@@ -90,12 +94,12 @@ public class SupplierController implements Serializable{
 			}
 		}
 		System.out.println("lastId.getId()+1 = " + lastId.getId()+1);
-		supplier.setId(lastId.getId()+1);
-		supplierService.persistSupplier(supplier);
+//		supplier.setId(lastId.getId()+1);
+		supplierService.persistSupplier(new Supplier(lastId.getId()+1, company, name, phone, email));
 		recreateModel();
 		
+		
 		//Remove this afterwards
-		//
 		for(Supplier s: supplierService.findAll()){
 			System.out.print(s.getCompany() + " ID: " + s.getId());
 		}
