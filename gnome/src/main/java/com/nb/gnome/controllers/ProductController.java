@@ -82,9 +82,10 @@ public class ProductController implements Serializable {
 	}
 	
 	public String view (int id){
-		System.out.println(">>>> selected ID: " + id);
 		product.setProduct(productRepository.getProductByID(id));
 		reviewModel = reviewRepository.findReviewByProduct(productRepository.getProductByID(id));
+		if(reviewModel.size() == 0)
+			reviewModel = null;
 		return "Product";
 	}
 	

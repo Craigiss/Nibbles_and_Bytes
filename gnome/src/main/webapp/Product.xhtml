@@ -1,5 +1,6 @@
 <ui:composition
 xmlns="https://www.w3.org/1999/xhtml"
+
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:h="http://java.sun.com/jsf/html"
 xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -143,6 +144,9 @@ template="templates/Template.xhtml">
 						</div>	
 					</div>
 					</ui:repeat>
+					<h:form rendered="#{products.reviewModel eq null}" class="pull-left">
+						<h3 style="padding-left:15px;"> No Reviews</h3>
+					</h:form>
 				</div>
 			</div>
 		</div>

@@ -1,6 +1,7 @@
 <ui:composition
 xmlns="https://www.w3.org/1999/xhtml"
 xmlns:f="http://java.sun.com/jsf/core"
+
 xmlns:h="http://java.sun.com/jsf/html"
 xmlns:ui="http://java.sun.com/jsf/facelets"
 xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
@@ -16,6 +17,7 @@ Login Page
 <ui:define name="mainContent">
 
 <h:form class="form-signin">
+	
 	<h2 class="form-signin-heading">Please sign in</h2>
 	<h:inputText value="#{login.email}"  type="email" id="inputEmail"
 	class="form-control" a:placeholder="Email address" required="true" autofocus=""
@@ -49,16 +51,16 @@ Login Page
 	<h:inputText  value="#{CreateAccount.email}" type="email" id="inputEmail"
 	class="form-control" a:placeholder="Email address" required="true" autofocus=""
 	requiredMessage="Please Enter Email"/>
-	<h:inputSecret value="#{CreateAccount.password}" type="password" id="inputPassword" 
+	<h:inputSecret  type="password" id="inputPassword1" 
 	class="form-control" a:placeholder="Password" required="true"
-	requiredMessage="Please Enter Password" />
+	requiredMessage="Please Enter Password" value="#{CreateAccount.password}"/>
 
-	<h:inputSecret value="#{CreateAccount.reenteredPassword}" type="password" id="inputPassword1" 
+	<h:inputSecret value="#{CreateAccount.reenteredPassword}" type="password" id="inputPassword" 
 	class="form-control" a:placeholder="Re-Enter Password" required="true"
 	requiredMessage="Please Enter Password"/> 
 
 	
-	<h:commandButton class="btn btn-lg btn-primary btn-block" type="submit" value="Create Account" action="#{CreateAccount.addUser()}"/>
+	<h:commandButton  class="btn btn-lg btn-primary btn-block signupButton" type="submit" value="Create Account" action="#{CreateAccount.addUser()}"/>
  </h:form>
 </ui:define>
 </ui:composition>
