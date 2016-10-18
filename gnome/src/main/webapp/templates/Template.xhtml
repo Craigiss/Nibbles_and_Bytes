@@ -57,6 +57,9 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 						<h:link rendered="#{User.user eq null}">
 							<li id="leftBorder"><a href="loginPage.xhtml">Login</a></li>
 						</h:link>
+						<h:link rendered="#{User.user ne null}">
+							<li id="leftBorder">Hello<h:outputText value="#{User.user}"/>, <h:commandLink action="#{login.logout()}" value="logout?" /h:commandLink> </li>
+						</h:link>
 						<li id="leftBorder"><a href="Basket.xhtml">Basket</a></li>
 						<li><a href="account.xhtml">Account</a></li>
 					  </ul>
