@@ -34,7 +34,6 @@ public class SearchController{
 		//System.out.println(p.getImgPath());
 		//System.out.println(p.getProductName());
 		List<Product> pList = searchServ.findProductByKeyword(term);
-		System.out.println(productsFoundByKeyword.size() + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		if (p !=null && service.equals("cat")){
 			selectedProd.setProduct(p);	
 			returnValue = "Product";
