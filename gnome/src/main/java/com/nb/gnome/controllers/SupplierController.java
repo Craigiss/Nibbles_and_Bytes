@@ -90,13 +90,14 @@ public class SupplierController implements Serializable{
 			}
 		}
 		System.out.println("lastId.getId()+1 = " + lastId.getId()+1);
+		supplier.setId(lastId.getId()+1);
 		supplierService.persistSupplier(supplier);
 		recreateModel();
 		
 		//Remove this afterwards
 		//
 		for(Supplier s: supplierService.findAll()){
-			System.out.println(s.getCompany());
+			System.out.print(s.getCompany() + " ID: " + s.getId());
 		}
 		
 		return "imsSuppliers";
