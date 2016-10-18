@@ -1,6 +1,7 @@
 package com.nb.gnome.controllers;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
@@ -9,26 +10,31 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import com.nb.gnome.helper.*;
 import com.nb.gnome.managers.ProductRepository;
+import com.nb.gnome.managers.ReviewRepository;
 import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.Review;
 
 @Named("products")
 @SessionScoped
 public class ProductController implements Serializable {
 	@Inject
 	private ProductRepository productRepository;
+	@Inject 
+	private ReviewRepository reviewRepository;
 	@Inject
 	private SelectedProduct product;
 	private PaginationHelper pagination;
 	private int selected;
 	private DataModel<Product> dataModel = null;
-
+	private List<Review> reviewModel =null;
 	private void recreateModel() {
 		dataModel = null;
 	}
 
 	public PaginationHelper getPagination() {
 		if (pagination == null)
-			pagination = new PaginationHelper(2) {
+		
+			pagination = new PaginationHelper(8) {
 				@Override
 				public int getItemsCount() {
 					return productRepository.findAll().size();
@@ -55,7 +61,13 @@ public class ProductController implements Serializable {
 			dataModel = getPagination().createPageDataModel();
 		return dataModel;
 	}
-	
+	public List<Review> getReviewModel(){
+		if (reviewModel == null){
+			return null;
+		}
+		return reviewModel;
+		
+	}
 	
 	public String next(){
 		getPagination().nextPage();
@@ -72,7 +84,7 @@ public class ProductController implements Serializable {
 	public String view (int id){
 		System.out.println(">>>> selected ID: " + id);
 		product.setProduct(productRepository.getProductByID(id));
-
+		reviewModel = reviewRepository.findReviewByProduct(productRepository.getProductByID(id));
 		return "Product";
 	}
 	

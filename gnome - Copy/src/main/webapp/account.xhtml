@@ -1,0 +1,58 @@
+<ui:composition
+xmlns="https://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+template="templates/Template.xhtml">
+<meta charset="utf-8" />
+<ui:define name="title">
+Account Page
+</ui:define>
+
+<ui:define name="css">
+	<link href="css/account.css" rel="stylesheet"/>
+</ui:define>
+<ui:define name="mainContent">
+
+	<div id="sidebar">
+		<ul class="nav nav-pills nav-stacked">
+		  <li role="presentation" class="active"><a href="#">Account Options</a></li>
+		  <li role="presentation"><a href="#">Orders</a></li>
+		  <li role="presentation"><a href="#">Log Out</a></li>
+		</ul>
+	</div>
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+		<h3 class="panel-title">Account Options</h3>
+	  </div>
+	  <div class="panel-body">
+	  Update Account details
+	  
+		<div class="input-group" style="margin-top:10px">
+
+		    <h:inputText id="Name" type="text" a:placeholder="Name" class="form-control" value="#{account.Name}"/>
+		</div>
+		<div class="input-group">
+
+		    <h:inputText id ="Line1" type="text" a:placeholder="Address Line 1" class="form-control" value="#{account.Line1}"/>
+		</div>
+		<div class="input-group">
+		    <h:inputText id="Line2" type="text" a:placeholder="Address Line 2" class="form-control" value="#{account.Line2}" />
+		</div>
+		<div class="input-group">
+
+		    <h:inputText id="County" type="text" a:placeholder="County" class="form-control" value="#{account.County}" />
+		</div>
+		<div class="input-group">
+		    <h:inputText id="postCode" type="text" a:placeholder="Postcode" class="form-control" value="#{account.postCode}" />
+		</div>
+		<div class="btn-group pull-right">
+			<h:commandButton type="button" class="btn btn-success" data-toggle="dropdown"
+			aria-haspopup="true" aria-expanded="false"
+			value="Update" action="#{account.updateDetails}"/>
+		</div>
+	  </div>
+	</div>
+ </ui:define>
+</ui:composition>

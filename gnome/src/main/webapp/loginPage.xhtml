@@ -30,21 +30,35 @@ Login Page
 <h:form class="form-signUp">
 	<h2 class="form-signUp-heading">New User</h2>
 
-	<h:inputText value="#{signup.name}" type="text" id="inputName"
-	class="form-control" a:placeholder="Full Name" required="true"
-	requiredMessage="Please Enter Your Name"/>
+	<h:inputText value="#{CreateAccount.firstName}" type="text" id="inputFirstName"
+	class="form-control" a:placeholder="First Name" required="true"
+	requiredMessage="Please Enter Your First Name"/>
+	
+		<h:inputText value="#{CreateAccount.surname}" type="text" id="inputSurname"
+	class="form-control" a:placeholder="Surname" required="true"
+	requiredMessage="Please Enter Your Surname"/>
+	
+	<h:inputText  value="#{CreateAccount.addressFirstLine}" type="text" id="inputAddrLine1"
+	class="form-control" a:placeholder="Address Line 1" required="true" autofocus=""
+	requiredMessage="Please Enter address line 1 including house number"/>
+	
+	<h:inputText  value="#{CreateAccount.postcode}" type="text" id="postcode"
+	class="form-control" a:placeholder="Postcode" required="true" autofocus=""
+	requiredMessage="Please Enter your postcode"/>
 
-	<h:inputText  value="#{signup.email}" type="email" id="inputEmail"
+	<h:inputText  value="#{CreateAccount.email}" type="email" id="inputEmail"
 	class="form-control" a:placeholder="Email address" required="true" autofocus=""
 	requiredMessage="Please Enter Email"/>
-	<h:inputSecret value="#{signup.password}" type="password" id="inputPassword" 
+	<h:inputSecret value="#{CreateAccount.password}" type="password" id="inputPassword" 
 	class="form-control" a:placeholder="Password" required="true"
 	requiredMessage="Please Enter Password" />
 
-	<h:inputSecret value="#{signup.passwordConfirm}" type="password" id="inputPassword1" 
+	<h:inputSecret value="#{CreateAccount.reenteredPassword}" type="password" id="inputPassword1" 
 	class="form-control" a:placeholder="Re-Enter Password" required="true"
 	requiredMessage="Please Enter Password"/> 
-	<h:commandButton class="btn btn-lg btn-primary btn-block" type="submit" value="Create Account" action="#{login.newUser}"/>
+
+	
+	<h:commandButton class="btn btn-lg btn-primary btn-block" type="submit" value="Create Account" action="#{CreateAccount.addUser()}"/>
  </h:form>
 </ui:define>
 </ui:composition>

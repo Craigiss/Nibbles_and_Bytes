@@ -22,6 +22,7 @@
 #smallerImages{
     float: left;
 	padding:20px;
+    padding-left: 80px;
 	padding-top: 40px;
 
 }
@@ -57,7 +58,7 @@ clear:both;
 padding-left: 190px;
 }
 #relatedSet img {
-	
+	float:left;
 }
 #relatedSet a{
 	padding-right: 60px;
@@ -78,12 +79,7 @@ hr{
     color: #330;
     height: 10px;
 }
-span {
-	content: "\21E9";
-	padding:20px;
-	font-size: 80px;
-	vertical-align: middle;
-}
+
 .speech-bubble {
       background-color: #FFFFF;
       border: 3px solid #662f8c;
@@ -110,6 +106,7 @@ span {
 	text-align: center;
 	COLOR: #662f8c;
 	padding-right: 50px;
+	clear:both;
 }
 
   

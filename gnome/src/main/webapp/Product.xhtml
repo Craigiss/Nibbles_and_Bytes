@@ -13,23 +13,24 @@ template="templates/Template.xhtml">
 </ui:define>
 <ui:define name="mainContent">
 		<div class="container">
-			<div class="col-sm-3">
+		<div class="row">
+			<div class="col-md-3">
 				<div id = "productImage">
-					<h:graphicImage value="img/GameofGnomes.jpg" width="370" height="370" />
+					<h:graphicImage value="#{selected.product.imgPath}" width="300" height="300" />
 				</div> 
 			</div>
-			<div class="col-sm-2">
+			<div class="col-md-2">
 				<div id = "smallerImages">
-					<h:graphicImage value="img/angle1.jpeg" width="92" height="92" />
+					<h:graphicImage value="img/angle2.jpeg" width="92" height="92" />
 					<br/>
 					<h:graphicImage value="img/angle2.jpeg" width="92" height="92" />
 					<br/>
 					<h:graphicImage value="img/angle3.jpg" width="92" height="92" />
 					<br/>
-					<span>&#8681;</span>
+					<span style="font-size:80px">&#8681;</span>
 				</div>
 			</div>
-			<div class="col-sm-7">
+			<div class="col-md-7">
 
 					<div id = "productTitle">
 						<h1>
@@ -59,7 +60,7 @@ template="templates/Template.xhtml">
 						</h3>
 					</div> 
 					<div id="myDropdown">
-						<h:selectOneMenu value="#{user.quantity}">
+						<h:selectOneMenu >
 							<f:selectItem itemValue="1" itemLabel="1" />
 							<f:selectItem itemValue="2" itemLabel="2" />
 							<f:selectItem itemValue="3" itemLabel="3" />
@@ -70,6 +71,7 @@ template="templates/Template.xhtml">
 						 <h:commandButton value="Basket" type="button" action ="#{basket.addToBasket}"/>
 					</div>
 				
+			</div>
 			</div>
 		</div>
 		<div class = "related">
@@ -82,58 +84,18 @@ template="templates/Template.xhtml">
 		</div>
 		
 		<div id = "relatedSet">
-				<div class = "row text-center">
-					<ol>
-						<div class="col-sm-3">
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
-							</figure>
-							<li><h:link outcome="product.name" >
-								<h:graphicImage value="img/Related1.jpeg" width="110" height="130" />
-							</h:link></li>
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
-							</figure>
-						</div>
-						<div class="col-sm-3">
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
-							</figure>
-							<li>
-							<h:link outcome="product.name" >
-								<h:graphicImage value="img/ToiletGnome.jpeg"  width="110" height="130" />
-							</h:link>
-							</li>
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
-							</figure>
-						</div>
-						<div class="col-sm-3">
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
-							</figure>
-							<li><h:link outcome="product.name" >
-								<h:graphicImage value="img/TheGnominator.jpg"  width="110" height="130" />
-							</h:link>
-							</li>
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
-							</figure>
-						</div>
-						<div class="col-sm-3">
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption"><h:outputText value ="#{product.productName}" /></figcaption>
-							</figure>
-							<li>
-							<h:link outcome="product.name" >
-								<h:graphicImage value="img/NoChristmasGnome.jpeg" width="110" height="130" />
-							</h:link>
-							</li>
-							<figure class="RelatedText">	
-								<figcaption class="figure-caption">&#163;<h:outputText value ="#{product.price}" /></figcaption>
-							</figure>
-						</div>
-					</ol>
+			<div class = "row text-center">
+				<ui:repeat var="product" value="#{products.dataModel}">
+					<div class="col-md-3">						
+						<h:form>			
+							<h:commandLink action="#{products.view(product.productID)}"  >						
+								<h:graphicImage value="#{product.imgPath}" alt="placeholder" height="100" width="100"/>		
+								<h:outputText class="figure-caption" value="#{product.productName}"/>
+								<h:outputText class="figure-caption" value="&#163;#{product.price}" />
+							</h:commandLink>
+						</h:form>
+					</div>
+   				</ui:repeat>
 				</div>
 			</div>
 		</div>
@@ -149,7 +111,7 @@ template="templates/Template.xhtml">
 			<div class="container">
 				<div class = "row text-center">
 					<div id = "radioButtons">
-						<h:selectOneRadio value="#{user.reviewRating}">
+						<h:selectOneRadio >
 						<div class="col-sm-2">
 							<f:selectItem itemValue="excellent" itemLabel="Excellent" />
 						</div>
@@ -171,30 +133,16 @@ template="templates/Template.xhtml">
 			</div>
 			<div class="reviewcontainer">
 				<div class ="row text-center">
+				<ui:repeat var="product" value="#{products.reviewModel}">
 					<div class="col-sm-4">
 						<div class="speech-bubble">
-							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
+							<p> <h:outputText value ="#{product.reviewText}" /> </p>
 							<figure class="figure">	
-								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" /></figcaption>
+								<figcaption class="figure-caption"><h:outputText value ="#{product.date}" /></figcaption>
 							</figure>	
 						</div>	
 					</div>
-					<div class="col-sm-4">
-						<div class="speech-bubble">
-							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
-							<figure class="figure">	
-								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" /></figcaption>
-							</figure>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="speech-bubble">
-							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
-							<figure class="figure">	
-								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}"/> :(</figcaption>
-							</figure>
-						</div>
-					</div>
+					</ui:repeat>
 				</div>
 			</div>
 		</div>
