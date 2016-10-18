@@ -24,4 +24,11 @@ public class LoginService {
 		return false;
 		
 	}
+	
+	public String getName(String email){
+		
+		Customer customer = customerManager.getCustomerByEmail(email);
+		String name = customer.getFirstName();
+		return name;
+	}
 }

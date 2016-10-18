@@ -54,7 +54,9 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 					
 					  <ul class="nav navbar-nav navbar-right pull-right">
 						<li id="leftBorder"><a href="homePage.xhtml">Home</a></li>
-						<li id="leftBorder"><a href="loginPage.xhtml">Login</a></li>
+						<h:link rendered="#{User.user eq null}">
+							<li id="leftBorder"><a href="loginPage.xhtml">Login</a></li>
+						</h:link>
 						<li id="leftBorder"><a href="Basket.xhtml">Basket</a></li>
 						<li><a href="account.xhtml">Account</a></li>
 					  </ul>

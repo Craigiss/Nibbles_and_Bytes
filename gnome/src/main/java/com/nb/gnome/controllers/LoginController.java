@@ -6,6 +6,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.nb.gnome.service.LoginService;
+import com.nb.gnome.service.UserCredentials;
+
 import java.io.Serializable;
 
 @Named("login")
@@ -13,7 +15,7 @@ import java.io.Serializable;
 public class LoginController implements Serializable {
 	@Inject
 	LoginService loginService;
-	
+	UserCredentials userCredentials;
 	private String email;
 	private String password;
 	private String error;
@@ -31,7 +33,13 @@ public class LoginController implements Serializable {
 			password = "";
 			return "loginPage";
 		}
+		userCredentials.setUser(loginService.getName(email));
 		return("homePage");
+	}
+	
+	public String logout(){
+		userCredentials.setUser(null);
+		return "homePage";
 	}
 
 	/**
