@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.helper.PaginationHelper;
-import com.nb.gnome.managers.SupplierRepository;
 import com.nb.gnome.service.SupplierService;
 
 import javax.enterprise.context.SessionScoped;
@@ -79,7 +78,6 @@ public class SupplierController implements Serializable{
 	
 	/**
 	 *  adds a new supplier via various convoluted methods in different classes
-	 * @param suup
 	 */
 	public void persistSupplier(){
 		Supplier lastId = new Supplier();
@@ -89,7 +87,9 @@ public class SupplierController implements Serializable{
 			if (sup.getId()>lastId.getId()){
 				lastId=sup;
 			}
-		}		
+		}
+		System.out.println("lastId.getId()+1 = " + lastId.getId()+1);
+		supplier = new Supplier();
 		supplier.setId(lastId.getId()+1);
 		supplierService.persistSupplier(supplier);
 	}
