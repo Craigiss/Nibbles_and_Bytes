@@ -284,6 +284,14 @@ a:hover {
 	font-size: 18px;
 }
 
+#save{
+	background-color: #228b22;
+}
+
+#cancel{
+	background-color: #663399;
+}
+
 
 /*TIM CODE*/
 #breadcrumbs{
