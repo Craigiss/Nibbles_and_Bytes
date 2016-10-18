@@ -2,8 +2,6 @@ package com.nb.gnome.managers;
 
 import java.util.List;
 
-import javax.faces.model.DataModel;
-
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Review;
 

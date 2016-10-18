@@ -24,24 +24,14 @@ Basket Page
 				<th>Quantity</th>
 				<th>Price</th>
 			</tr>
+		<ui:repeat var="product" value="#{Basket.products}">
 			<tr>
-				<td>#0000</td>
-				<td>Gnomeo</td>
+				<td></td>
+				<td><h:outputText value="#{product.productID}"/></td>
 				<td>1</td>
-				<td>&#163;12.99</td>
+				<td>&#163;<h:outputText value="#{product.price}"/></td>
 			</tr>
-			<tr>
-				<td>#0001</td>
-				<td>Gnomett</td>
-				<td>1</td>
-				<td>&#163;12.99</td>
-			</tr>
-			<tr>
-				<td>#0003</td>
-				<td>King of the 7</td>
-				<td>1</td>
-				<td>&#163;15.99</td>
-			</tr>
+	    </ui:repeat>
 		  </table>
 		  
 		</div>

@@ -18,20 +18,27 @@ body {
 	height:30px;
 	top:10px;
 }
+#topNav{
+	float:left;
+	 width:100%;
+}
 #leftBorder a{
 	transform:translate(0%,-20%);
+	min-width:50px;
 }
 #leftBorder form{
 	padding-left:5px;
 	padding-right:5px;
 	text-decoration: none;
 	padding-top: 5px;
+	min-width: 50px;
 	color: #777;
 }
 #leftBorder form > a{
 	text-decoration: none;
 	padding-top: 5px;
 	color: #777;
+		min-width: 50px;
 }
 .navbar{
 	margin-bottom:0px !important;

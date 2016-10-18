@@ -39,6 +39,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 				</div>
 				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<div id="topNav" >
 					<a class="navbar-brand" href="homePage.xhtml">
 						<img src="img/lgo.png" width="250px"/> 
 					</a>
@@ -53,7 +54,8 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 						
 						 </h:form>
 					
-					  <ul class="nav navbar-nav navbar-right pull-right">
+					  <ul class="nav navbar-nav navbar-right pull-right" >
+
 						<li id="leftBorder">
 							<a href="homePage.xhtml">Home</a>
 						</li>
@@ -64,12 +66,17 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 								<h:commandLink rendered="#{User.user ne null}" action="#{login.logout()}" value="logout?" />
 							</h:form>
 						</li>
-						<li id="leftBorder"><a href="Basket.xhtml">Basket</a></li>
+						<li id="leftBorder">
+							<h:form>
+								<h:commandLink action="#{Basket.fillBasket()}" value="Basket" />
+							</h:form>
+								
+						</li>
 						<li><a href="account.xhtml">Account</a></li>
 						
 					  </ul>
-					  
-				    <div class="secondNav">
+					  </div>
+				    <div class="secondNav" style="clear: both">
 					  <ul class="nav navbar-nav">
 						<li><a href="Search.xhtml">Gnomes</a></li>
 						<li><a >Pools &amp; HotTubs</a></li>
