@@ -18,7 +18,7 @@ import javax.inject.Named;
 public class SupplierController implements Serializable{
 	@Inject
 	private SupplierService supplierService;
-	private Supplier supplier;
+	private Supplier supplier = new Supplier();
 	private PaginationHelper pagination;
 	private DataModel<Supplier> dataModel = null;
 
@@ -80,7 +80,6 @@ public class SupplierController implements Serializable{
 	 *  adds a new supplier via various convoluted methods in different classes
 	 */
 	public String persistSupplier(){
-		supplier = new Supplier();
 		System.out.println("<><><><><><><><><><><><><><><><><><><><><><>supplier company at beginning of persist supplier = " + supplier.getCompany());
 		Supplier lastId = new Supplier();
 		lastId.setId(0);
