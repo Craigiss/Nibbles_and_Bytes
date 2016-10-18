@@ -28,9 +28,10 @@ public class SearchController{
 	private List<Product> productsFoundByKeyword;
 	
 	public String searchProd(String service){
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + service);
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + service + " TERM " + term);
 		String returnValue = "";
 		Product p = searchServ.findProductById(term);
+		System.out.println(p.getProductName());
 		List<Product> pList = searchServ.findProductByKeyword(term);
 		if (p !=null && service.equals("cat")){
 			selectedProd.setProduct(p);	

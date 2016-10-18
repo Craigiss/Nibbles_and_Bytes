@@ -29,7 +29,7 @@ public class InitialData {
 	public InitialData(){
 		Product p1 = new Product();
 		p1.setProductName("Lawn Flamingo");
-		p1.setProductID(001);
+		p1.setProductID(1);
 		p1.setDescription("A beautiful pink plastic flamingo to place in your tropical garden");
 		p1.setPrice(15.99);
 		p1.setStockLevel(115);
