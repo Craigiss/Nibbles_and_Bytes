@@ -18,7 +18,7 @@
 
 	<!-- Breadcrumbs appearing in top right of the page -->
 	<ui:define name="breadcrumbs">
-			<a href="imsIndex.xhtml">Home</a> > <a href="imsProducts.xhtml">Products</a> > Product Deets
+			<a href="imsIndex.xhtml">Home</a> > <a href="imsProducts.xhtml">Products</a><h:outputText value=" > #{selected.product.productName}" />
 	</ui:define>
 
 
@@ -26,15 +26,17 @@
 <ui:define name="maincontent">
 	<div class = "row">
 		<div class="col-sm-12">
-			<p class="detail_headers"> Product Information </p>
+			<p class="detail_headers">
+				<h:outputText value="#{selected.product.productName}" />
+			</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-5">
-			<h:graphicImage name="product image" value="#{product.image}"/>		
+			<h:graphicImage value="#{selected.product.imgPath}"/>		
 		</div>
 		<div class="col-sm-7 text">
-			<h:outputText value="#{product.description}"/>
+			<h:outputText value="#{selected.product.description}"/>
 		</div>
 	</div>
 	<div class = "row">

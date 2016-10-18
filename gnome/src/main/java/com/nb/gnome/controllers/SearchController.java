@@ -31,6 +31,7 @@ public class SearchController{
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + service + " TERM " + term);
 		String returnValue = "";
 		Product p = searchServ.findProductById(term);
+		System.out.println(p.getImgPath());
 		System.out.println(p.getProductName());
 		List<Product> pList = searchServ.findProductByKeyword(term);
 		if (p !=null && service.equals("cat")){
@@ -38,6 +39,7 @@ public class SearchController{
 			returnValue = "Product";
 		}
 		else if (p !=null && service.equals("ims")){
+			System.out.println("i got to the right section");
 			selectedProd.setProduct(p);
 			returnValue = "imsProdDeets";
 		}
@@ -45,6 +47,9 @@ public class SearchController{
 			for(Product prod : pList){
 				productsFoundByKeyword.add(prod);
 			}
+		}
+		else{
+			returnValue = "imsError";
 		}
 		return returnValue;		
 	}

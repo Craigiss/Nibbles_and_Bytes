@@ -33,6 +33,7 @@ public class InitialData {
 		p1.setDescription("A beautiful pink plastic flamingo to place in your tropical garden");
 		p1.setPrice(15.99);
 		p1.setStockLevel(115);
+		p1.setImgPath("img/Flamingo.gif");
 		products.add(p1);
 		
 		Product p2 = new Product();
@@ -41,6 +42,7 @@ public class InitialData {
 		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p2.setPrice(24.99);
 		p2.setStockLevel(115);
+		p2.setImgPath("img/gnomezilla.png");
 		products.add(p2);
 		
 		Product p3 = new Product();

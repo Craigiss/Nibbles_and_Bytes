@@ -33,6 +33,9 @@ public class Product {
 	@Column(name = "price")
 	double price;
 	
+	@Column(name ="image")
+	String imgPath;
+	
 	@Column(name = "stockLevel")
 	int stockLevel;
 	
@@ -123,6 +126,26 @@ public class Product {
 	 */
 	public List<Category> getCategories() {
 		return categories;
+	}
+	
+	
+	/**
+	 * @return the imgPath
+	 */
+	public String getImgPath() {
+		return imgPath;
+	}
+	/**
+	 * @param imgPath the imgPath to set
+	 */
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
+	}
+	/**
+	 * @param categories the categories to set
+	 */
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
 	}
 	
 
