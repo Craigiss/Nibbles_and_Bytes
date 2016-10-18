@@ -30,7 +30,7 @@ public class InitialData {
 	public InitialData(){
 		Product p1 = new Product();
 		p1.setProductName("King of the 7 Gnomedoms");
-		p1.setProductID("001");
+		p1.setProductID(1);
 		p1.setImgPath("img/GameofGnomes.jpg");
 		p1.setDescription("Every now and again a piece of wordplay comes along that's so sumptuous, so irresistible that it would be a travesty to not bring it to life (Robocup anyone?). We present to you... Game of Gnomes. The original may have been forged from a thousand swords in the fiery exhalation of a dragon named 'Balerion the Black Dread', but this slightly diminutive version is appropriately made up of an assortment of rusty gardening tools.");
 		p1.setPrice(17.99);
@@ -39,7 +39,7 @@ public class InitialData {
 		
 		Product p2 = new Product();
 		p2.setProductName("The Laundry Line");
-		p2.setProductID("002");
+		p2.setProductID(2);
 		p2.setImgPath("img/Laundry.gif");
 		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p2.setPrice(2.99);
@@ -48,7 +48,7 @@ public class InitialData {
 		
 		Product p3 = new Product();
 		p3.setProductName("Gnome Trek Set");
-		p3.setProductID("003");
+		p3.setProductID(3);
 		p3.setImgPath("img/GnomeTrek.gif");
 		p3.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p3.setPrice(4.99);
@@ -57,7 +57,7 @@ public class InitialData {
 		
 		Product p4 = new Product();
 		p4.setProductName("Minimushrooms");
-		p4.setProductID("004");
+		p4.setProductID(4);
 		p4.setImgPath("img/mushrooms.gif");
 		p4.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p4.setPrice(24.99);
@@ -66,7 +66,7 @@ public class InitialData {
 		
 		Product p5 = new Product();
 		p5.setProductName("Mr and Mrs");
-		p5.setProductID("005");
+		p5.setProductID(5);
 		p5.setImgPath("img/MrandMrs.gif");
 		p5.setDescription("when these gnomes are rockin', don't come-a-knockin'!!!");
 		p5.setPrice(7.99);
@@ -75,7 +75,7 @@ public class InitialData {
 		
 		Product p6 = new Product();
 		p6.setProductName("Christmas Boots");
-		p6.setProductID("006");
+		p6.setProductID(6);
 		p6.setImgPath("img/Boots.gif");
 		p6.setDescription("a snazzy pair of sneaks for the Christmas gimp");
 		p6.setPrice(4.99);
@@ -84,7 +84,7 @@ public class InitialData {
 		
 		Product p7 = new Product();
 		p7.setProductName("Lawn Flamingo");
-		p7.setProductID("007");
+		p7.setProductID(7);
 		p7.setImgPath("img/Flamingo.gif");
 		p7.setDescription("a dainty pair of Tim's favourite lawn ornaments");
 		p7.setPrice(14.99);
@@ -93,7 +93,7 @@ public class InitialData {
 		
 		Product p8 = new Product();
 		p8.setProductName("Benny");
-		p8.setProductID("008");
+		p8.setProductID(8);
 		p8.setImgPath("img/Benny.gif");
 		p8.setDescription("the worst gnome in existence; the dumpy little guy from gnomeo and juliet");
 		p8.setPrice(8.99);
@@ -106,7 +106,7 @@ public class InitialData {
 		
 		Product p11 = new Product();
 		p11.setProductName("King of the 7 Gnomedoms");
-		p11.setProductID("001");
+		p11.setProductID(11);
 		p11.setImgPath("img/GameofGnomes.jpg");
 		p11.setDescription("Every now and again a piece of wordplay comes along that's so sumptuous, so irresistible that it would be a travesty to not bring it to life (Robocup anyone?). We present to you... Game of Gnomes. The original may have been forged from a thousand swords in the fiery exhalation of a dragon named 'Balerion the Black Dread', but this slightly diminutive version is appropriately made up of an assortment of rusty gardening tools.");
 		p11.setPrice(17.99);
@@ -115,7 +115,7 @@ public class InitialData {
 		
 		Product p12 = new Product();
 		p12.setProductName("The Laundry Line");
-		p12.setProductID("002");
+		p12.setProductID(12);
 		p12.setImgPath("img/Laundry.gif");
 		p12.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p12.setPrice(2.99);
@@ -124,7 +124,7 @@ public class InitialData {
 		
 		Product p13 = new Product();
 		p13.setProductName("Gnome Trek Set");
-		p13.setProductID("003");
+		p13.setProductID(13);
 		p13.setImgPath("img/GnomeTrek.gif");
 		p13.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p13.setPrice(4.99);
@@ -133,7 +133,7 @@ public class InitialData {
 		
 		Product p14 = new Product();
 		p14.setProductName("Minimushrooms");
-		p14.setProductID("004");
+		p14.setProductID(14);
 		p14.setImgPath("img/mushrooms.gif");
 		p14.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p14.setPrice(24.99);
@@ -142,7 +142,7 @@ public class InitialData {
 		
 		Product p15 = new Product();
 		p15.setProductName("Mr and Mrs");
-		p15.setProductID("005");
+		p15.setProductID(15);
 		p15.setImgPath("img/MrandMrs.gif");
 		p15.setDescription("when these gnomes are rockin', don't come-a-knockin'!!!");
 		p15.setPrice(7.99);
@@ -151,7 +151,7 @@ public class InitialData {
 		
 		Product p16 = new Product();
 		p16.setProductName("Christmas Boots");
-		p16.setProductID("006");
+		p16.setProductID(16);
 		p16.setImgPath("img/Boots.gif");
 		p16.setDescription("a snazzy pair of sneaks for the Christmas gimp");
 		p16.setPrice(4.99);
@@ -160,7 +160,7 @@ public class InitialData {
 		
 		Product p17 = new Product();
 		p17.setProductName("Lawn Flamingo");
-		p17.setProductID("007");
+		p17.setProductID(17);
 		p17.setImgPath("img/Flamingo.gif");
 		p17.setDescription("a dainty pair of Tim's favourite lawn ornaments");
 		p17.setPrice(14.99);
@@ -169,7 +169,7 @@ public class InitialData {
 		
 		Product p18 = new Product();
 		p18.setProductName("Benny");
-		p18.setProductID("008");
+		p18.setProductID(18);
 		p18.setImgPath("img/Benny.gif");
 		p18.setDescription("the worst gnome in existence; the dumpy little guy from gnomeo and juliet");
 		p18.setPrice(8.99);

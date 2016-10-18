@@ -70,7 +70,7 @@ public class SearchCatalogueController extends Searchable implements Serializabl
 		return "browse";
 	}
 	
-	public String view (String id){
+	public String view (int id){
 		System.out.println(">>>> selected ID: " + id);
 		product.setProduct(productRepository.getProductByID(id));
 

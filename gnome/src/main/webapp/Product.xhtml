@@ -13,12 +13,13 @@ template="templates/Template.xhtml">
 </ui:define>
 <ui:define name="mainContent">
 		<div class="container">
-			<div class="col-sm-3">
+		<div class="row">
+			<div class="col-md-3">
 				<div id = "productImage">
 					<h:graphicImage value="#{selected.product.imgPath}" width="300" height="300" />
 				</div> 
 			</div>
-			<div class="col-sm-2">
+			<div class="col-md-2">
 				<div id = "smallerImages">
 					<h:graphicImage value="img/angle2.jpeg" width="92" height="92" />
 					<br/>
@@ -26,10 +27,10 @@ template="templates/Template.xhtml">
 					<br/>
 					<h:graphicImage value="img/angle3.jpg" width="92" height="92" />
 					<br/>
-					<span>&#8681;</span>
+					<span style="font-size:80px">&#8681;</span>
 				</div>
 			</div>
-			<div class="col-sm-7">
+			<div class="col-md-7">
 
 					<div id = "productTitle">
 						<h1>
@@ -71,6 +72,7 @@ template="templates/Template.xhtml">
 					</div>
 				
 			</div>
+			</div>
 		</div>
 		<div class = "related">
 		<br/><br/><br/><br/>
@@ -84,7 +86,7 @@ template="templates/Template.xhtml">
 		<div id = "relatedSet">
 			<div class = "row text-center">
 				<ui:repeat var="product" value="#{products.dataModel}">
-					<div class="col-sm-3">						
+					<div class="col-md-3">						
 						<h:form>			
 							<h:commandLink action="#{products.view(product.productID)}"  >						
 								<h:graphicImage value="#{product.imgPath}" alt="placeholder" height="100" width="100"/>		
@@ -133,7 +135,7 @@ template="templates/Template.xhtml">
 				<div class ="row text-center">
 					<div class="col-sm-4">
 						<div class="speech-bubble">
-							<p> <h:outputText  style = "font-weight:normal"/> </p>
+							<p> <h:outputText value ="#{review.description}" /> </p>
 							<figure class="figure">	
 								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" /></figcaption>
 							</figure>	
@@ -141,7 +143,7 @@ template="templates/Template.xhtml">
 					</div>
 					<div class="col-sm-4">
 						<div class="speech-bubble">
-							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
+							<p> <h:outputText value ="#{review.description}" /> </p>
 							<figure class="figure">	
 								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}" /></figcaption>
 							</figure>
@@ -149,7 +151,7 @@ template="templates/Template.xhtml">
 					</div>
 					<div class="col-sm-4">
 						<div class="speech-bubble">
-							<p> <h:outputText value ="#{review.description}" style = "font-weight:normal"/> </p>
+							<p> <h:outputText value ="#{review.description}" /> </p>
 							<figure class="figure">	
 								<figcaption class="figure-caption"><h:outputText value ="#{customer.name}"/> :(</figcaption>
 							</figure>

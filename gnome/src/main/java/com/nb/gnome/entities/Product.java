@@ -20,7 +20,7 @@ public class Product {
 
 	@Id
 	@Column(name = "productID")
-	String productID;
+	int productID;
 	
 	@Column(name = "productName")
 	String productName;
@@ -62,13 +62,13 @@ public class Product {
 	/**
 	 * @return the productID
 	 */
-	public String getProductID() {
+	public int getProductID() {
 		return productID;
 	}
 	/**
 	 * @param productID the productID to set 
 	 */
-	public void setProductID(String productID) {
+	public void setProductID(int productID) {
 		this.productID = productID;
 	}
 	/**
