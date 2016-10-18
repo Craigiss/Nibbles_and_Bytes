@@ -52,7 +52,7 @@
 		    </div>
 
 		    <!-- Content -->
-		    <h:form>
+		    
 			    <div class="row">
 			    	Company Name:
 			    </div>
@@ -88,14 +88,15 @@
 
 				<div class="row">
 					<div class="col-sm-4 nbbutton" id="save">
-						<h:commandLink action="#{suppliers.persistSupplier()}" value="Save"/>
+						<h:form>
+							<h:commandLink action="#{suppliers.persistSupplier()}" value="Save"/>
+						</h:form>
 					</div>
 					<div class="col-sm-4 nbbutton"/>
 					<div class="col-sm-4 nbbutton" id="cancel">
-						<a href="imsSuppliers.xhtml" value="Cancel"/>
+						<a href="imsSuppliers.xhtml">Cancel</a>
 					</div>
 				</div>
-			</h:form>
 
 		    <!-- Footer -->
 		    <div class="row">
