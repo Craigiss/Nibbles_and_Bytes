@@ -80,6 +80,7 @@ public class SupplierController implements Serializable{
 	 *  adds a new supplier via various convoluted methods in different classes
 	 */
 	public String persistSupplier(){
+		System.out.println("<><><><><><><><><><><><><><><><><><><><><><>supplier company at beginning of persist supplier = " + supplier.getCompany());
 		Supplier lastId = new Supplier();
 		lastId.setId(0);
 		ArrayList<Supplier> sups=(ArrayList<Supplier>) supplierService.findAll();
@@ -93,6 +94,7 @@ public class SupplierController implements Serializable{
 		recreateModel();
 		
 		//Remove this afterwards
+		//
 		for(Supplier s: supplierService.findAll()){
 			System.out.println(s.getCompany());
 		}
