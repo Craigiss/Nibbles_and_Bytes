@@ -34,12 +34,14 @@ public class LoginController implements Serializable {
 			password = "";
 			return "loginPage";
 		}
+		userCredentials.setEmail(email);
 		userCredentials.setUser(loginService.getName(email));
 		return("account");
 	}
 	
 	public String logout(){
 		userCredentials.setUser(null);
+		userCredentials.setEmail(null);
 		return "homePage";
 	}
 

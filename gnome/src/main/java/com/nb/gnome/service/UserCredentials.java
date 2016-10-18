@@ -10,6 +10,7 @@ import javax.inject.Named;
 public class UserCredentials implements Serializable {
 	
 	private String user = null;
+	private String email = null; 
 	
 	public String getUser(){
 		return user;
@@ -17,5 +18,13 @@ public class UserCredentials implements Serializable {
 	
 	public void setUser (String user){
 		this.user = user;
+	}
+	
+	public void setEmail (String email){
+		this.email = email; 
+	}
+	
+	public String getEmail(){
+		return email;
 	}
 }
