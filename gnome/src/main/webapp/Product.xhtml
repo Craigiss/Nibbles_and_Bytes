@@ -69,13 +69,19 @@ template="templates/Template.xhtml">
 					
 					<div class = "button">
 					
-						 <h:commandLink action="#{Basket.addProduct(selected.product.productID, products.selectedComboItem)}">
-							 <h:commandButton  class="btn btn-success" value="Basket" type="button" />
+						 <h:commandLink id="addToBasketAlert" action="#{Basket.addProduct(selected.product.productID, products.selectedComboItem, selected.product.price)}">
+							 <h:commandButton  class="btn btn-success" value="Basket" type="button"  />
+							
+							
+							
 						 </h:commandLink>
-					
+						<div id="alerttt" class="alert alert-success" >
+						  <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
+						  <strong>Success!</strong> Indicates a successful or positive action.
+						</div>
 					</div>
 					</h:form>
-				
+
 			</div>
 			</div>
 		</div>

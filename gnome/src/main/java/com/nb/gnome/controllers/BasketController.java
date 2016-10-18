@@ -20,27 +20,31 @@ public class BasketController implements Serializable {
 	public class item{
 		int id;
 		int quantity;
-		public item(int id, int quantity){
+		double cost;
+		public item(int id, int quantity, double cost){
 			this.id = id;
 			this.quantity = quantity;
+			this.cost = cost;
 		}
 	}
 	
-	ArrayList<item> ids;
+	ArrayList<item> ids = new ArrayList<item>();
 
 	@Inject
 	ProductRepository productManager;
 	
 	ArrayList<Product> products = new ArrayList<Product>();
 	
-	public void addProduct(int id, int quantity){
+	public void addProduct(int id, int quantity,double cost){
 		if(ids == null){
 			ids = new ArrayList<item>();
 		}
-		ids.add(new item(id,quantity));
+		cost = cost * quantity;
+		ids.add(new item(id,quantity,cost));
 	}
 	
 	public String fillBasket(){
+		boolean exists =false;
 		if(ids == null){
 			ids = new ArrayList<item>();
 			return "Basket"; 
@@ -51,10 +55,19 @@ public class BasketController implements Serializable {
 
 		for (item s : ids){										// If items exist then match the basket ids with the products.
 			Product p = productManager.getProductByID(s.id);
-			p.setQuantity(s.quantity);
-			
-			products.add(p);
-		}
+			for(Product oldProduct : products){
+				if(oldProduct == p){
+					oldProduct.setQuantity(oldProduct.getQuantity() + s.quantity);
+					exists = true;
+				}
+			}
+			if(!exists){
+				p.setQuantity(s.quantity);
+				
+				products.add(p);
+			}
+			exists = false;
+		}		
 		ids = null;
 		return "Basket";
 	}
@@ -63,7 +76,8 @@ public class BasketController implements Serializable {
 		
 		Double quan = Double.parseDouble(quantity);
 		quan = Price * quan;
-		return "" + quan;
+		
+		return String.format("%1$.2f", quan);
 		
 	}
 
