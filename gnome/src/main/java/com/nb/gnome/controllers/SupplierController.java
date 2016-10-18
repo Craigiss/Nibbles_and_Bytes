@@ -1,6 +1,8 @@
 package com.nb.gnome.controllers;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.helper.PaginationHelper;
 import com.nb.gnome.managers.SupplierRepository;
@@ -80,6 +82,15 @@ public class SupplierController implements Serializable{
 	 * @param suup
 	 */
 	public void persistSupplier(){
+		Supplier lastId = new Supplier();
+		lastId.setId(0);
+		ArrayList<Supplier> sups=(ArrayList<Supplier>) supplierService.findAll();
+		for(Supplier sup:sups){
+			if (sup.getId()>lastId.getId()){
+				lastId=sup;
+			}
+		}		
+		supplier.setId(lastId.getId()+1);
 		supplierService.persistSupplier(supplier);
 	}
 	
