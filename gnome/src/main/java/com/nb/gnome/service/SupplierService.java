@@ -9,18 +9,22 @@ import javax.inject.Inject;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.SupplierRepository;
 
+import gnome.InitialData;
+
 @Stateless
 public class SupplierService {
 	
 
 	@Inject
 	private SupplierRepository supplierManager;
+	@Inject
+	private InitialData initialData;
 	
 	/**
-	 *  'persists' (adds) a new supplier to the system
-	 * @param supsup
+	 * Calls Supplier Manager method, pooling params together to create a new Supplier object
 	 */
-	public void persistSupplier(Supplier supsup){
+	public void persistSupplier(String mCompany, String mName, String mPhone, String mEmail){
+		Supplier supsup = new Supplier(initialData.getSuppliers().size() +1, mCompany, mName, mPhone, mEmail);
 		supplierManager.persistSupplier(supsup);
 	}
 	
