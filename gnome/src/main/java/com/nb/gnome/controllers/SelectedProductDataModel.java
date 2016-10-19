@@ -8,9 +8,9 @@ import javax.inject.Named;
 
 import com.nb.gnome.entities.Product;
 
-@Named("dataModel")
+@Named("productModel")
 @SessionScoped
-public class SelectedDataModel implements Serializable {
+public class SelectedProductDataModel implements Serializable {
 	private DataModel<Product> productDataModel;
 
 	/**

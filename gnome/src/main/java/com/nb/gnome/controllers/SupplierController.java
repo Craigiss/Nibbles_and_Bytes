@@ -84,7 +84,7 @@ public class SupplierController implements Serializable{
 	 *  adds a new supplier via various convoluted methods in different classes
 	 */
 	public String persistSupplier(){
-		System.out.println("<><><><><><><><><><><><><><><><><><><><><><>supplier company at beginning of persist supplier = " + supplier.getCompany());
+		//System.out.println("<><><><><><><><><><><><><><><><><><><><><><>supplier company at beginning of persist supplier = " + supplier.getCompany());
 		Supplier lastId = new Supplier();
 		lastId.setId(0);
 		ArrayList<Supplier> sups=(ArrayList<Supplier>) supplierService.findAll();
@@ -113,6 +113,95 @@ public class SupplierController implements Serializable{
 	 */
 	public void findSupplierByCompany(String comp){
 		supplierService.findSupplierByCompany(comp);
+	}
+
+	/**
+	 * @return the supplierService
+	 */
+	public SupplierService getSupplierService() {
+		return supplierService;
+	}
+
+	/**
+	 * @param supplierService the supplierService to set
+	 */
+	public void setSupplierService(SupplierService supplierService) {
+		this.supplierService = supplierService;
+	}
+
+	/**
+	 * @return the company
+	 */
+	public String getCompany() {
+		return company;
+	}
+
+	/**
+	 * @param company the company to set
+	 */
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * @return the phone
+	 */
+	public String getPhone() {
+		return phone;
+	}
+
+	/**
+	 * @param phone the phone to set
+	 */
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	/**
+	 * @param pagination the pagination to set
+	 */
+	public void setPagination(PaginationHelper pagination) {
+		this.pagination = pagination;
+	}
+
+	/**
+	 * @param dataModel the dataModel to set
+	 */
+	public void setDataModel(DataModel<Supplier> dataModel) {
+		this.dataModel = dataModel;
 	}	
+	
+	
+	
+	
+	
 	}
 

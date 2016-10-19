@@ -17,7 +17,7 @@ public class ProductController implements Serializable {
 	@Inject
 	private ProductRepository productRepository;
 	@Inject private SelectedProduct product;
-	@Inject private SelectedDataModel selectedDataModel;
+	@Inject private SelectedProductDataModel selectedProductDataModel;
 	private PaginationHelper pagination;
 	private DataModel<Product> dataModel = null;
 
@@ -52,7 +52,8 @@ public class ProductController implements Serializable {
 	public DataModel<Product> getDataModel() {
 		if (dataModel == null)
 			dataModel = getPagination().createPageDataModel();
-		return dataModel;
+			selectedProductDataModel.setProductDataModel(dataModel);
+		return selectedProductDataModel.getProductDataModel();
 	}
 	
 	public String next(){
