@@ -33,7 +33,6 @@ public class SearchService {
 	
 	public List<Product> findProductByKeyword(String keyword){
 		try {
-			System.out.println("I got into the findProductByKeyword");
 			return prodRepo.getProductByKeyword(keyword);
 		}
 		catch(Exception e){

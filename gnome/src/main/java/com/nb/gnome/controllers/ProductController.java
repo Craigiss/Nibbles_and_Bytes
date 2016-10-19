@@ -1,6 +1,7 @@
 package com.nb.gnome.controllers;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
@@ -17,7 +18,6 @@ public class ProductController implements Serializable {
 	@Inject
 	private ProductRepository productRepository;
 	@Inject private SelectedProduct product;
-	@Inject private SelectedProductDataModel selectedProductDataModel;
 	private PaginationHelper pagination;
 	private DataModel<Product> dataModel = null;
 
@@ -27,10 +27,17 @@ public class ProductController implements Serializable {
 
 	public PaginationHelper getPagination() {
 		if (pagination == null)
-			pagination = new PaginationHelper(2) {
+			pagination = new PaginationHelper(10) {
 				@Override
 				public int getItemsCount() {
-					return productRepository.findAll().size();
+					if (dataModel == null){
+					  return productRepository.findAll().size();
+					}
+					else {
+						return dataModel.getRowCount();
+					}
+					
+					
 				}
 
 				@Override
@@ -52,8 +59,11 @@ public class ProductController implements Serializable {
 	public DataModel<Product> getDataModel() {
 		if (dataModel == null)
 			dataModel = getPagination().createPageDataModel();
-			selectedProductDataModel.setProductDataModel(dataModel);
-		return selectedProductDataModel.getProductDataModel();
+		return dataModel;
+	}
+	
+	public void setData(ArrayList<Product> model ){
+		dataModel.setWrappedData(model);
 	}
 	
 	public String next(){

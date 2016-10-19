@@ -24,7 +24,8 @@ public class SearchController{
 	
 	@Inject private SearchService searchServ;
 	@Inject private SelectedProduct selectedProd;
-	@Inject private SelectedProductDataModel selectedProductDataModel;
+//	@Inject private SelectedProductDataModel selectedProductDataModel;
+	@Inject private ProductController prodController;
 	private PaginationHelper pagination;
 	private DataModel<Product> dataModel = null;
 	private List<Product> productsFoundByKeyword = new ArrayList<Product>();
@@ -46,7 +47,8 @@ public class SearchController{
 		else if (pList.size() > 0){
 			for(Product prod : pList){
 				productsFoundByKeyword.add(prod);
-				getPagination().createPageDataModel();
+				prodController.getDataModel();
+				prodController.setData((ArrayList)productsFoundByKeyword);
 				returnValue = "imsProducts";
 			}
 		}
