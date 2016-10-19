@@ -72,7 +72,11 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 							</h:form>
 								
 						</li>
-						<li><a href="account.xhtml">Account</a></li>
+						<li>
+							<h:link rendered="#{User.user eq null}" value ="Account" outcome="loginPage"/>
+							<h:link rendered="#{User.user ne null}" value="Account" outcome="account"/> 			
+						
+						</li>
 						
 					  </ul>
 					  </div>
@@ -145,7 +149,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 					<li><h4><a href="#">Help &amp; FAQ</a></h4> </li>
 					<li><h4><a href="#">Contact Us</a></h4> </li>
 					<li><h4><a href="#">Delivery/Returns</a></h4> </li>
-					<li><h4><a href="#">Account</a></h4> </li>
+					<li><h4><a href="account.xhtml">Account</a></h4> </li>
 					<li><h4><a href="#">About</a></h4> </li>
 				</ul>
 				</div>
@@ -163,18 +167,8 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script>
-$(document).ready(function(){
+<script src="js/custom.js"></script>
 
-    $('#addToBasketAlert').click(function(){
-     /*    var element =document.querySelector("#alerttt")
-        element.style.visibility = "visible"; */
-        document().getElementById("alerttt").style.visibility = "visible";
-      /*  $('.alerttt').show(); */
-
-    });
-});
-</script>
 </body>
 </f:view>
 </html>
