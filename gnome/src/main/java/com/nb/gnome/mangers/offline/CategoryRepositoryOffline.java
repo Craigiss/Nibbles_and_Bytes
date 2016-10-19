@@ -19,17 +19,6 @@ public class CategoryRepositoryOffline implements CategoryRepository {
 		initialData.addCategory(c);
 	}
 
-	@Override
-	public Category findCategory(Category c) {
-		for(Category cat : initialData.getCategories())
-		{
-			if( cat.getId() == c.getId())
-			{
-				return cat;
-			}
-		}
-		return null;
-	}
 	
 	@Override
 	public void updateCategory(Category c) {
