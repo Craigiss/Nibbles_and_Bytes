@@ -16,7 +16,7 @@
 
 	<body>
 	    <div class="container">
-	      <h:form>
+	      
 	      	<div class="row">
 	          	<div class="col-sm-12"  id="header">Add New Supplier</div>
 
@@ -52,73 +52,53 @@
 		    </div>
 
 		    <!-- Content -->
-		    
+		   <div> 
+		   <h:form>
 			    <div class="row">
 			    	Company Name:
 			    </div>
 			    <div class="row">
-<<<<<<< HEAD
 					
-				        <h:inputText a:placeholder="..." value="#{suppliers.company}"/>
-				  
-=======
-					<h:form>
 				        <h:inputText type="text" value="#{suppliers.company}" required="true"/>
-				    </h:form>
->>>>>>> 4ac1e2240999850010bda8ce758b73368c3ba42d
+				    
 				</div>
 				<div class="row">
 			    	Name of Contact:
 			    </div>
 			    <div class="row">
-<<<<<<< HEAD
 				
-				        <h:inputText a:placeholder="..." value="#{suppliers.name}"/>
-				   
-=======
-					<h:form>
 				        <h:inputText type="text" value="#{suppliers.name}" required="true"/>
-				    </h:form>
->>>>>>> 4ac1e2240999850010bda8ce758b73368c3ba42d
+				 
 				</div>
 				<div class="row">
 			    	Phone Number:
 			    </div>
 			    <div class="row">
-<<<<<<< HEAD
-					
-				        <h:inputText a:placeholder="..." value="#{suppliers.phone}"/>
-				   
-=======
-					<h:form>
+				
 				        <h:inputText type="text" value="#{suppliers.phone}" required="true"/>
-				    </h:form>
->>>>>>> 4ac1e2240999850010bda8ce758b73368c3ba42d
+				 
 				</div>
 			   	<div class="row">
 			    	Email Address:
 			    </div>
 			    <div class="row">
-<<<<<<< HEAD
-				
-				        <h:inputText a:placeholder="..." value="#{suppliers.email}"/>
-				   
-=======
-					<h:form>
+			
 				        <h:inputText type="text" value="#{suppliers.email}" required="true"/>
-				    </h:form>
->>>>>>> 4ac1e2240999850010bda8ce758b73368c3ba42d
+				
 				</div>
 
 				<div class="row">
 					<div class="col-sm-4 nbbutton" id="save">
 						
 							<h:commandLink class="nbbutton" action="#{suppliers.persistSupplier()}" value="Save"/>
+					
 					</div>
 					<div class="col-sm-4 nbbutton"/>
 					<div class="col-sm-4 nbbutton" id="cancel">
 						<a href="imsSuppliers.xhtml">Cancel</a>
 					</div>
+				</div>
+				</h:form>
 				</div>
 
 		    <!-- Footer -->
@@ -132,7 +112,7 @@
 	          </div>
 	          
 	         </div>
-	          	</h:form>
+	          
 	      </div>
 	</body>
 </html>
