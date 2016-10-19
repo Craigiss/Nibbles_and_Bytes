@@ -44,6 +44,20 @@ public class Product {
 	@NotNull
 	int supplierID;
 	
+	
+	int Quantity;
+	/**
+	 * @return the quantity
+	 */
+	public int getQuantity() {
+		return Quantity;
+	}
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public void setQuantity(int quantity) {
+		Quantity = quantity;
+	}
 	/**
 	 * @return the imgPath
 	 */

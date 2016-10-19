@@ -18,8 +18,27 @@ body {
 	height:30px;
 	top:10px;
 }
+#topNav{
+	float:left;
+	 width:100%;
+}
 #leftBorder a{
 	transform:translate(0%,-20%);
+	min-width:50px;
+}
+#leftBorder form{
+	padding-left:5px;
+	padding-right:5px;
+	text-decoration: none;
+	padding-top: 8px;
+	min-width: 60px !important;
+	color: #777;
+}
+#leftBorder form > a{
+	text-decoration: none;
+	padding-top: 5px;
+	color: #777;
+		min-width: 60px !important;
 }
 .navbar{
 	margin-bottom:0px !important;
@@ -50,7 +69,7 @@ body {
 }
 
 #body {
-min-height:681px !important;
+min-height:799px !important;
    padding-top:0px;
 	padding-left:5%;
 	padding-right:5%;
@@ -84,7 +103,7 @@ min-height:681px !important;
    position:relative;
    bottom:-13px;
    width:100%;
-   height: 100%; /* .push must be the same height as .footer */
+   height: 100%; 
    background:#EAE9E9;
 }
 #footerName{

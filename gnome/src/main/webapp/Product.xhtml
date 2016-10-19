@@ -1,5 +1,6 @@
 <ui:composition
 xmlns="https://www.w3.org/1999/xhtml"
+
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:h="http://java.sun.com/jsf/html"
 xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -59,18 +60,28 @@ template="templates/Template.xhtml">
 							Quantity 
 						</h3>
 					</div> 
+					<h:form>
 					<div id="myDropdown">
-						<h:selectOneMenu >
-							<f:selectItem itemValue="1" itemLabel="1" />
-							<f:selectItem itemValue="2" itemLabel="2" />
-							<f:selectItem itemValue="3" itemLabel="3" />
+						<h:selectOneMenu value="#{products.selectedComboItem}">
+							<f:selectItems value="#{products.availableItems}" />
 						</h:selectOneMenu>
 					</div>
 					
 					<div class = "button">
-						 <h:commandButton value="Basket" type="button" action ="#{basket.addToBasket}"/>
+					
+						 <h:commandLink id="addToBasketAlert" action="#{Basket.addProduct(selected.product.productID, products.selectedComboItem, selected.product.price)}">
+							 <h:commandButton  class="btn btn-success" value="Basket" type="button"  />
+							
+							
+							
+						 </h:commandLink>
+						<div id="alerttt" class="alert alert-success" >
+						  <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
+						  <strong>Success!</strong> Indicates a successful or positive action.
+						</div>
 					</div>
-				
+					</h:form>
+
 			</div>
 			</div>
 		</div>
@@ -143,6 +154,9 @@ template="templates/Template.xhtml">
 						</div>	
 					</div>
 					</ui:repeat>
+					<h:form rendered="#{products.reviewModel eq null}" class="pull-left">
+						<h3 style="padding-left:15px;"> No Reviews</h3>
+					</h:form>
 				</div>
 			</div>
 		</div>
