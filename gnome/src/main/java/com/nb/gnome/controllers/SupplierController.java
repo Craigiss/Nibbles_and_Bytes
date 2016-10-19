@@ -13,11 +13,12 @@ import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-@Named("suppliers")
+@Named(value="suppliers")
 @SessionScoped
 public class SupplierController implements Serializable{
 	@Inject
 	private SupplierService supplierService;
+	
 	private Supplier supplier;
 	private String company;
 	private String name;
@@ -84,25 +85,18 @@ public class SupplierController implements Serializable{
 	 *  adds a new supplier via various convoluted methods in different classes
 	 */
 	public String persistSupplier(){
-		System.out.println("<><><><><><><><><><><><><><><><><><><><><><>supplier company at beginning of persist supplier = " + supplier.getCompany());
-		Supplier lastId = new Supplier();
-		lastId.setId(0);
-		ArrayList<Supplier> sups=(ArrayList<Supplier>) supplierService.findAll();
-		for(Supplier sup:sups){
-			if (sup.getId()>lastId.getId()){
-				lastId=sup;
-			}
-		}
-		System.out.println("lastId.getId()+1 = " + lastId.getId()+1);
-//		supplier.setId(lastId.getId()+1);
-		supplierService.persistSupplier(new Supplier(lastId.getId()+1, company, name, phone, email));
+//		Supplier lastId = new Supplier();
+//		lastId.setId(0);
+//		
+//		ArrayList<Supplier> sups=(ArrayList<Supplier>) supplierService.findAll();
+//		for(Supplier sup:sups){
+//			if (sup.getId()>lastId.getId()){
+//				lastId=sup;
+//			}
+//		}
+		
+		supplierService.persistSupplier(company, name, phone, email);
 		recreateModel();
-		
-		
-		//Remove this afterwards
-		for(Supplier s: supplierService.findAll()){
-			System.out.print(s.getCompany() + " ID: " + s.getId());
-		}
 		
 		return "imsSuppliers";
 	}
