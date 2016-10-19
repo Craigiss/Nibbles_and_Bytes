@@ -9,6 +9,7 @@ import javax.inject.Named;
 
 import com.nb.gnome.entities.Address;
 import com.nb.gnome.managers.CustomerRepository;
+import com.nb.gnome.service.UpdateAccountService;
 import com.nb.gnome.service.UserCredentials;
 
 @Named("Account")
@@ -18,9 +19,20 @@ public class AccountController implements Serializable {
 	CustomerRepository accountManager;
 	@Inject
 	UserCredentials userCredentials;
-
+	@Inject 
+	UpdateAccountService updateAccountService;
 	private List<Address> address;
-
+    private String email; 
+    private String firstName; 
+    private String surname; 
+    private String addressFirstLine;
+    private String postcode;
+    private String county; 
+	
+	public void updateAccount(){
+		
+		updateAccountService.updateAcount(firstName, surname, email, addressFirstLine, postcode, county);
+	}
 	
 	public String getFirstName(){
 		return  accountManager.getCustomerByEmail(userCredentials.getEmail()).getFirstName();
