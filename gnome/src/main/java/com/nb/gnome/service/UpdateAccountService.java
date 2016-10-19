@@ -2,6 +2,7 @@ package com.nb.gnome.service;
 
 import java.util.ArrayList;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Address;
@@ -10,6 +11,7 @@ import com.nb.gnome.managers.CustomerRepository;
 
 import gnome.InitialData;
 
+@Stateless
 public class UpdateAccountService {
     @Inject 
     CustomerRepository  customerRepository; 

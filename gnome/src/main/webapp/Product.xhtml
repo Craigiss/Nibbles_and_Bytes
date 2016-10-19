@@ -67,21 +67,21 @@ template="templates/Template.xhtml">
 						</h:selectOneMenu>
 					</div>
 					
-					<div class = "button">
-					
-						 <h:commandLink id="addToBasketAlert" action="#{Basket.addProduct(selected.product.productID, products.selectedComboItem, selected.product.price)}">
-							 <h:commandButton  class="btn btn-success" value="Basket" type="button"  />
-							
-							
-							
-						 </h:commandLink>
-						<div id="alerttt" class="alert alert-success" >
-						  <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
-						  <strong>Success!</strong> Indicates a successful or positive action.
-						</div>
+					<div class = "button" >
+						 <h:commandButton onclick="showAlert()" class="btn btn-success" action="#{Basket.addProduct(selected.product.productID, products.selectedComboItem, selected.product.price)}" type="button" value="Add to Basket" />
 					</div>
+					
 					</h:form>
-
+					<div id="alertBox">
+					</div>
+					<script type="text/javascript">
+				         function showAlert()
+				         {
+				        	 var el = document.getElementById('alertBox');
+				        	 el.innerHTML = '<div id="alerttt"  class="alert alert-success" style="visiblity:visible"> <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a><strong>Success!</strong> Item added to basket</div>'
+				        
+				         }
+				      </script>
 			</div>
 			</div>
 		</div>
@@ -97,12 +97,15 @@ template="templates/Template.xhtml">
 		<div id = "relatedSet">
 			<div class = "row text-center">
 				<ui:repeat var="product" value="#{products.dataModel}">
-					<div class="col-md-3">						
+					<div class="col-md-3 col-sm-12 figure">						
 						<h:form>			
 							<h:commandLink action="#{products.view(product.productID)}"  >						
-								<h:graphicImage value="#{product.imgPath}" alt="placeholder" height="100" width="100"/>		
+								<h:graphicImage value="#{product.imgPath}" class="pull-left" alt="placeholder" height="100" width="100"/>		
+								<center>
 								<h:outputText class="figure-caption" value="#{product.productName}"/>
+								<br/>
 								<h:outputText class="figure-caption" value="&#163;#{product.price}" />
+								</center>
 							</h:commandLink>
 						</h:form>
 					</div>
@@ -160,5 +163,6 @@ template="templates/Template.xhtml">
 				</div>
 			</div>
 		</div>
+	
 </ui:define>
 </ui:composition>

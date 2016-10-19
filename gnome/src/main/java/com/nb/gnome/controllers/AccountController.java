@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -29,9 +30,11 @@ public class AccountController implements Serializable {
     private String postcode;
     private String county; 
 	
-	public void updateAccount(){
+	public String updateAccount(){
 		
 		updateAccountService.updateAcount(firstName, surname, email, addressFirstLine, postcode, county);
+		
+		return "loginPage"; 
 	}
 	
 	public String getFirstName(){

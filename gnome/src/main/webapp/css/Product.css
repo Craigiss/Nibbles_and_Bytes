@@ -1,8 +1,9 @@
 #body{
 	padding-left:15%;
 }
- #alerttt{
-visibility: visible;
+ #alertBox{
+ margin-top:15px;
+	    max-width: 300px;
  }
 #s{
 	width:900px;
@@ -101,9 +102,16 @@ hr{
 }
 
 .figure{
-	font-weight: bold;
+	overflow: hidden;
+		background-image: url("../img/productBackground.png");
+		margin-left:5px;
+		
+		margin-bottom:5px;
+		max-width:250px;
 }
-
+.figure-caption{
+	clear:both;
+}
 .RelatedText{
 	font-weight: bold;
 	text-align: center;
