@@ -10,14 +10,11 @@ import javax.inject.Named;
 
 import com.nb.gnome.entities.Address;
 import com.nb.gnome.managers.CustomerRepository;
-import com.nb.gnome.service.UpdateAccountService;
 import com.nb.gnome.service.UserCredentials;
 
 @Named("Account")
 @SessionScoped
 public class AccountController implements Serializable {
-	@Inject
-	CustomerRepository accountManager;
 	@Inject
 	UserCredentials userCredentials;
 	@Inject 

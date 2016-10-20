@@ -27,7 +27,7 @@ public class CreateAccountController {
 	public String addUser(){	
 		if(firstName.equals("")){							// Basic validation. If any fields empty return to login page.
 			error = "Please enter your first name.";
-	    		return "loginPage";
+			return "loginPage";
 		}
 		
 		if(surname.equals("")){							// Basic validation. If any fields empty return to login page.
