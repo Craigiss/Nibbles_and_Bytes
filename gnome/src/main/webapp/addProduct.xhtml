@@ -59,7 +59,7 @@
 			    </div>
 			    <div class="row">
 					<!-- TO BE CHANGED -->
-				        <h:inputText type="text" value="#{suppliers.company}" required="true"/>
+				        <h:inputText type="text" value="#{products.name}" required="true"/>
 				    
 				</div>
 				<div class="row">
@@ -67,7 +67,7 @@
 			    </div>
 			    <div class="row">
 				<!-- TO BE CHANGED -->
-				        <h:inputText type="text" value="#{suppliers.name}" required="true"/>
+				        <h:inputText type="text" value="#{products.description}" required="true"/>
 				 
 				</div>
 				<div class="row">
@@ -75,31 +75,31 @@
 			    </div>
 			    <div class="row">
 				<!-- TO BE CHANGED -->
-				        <h:inputText type="text" value="#{suppliers.phone}" required="true"/>
+				        <h:inputText type="text" value="#{products.price}" required="true"/>
 				 
 				</div>
-			   	<div class="row">
-			    	Image: <!-- WHAT ARE WE DOING ABOUT THIS??? -->
+			   	<!-- <div class="row">
+			    	Image: WHAT ARE WE DOING ABOUT THIS???
 			    </div>
 			    <div class="row">
-				<!-- TO BE CHANGED -->
+				TO BE CHANGED
 				        <h:inputText type="text" value="#{suppliers.email}" required="true"/>
 				
 				</div>
-
+ -->
 			   	<div class="row">
 			    	Initial Stock Level:
 			    </div>
 			    <div class="row">
 				<!-- TO BE CHANGED -->
-				        <h:inputText type="text" value="#{suppliers.email}" required="true"/>
+				        <h:inputText type="text" value="#{products.stockLevel}" required="true"/>
 				
 				</div>
 
 				<div class="row">
 					<div class="col-sm-4 nbbutton" id="save">
 						<!-- TO BE CHANGED -->
-							<h:commandLink class="nbbutton" action="#{suppliers.persistSupplier()}" value="Save"/>
+							<h:commandLink class="nbbutton" action="#{products.persistProduct()}" value="Save"/>
 					
 					</div>
 					<div class="col-sm-4 nbbutton"/>
