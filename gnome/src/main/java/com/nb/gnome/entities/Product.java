@@ -48,6 +48,19 @@ public class Product {
 	
 	@ManyToMany(targetEntity=Category.class)
 	private List<Category> categories;
+	
+	public Product(){
+		
+	}
+	
+	public Product(int id, String name, String description, double price, int stockLevel){
+		this.productID = id;
+		this.productName = name;
+		this.description = description;
+		this.price = price;
+		this.stockLevel= stockLevel;
+		
+	}
 
 	/**
 	 * @return the productID
