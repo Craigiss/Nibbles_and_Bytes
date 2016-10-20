@@ -1,0 +1,158 @@
+<ui:composition
+xmlns="https://www.w3.org/1999/xhtml"
+
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+template="templates/Template.xhtml">
+<meta charset="utf-8" />
+<ui:define name="title">
+	<h:outputText value="#{selected.product.productName}"/>
+</ui:define>
+<ui:define name="css">
+	<link href="css/Product.css" rel="stylesheet"/>
+</ui:define>
+<ui:define name="mainContent">
+		<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div id = "productImage">
+					<h:graphicImage value="#{selected.product.imgPath}" width="300" height="300" />
+				</div> 
+			</div>
+			<div class="col-md-2">
+				<div id = "smallerImages">
+					<h:graphicImage value="img/angle2.jpeg" width="92" height="92" />
+					<br/>
+					<h:graphicImage value="img/angle2.jpeg" width="92" height="92" />
+					<br/>
+					<h:graphicImage value="img/angle3.jpg" width="92" height="92" />
+					<br/>
+					<span style="font-size:80px">&#8681;</span>
+				</div>
+			</div>
+			<div class="col-md-7">
+
+					<div id = "productTitle">
+						<h1>
+							<h:outputText value="#{selected.product.productName}"/>
+						</h1>
+					</div>
+
+					<div id = "descriptionTitle">
+						<h2>
+						Description
+						</h2>
+					</div>
+					<div id = "price">
+						<p>
+							&#163;<h:outputText value ="#{selected.product.price}" />
+						</p>
+					</div>
+					<br/><br/><br/>
+					<div id = "description">
+						<p>
+							<h:outputText value ="#{selected.product.description}" />
+						</p>
+					</div>
+					<div id = "quantityTitle">
+						<h3>
+							Quantity 
+						</h3>
+					</div> 
+					<h:form>
+					<div id="myDropdown">
+						<h:selectOneMenu value="#{products.selectedComboItem}">
+							<f:selectItems value="#{products.availableItems}" />
+						</h:selectOneMenu>
+					</div>
+					
+					<div class = "button">
+					
+						 <h:commandLink action="#{Basket.addProduct(selected.product.productID, products.selectedComboItem)}">
+							 <h:commandButton  class="btn btn-success" value="Basket" type="button" />
+						 </h:commandLink>
+					
+					</div>
+					</h:form>
+				
+			</div>
+			</div>
+		</div>
+		<div class = "related">
+		<br/><br/><br/><br/>
+		<div class="container">
+		<div id = "relatedProducts">
+			<h2>
+				Related Products 
+			</h2>
+		</div>
+		
+		<div id = "relatedSet">
+			<div class = "row text-center">
+				<ui:repeat var="product" value="#{products.dataModel}">
+					<div class="col-md-3">						
+						<h:form>			
+							<h:commandLink action="#{products.view(product.productID)}"  >						
+								<h:graphicImage value="#{product.imgPath}" alt="placeholder" height="100" width="100"/>		
+								<h:outputText class="figure-caption" value="#{product.productName}"/>
+								<h:outputText class="figure-caption" value="&#163;#{product.price}" />
+							</h:commandLink>
+						</h:form>
+					</div>
+   				</ui:repeat>
+				</div>
+			</div>
+		</div>
+		</div>
+		<br/><br/><br/>
+		
+		
+		
+		<div id = "reviews">
+			<h2>
+				Reviews
+			</h2>
+			<div class="container">
+				<div class = "row text-center">
+					<div id = "radioButtons">
+						<h:selectOneRadio >
+						<div class="col-sm-2">
+							<f:selectItem itemValue="excellent" itemLabel="Excellent" />
+						</div>
+						<div class="col-sm-2">
+							<f:selectItem itemValue="veryGood" itemLabel="Very Good" />
+						</div>
+						<div class="col-sm-2">
+							<f:selectItem itemValue="average" itemLabel="Average" />
+						</div>
+						<div class="col-sm-2">
+							<f:selectItem itemValue="poor" itemLabel="Poor" />
+						</div>
+						<div class="col-sm-4">
+							<f:selectItem itemValue="terrible" itemLabel="Terrible" />
+						</div>
+						</h:selectOneRadio>
+					</div>
+				</div>
+			</div>
+			<div class="reviewcontainer">
+				<div class ="row text-center">
+				<ui:repeat var="product" value="#{products.reviewModel}">
+					<div class="col-sm-4">
+						<div class="speech-bubble">
+							<p> <h:outputText value ="#{product.reviewText}" /> </p>
+							<figure class="figure">	
+								<figcaption class="figure-caption"><h:outputText value ="#{product.date}" /></figcaption>
+							</figure>	
+						</div>	
+					</div>
+					</ui:repeat>
+					<h:form rendered="#{products.reviewModel eq null}" class="pull-left">
+						<h3 style="padding-left:15px;"> No Reviews</h3>
+					</h:form>
+				</div>
+			</div>
+		</div>
+</ui:define>
+</ui:composition>

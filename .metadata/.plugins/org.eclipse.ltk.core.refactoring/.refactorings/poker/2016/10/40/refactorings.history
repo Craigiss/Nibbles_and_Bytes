@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;poker.classes.poker&apos; to &apos;Poker&apos;&#x0D;&#x0A;- Original project: &apos;poker&apos;&#x0D;&#x0A;- Original element: &apos;poker.classes.poker&apos;&#x0D;&#x0A;- Renamed element: &apos;poker.classes.Poker&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;poker&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;poker.classes{poker.java[poker" matchStrategy="1" name="Poker" qualified="false" references="true" similarDeclarations="false" stamp="1475690569287" textual="false" version="1.0"/>
+</session>

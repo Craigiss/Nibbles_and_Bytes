@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.hibernate.annotations.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.Table"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.Size"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.Null"/>
+<fullyQualifiedTypeName name="com.nb.gnome.entities.PurchaseOrder"/>
+<fullyQualifiedTypeName name="com.nb.gnome.entities.Review"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="poker.enums.PlayerStatus"/>
+<fullyQualifiedTypeName name="gnome.ProductRepository"/>
+<fullyQualifiedTypeName name="com.nb.gnome.entities.Product"/>
+<fullyQualifiedTypeName name="javax.faces.bean.SessionScoped"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="gnome.SalesOrderRepository"/>
+<fullyQualifiedTypeName name="com.nb.gnome.entities.SalesOrder"/>
+<fullyQualifiedTypeName name="com.nb.gnome.helper.PaginationHelper"/>
+<fullyQualifiedTypeName name="javax.faces.model.ListDataModel"/>
+<fullyQualifiedTypeName name="javax.inject.Named"/>
+<fullyQualifiedTypeName name="javax.enterprise.context.SessionScoped"/>
+<fullyQualifiedTypeName name="com.nb.gnome.managers.CustomerRepository"/>
+<fullyQualifiedTypeName name="javax.inject.Inject"/>
+<fullyQualifiedTypeName name="com.nb.gnome.entities.Customer"/>
+<fullyQualifiedTypeName name="javax.faces.model.DataModel"/>
+<fullyQualifiedTypeName name="com.nb.gnome.entities.Supplier"/>
+<fullyQualifiedTypeName name="com.nb.gnome.entities.Address"/>
+</qualifiedTypeNameHistroy>
