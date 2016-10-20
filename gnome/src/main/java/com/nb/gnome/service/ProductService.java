@@ -21,7 +21,7 @@ public class ProductService {
 	private InitialData initialData;
 	
 	/**
-	 * Calls Supplier Manager method, pooling params together to create a new Supplier object
+	 * Calls Product Manager method, pooling params together to create a new product object
 	 */
 	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel){
 		Product prodprod = new Product(initialData.getProducts().size() +1, mName, mDescription, mPrice, mStockLevel);
@@ -29,7 +29,7 @@ public class ProductService {
 	}
 	
 	/**
-	 *  finds all suppliers and returns these deets as a list
+	 *  finds all products and returns these deets as a list
 	 * @return
 	 */
 	public List<Product> findAll(){
@@ -38,22 +38,13 @@ public class ProductService {
 		
 	}
 	
-	/**
-	 *  finds a particular supplier from a given id that matches said id
-	 * @param id
-	 * @return
-	 */
-	public Product findProductById(long id){
-		return productManager.findProductById(id);
-	}
-
-	/**
-	 *  finds a supplier by a given company name
-	 * @param company
-	 * @return
-	 */
-	public List<Product> findSupplierByCompany(String company) {
-		return productManager.findProductByCompany(company);
-	}
+//	/**
+//	 *  finds a particular product from a given id that matches said id
+//	 * @param id
+//	 * @return
+//	 */
+//	public Product findProductById(long id){
+//		return productManager.findProductById(id);
+//	}
 	
 }

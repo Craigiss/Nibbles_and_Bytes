@@ -23,6 +23,12 @@ public class ProductController implements Serializable {
 	@Inject private SelectedProduct product;
 	private PaginationHelper pagination;
 	private DataModel<Product> dataModel = null;
+	private Product nproduct;
+	private int productID;
+	private String name;
+	private String description;
+	private double price;
+	private int stockLevel;
 
 	private void recreateModel() {
 		dataModel = null;
@@ -93,5 +99,107 @@ public class ProductController implements Serializable {
 
 		return "Product";
 	}
+
+	/**
+	 * @return the nproduct
+	 */
+	public Product getNproduct() {
+		return nproduct;
+	}
+
+	/**
+	 * @param nproduct the nproduct to set
+	 */
+	public void setNproduct(Product nproduct) {
+		this.nproduct = nproduct;
+	}
+
+	/**
+	 * @return the productID
+	 */
+	public int getProductID() {
+		return productID;
+	}
+
+	/**
+	 * @param productID the productID to set
+	 */
+	public void setProductID(int productID) {
+		this.productID = productID;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	/**
+	 * @return the price
+	 */
+	public double getPrice() {
+		return price;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	/**
+	 * @return the stockLevel
+	 */
+	public int getStockLevel() {
+		return stockLevel;
+	}
+
+	/**
+	 * @param stockLevel the stockLevel to set
+	 */
+	public void setStockLevel(int stockLevel) {
+		this.stockLevel = stockLevel;
+	}
+
+	/**
+	 * @return the product
+	 */
+	public SelectedProduct getProduct() {
+		return product;
+	}
+
+	/**
+	 * @param product the product to set
+	 */
+	public void setProduct(SelectedProduct product) {
+		this.product = product;
+	}
+	
+	
+	
+	
 	
 }

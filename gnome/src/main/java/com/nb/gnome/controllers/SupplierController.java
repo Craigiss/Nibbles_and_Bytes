@@ -175,7 +175,7 @@ public class SupplierController implements Serializable{
 	}
 
 	/**
-	 * @param phone the phone to set
+	 * @param phone the phone to set (these auto-generated comments are lol)
 	 */
 	public void setPhone(String phone) {
 		this.phone = phone;
