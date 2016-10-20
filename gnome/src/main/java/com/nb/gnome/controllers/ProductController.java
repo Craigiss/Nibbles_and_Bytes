@@ -24,6 +24,12 @@ public class ProductController implements Serializable {
 	private void recreateModel() {
 		dataModel = null;
 	}
+	
+	public String reset(){
+		dataModel = null;
+		return "imsIndex";
+				
+	}
 
 	public PaginationHelper getPagination() {
 		if (pagination == null)
