@@ -30,6 +30,29 @@ public class InitialData {
 
 	public InitialData(){
 		
+		Address aa = new Address();
+		aa.setLine1("First Line");
+		aa.setLine2("Second Line");
+		aa.setCounty("County");
+		aa.setPostcode("Post code");
+		addresses.add(aa);
+		
+		Customer cu = new Customer();
+		cu.setEmail("Email");
+		cu.setFirstName("firstName");
+		cu.setSurname("surname");
+		cu.setAddresses(addresses);
+		cu.setPassword("password");
+		customers.add(cu);
+		
+		
+		SalesOrder sO1 = new SalesOrder();
+		sO1.setId(1);
+		sO1.setDate("11/12/2016");
+		sO1.setCustomer(cu);
+		salesOrders.add(sO1);
+		
+		
 		Review r1 = new Review();
 		r1.setProductID(1);
 		r1.setDate("11/12/2016");
@@ -200,17 +223,7 @@ public class InitialData {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 		Supplier s1 = new Supplier();
 		s1.setCompany("LawnFlamingosWholesale");

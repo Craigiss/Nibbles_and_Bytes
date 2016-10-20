@@ -1,8 +1,12 @@
 package com.nb.gnome.mangers.offline;
 
+import java.util.ArrayList;
+
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
+
+import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Customer;
 import com.nb.gnome.managers.CustomerRepository;
 
@@ -93,4 +97,12 @@ public class CustomerRepositoryOffline implements CustomerRepository {
 		
 	}
 
+	@Override
+	public void changecustomerAddress(ArrayList<Address> addresses, int id) {
+		for(Customer c : initialData.getCustomerAccounts()){
+			if(c.getId() == id){
+				c.setAddresses(addresses);
+			}
+		}
+	}
 }

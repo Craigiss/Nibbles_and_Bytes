@@ -68,7 +68,7 @@ template="templates/Template.xhtml">
 					</div>
 					
 					<div class = "button" >
-						 <h:commandButton onclick="showAlert()" class="btn btn-success" action="#{Basket.addProduct(selected.product.productID, products.selectedComboItem, selected.product.price)}" type="button" value="Add to Basket" />
+						 <h:commandButton onclick="showAlert()" class="btn btn-success" action="#{Basket.addProduct(selected.product.productID, products.selectedComboItem, selected.product.price)}" type="submit" value="Add to Basket" />
 					</div>
 					
 					</h:form>

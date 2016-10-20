@@ -37,6 +37,7 @@ public class LoginController implements Serializable {
 		}
 		userCredentials.setEmail(email);
 		userCredentials.setUser(loginService.getName(email));
+		userCredentials.setId(loginService.getID(email));
 		return "account";
 	}
 	

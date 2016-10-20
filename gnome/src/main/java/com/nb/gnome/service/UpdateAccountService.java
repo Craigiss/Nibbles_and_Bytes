@@ -18,14 +18,16 @@ public class UpdateAccountService {
     CustomerRepository  customerRepository; 
 	@Inject 
 	InitialData initialData;  
+	@Inject 
+	UserCredentials userCredentials;
 	
-	public void updateAcount(String firstName, String surname, String email, String firstLine, String postcode, String county){
+	public void updateAccount(String firstName, String surname, String email, String firstLine, String postcode, String county, String addressSecondLine){
 		
-		Customer c = customerRepository.getCustomerByEmail(email);
-		
+		Customer c = customerRepository.getCustomerByEmail(userCredentials.getEmail());
+		userCredentials.setEmail(email);
 		Address a = new Address();
 		ArrayList<Address> addresses = new ArrayList<Address>();
-		
+		a.setLine2(addressSecondLine);
 		a.setLine1(firstLine);						// Does the addresses stuff
 		a.setPostcode(postcode);
 		a.setCounty(county);
@@ -34,6 +36,6 @@ public class UpdateAccountService {
 		customerRepository.changeEmailAddress(email, c.getId());
 		customerRepository.changeFirstName(firstName, c.getId());
 		customerRepository.changeSurname(surname, c.getId());
-		//customerRepository.changecustomerAddress(addresses, c.getId());
+		customerRepository.changecustomerAddress(addresses, c.getId());
 	}
 }

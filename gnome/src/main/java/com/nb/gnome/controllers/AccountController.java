@@ -1,4 +1,4 @@
-/*package com.nb.gnome.controllers;
+package com.nb.gnome.controllers;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,6 +9,7 @@ import javax.inject.Named;
 
 import com.nb.gnome.entities.Address;
 import com.nb.gnome.managers.CustomerRepository;
+import com.nb.gnome.service.UpdateAccountService;
 import com.nb.gnome.service.UserCredentials;
 
 @Named("Account")
@@ -18,8 +19,10 @@ public class AccountController implements Serializable {
 	UserCredentials userCredentials;
 	@Inject 
 	UpdateAccountService updateAccountService;
+	@Inject
+	CustomerRepository accountManager;
 	
-	
+
 	private List<Address> address;
     private String email; 
     private String firstName; 
@@ -27,122 +30,113 @@ public class AccountController implements Serializable {
     private String addressFirstLine;
     private String postcode;
     private String county; 
+    private String addressSecondLine;
 
-
-	*//**
-	 * @return the accountManager
-	 *//*
-	public CustomerRepository getAccountManager() {
-		return accountManager;
-	}
-
-	*//**
-	 * @param accountManager the accountManager to set
-	 *//*
-	public void setAccountManager(CustomerRepository accountManager) {
-		this.accountManager = accountManager;
-	}
-
-	*//**
+	/**
 	 * @return the userCredentials
-	 *//*
+	 */
 	public UserCredentials getUserCredentials() {
 		return userCredentials;
 	}
 
-	*//**
+	/**
 	 * @param userCredentials the userCredentials to set
-	 *//*
+	 */
 	public void setUserCredentials(UserCredentials userCredentials) {
 		this.userCredentials = userCredentials;
 	}
 
-	*//**
+	/**
 	 * @return the updateAccountService
-	 *//*
+	 */
 	public UpdateAccountService getUpdateAccountService() {
 		return updateAccountService;
 	}
 
-	*//**
+	/**
 	 * @param updateAccountService the updateAccountService to set
-	 *//*
+	 */
 	public void setUpdateAccountService(UpdateAccountService updateAccountService) {
 		this.updateAccountService = updateAccountService;
 	}
 
-	*//**
-	 * @return the address
-	 *//*
-	public List<Address> getAddress() {
-		return address;
+
+	public void updateAccount(){
+		System.out.println("reached");
+		updateAccountService.updateAccount(firstName, surname, email, addressFirstLine, postcode, county,addressSecondLine);
 	}
 
-	*//**
+	public void testingMethod()
+	{
+		System.out.println("reached");
+	}
+
+	
+	
+	
+	/**
+	 * @param accountManager the accountManager to set
+	 */
+	public void setAccountManager(CustomerRepository accountManager) {
+		this.accountManager = accountManager;
+	}
+
+	/**
 	 * @param address the address to set
-	 *//*
+	 */
 	public void setAddress(List<Address> address) {
 		this.address = address;
 	}
 
-	*//**
-	 * @return the addressFirstLine
-	 *//*
-	public String getAddressFirstLine() {
-		return addressFirstLine;
-	}
-
-	*//**
-	 * @param addressFirstLine the addressFirstLine to set
-	 *//*
-	public void setAddressFirstLine(String addressFirstLine) {
-		this.addressFirstLine = addressFirstLine;
-	}
-
-	*//**
+	/**
 	 * @param email the email to set
-	 *//*
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	*//**
+	/**
 	 * @param firstName the firstName to set
-	 *//*
+	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
-	*//**
+	/**
 	 * @param surname the surname to set
-	 *//*
+	 */
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
 
-	*//**
+	/**
+	 * @param addressFirstLine the addressFirstLine to set
+	 */
+	public void setAddressFirstLine(String addressFirstLine) {
+		this.addressFirstLine = addressFirstLine;
+	}
+
+	/**
 	 * @param postcode the postcode to set
-	 *//*
+	 */
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
 
-	*//**
+	/**
 	 * @param county the county to set
-	 *//*
+	 */
 	public void setCounty(String county) {
 		this.county = county;
 	}
 
-	public void updateAccount(){
-		
-		updateAccountService.updateAcount(firstName, surname, email, addressFirstLine, postcode, county);
+	/**
+	 * @param addressSecondLine the addressSecondLine to set
+	 */
+	public void setAddressSecondLine(String addressSecondLine) {
+		this.addressSecondLine = addressSecondLine;
 	}
 
-
-	private List<Address> address;
-
-	
 	public String getFirstName(){
 		return  accountManager.getCustomerByEmail(userCredentials.getEmail()).getFirstName();
 		
@@ -157,7 +151,7 @@ public class AccountController implements Serializable {
 		return accountManager.getCustomerByEmail(userCredentials.getEmail()).getEmail(); 
 	}
 	
-	public String getAddressLine1(){
+	public String getaddressFirstLine(){
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
 			return address.get(0).getLine1();					// 		 (until we can add a page to view multiple addresses).
@@ -165,7 +159,7 @@ public class AccountController implements Serializable {
 			return "No address found - Please add your address details."; 
 	}
 	
-	public String getAddressLine2(){
+	public String getaddressSecondLine(){
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
 			return address.get(0).getLine2();					// 		 (until we can add a page to view multiple addresses).
@@ -188,8 +182,5 @@ public class AccountController implements Serializable {
 		else
 			return "No address found - Please add your address details."; 
 	}
-	
-	
-
 }
-*/
+

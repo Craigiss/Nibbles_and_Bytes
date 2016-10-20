@@ -38,14 +38,36 @@ Basket Page
 		<div class="row">
 			<div class="col-md-6">
 				<div class="btn-group">
-					<h:commandButton class="btn btn-danger" value="Empty Basket" type="button" action ="#{basket.cancel}"/>
+					<button class="btn btn-danger" value="Empty Basket" type="button" data-toggle="modal" data-target="#myModal" >Empty Basket</button>
 				</div>
 			</div>    
 			<div class="col-md-6">
 				<div class="btn-group pull-right">
-					<h:commandButton class="btn btn-success" value="Checkout" type="button" action ="#{order.checkout}"/>					
+				<h:form>
+					<h:commandButton class="btn btn-success" value="Checkout" type="submit" action ="#{Basket.checkout()}" />
+					</h:form>					
 				</div>
 			</div>
 		</div>
+		<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+        <h4 class="modal-title" id="myModalLabel">Empty Basket</h4>
+      </div>
+      <div class="modal-body">
+       Are you sure you want to empty your basket?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn pull-left btn-danger" data-dismiss="modal">Cancel</button>
+        <h:form>
+        <h:commandButton class="btn btn-success" value="Confirm" type="submit" action ="#{Basket.ClearBasket()}" style="right:10px;" />
+        </h:form>
+      </div>
+    </div>
+  </div>
+</div>
 </ui:define>
 </ui:composition>

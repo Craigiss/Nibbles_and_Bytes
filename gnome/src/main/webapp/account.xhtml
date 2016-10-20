@@ -16,56 +16,77 @@ Account Page
 <ui:define name="mainContent">
 
 	<div id="sidebar">
+	<h:form>
 		<ul class="nav nav-pills nav-stacked">
-		  <li role="presentation" class="active"><a href="#">Account Options</a></li>
-		  <li role="presentation"><a href="#">Orders</a></li>
-		  <li role="presentation"><a href="#">Log Out</a></li>
+		  <li role="presentation" class="active"><a href="#account" data-toggle="tab">Account Options</a></li>
+		  <li role="presentation"><a href="#orders" data-toggle="tab">Orders</a></li>
+		  <li role="presentation"><h:commandButton action="#{login.logout()}" value="Logout"  class="btn btn-danger" style=" width:100%"/> </li>
 		</ul>
+		</h:form>
 	</div>
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-		<h3 class="panel-title">Account Options</h3>
-	  </div>
-	  <div class="panel-body">
+	
+	<div class="tab-content">
+      <div class="tab-pane active" id="account">
+         <div class="panel panel-default">
+			  <div class="panel-heading">
+				<h3 class="panel-title">Account Options</h3>
+			  </div>
+			  <div class="panel-body">
+		
+			  <h:form>
+				<div class="input-group" >
+				    <h:inputText id="firstName" type="text" a:placeholder="First Name" class="form-control" value="#{Account.firstName}"/>
+				</div>	
+				<div class="input-group" >
+				    <h:inputText id="surname" type="text" a:placeholder="Surname" class="form-control" value="#{Account.surname}"/>
+				</div>
+				<div class="input-group" >
+				    <h:inputText id="email" type="text" a:placeholder="Email" class="form-control" value="#{Account.email}"/>
+				</div>
+				<div class="input-group">
+				    <h:inputText id ="Line1" type="text" a:placeholder="Address Line 1" class="form-control" value="#{Account.addressFirstLine}"/>
+				</div>
+				<div class="input-group">
+				    <h:inputText id="Line2" type="text" a:placeholder="Address Line 2" class="form-control" value="#{Account.addressSecondLine}" />
+				</div>
+				<div class="input-group">
+				    <h:inputText id="County" type="text" a:placeholder="County" class="form-control" value="#{Account.county}" />
+				</div>
+				<div class="input-group">
+				    <h:inputText id="postCode" type="text" a:placeholder="Postcode" class="form-control" value="#{Account.postcode}" />
+				</div>
+			
+					<h:commandButton  class="btn btn-success pull-right"  action="#{Account.updateAccount()}" type="submit" value="Update"/>
+		
+			  </h:form>
+			</div>
+		</div>
+      </div>
+      <div class="tab-pane" id="orders">
+        <div class="panel panel-default">
+			  <div class="panel-heading">
+				<h3 class="panel-title">Orders</h3>
+			  </div>
+			  <div class="panel-body">		
+					<!-- Table -->
+				  <table class="table">
+					<tr>
+						<th>Id</th>
+						<th>Date</th> 
+					</tr>
+				<ui:repeat var="order" value="#{order.productss}">
+					<tr>
+						<td><h:outputText value="#{order.id}"/></td>
+						<td><h:outputText value="#{order.date}"/></td>
+					</tr>
+			    </ui:repeat>
+				  </table>
 
-	  <h:form>
-		<div class="input-group" >
-		    <h:inputText id="firstName" type="text" a:placeholder="First Name" class="form-control" value="#{Account.firstName}"/>
-		</div>	
-		<div class="input-group" >
-		    <h:inputText id="surname" type="text" a:placeholder="Surname" class="form-control" value="#{Account.surname}"/>
+			</div>
 		</div>
-		<div class="input-group" >
-		    <h:inputText id="email" type="text" a:placeholder="Email" class="form-control" value="#{Account.email}"/>
-		</div>
-		<div class="input-group">
-		    <h:inputText id ="Line1" type="text" a:placeholder="Address Line 1" class="form-control" value="#{Account.addressLine1}"/>
-		</div>
-		<div class="input-group">
-		    <h:inputText id="Line2" type="text" a:placeholder="Address Line 2" class="form-control" value="#{Account.addressLine2}" />
-		</div>
-		<div class="input-group">
-		    <h:inputText id="County" type="text" a:placeholder="County" class="form-control" value="#{Account.county}" />
-		</div>
-		<div class="input-group">
-		    <h:inputText id="postCode" type="text" a:placeholder="Postcode" class="form-control" value="#{Account.postcode}" />
-		</div>
-<<<<<<< HEAD
-		<div class="btn-group pull-right">	
-			<h:commandButton type="button" class="btn btn-success" value="Update" action="#{Account.updateAccount()}"/>
-=======
-		<div class="btn-group pull-right">
-			<h:commandButton type="button" class="btn btn-success" data-toggle="dropdown"
-			aria-haspopup="true" aria-expanded="false"
-			value="Update" action="#{account.updateDetails}"/>
-<<<<<<< HEAD
->>>>>>> parent of 32cd800... connor fixing jacobs
-=======
->>>>>>> parent of 32cd800... connor fixing jacobs
-		</div>
-	  </h:form>
-	</div>
-	</div>
+      </div>
+   </div>
+	
 
 	
  </ui:define>

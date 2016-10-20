@@ -5,6 +5,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.nb.gnome.service.CreateAccountService;
+import com.nb.gnome.service.LoginService;
+import com.nb.gnome.service.UserCredentials;
 
 // Created by Cameron & Jacob
 
@@ -13,6 +15,12 @@ import com.nb.gnome.service.CreateAccountService;
 public class CreateAccountController {
 	@Inject
 	CreateAccountService createAccountService;
+	@Inject 
+	LoginController loginController;
+	@Inject 
+	LoginService loginService; 
+	@Inject 
+	UserCredentials userCredentials; 
 	
 	private String firstName;
 	private String surname;
@@ -66,7 +74,8 @@ public class CreateAccountController {
 		}
 		
 		createAccountService.newUser(firstName, surname, email, addressFirstLine, postcode, password);
-		return "homePage";
+		String outcome  = login();
+		return outcome;
 		
 		
 	}
@@ -195,6 +204,23 @@ public class CreateAccountController {
 	 */
 	public void setError(String error) {
 		this.error = error;
+	}
+	public String login(){
+		if(email.equals("")){
+			return "loginPage";
+		}
+		if(password.equals("")){
+			return "loginPage";
+		}
+		
+		if(!loginService.validateDetails(email, password)){
+			error = "Invalid Input";
+			password = "";
+			return "loginPage";
+		}
+		userCredentials.setEmail(email);
+		userCredentials.setUser(loginService.getName(email));
+		return "homePage";
 	}
 	
 }

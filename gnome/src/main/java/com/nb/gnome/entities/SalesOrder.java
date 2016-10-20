@@ -29,7 +29,7 @@ public class SalesOrder {
 	
 	@Column (name = "date", nullable = false)
 	@NotNull
-	private Date date;
+	private String date;
 	
 	@ManyToOne
 	@JoinColumn (name = "FKCustomerId", nullable= false)
@@ -63,16 +63,16 @@ public class SalesOrder {
 	 * Returns Date that a customer order was placed
 	 * @return Date
 	 * */
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
 	/**
 	 * Sets date of a customer order
-	 * @param date - email address of customer
+	 * @param string - email address of customer
 	 * */
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(String string) {
+		this.date = string;
 	}
 
 	/**

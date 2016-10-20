@@ -8,6 +8,7 @@ import javax.inject.Named;
 
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.managers.ProductRepository;
+import com.nb.gnome.service.UserCredentials;
 
 import javassist.compiler.ast.Pair;
 
@@ -32,6 +33,8 @@ public class BasketController implements Serializable {
 
 	@Inject
 	ProductRepository productManager;
+	@Inject 
+	UserCredentials userCredentials; 
 	
 	ArrayList<Product> products = new ArrayList<Product>();
 	
@@ -69,6 +72,7 @@ public class BasketController implements Serializable {
 			exists = false;
 		}		
 		ids = null;
+		
 		return "Basket";
 	}
 	
@@ -88,6 +92,24 @@ public class BasketController implements Serializable {
 	public ArrayList<Product> getProducts() {
 		return this.products;
 	}
+	public String ClearBasket(){
+		products = new ArrayList<Product>();
+		return "Basket";
+	}
+	
+	public String checkout(){
+		if (userCredentials.getEmail() == null || userCredentials.getEmail() == " "){
+			return "loginPage"; 
+		}
 		
+		if(products.size() <1){
+			return "Basket";
+		}
+		else
+		{
+		
+			return "Checkout";
+		}
+	}
 	
 }

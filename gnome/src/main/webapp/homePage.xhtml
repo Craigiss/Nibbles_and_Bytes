@@ -23,17 +23,17 @@ Home Page
 <!-- Generation of products into grid -->
 <div id = "productRow" class="row">
   	<ui:repeat var="product" value="#{products.dataModel}">
-		<div class="col-md-3 col-sm-6" id="productCol">
+		<div class="col-md-3 col-sm-6 productCol">
 			<div id="product">					
 				<h:form>			
 					<h:commandLink action="#{products.view(product.productID)}"  >
-						<h:link outcome="Product"> 
+					
 								<h:graphicImage value="#{product.imgPath}" alt="placeholder" height="100" width="100"/>
 							<h4>
 								<h:outputText value="#{product.productName}" style = "font-weight:bold"/>
 							</h4>
 								<h:outputText value="&#163;#{product.price}" style = "font-weight:bold"/>
-						</h:link>
+					
 					</h:commandLink>
 				</h:form>
 

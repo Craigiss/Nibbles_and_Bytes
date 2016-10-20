@@ -24,7 +24,11 @@ public class LoginService {
 		return false;
 		
 	}
-	
+	public int getID(String email){
+		Customer customer = customerManager.getCustomerByEmail(email);
+		int id = customer.getId();
+		return id;
+	}
 	public String getName(String email){
 		
 		Customer customer = customerManager.getCustomerByEmail(email);

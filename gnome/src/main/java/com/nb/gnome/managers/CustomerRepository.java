@@ -1,4 +1,7 @@
 package com.nb.gnome.managers;
+import java.util.ArrayList;
+
+import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Customer;
 
 public interface CustomerRepository {
@@ -18,5 +21,7 @@ public interface CustomerRepository {
 	
 	//Delete
 	public void changecustomerStatus(int id);
+
+	public void changecustomerAddress(ArrayList<Address> addresses, int id);
 	
 }

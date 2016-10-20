@@ -25,10 +25,10 @@ public class SalesOrderRepositoryOffline implements SalesOrderRepository  {
 	}
 	
 	@Override
-	public List<SalesOrder> findSalesOrderByCustomer(Customer mCust) {
-		List<SalesOrder> so = new ArrayList<SalesOrder>();
+	public ArrayList<SalesOrder> findSalesOrderByCustomerID(int id) {
+		ArrayList<SalesOrder> so = new ArrayList<SalesOrder>();
 		for(SalesOrder s: initialData.getSalesOrders()){
-			if(s.getCustomer() == mCust){
+			if(s.getId() == id){
 				so.add(s);
 			}
 		}
