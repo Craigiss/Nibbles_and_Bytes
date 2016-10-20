@@ -26,6 +26,8 @@ public interface ProductRepository {
 	public void incrementStock(int id, int quantity);
 	public void decrementStock(int id, int quantity);
 
-	List<Product> getProductByCategory(String category); 
+	List<Product> getProductByCategory(String category);
+
+	public void persistProduct(String name, String description, double price, int stockLevel); 
 	
 }

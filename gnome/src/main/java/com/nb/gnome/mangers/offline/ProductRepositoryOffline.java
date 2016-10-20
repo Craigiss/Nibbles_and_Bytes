@@ -145,6 +145,12 @@ public class ProductRepositoryOffline implements ProductRepository {
 		return cat;
 	}
 
+	@Override
+	public void persistProduct(String name, String description, double price, int stockLevel) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	
 }
