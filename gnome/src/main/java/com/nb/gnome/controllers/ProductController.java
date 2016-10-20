@@ -15,8 +15,11 @@ import com.nb.gnome.entities.Product;
 @Named("products")
 @SessionScoped
 public class ProductController implements Serializable {
+	
+	//Convert to ProductService
 	@Inject
-	private ProductRepository productRepository;
+	private ProductRepository productService;
+	
 	@Inject private SelectedProduct product;
 	private PaginationHelper pagination;
 	private DataModel<Product> dataModel = null;
@@ -37,7 +40,7 @@ public class ProductController implements Serializable {
 				@Override
 				public int getItemsCount() {
 					if (dataModel == null){
-					  return productRepository.findAll().size();
+					  return productService.findAll().size();
 					}
 					else {
 						return dataModel.getRowCount();
@@ -50,10 +53,10 @@ public class ProductController implements Serializable {
 				public DataModel<Product>createPageDataModel() {
 					try {
 						return new ListDataModel<Product>(
-								productRepository.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+								productService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
 						return new ListDataModel<Product>(
-								productRepository.findAll().subList(getPageFirstItem(), getItemsCount()));
+								productService.findAll().subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 
@@ -86,7 +89,7 @@ public class ProductController implements Serializable {
 	
 	public String view (int id){
 		System.out.println(">>>> selected ID: " + id);
-		product.setProduct(productRepository.getProductByID(id));
+		product.setProduct(productService.getProductByID(id));
 
 		return "Product";
 	}
