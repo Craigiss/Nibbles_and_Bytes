@@ -115,7 +115,7 @@ public class ProductController implements Serializable {
 		productService.persistProduct(name, description, price, stockLevel);
 		recreateModel();
 		
-		return "imsSuppliers";
+		return "imsProducts";
 	}
 
 	/**
