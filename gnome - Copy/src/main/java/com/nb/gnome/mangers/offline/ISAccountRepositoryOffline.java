@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import com.nb.gnome.entities.Customer;
 import com.nb.gnome.entities.ISAccount;
 import com.nb.gnome.managers.ISAccountRepository;
 
@@ -23,9 +24,15 @@ public class ISAccountRepositoryOffline implements ISAccountRepository{
 	}
 
 	@Override
-	public List<ISAccount> findISAccount(ISAccount isa) {
-		// TODO Auto-generated method stub
-		return null;
+	public ISAccount findISAccountByEmail(String email) {
+		ISAccount is = new ISAccount();
+		for (ISAccount isa : initialData.getInventoryStaffAccounts()){
+			if (isa.getEmail().equals(email))
+			{
+				is = isa;
+			}
+		}
+		return is;
 	}
 	
 	@Override

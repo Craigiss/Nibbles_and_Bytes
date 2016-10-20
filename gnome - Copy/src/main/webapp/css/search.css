@@ -184,7 +184,10 @@ line surrounding it and a background fill colour*/
 	color: #FFFFFF;
     text-decoration: none;
 }
-
+#body{
+	    margin-top: 5%;
+    text-align: center;
+}
 /*
 .imageSet2 li {
 	display: table-cell;

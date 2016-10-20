@@ -16,12 +16,12 @@ public interface ProductRepository {
 	public List<Product> getProductByKeyword(String keyword);
 
 	public Product getProductByName(String name);
-	public List<Category> getProductCategories();
+	public List<Category> getProductCategories(Product prodprod);
 
 	public Product getProductByID(int id);
 	public int getStockLevel(int id);
 	public List<Product> findAll();
-	
+	public void setQuantity(int id, int quantity);
 	//Update
 	public void incrementStock(int id, int quantity);
 	public void decrementStock(int id, int quantity);

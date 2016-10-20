@@ -28,6 +28,9 @@ public class Product {
 	@Column(name = "description")
 	String description;
 	
+	@Column(name = "image")
+	String imgPath;
+	
 	@Column(name = "price")
 	double price;
 	
@@ -41,6 +44,32 @@ public class Product {
 	@NotNull
 	int supplierID;
 	
+	
+	int Quantity;
+	/**
+	 * @return the quantity
+	 */
+	public int getQuantity() {
+		return Quantity;
+	}
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public void setQuantity(int quantity) {
+		Quantity = quantity;
+	}
+	/**
+	 * @return the imgPath
+	 */
+	public String getImgPath() {
+		return imgPath;
+	}
+	/**
+	 * @param imgPath the imgPath to set
+	 */
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
+	}
 	@ManyToMany(targetEntity=Category.class)
 	private List<Category> categories;
 

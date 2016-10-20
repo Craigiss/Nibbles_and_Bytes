@@ -1,5 +1,5 @@
 #body{
-	min-height:681px !important;
+	min-height:799px !important;
 	    height: 100% !important;
     width: 100%;
     display: inline-block;
@@ -33,7 +33,9 @@
   border-top-right-radius: 0;
 }
 
-
+.signupButton{
+	    margin-top: 10px;
+}
 .form-signUp {
   max-width: 330px;
   padding: 15px;
@@ -67,9 +69,5 @@
 border-top-left-radius: 0;
 	border-top-right-radius: 0;
 }
-#inputPasswordConfirm{
-	margin-bottom:10px;
-	
 
-}
 

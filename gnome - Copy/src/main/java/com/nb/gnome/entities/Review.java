@@ -30,7 +30,7 @@ public class Review {
 	
 	@Column (name = "date", nullable = false)
 	@NotNull
-	private Date date;
+	private String date;
 	
 	@Column (name = "reviewText", nullable = true, length = 255 )
 	@Null 
@@ -61,7 +61,9 @@ public class Review {
 	public int getId() {
 		return id;
 	}
-
+	public  void setProductID(int id){
+		this.Productid = id;
+	}
 	public int getProductid() {
 		return Productid;
 	}
@@ -74,7 +76,7 @@ public class Review {
 	 * 
 	 * @return date
 	 */
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
@@ -82,7 +84,7 @@ public class Review {
 	 * 
 	 * @param date the date to set
 	 */
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 

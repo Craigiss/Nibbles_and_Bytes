@@ -24,36 +24,26 @@ Basket Page
 				<th>Quantity</th>
 				<th>Price</th>
 			</tr>
+		<ui:repeat var="product" value="#{Basket.products}">
 			<tr>
-				<td>#0000</td>
-				<td>Gnomeo</td>
-				<td>1</td>
-				<td>&#163;12.99</td>
+				<td><h:outputText value="#{product.productID}"/></td>
+				<td><h:outputText value="#{product.productName}"/></td>
+				<td><h:outputText value="#{product.quantity}"/></td>
+				<td>&#163;<h:outputText value="#{Basket.UpdatePrice(product.quantity,product.price)}"/></td>
 			</tr>
-			<tr>
-				<td>#0001</td>
-				<td>Gnomett</td>
-				<td>1</td>
-				<td>&#163;12.99</td>
-			</tr>
-			<tr>
-				<td>#0003</td>
-				<td>King of the 7</td>
-				<td>1</td>
-				<td>&#163;15.99</td>
-			</tr>
+	    </ui:repeat>
 		  </table>
 		  
 		</div>
 		<div class="row">
 			<div class="col-md-6">
 				<div class="btn-group">
-					<h:commandButton value="Cancel" type="button" action ="#{basket.cancel}"/>
+					<h:commandButton class="btn btn-danger" value="Empty Basket" type="button" action ="#{basket.cancel}"/>
 				</div>
 			</div>    
 			<div class="col-md-6">
 				<div class="btn-group pull-right">
-					<h:commandButton value="Checkout" type="button" action ="#{order.checkout}"/>					
+					<h:commandButton class="btn btn-success" value="Checkout" type="button" action ="#{order.checkout}"/>					
 				</div>
 			</div>
 		</div>

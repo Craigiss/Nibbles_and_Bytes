@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
 xmlns ="https://www.w3.org/1999/xhtml"
+
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:h="http://java.sun.com/jsf/html"
 xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -38,6 +39,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 				</div>
 				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<div id="topNav" >
 					<a class="navbar-brand" href="homePage.xhtml">
 						<img src="img/lgo.png" width="250px"/> 
 					</a>
@@ -52,14 +54,33 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 						
 						 </h:form>
 					
-					  <ul class="nav navbar-nav navbar-right pull-right">
-						<li id="leftBorder"><a href="homePage.xhtml">Home</a></li>
-						<li id="leftBorder"><a href="loginPage.xhtml">Login</a></li>
-						<li id="leftBorder"><a href="Basket.xhtml">Basket</a></li>
-						<li><a href="account.xhtml">Account</a></li>
+					  <ul class="nav navbar-nav navbar-right pull-right" >
+
+						<li id="leftBorder">
+							<a href="homePage.xhtml">Home</a>
+						</li>
+						<li id="leftBorder">
+							<h:link rendered="#{User.user eq null}" value ="Login" outcome="loginPage"/>
+							<h:form>
+								<h:link rendered="#{User.user ne null}" value="Hello #{User.user}," outcome="account"/> 			
+								<h:commandLink rendered="#{User.user ne null}" action="#{login.logout()}" value="logout?" />
+							</h:form>
+						</li>
+						<li id="leftBorder">
+							<h:form>
+								<h:commandLink action="#{Basket.fillBasket()}" value="Basket" />
+							</h:form>
+								
+						</li>
+						<li>
+							<h:link rendered="#{User.user eq null}" value ="Account" outcome="loginPage"/>
+							<h:link rendered="#{User.user ne null}" value="Account" outcome="account"/> 			
+						
+						</li>
+						
 					  </ul>
-					  
-				    <div class="secondNav">
+					  </div>
+				    <div class="secondNav" style="clear: both">
 					  <ul class="nav navbar-nav">
 						<li><a href="Search.xhtml">Gnomes</a></li>
 						<li><a >Pools &amp; HotTubs</a></li>
@@ -128,7 +149,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 					<li><h4><a href="#">Help &amp; FAQ</a></h4> </li>
 					<li><h4><a href="#">Contact Us</a></h4> </li>
 					<li><h4><a href="#">Delivery/Returns</a></h4> </li>
-					<li><h4><a href="#">Account</a></h4> </li>
+					<li><h4><a href="account.xhtml">Account</a></h4> </li>
 					<li><h4><a href="#">About</a></h4> </li>
 				</ul>
 				</div>
@@ -143,8 +164,11 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 		</div>
    </div>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="js/custom.js"></script>
+
 </body>
 </f:view>
 </html>

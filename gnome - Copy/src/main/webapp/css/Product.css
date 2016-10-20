@@ -1,12 +1,16 @@
 #body{
 	padding-left:15%;
 }
- 
+ #alertBox{
+ margin-top:15px;
+	    max-width: 300px;
+ }
 #s{
 	width:900px;
 }
-
-
+.button{
+	margin-top:15px;
+}
 #productImage{
 	float: left;
 	padding-top: 40px;
@@ -22,6 +26,7 @@
 #smallerImages{
     float: left;
 	padding:20px;
+    padding-left: 80px;
 	padding-top: 40px;
 
 }
@@ -57,7 +62,7 @@ clear:both;
 padding-left: 190px;
 }
 #relatedSet img {
-	
+	float:left;
 }
 #relatedSet a{
 	padding-right: 60px;
@@ -78,12 +83,7 @@ hr{
     color: #330;
     height: 10px;
 }
-span {
-	content: "\21E9";
-	padding:20px;
-	font-size: 80px;
-	vertical-align: middle;
-}
+
 .speech-bubble {
       background-color: #FFFFF;
       border: 3px solid #662f8c;
@@ -102,14 +102,22 @@ span {
 }
 
 .figure{
-	font-weight: bold;
+	overflow: hidden;
+		background-image: url("../img/productBackground.png");
+		margin-left:5px;
+		
+		margin-bottom:5px;
+		max-width:250px;
 }
-
+.figure-caption{
+	clear:both;
+}
 .RelatedText{
 	font-weight: bold;
 	text-align: center;
 	COLOR: #662f8c;
 	padding-right: 50px;
+	clear:both;
 }
 
   

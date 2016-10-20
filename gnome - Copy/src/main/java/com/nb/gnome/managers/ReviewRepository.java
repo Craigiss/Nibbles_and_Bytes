@@ -17,7 +17,8 @@ public interface ReviewRepository {
 	//Read
 	public List<Review> findReviewByProduct(Product p);
 	//Update 
-	public void updateReview(Review c); 
+	public void updateReview(Review c);
+	List<Product> findAll(); 
 	
 
 }
