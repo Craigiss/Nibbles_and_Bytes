@@ -16,7 +16,6 @@ import com.nb.gnome.service.UserCredentials;
 public class AccountController implements Serializable {
 	@Inject
 	UserCredentials userCredentials;
-<<<<<<< HEAD
 	@Inject 
 	UpdateAccountService updateAccountService;
 	
@@ -29,7 +28,7 @@ public class AccountController implements Serializable {
     private String postcode;
     private String county; 
 	
-<<<<<<< HEAD
+
 	*//**
 	 * @return the accountManager
 	 *//*
@@ -135,18 +134,14 @@ public class AccountController implements Serializable {
 		this.county = county;
 	}
 
-	public String updateAccount(){
-=======
 	public void updateAccount(){
->>>>>>> parent of f73a503... Add to basket and display basket functionality completed.
 		
 		updateAccountService.updateAcount(firstName, surname, email, addressFirstLine, postcode, county);
 	}
-=======
+
 
 	private List<Address> address;
 
->>>>>>> parent of 32cd800... connor fixing jacobs
 	
 	public String getFirstName(){
 		return  accountManager.getCustomerByEmail(userCredentials.getEmail()).getFirstName();
