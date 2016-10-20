@@ -35,6 +35,6 @@ public class UpdateAccountService {
 		customerRepository.changeEmailAddress(email, c.getId());
 		customerRepository.changeFirstName(firstName, c.getId());
 		customerRepository.changeSurname(surname, c.getId());
-		customerRepository.changecustomerAddress(addresses, c.getId());
+		//customerRepository.changecustomerAddress(addresses, c.getId());
 	}
 }
