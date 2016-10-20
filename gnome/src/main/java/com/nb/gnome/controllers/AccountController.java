@@ -17,6 +17,7 @@ import com.nb.gnome.service.UserCredentials;
 public class AccountController implements Serializable {
 	@Inject
 	UserCredentials userCredentials;
+<<<<<<< HEAD
 	@Inject 
 	UpdateAccountService updateAccountService;
 	
@@ -140,6 +141,11 @@ public class AccountController implements Serializable {
 		
 		return "loginPage"; 
 	}
+=======
+
+	private List<Address> address;
+
+>>>>>>> parent of 32cd800... connor fixing jacobs
 	
 	public String getFirstName(){
 		return  accountManager.getCustomerByEmail(userCredentials.getEmail()).getFirstName();
