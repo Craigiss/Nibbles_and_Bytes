@@ -2,7 +2,6 @@ package com.nb.gnome.service;
 
 import java.util.ArrayList;
 
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Address;
@@ -11,9 +10,12 @@ import com.nb.gnome.managers.CustomerRepository;
 
 import gnome.InitialData;
 
+<<<<<<< HEAD
 
 
 @Stateless
+=======
+>>>>>>> parent of f73a503... Add to basket and display basket functionality completed.
 public class UpdateAccountService {
     @Inject 
     CustomerRepository  customerRepository; 

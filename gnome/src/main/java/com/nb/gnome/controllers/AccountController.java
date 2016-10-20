@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
-import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -30,6 +29,7 @@ public class AccountController implements Serializable {
     private String postcode;
     private String county; 
 	
+<<<<<<< HEAD
 	*//**
 	 * @return the accountManager
 	 *//*
@@ -136,10 +136,11 @@ public class AccountController implements Serializable {
 	}
 
 	public String updateAccount(){
+=======
+	public void updateAccount(){
+>>>>>>> parent of f73a503... Add to basket and display basket functionality completed.
 		
 		updateAccountService.updateAcount(firstName, surname, email, addressFirstLine, postcode, county);
-		
-		return "loginPage"; 
 	}
 =======
 
