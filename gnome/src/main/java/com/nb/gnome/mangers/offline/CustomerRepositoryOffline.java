@@ -33,14 +33,11 @@ public class CustomerRepositoryOffline implements CustomerRepository {
 
 	@Override
 	public Customer getCustomerByEmail(String email) {
-		Customer cust = new Customer();
 		for (Customer c : initialData.getCustomerAccounts()){
 			if (c.getEmail().equals(email))
-			{
-				cust = c;
-			}
+				return c;
 		}
-		return cust;
+		return null;
 	}
 
 	@Override

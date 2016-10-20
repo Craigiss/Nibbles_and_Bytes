@@ -68,11 +68,17 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 						</li>
 						<li id="leftBorder">
 							<h:form>
-								<h:commandLink action="#{Basket.fillBasket()}" value="Basket" />
+								<h:link outcome="Basket">
+									<h:commandLink action="#{Basket.fillBasket()}" value="Basket"  />
+								</h:link>
 							</h:form>
 								
 						</li>
-						<li><a href="account.xhtml">Account</a></li>
+						<li>
+							<h:link rendered="#{User.user eq null}" value ="Account" outcome="loginPage"/>
+							<h:link rendered="#{User.user ne null}" value="Account" outcome="account"/> 			
+						
+						</li>
 						
 					  </ul>
 					  </div>
@@ -97,60 +103,67 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
    <div id="footer"> 
 		<div id="siteMap" class="container-fluid">
 			<div class="row">
-				<div class="col-md-3">
-				</div>
-				<div class="col-xs-12 col-md-1  ">
+				<h:form>
+					<div class="col-md-3">
+					</div>
+					<div class="col-xs-12 col-md-1  ">
+						<ul>
+							<li><h4><a href="#">Gnomes</a> </h4></li>
+							<li><a href="#">Themed </a></li>
+							<li><a href="#">Seasonal </a></li>
+							<li><a href="#">Classic </a></li>
+							<li><a href="#">Specialist</a> </li>
+						</ul>
+					</div>
+					<div class="col-xs-12 col-md-1">
 					<ul>
-						<li><h4><a href="#">Gnomes</a> </h4></li>
-						<li><a href="#">Themed </a></li>
-						<li><a href="#">Seasonal </a></li>
-						<li><a href="#">Classic </a></li>
-						<li><a href="#">Specialist</a> </li>
+						<li><h4><a href="#">Pools &amp; Hot Tubs</a></h4> </li>
+						<li><a href="#">Pools </a></li>
+						<li><a href="#">Hot Tubs </a></li>
 					</ul>
-				</div>
-				<div class="col-xs-12 col-md-1">
-				<ul>
-					<li><h4><a href="#">Pools &amp; Hot Tubs</a></h4> </li>
-					<li><a href="#">Pools </a></li>
-					<li><a href="#">Hot Tubs </a></li>
-				</ul>
-				</div>
-				<div class="col-xs-12 col-md-1">
-				<ul>
-					<li><h4><a href="#">Gnomes and accessories</a></h4> </li>
-					<li><a href="#">Equipment</a> </li>
-					<li><a href="#">Clothes </a></li>
-				</ul>
-				</div>
-				<div class="col-xs-12 col-md-1">
-				<ul>
-					<li><h4><a href="#">Garden Ornaments</a></h4> </li>
-					<li><a href="#">Patio </a></li>
-					<li><a href="#">Tree</a> </li>
-					<li><a href="#">Wall </a></li>
-					<li><a href="#">Lawn </a></li>
-				</ul>
-				</div>
-				<div class="col-xs-12 col-md-1">
-				<ul>
-					<li><h4><a href="#">Garden Care</a></h4> </li>
-					<li><a href="#">Brushes </a></li>
-					<li><a href="#">Polish/Wax </a></li>
-					<li><a href="#">Paint </a></li>
-					<li><a href="#">Porous </a></li>
-				</ul>
-				</div>
-				<div class="col-xs-12 col-md-1">
-				<ul>
-					<li><h4><a href="#">Help &amp; FAQ</a></h4> </li>
-					<li><h4><a href="#">Contact Us</a></h4> </li>
-					<li><h4><a href="#">Delivery/Returns</a></h4> </li>
-					<li><h4><a href="#">Account</a></h4> </li>
-					<li><h4><a href="#">About</a></h4> </li>
-				</ul>
-				</div>
-				<div class="col-md-3">
-				</div>
+					</div>
+					<div class="col-xs-12 col-md-1">
+					<ul>
+						<li><h4><a href="#">Gnomes and accessories</a></h4> </li>
+						<li><a href="#">Equipment</a> </li>
+						<li><a href="#">Clothes </a></li>
+					</ul>
+					</div>
+					<div class="col-xs-12 col-md-1">
+					<ul>
+						<li><h4><a href="#">Garden Ornaments</a></h4> </li>
+						<li><a href="#">Patio </a></li>
+						<li><a href="#">Tree</a> </li>
+						<li><a href="#">Wall </a></li>
+						<li><a href="#">Lawn </a></li>
+					</ul>
+					</div>
+					<div class="col-xs-12 col-md-1">
+					<ul>
+						<li><h4><a href="#">Garden Care</a></h4> </li>
+						<li><a href="#">Brushes </a></li>
+						<li><a href="#">Polish/Wax </a></li>
+						<li><a href="#">Paint </a></li>
+						<li><a href="#">Porous </a></li>
+					</ul>
+					</div>
+					<div class="col-xs-12 col-md-1">
+					<ul>
+						<li><h4><a href="#">Help &amp; FAQ</a></h4> </li>
+						<li><h4><a href="#">Contact Us</a></h4> </li>
+						<li><h4><a href="#">Delivery/Returns</a></h4> </li>
+						<li>
+							<h4>
+								<h:link rendered="#{User.user eq null}" value ="Account" outcome="loginPage"/>
+								<h:link rendered="#{User.user ne null}" value="Account" outcome="account"/> 			
+							</h4>
+						</li>
+						<li><h4><a href="#">About</a></h4> </li>
+					</ul>
+					</div>
+					<div class="col-md-3">
+					</div>
+				</h:form>
 			</div>
 		</div>
 		<div class="row" id="footerName">
@@ -163,18 +176,8 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script>
-$(document).ready(function(){
+<script src="js/custom.js"></script>
 
-    $('#addToBasketAlert').click(function(){
-     /*    var element =document.querySelector("#alerttt")
-        element.style.visibility = "visible"; */
-        document().getElementById("alerttt").style.visibility = "visible";
-      /*  $('.alerttt').show(); */
-
-    });
-});
-</script>
 </body>
 </f:view>
 </html>

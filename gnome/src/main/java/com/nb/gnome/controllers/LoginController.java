@@ -20,13 +20,14 @@ public class LoginController implements Serializable {
 	private String email;
 	private String password;
 	private String error;
+
 	
 	public String login(){
 		if(email.equals("")){
-			return("loginPage");
+			return "loginPage";
 		}
 		if(password.equals("")){
-			return("loginPage");
+			return "loginPage";
 		}
 		
 		if(!loginService.validateDetails(email, password)){
@@ -36,7 +37,7 @@ public class LoginController implements Serializable {
 		}
 		userCredentials.setEmail(email);
 		userCredentials.setUser(loginService.getName(email));
-		return("homePage");
+		return "account";
 	}
 	
 	public String logout(){

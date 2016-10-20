@@ -27,8 +27,7 @@ public class AccountController implements Serializable {
     private String addressFirstLine;
     private String postcode;
     private String county; 
-	
-<<<<<<< HEAD
+
 
 	*//**
 	 * @return the accountManager
@@ -135,8 +134,6 @@ public class AccountController implements Serializable {
 		this.county = county;
 	}
 
-=======
->>>>>>> parent of f73a503... Add to basket and display basket functionality completed.
 	public void updateAccount(){
 		
 		updateAccountService.updateAcount(firstName, surname, email, addressFirstLine, postcode, county);

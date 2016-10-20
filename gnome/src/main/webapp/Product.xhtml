@@ -67,20 +67,21 @@ template="templates/Template.xhtml">
 						</h:selectOneMenu>
 					</div>
 					
-					<div class = "button">
-					
-						 <h:commandLink id="addToBasketAlert" action="#{Basket.addProduct(selected.product.productID, products.selectedComboItem, selected.product.price)}">
-							 <h:commandButton  class="btn btn-success" value="Basket" type="button"  />
-							
-							
-							
-						 </h:commandLink>
-						<div id="alerttt" class="alert alert-success" >
-						  <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
-						  <strong>Success!</strong> Indicates a successful or positive action.
-						</div>
+					<div class = "button" >
+						 <h:commandButton onclick="showAlert()" class="btn btn-success" action="#{Basket.addProduct(selected.product.productID, products.selectedComboItem, selected.product.price)}" type="button" value="Add to Basket" />
 					</div>
+					
 					</h:form>
+					<div id="alertBox">
+					</div>
+					<script type="text/javascript">
+				         function showAlert()
+				         {
+				        	 var el = document.getElementById('alertBox');
+				        	 el.innerHTML = '<div id="alerttt"  class="alert alert-success" style="visiblity:visible"> <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a><strong>Success!</strong> Item added to basket</div>'
+				        
+				         }
+				      </script>
 
 			</div>
 			</div>
