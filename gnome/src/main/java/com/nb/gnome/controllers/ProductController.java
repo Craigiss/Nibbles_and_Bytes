@@ -17,7 +17,7 @@ import com.nb.gnome.entities.Product;
 @SessionScoped
 public class ProductController implements Serializable {
 	
-	//Convert to ProductService
+	//Convert to ProductService - gots to make sure that this is a Service object, not a Manager!!!!
 	@Inject
 	private ProductService productService;
 	
