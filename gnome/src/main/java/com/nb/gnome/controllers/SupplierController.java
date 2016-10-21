@@ -68,7 +68,7 @@ public class SupplierController implements Serializable{
 		return "imsSuppliers";
 	}
 	
-	public Supplier view(long id) {
+	public Supplier view(String id) {
 		supplier = supplierService.findSupplierById(id);
 		return supplier;
 	}

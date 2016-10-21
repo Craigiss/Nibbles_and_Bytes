@@ -46,14 +46,11 @@ public class SupplierService {
 	public Supplier findSupplierById(String id){
 		try{
 			long searchId = Long.parseLong(id);
-			return supplierManager.getSupplierByID(searchId);
+			return supplierManager.findSupplierById(searchId);
 		}
 		catch( Exception e){
 			return null;
 		}	
-		
-		
-		return supplierManager.findSupplierById(id);
 	}
 
 	/**
