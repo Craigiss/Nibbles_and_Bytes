@@ -13,8 +13,11 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.helper.PaginationHelper;
+import com.nb.gnome.service.ProductService;
 import com.nb.gnome.service.SearchService;
+import com.nb.gnome.service.SupplierService;
 
 @Named("search")
 @RequestScoped
@@ -22,7 +25,8 @@ public class SearchController{
 	
 	private String term;
 	
-	@Inject private SearchService searchServ;
+	@Inject private ProductService productServ;
+	@Inject private SupplierService supplierServ;
 	@Inject private SelectedProduct selectedProd;
 //	@Inject private SelectedProductDataModel selectedProductDataModel;
 	@Inject private ProductController prodController;
@@ -31,10 +35,9 @@ public class SearchController{
 	private List<Product> productsFoundByKeyword = new ArrayList<Product>();
 	
 	public String searchProd(String service){
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + service + " TERM " + term);
 		String returnValue = "";
-		Product p = searchServ.findProductById(term);
-		ArrayList<Product> pList = (ArrayList<Product>)searchServ.findProductByKeyword(term);
+		Product p = productServ.findProductById(term);
+		ArrayList<Product> pList = (ArrayList<Product>)productServ.findProductByKeyword(term);
 		if (p !=null && service.equals("cat")){
 			selectedProd.setProduct(p);	
 			returnValue = "Product";
@@ -55,6 +58,33 @@ public class SearchController{
 		else{
 			returnValue = "imsError";
 		}
+		return returnValue;		
+	}
+	
+	public String searchSuppliers(String service){
+		String returnValue = "";
+		Supplier s = supplierServ.findSupplierById(term);
+		ArrayList<Supplier> sList = (ArrayList<Supplier>)supplierServ.findSupplierByCompany(term);
+//		if (s !=null && service.equals("cat")){
+//			selectedProd.setProduct(s);	
+//			returnValue = "Product";
+//		}
+//		else if (p !=null && service.equals("ims")){
+//			System.out.println("i got to the right section");
+//			selectedProd.setProduct(p);
+//			returnValue = "imsProdDeets";
+//		}
+//		else if (pList.size() > 0){
+//			for(Product prod : pList){
+//				productsFoundByKeyword.add(prod);
+//				prodController.getDataModel();
+//				prodController.setData((ArrayList)productsFoundByKeyword);
+//				returnValue = "imsProducts";
+//			}
+//		}
+//		else{
+//			returnValue = "imsError";
+//		}
 		return returnValue;		
 	}
 	

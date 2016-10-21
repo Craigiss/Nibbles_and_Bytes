@@ -43,7 +43,16 @@ public class SupplierService {
 	 * @param id
 	 * @return
 	 */
-	public Supplier findSupplierById(long id){
+	public Supplier findSupplierById(String id){
+		try{
+			long searchId = Long.parseLong(id);
+			return supplierManager.getSupplierByID(searchId);
+		}
+		catch( Exception e){
+			return null;
+		}	
+		
+		
 		return supplierManager.findSupplierById(id);
 	}
 

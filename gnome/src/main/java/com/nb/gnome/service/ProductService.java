@@ -39,13 +39,24 @@ public class ProductService {
 		
 	}
 	
-//	/**
-//	 *  finds a particular product from a given id that matches said id
-//	 * @param id
-//	 * @return
-//	 */
-//	public Product findProductById(long id){
-//		return productManager.findProductById(id);
-//	}
+	public Product findProductById(String id){
+		
+		try{
+			int searchId = Integer.parseInt(id);
+			return productManager.getProductByID(searchId);
+		}
+		catch( Exception e){
+			return null;
+		}	
+	}
+	
+	public List<Product> findProductByKeyword(String keyword){
+		try {
+			return productManager.getProductByKeyword(keyword);
+		}
+		catch(Exception e){
+			return null;
+		}
+	}
 	
 }

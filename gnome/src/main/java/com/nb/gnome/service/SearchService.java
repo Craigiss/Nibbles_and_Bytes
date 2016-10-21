@@ -13,7 +13,7 @@ import com.nb.gnome.managers.SupplierRepository;
 @Stateless
 public class SearchService {
 	@Inject private ProductRepository prodRepo;
-//	@Inject private SupplierRepository suppRepo;
+	@Inject private SupplierRepository suppRepo;
 //	@Inject private PurchaseOrderRepository poRepo;
 	
 	public ProductRepository getProductRepository(){
