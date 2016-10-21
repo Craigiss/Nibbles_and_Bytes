@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import com.nb.gnome.helper.*;
 import com.nb.gnome.managers.ProductRepository;
+import com.nb.gnome.service.ProductService;
 import com.nb.gnome.entities.Product;
 
 @Named("products")
@@ -18,7 +19,7 @@ public class ProductController implements Serializable {
 	
 	//Convert to ProductService
 	@Inject
-	private ProductRepository productService;
+	private ProductService productService;
 	
 	@Inject private SelectedProduct product;
 	private PaginationHelper pagination;
@@ -93,9 +94,9 @@ public class ProductController implements Serializable {
 		return "browse";
 	}
 	
-	public String view (int id){
+	public String view (String id){
 		System.out.println(">>>> selected ID: " + id);
-		product.setProduct(productService.getProductByID(id));
+		product.setProduct(productService.findProductById(id));
 
 		return "Product";
 	}
