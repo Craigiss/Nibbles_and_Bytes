@@ -58,7 +58,7 @@ visibility: visible;
 #reviews{
 padding-top: 5px;
 clear:both;
-padding-left: 190px;
+
 }
 #relatedSet img {
 	float:left;
@@ -111,7 +111,10 @@ hr{
 	padding-right: 50px;
 	clear:both;
 }
-
-  
-  
-
+td label{
+	margin-right: 10px;
+}
+textarea{
+	min-width: 400px;
+	min-height: 200px;
+}

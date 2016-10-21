@@ -26,6 +26,19 @@ body {
 	transform:translate(0%,-20%);
 	min-width:50px;
 }
+
+#leftBorder #loggedIn a{
+padding-left:5px;
+	padding-right:5px;
+	text-decoration: none;
+	padding-top: 8px;
+	min-width: 60px !important;
+	color: #777;
+}
+#leftBorder #loggedIn button{
+	border: none;
+	background: none;
+}
 #leftBorder form{
 	padding-left:5px;
 	padding-right:5px;

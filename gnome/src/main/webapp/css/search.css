@@ -187,6 +187,7 @@ line surrounding it and a background fill colour*/
 #body{
 	    margin-top: 5%;
     text-align: center;
+    min-height: 692px !important;
 }
 /*
 .imageSet2 li {

@@ -86,78 +86,107 @@ template="templates/Template.xhtml">
 			</div>
 			</div>
 		</div>
-		<div class = "related">
-		<br/><br/><br/><br/>
 		<div class="container">
-		<div id = "relatedProducts">
-			<h2>
-				Related Products 
-			</h2>
-		</div>
-		
-		<div id = "relatedSet">
-			<div class = "row text-center">
-				<ui:repeat var="product" value="#{products.dataModel}">
-					<div class="col-md-3">						
-						<h:form>			
-							<h:commandLink action="#{products.view(product.productID)}"  >						
-								<h:graphicImage value="#{product.imgPath}" alt="placeholder" height="100" width="100"/>		
-								<h:outputText class="figure-caption" value="#{product.productName}"/>
-								<h:outputText class="figure-caption" value="&#163;#{product.price}" />
-							</h:commandLink>
-						</h:form>
+		<div class = "related">
+			<br/><br/><br/><br/>
+			
+				<div id = "relatedProducts">
+					<h2>
+						Related Products 
+					</h2>
+				</div>
+			
+				<div id = "relatedSet">
+					<div class = "row text-center">
+						<ui:repeat var="product" value="#{products.dataModel}">
+							<div class="col-md-3">						
+								<h:form>			
+									<h:commandLink action="#{products.view(product.productID)}"  >						
+										<h:graphicImage value="#{product.imgPath}" alt="placeholder" height="100" width="100"/>		
+										<h:outputText class="figure-caption" value="#{product.productName}"/>
+										<h:outputText class="figure-caption" value="&#163;#{product.price}" />
+									</h:commandLink>
+								</h:form>
+							</div>
+		   				</ui:repeat>
 					</div>
-   				</ui:repeat>
 				</div>
 			</div>
-		</div>
 		</div>
 		<br/><br/><br/>
 		
-		
-		
 		<div id = "reviews">
-			<h2>
-				Reviews
-			</h2>
 			<div class="container">
-				<div class = "row text-center">
-					<div id = "radioButtons">
-						<h:selectOneRadio >
-						<div class="col-sm-2">
-							<f:selectItem itemValue="excellent" itemLabel="Excellent" />
-						</div>
-						<div class="col-sm-2">
-							<f:selectItem itemValue="veryGood" itemLabel="Very Good" />
-						</div>
-						<div class="col-sm-2">
-							<f:selectItem itemValue="average" itemLabel="Average" />
-						</div>
-						<div class="col-sm-2">
-							<f:selectItem itemValue="poor" itemLabel="Poor" />
-						</div>
+				<h2>Reviews</h2>
+					<button class="btn btn-success pull-left" value="Write Review" type="button" data-toggle="modal" data-target="#myModal" >Write a review</button>
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+					        <h4 class="modal-title" id="myModalLabel">Write Review</h4>
+					      </div>
+					      <div class="modal-body">
+					      <h:form>
+					      	<div class="container">			
+						       	<div id = "radioButtons">
+							       	<div class = "row text-center">
+										<h:selectOneRadio >
+											<div class="col-sm-2">
+												<f:selectItem itemValue="excellent" itemLabel="Excellent" />
+											</div>
+											<div class="col-sm-2">
+												<f:selectItem itemValue="veryGood" itemLabel="Very Good" />
+											</div>
+											<div class="col-sm-2">
+												<f:selectItem itemValue="average" itemLabel="Average" />
+											</div>
+											<div class="col-sm-2">
+												<f:selectItem itemValue="poor" itemLabel="Poor" />
+											</div>
+											<div class="col-sm-4">
+												<f:selectItem itemValue="terrible" itemLabel="Terrible" />
+											</div>
+										</h:selectOneRadio>
+									</div>
+								</div>
+								<h:panelGrid id="commentGrid">
+							        <h:outputLabel value="Add Comments: " />
+							        <h:inputTextarea   />
+							    </h:panelGrid>
+								
+							  </div>
+							</h:form>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn pull-left btn-danger" data-dismiss="modal">Cancel</button>
+					        <h:form>
+					        <h:commandButton class="btn btn-success" value="Confirm" type="submit"  style="right:10px;" /><!-- add functionality -->
+					        </h:form>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					
+		
+		
+				<div class="reviewcontainer" style="clear:both">
+					<div class ="row text-center">
+					<ui:repeat var="product" value="#{products.reviewModel}">
 						<div class="col-sm-4">
-							<f:selectItem itemValue="terrible" itemLabel="Terrible" />
+							<div class="speech-bubble">
+								<p> <h:outputText value ="#{product.reviewText}" /> </p>
+								<figure class="figure">	
+									<figcaption class="figure-caption"><h:outputText value ="#{product.date}" /></figcaption>
+								</figure>	
+							</div>	
 						</div>
-						</h:selectOneRadio>
+						</ui:repeat>
+						<h:form rendered="#{products.reviewModel eq null}" class="pull-left">
+							<h3 style="padding-left:15px;"> No Reviews</h3>
+						</h:form>
 					</div>
-				</div>
-			</div>
-			<div class="reviewcontainer">
-				<div class ="row text-center">
-				<ui:repeat var="product" value="#{products.reviewModel}">
-					<div class="col-sm-4">
-						<div class="speech-bubble">
-							<p> <h:outputText value ="#{product.reviewText}" /> </p>
-							<figure class="figure">	
-								<figcaption class="figure-caption"><h:outputText value ="#{product.date}" /></figcaption>
-							</figure>	
-						</div>	
-					</div>
-					</ui:repeat>
-					<h:form rendered="#{products.reviewModel eq null}" class="pull-left">
-						<h3 style="padding-left:15px;"> No Reviews</h3>
-					</h:form>
 				</div>
 			</div>
 		</div>

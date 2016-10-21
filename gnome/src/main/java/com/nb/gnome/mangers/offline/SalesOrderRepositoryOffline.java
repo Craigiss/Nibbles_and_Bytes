@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
+import javax.inject.Inject;
 
 import com.nb.gnome.entities.Customer;
 import com.nb.gnome.entities.SalesOrder;
@@ -16,6 +17,7 @@ import gnome.InitialData;
 @Default
 @Stateless
 public class SalesOrderRepositoryOffline implements SalesOrderRepository  {
+	@Inject
 	private InitialData initialData; 
 	
 
@@ -25,10 +27,10 @@ public class SalesOrderRepositoryOffline implements SalesOrderRepository  {
 	}
 	
 	@Override
-	public ArrayList<SalesOrder> findSalesOrderByCustomerID(int id) {
+	public ArrayList<SalesOrder> findSalesOrderByCustomer(Customer c) {
 		ArrayList<SalesOrder> so = new ArrayList<SalesOrder>();
 		for(SalesOrder s: initialData.getSalesOrders()){
-			if(s.getId() == id){
+			if(s.getCustomer() == c){
 				so.add(s);
 			}
 		}

@@ -50,8 +50,14 @@ public class InitialData {
 		sO1.setId(1);
 		sO1.setDate("11/12/2016");
 		sO1.setCustomer(cu);
+		sO1.setStatus("Delivered");
 		salesOrders.add(sO1);
-		
+		SalesOrder sO2 = new SalesOrder();
+		sO2.setId(2);
+		sO2.setDate("12/12/2016");
+		sO2.setStatus("Processing");
+		sO2.setCustomer(cu);
+		salesOrders.add(sO2);
 		
 		Review r1 = new Review();
 		r1.setProductID(1);

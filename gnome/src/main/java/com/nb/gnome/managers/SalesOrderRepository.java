@@ -12,8 +12,10 @@ public interface SalesOrderRepository {
 
 	SalesOrder findSalesOrderById(long id);
 
-	ArrayList<SalesOrder> findSalesOrderByCustomerID(int id);
+	//ArrayList<SalesOrder> findSalesOrderByCustomerID(int id);
 
 	void persistSalesOrder(SalesOrder a);
+
+	ArrayList<SalesOrder> findSalesOrderByCustomer(Customer c);
 
 }

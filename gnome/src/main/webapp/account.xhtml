@@ -73,15 +73,16 @@ Account Page
 					<tr>
 						<th>Id</th>
 						<th>Date</th> 
+						<th>Status</th> 
 					</tr>
-				<ui:repeat var="order" value="#{order.productss}">
-					<tr>
-						<td><h:outputText value="#{order.id}"/></td>
-						<td><h:outputText value="#{order.date}"/></td>
-					</tr>
-			    </ui:repeat>
+						<ui:repeat var="orders" value="#{order.products}">
+							<tr>
+								<td><h:outputText value="#{orders.id}"/></td>
+								<td><h:outputText value="#{orders.date}"/></td>
+								<td><h:outputText value="#{orders.status}"/></td>
+							</tr>
+					    </ui:repeat>
 				  </table>
-
 			</div>
 		</div>
       </div>

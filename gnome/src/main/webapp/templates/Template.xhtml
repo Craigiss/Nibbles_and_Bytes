@@ -61,10 +61,33 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 						</li>
 						<li id="leftBorder">
 							<h:link rendered="#{User.user eq null}" value ="Login" outcome="loginPage"/>
-							<h:form>
-								<h:link rendered="#{User.user ne null}" value="Hello #{User.user}," outcome="account"/> 			
-								<h:commandLink rendered="#{User.user ne null}" action="#{login.logout()}" value="logout?" />
+							<h:form rendered="#{User.user ne null}" >
+							<div id="loggedIn">
+								<h:link rendered="#{User.user ne null}" value="Hello #{User.user}," outcome="account"/> 	
+								<button  value="Logout" type="button" data-toggle="modal" data-target="#logOutModal" >Logout?</button>	
+							</div>
 							</h:form>
+								
+<!-- Modal -->
+<div class="modal fade" id="logOutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+        <h4 class="modal-title" id="myModalLabel">Log Out</h4>
+      </div>
+      <div class="modal-body">
+       Are you sure you want to log out?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn pull-left btn-danger" data-dismiss="modal">Cancel</button>
+        <h:form>
+        <h:commandButton class="btn btn-success" value="Confirm" type="submit" action="#{login.logout()}" style="right:10px;" />
+        </h:form>
+      </div>
+    </div>
+  </div>
+</div>
 						</li>
 						<li id="leftBorder">
 							<h:form>
@@ -172,7 +195,11 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 			</div>
 		</div>
    </div>
+   
+
+   
 </div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
