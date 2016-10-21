@@ -27,11 +27,16 @@ public class SearchController{
 	
 	@Inject private ProductService productServ;
 	@Inject private SupplierService supplierServ;
+	
 	@Inject private SelectedProduct selectedProd;
 //	@Inject private SelectedProductDataModel selectedProductDataModel;
+	
 	@Inject private ProductController prodController;
+	@Inject private SupplierController supController;
+	
 	private PaginationHelper pagination;
 	private DataModel<Product> dataModel = null;
+	
 	private List<Product> productsFoundByKeyword = new ArrayList<Product>();
 	
 	public String searchProd(String service){
@@ -62,30 +67,10 @@ public class SearchController{
 	}
 	
 	public String searchSuppliers(String service){
-		String returnValue = "";
 		Supplier s = supplierServ.findSupplierById(term);
 		ArrayList<Supplier> sList = (ArrayList<Supplier>)supplierServ.findSupplierByCompany(term);
-//		if (s !=null && service.equals("cat")){
-//			selectedProd.setProduct(s);	
-//			returnValue = "Product";
-//		}
-//		else if (p !=null && service.equals("ims")){
-//			System.out.println("i got to the right section");
-//			selectedProd.setProduct(p);
-//			returnValue = "imsProdDeets";
-//		}
-//		else if (pList.size() > 0){
-//			for(Product prod : pList){
-//				productsFoundByKeyword.add(prod);
-//				prodController.getDataModel();
-//				prodController.setData((ArrayList)productsFoundByKeyword);
-//				returnValue = "imsProducts";
-//			}
-//		}
-//		else{
-//			returnValue = "imsError";
-//		}
-		return returnValue;		
+		supController.setData(sList);
+		return "suppliers";		
 	}
 	
 

@@ -3,6 +3,7 @@ package com.nb.gnome.controllers;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.helper.PaginationHelper;
 import com.nb.gnome.service.SupplierService;
@@ -54,6 +55,10 @@ public class SupplierController implements Serializable{
 			dataModel = getPagination().createPageDataModel();
 		return dataModel;
 		
+	}
+	
+	public void setData(ArrayList<Supplier> model ){
+		dataModel.setWrappedData(model);
 	}
 	
 	public String next() {
