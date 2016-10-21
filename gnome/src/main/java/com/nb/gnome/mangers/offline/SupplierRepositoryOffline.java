@@ -49,11 +49,11 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 	public List<Supplier> findSupplierByCompany(String company) {
 		List<Supplier> sup = new ArrayList<Supplier>();
 		for (Supplier s : initialData.getSuppliers()){
-			if (s.getCompany().contains(company))
+			if (s.getCompany().toLowerCase().contains(company.toLowerCase()))
 			{
 				sup.add(s);
 			}
-		}
+					}
 		return sup;
 	}
 	
