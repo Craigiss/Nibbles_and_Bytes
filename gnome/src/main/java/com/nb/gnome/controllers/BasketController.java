@@ -8,6 +8,7 @@ import javax.inject.Named;
 
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.managers.ProductRepository;
+import com.nb.gnome.service.CheckoutService;
 import com.nb.gnome.service.UserCredentials;
 
 import javassist.compiler.ast.Pair;
@@ -18,6 +19,13 @@ import java.io.Serializable;
 @Named("Basket")
 @SessionScoped
 public class BasketController implements Serializable {
+	
+	
+	/**
+	 * @return the total
+	 */
+	
+
 	public class item{
 		int id;
 		int quantity;
@@ -36,7 +44,9 @@ public class BasketController implements Serializable {
 	ProductRepository productManager;
 	@Inject 
 	UserCredentials userCredentials; 
-	
+	@Inject 
+	CheckoutService checkoutService; 
+	private double total; 
 	ArrayList<Product> products = new ArrayList<Product>();
 	
 	public void addProduct(int id, int quantity,double cost){
@@ -125,9 +135,19 @@ public class BasketController implements Serializable {
 		}
 		else
 		{
-		
+			total = checkoutService.totalPrice(products);
 			return "Checkout";
 		}
+	}
+	
+	public double getTotal() {
+		return total;
+	}
+	/**
+	 * @param total the total to set
+	 */
+	public void setTotal(double total) {
+		this.total = total;
 	}
 	
 }

@@ -35,6 +35,7 @@ public class LoginController implements Serializable {
 		if(!loginService.validateDetails(email, password)){
 			setError("Invalid Email or Password");
 			password = "";
+			
 			return "loginPage";
 		}
 		userCredentials.setEmail(email);
