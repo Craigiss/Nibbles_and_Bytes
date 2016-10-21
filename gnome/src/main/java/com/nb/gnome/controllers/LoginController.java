@@ -24,14 +24,16 @@ public class LoginController implements Serializable {
 	
 	public String login(){
 		if(email.equals("")){
+			setError("Please Enter a Email address");
 			return "loginPage";
 		}
 		if(password.equals("")){
+			setError("Please Enter a Password");
 			return "loginPage";
 		}
 		
 		if(!loginService.validateDetails(email, password)){
-			error = "Invalid Input";
+			setError("Invalid Email or Password");
 			password = "";
 			return "loginPage";
 		}
@@ -73,6 +75,14 @@ public class LoginController implements Serializable {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
 	}
 
 	

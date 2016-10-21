@@ -30,7 +30,8 @@ public class BasketController implements Serializable {
 	}
 	
 	ArrayList<item> ids = new ArrayList<item>();
-
+	String submit;
+	
 	@Inject
 	ProductRepository productManager;
 	@Inject 
@@ -44,8 +45,25 @@ public class BasketController implements Serializable {
 		}
 		cost = cost * quantity;
 		ids.add(new item(id,quantity,cost));
+		setSubmit("Item added to basket");
 	}
-	
+	public void clearSubmit(){
+		setSubmit(null);
+	}
+	/**
+	 * @return the submit
+	 */
+	public String getSubmit() {
+		return submit;
+	}
+
+	/**
+	 * @param submit the submit to set
+	 */
+	public void setSubmit(String submit) {
+		this.submit = submit;
+	}
+
 	public String fillBasket(){
 		boolean exists =false;
 		if(ids == null){
@@ -72,7 +90,7 @@ public class BasketController implements Serializable {
 			exists = false;
 		}		
 		ids = null;
-		
+		setSubmit(null);
 		return "Basket";
 	}
 	

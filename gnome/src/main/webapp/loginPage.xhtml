@@ -19,49 +19,62 @@ Login Page
 <h:form class="form-signin">	
 	<h2 class="form-signin-heading">Please sign in</h2>
 	<h:inputText value="#{login.email}"  type="email" id="inputEmail"
-	class="form-control" a:placeholder="Email address" required="true" autofocus=""
+	class="form-control" a:placeholder="Email address"  autofocus=""
 	requiredMessage="Please Enter Email"/>
 	<h:inputSecret value="#{login.password}" type="password" id="inputPassword" 
-	class="form-control" a:placeholder="Password" required="true"
+	class="form-control" a:placeholder="Password" 
 	requiredMessage="Please Enter Password" />
 
 	<h:commandButton class="btn btn-lg btn-primary btn-block" 
 	type="submit" action="#{login.login()}" value="Sign In" />
-
+	<h:form rendered="#{login.error ne null}" >
+		<div id="alerttt"  class="alert alert-danger" style="visiblity:visible"> 
+			 <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
+			 <h:outputText value="#{login.error}" />
+		 </div>
+	</h:form>
 </h:form>
 
 <h:form class="form-signUp">
 	<h2 class="form-signUp-heading">New User</h2>
 
 	<h:inputText value="#{CreateAccount.firstName}" type="text" id="inputFirstName"
-	class="form-control" a:placeholder="First Name" required="true"
+	class="form-control" a:placeholder="First Name" 
 	requiredMessage="Please Enter Your First Name"/>
 	
 		<h:inputText value="#{CreateAccount.surname}" type="text" id="inputSurname"
-	class="form-control" a:placeholder="Surname" required="true"
+	class="form-control" a:placeholder="Surname"
 	requiredMessage="Please Enter Your Surname"/>
 	
 	<h:inputText  value="#{CreateAccount.addressFirstLine}" type="text" id="inputAddrLine1"
-	class="form-control" a:placeholder="Address Line 1" required="true" autofocus=""
+	class="form-control" a:placeholder="Address Line 1"
 	requiredMessage="Please Enter address line 1 including house number"/>
 	
 	<h:inputText  value="#{CreateAccount.postcode}" type="text" id="postcode"
-	class="form-control" a:placeholder="Postcode" required="true" autofocus=""
+	class="form-control" a:placeholder="Postcode" 
 	requiredMessage="Please Enter your postcode"/>
 
 	<h:inputText  value="#{CreateAccount.email}" type="email" id="inputEmail"
-	class="form-control" a:placeholder="Email address" required="true" autofocus=""
+	class="form-control" a:placeholder="Email address"
 	requiredMessage="Please Enter Email"/>
+	
 	<h:inputSecret  type="password" id="inputPassword1" 
-	class="form-control" a:placeholder="Password" required="true"
+	class="form-control" a:placeholder="Password" 
 	requiredMessage="Please Enter Password" value="#{CreateAccount.password}"/>
 
 	<h:inputSecret value="#{CreateAccount.reenteredPassword}" type="password" id="inputPassword" 
-	class="form-control" a:placeholder="Re-Enter Password" required="true"
+	class="form-control" a:placeholder="Re-Enter Password" 
 	requiredMessage="Please Enter Password"/> 
 
 	
-	<h:commandButton  class="btn btn-lg btn-primary btn-block signupButton" type="submit" value="Create Account" action="#{CreateAccount.addUser()}"/>
+	<h:commandButton  class="btn btn-lg btn-primary btn-block signupButton" type="submit"  action="#{CreateAccount.addUser()}"  value="Create Account"/>
+	<h:form rendered="#{CreateAccount.error ne null}" >
+		<div id="alerttt"  class="alert alert-danger" style="visiblity:visible"> 
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
+			<h:outputText value="#{CreateAccount.error}" />
+		</div>
+	</h:form>
+	
  </h:form>
 </ui:define>
 </ui:composition>

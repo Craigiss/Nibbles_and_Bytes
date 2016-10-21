@@ -62,10 +62,10 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 						<li id="leftBorder">
 							<h:link rendered="#{User.user eq null}" value ="Login" outcome="loginPage"/>
 							<h:form rendered="#{User.user ne null}" >
-							<div id="loggedIn">
-								<h:link rendered="#{User.user ne null}" value="Hello #{User.user}," outcome="account"/> 	
-								<button  value="Logout" type="button" data-toggle="modal" data-target="#logOutModal" >Logout?</button>	
-							</div>
+								<div id="loggedIn">
+									<h:link rendered="#{User.user ne null}" value="Hello #{User.user}," outcome="account"/> 	
+									<button  value="Logout" type="button" data-toggle="modal" data-target="#logOutModal" >Logout?</button>	
+								</div>
 							</h:form>
 								
 <!-- Modal -->
@@ -172,16 +172,16 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 					</div>
 					<div class="col-xs-12 col-md-1">
 					<ul>
-						<li><h4><a href="#">Help &amp; FAQ</a></h4> </li>
-						<li><h4><a href="#">Contact Us</a></h4> </li>
-						<li><h4><a href="#">Delivery/Returns</a></h4> </li>
+						<li><h4><a href="Help.xhtml">Help &amp; FAQ</a></h4> </li>
+						<li><h4><a href="Contact.xhtml">Contact Us</a></h4> </li>
+						<li><h4><a href="Deliverys.xhtml">Delivery/Returns</a></h4> </li>
 						<li>
 							<h4>
 								<h:link rendered="#{User.user eq null}" value ="Account" outcome="loginPage"/>
 								<h:link rendered="#{User.user ne null}" value="Account" outcome="account"/> 			
 							</h4>
 						</li>
-						<li><h4><a href="#">About</a></h4> </li>
+						<li><h4><a href="About.xhtml">About</a></h4> </li>
 					</ul>
 					</div>
 					<div class="col-md-3">

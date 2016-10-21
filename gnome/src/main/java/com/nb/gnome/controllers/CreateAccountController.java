@@ -34,42 +34,41 @@ public class CreateAccountController {
 	
 	public String addUser(){	
 		if(firstName.equals("")){							// Basic validation. If any fields empty return to login page.
-			error = "Please enter your first name.";
+			setError("Please enter your First Name.");
 			return "loginPage";
 		}
 		
 		if(surname.equals("")){							// Basic validation. If any fields empty return to login page.
-			error = "Please enter your surname.";
+			setError("Please enter your Surname.");
+			return "loginPage";
+		}
+		if(addressFirstLine.equals("")){
+			setError("Please enter the first line of your address.");
+			return "loginPage";
+		}
+
+		if(postcode.equals("")){
+			setError("Please enter your Postcode");
 			return "loginPage";
 		}
 		
 		if(email.equals("")){
-			error = "Please enter your email.";
-			return "loginPage";
-		}
-		
-		if(addressFirstLine.equals("")){
-			error = "Please enter the first line of your address.";
-			return "loginPage";
-		}
-		
-		if(postcode.equals("")){
-			error = "Please enter your postcode";
+			setError("Please enter your Email.");
 			return "loginPage";
 		}
 		
 		if(password.equals("")){
-			error = "Please enter your password.";
+			setError("Please enter your Password.");
 			return "loginPage";
 		}
 		
 		if(reenteredPassword.equals("")){
-			error = "Please confirm your password.";
+			setError("Please confirm your Password.");
 			return "loginPage";
 		}
 		
 		if(password.equals(reenteredPassword)==false){
-			error = "Passwords do not match.";
+			setError("Passwords do not match.");
 			return "loginPage";
 		}
 		
