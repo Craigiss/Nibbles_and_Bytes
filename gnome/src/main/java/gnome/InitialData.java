@@ -62,19 +62,19 @@ public class InitialData {
 		suppliers.add(s1);
 		
 		Supplier s2 = new Supplier();
-		s2.setCompany("LawnFlamingosWholesale");
+		s2.setCompany("JacuzziBabies");
 		s2.setId(002);
-		s2.setName("Augustine Loris Poutine III");
-		s2.setPhone("01645839242");
-		s2.setEmail("mynameisaugustineandmyparentslovepoutine@lawnflamingoswholesale.lol");
+		s2.setName("Howard Schultz");
+		s2.setPhone("07483627292");
+		s2.setEmail("hottubsareawesome@jacuzzibabies.com");
 		suppliers.add(s2);
 		
 		Supplier s3 = new Supplier();
-		s3.setCompany("LawnFlamingosWholesale");
+		s3.setCompany("SensibleLawnOrnanentsForMiddleAgedHomeOwners");
 		s3.setId(003);
-		s3.setName("Augustine Loris Poutine III");
-		s3.setPhone("01645839242");
-		s3.setEmail("mynameisaugustineandmyparentslovepoutine@lawnflamingoswholesale.lol");
+		s3.setName("Maurice 'the madman' Mortimer");
+		s3.setPhone("026492672555");
+		s3.setEmail("iwillsellyouverysensiblelawnornamentsatareasonableprice@madmansales.com");
 		suppliers.add(s3);
 		
 		PurchaseOrder po1 = new PurchaseOrder();
