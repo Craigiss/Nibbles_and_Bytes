@@ -51,9 +51,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
              	   	value="#{search.term}"/>  
           </div>
           <div class = "col-sm-1">
-            	<h:commandLink class="hovering" action="#{search.searchProd('ims')}"> 
-              		<h:graphicImage class="glass_back" value="img/glass.png"/>
-           		</h:commandLink>
+          		<ui:insert name="searchButtonAction"/>
           </div>
           </h:form>
         </div>

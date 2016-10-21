@@ -41,6 +41,12 @@
 			</a>
 		</ui:define>
 
+		<ui:define name="searchButtonAction">
+			    <h:commandLink class="hovering" action="#{search.searchProd('ims')}"> 
+              		<h:graphicImage class="glass_back" value="img/glass.png"/>
+           		</h:commandLink>
+        </ui:define>
+
 		<!-- Main content of  -->
 		<ui:define name="maincontent">
 
