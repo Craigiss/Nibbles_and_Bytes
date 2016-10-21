@@ -15,7 +15,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <title>
 	Checkout
 </title>
-<link href="css/Template.css" rel="stylesheet"/>
+<link href="css/Checkout.css" rel="stylesheet"/>
 <ui:insert name="css"/>
 <link href="css/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"/>
 
@@ -25,11 +25,91 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <body >
 <div id="container">
    <div id="header">
-		
+   <nav class="navbar navbar-default">
+			<div class="container-fluid">
+
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+				  data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<div id="topNav" >
+					<a class="navbar-brand" href="homePage.xhtml">
+						<img src="img/lgo.png" width="150px"/> 
+					</a>
+									
+					  <ul class="nav navbar-nav navbar-right pull-right" >
+
+						<li id="leftBorder">
+							<a href="homePage.xhtml">Home</a>
+						</li>
+			
+					  </ul>
+					  </div>
+				</div>
+			</div>
+		</nav>	
 	</div>
 	
-    <div id="body"> 
-		Checkout Page
+    <div id="body" style="margin-top: 50px;"> 
+    <center><h1>Checkout</h1></center>
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+			<h3 class="panel-title">Basket</h3>
+		  </div>
+		  <!-- Table -->
+		  <table class="table">
+			<tr>
+				<th>Id</th>
+				<th>Name</th> 
+				<th>Quantity</th>
+				<th>Price</th>
+			</tr>
+		<ui:repeat var="product" value="#{Basket.products}">
+			<tr>
+				<td><h:outputText value="#{product.productID}"/></td>
+				<td><h:outputText value="#{product.productName}"/></td>
+				<td><h:outputText value="#{product.quantity}"/></td>
+				<td>&#163;<h:outputText value="#{Basket.UpdatePrice(product.quantity,product.price)}"/></td>
+			</tr>
+	    </ui:repeat>
+	    	<tr>
+	    		<th></th>
+	    		<th></th>
+	    		
+	    		<th>Total:</th>
+	    		<td><h:outputText value="&#163;#{Basket.total}"/></td>
+	    	</tr>
+
+		  </table>
+
+		  
+		</div>
+		<h:form>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="btn-group">
+
+					<h:commandLink action="Basket.xhtml"  >
+						<h:commandButton class="btn btn-danger" value="Cancel" type="submit" />
+					</h:commandLink>
+				</div>
+			</div>    
+			<div class="col-md-6">
+				<div class="btn-group pull-right">
+				<h:form>
+					<h:commandButton class="btn btn-success" value="Proceed" type="submit"  />
+					</h:form>					
+				</div>
+			</div>
+		</div>
+		</h:form>	
     </div>   
    
    <div id="footer"> 
