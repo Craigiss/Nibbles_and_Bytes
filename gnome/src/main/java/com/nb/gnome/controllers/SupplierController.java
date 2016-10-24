@@ -30,8 +30,14 @@ public class SupplierController implements Serializable{
 	private PaginationHelper pagination;
 	private DataModel<Supplier> dataModel = null;
 
-	private void recreateModel() {
+	public void recreateModel() {
 		dataModel = null;
+	}
+	
+	public String reset(){
+		dataModel = null;
+		return "imsIndex";
+				
 	}
 	
 	public PaginationHelper getPagination() {

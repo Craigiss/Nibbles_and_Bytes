@@ -21,6 +21,12 @@
 		<ui:define name="breadcrumbs">
 			<a href="imsIndex.xhtml">Home</a> > Purchase Orders
 		</ui:define>
+		
+		<ui:define name="backFunction">
+		 <h:commandLink action="#{po.reset()}" value="" class="hovering">
+           			<h:graphicImage class="glass_back" value="img/back.png"/>
+         </h:commandLink>
+		</ui:define>
 
 		<!-- Operations buttons - add/edit/delete -->
 		<ui:define name="addbtn">
