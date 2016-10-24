@@ -54,7 +54,18 @@ public class SupplierService {
 	}
 	
 	public Supplier findSupplierByContact(String name){
-		return supplierManager.findSupplierByContact(name);
+		try {
+			Supplier s = supplierManager.findSupplierByContact(name);
+			if (s.getName().equals(null))
+			{
+				System.out.println("error");
+				return null;
+			}
+			return s;
+		}
+		catch (Exception e) {
+			return null;
+		}		
 	}
 
 	/**

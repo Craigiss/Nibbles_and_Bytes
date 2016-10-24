@@ -57,7 +57,7 @@ public class SearchController{
 			selectedSup.setSupplier(idSupp);
 			returnValue = "imsSupplierDeets";
 		}
-		else if (contactSupp!=null){
+		else if (contactSupp != null){
 			selectedSup.setSupplier(contactSupp);
 			returnValue = "imsSupplierDeets";
 		}

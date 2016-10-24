@@ -38,9 +38,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
            
            <div class = "col-sm-3" id = "back">
            	<h:form>
-           		<h:commandLink action="#{products.reset()}" value="" class="hovering">
-           			<h:graphicImage class="glass_back" value="img/back.png"/>
-           		</h:commandLink>
+           		<ui:insert name="backFunction"/>
             </h:form>
            </div>
 
