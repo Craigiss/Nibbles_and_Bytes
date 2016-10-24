@@ -70,7 +70,7 @@ public class InitialData {
 		suppliers.add(s2);
 		
 		Supplier s3 = new Supplier();
-		s3.setCompany("SensibleLawnOrnanentsForMiddleAgedHomeOwners");
+		s3.setCompany("SensiblerMiddleAgedHomeOwners");
 		s3.setId(003);
 		s3.setName("Maurice 'the madman' Mortimer");
 		s3.setPhone("026492672555");

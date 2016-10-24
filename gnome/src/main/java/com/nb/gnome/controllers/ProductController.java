@@ -101,18 +101,7 @@ public class ProductController implements Serializable {
 		return "Product";
 	}
 	
-	public String persistProduct(){
-//		Supplier lastId = new Supplier();
-//		lastId.setId(0);
-//		
-//		ArrayList<Supplier> sups=(ArrayList<Supplier>) supplierService.findAll();
-//		for(Supplier sup:sups){
-//			if (sup.getId()>lastId.getId()){
-//				lastId=sup;
-//			}
-//		}
-
-		
+	public String persistProduct(){	
 		productService.persistProduct(name, description, price, stockLevel);
 		recreateModel();
 		

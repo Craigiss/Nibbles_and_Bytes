@@ -42,6 +42,7 @@ public class Supplier {
 	private String email;
 	
 	
+	
 	public Supplier(){
 		
 	}

@@ -284,6 +284,11 @@ a:hover {
 	font-size: 18px;
 }
 
+.supDetails{
+	margin-bottom: 15px;
+	color: black!important;
+}
+
 #save{
 	background-color: #228b22;
 }

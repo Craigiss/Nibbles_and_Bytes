@@ -1,22 +1,14 @@
-//Kieran Working On
 package com.nb.gnome.controllers;
 
-import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.model.DataModel;
-import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.inject.Named;
-
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
-import com.nb.gnome.helper.PaginationHelper;
 import com.nb.gnome.service.ProductService;
-import com.nb.gnome.service.SearchService;
 import com.nb.gnome.service.SupplierService;
 
 @Named("search")
@@ -29,34 +21,23 @@ public class SearchController{
 	@Inject private SupplierService supplierServ;
 	
 	@Inject private SelectedProduct selectedProd;
-//	@Inject private SelectedProductDataModel selectedProductDataModel;
+	@Inject private SelectedSupplier selectedSup;	
 	
 	@Inject private ProductController prodController;
 	@Inject private SupplierController supController;
 	
-	private PaginationHelper pagination;
-	private DataModel<Product> dataModel = null;
 	
-	private List<Product> productsFoundByKeyword = new ArrayList<Product>();
-	
-	public String searchProd(String service){
+	public String searchProd(){
 		String returnValue = "";
 		Product p = productServ.findProductById(term);
 		ArrayList<Product> pList = (ArrayList<Product>)productServ.findProductByKeyword(term);
-		if (p !=null && service.equals("cat")){
-			selectedProd.setProduct(p);	
-			returnValue = "Product";
-		}
-		else if (p !=null && service.equals("ims")){
-			System.out.println("i got to the right section");
+		if (p !=null){
 			selectedProd.setProduct(p);
 			returnValue = "imsProdDeets";
 		}
 		else if (pList.size() > 0){
 			for(Product prod : pList){
-				productsFoundByKeyword.add(prod);
-				prodController.getDataModel();
-				prodController.setData((ArrayList)productsFoundByKeyword);
+				prodController.setData(pList);
 				returnValue = "imsProducts";
 			}
 		}
@@ -67,61 +48,29 @@ public class SearchController{
 	}
 	
 	public String searchSuppliers(String service){
-		Supplier s = supplierServ.findSupplierById(term);
-		ArrayList<Supplier> sList = (ArrayList<Supplier>)supplierServ.findSupplierByCompany(term);
-		supController.setData(sList);
-		return "suppliers";		
+		String returnValue = "";
+		Supplier idSupp = supplierServ.findSupplierById(term);
+		Supplier contactSupp = supplierServ.findSupplierByContact(term);
+		ArrayList<Supplier> companyList = (ArrayList<Supplier>)supplierServ.findSupplierByCompany(term);
+		
+		if (idSupp !=null){
+			selectedSup.setSupplier(idSupp);
+			returnValue = "imsSupplierDeets";
+		}
+		else if (contactSupp!=null){
+			selectedSup.setSupplier(contactSupp);
+			returnValue = "imsSupplierDeets";
+		}
+		else if (companyList.size() > 0){
+			supController.setData(companyList);
+			returnValue = "imsSuppliers";
+		}
+		else{
+			returnValue = "imsError";
+		}
+		return returnValue;		
 	}
-	
-
-	private void recreateModel() {
-		dataModel = null;
-	}
-
-	public PaginationHelper getPagination() {
-		if (pagination == null)
-			pagination = new PaginationHelper(2) {
-				@Override
-				public int getItemsCount() {
-					return productsFoundByKeyword.size();
-				}
-
-				@Override
-				public DataModel<Product>createPageDataModel() {
-					try {
-						return new ListDataModel<Product>(
-								productsFoundByKeyword.subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
-					} catch (Exception e) {
-						return new ListDataModel<Product>(
-								productsFoundByKeyword.subList(getPageFirstItem(), getItemsCount()));
-					}
-				}
-
-			};
-
-		return pagination;
-	}
-
-	public DataModel<Product> getDataModel() {
-		if (dataModel == null)
-			dataModel = getPagination().createPageDataModel();
-		return dataModel;
-	}
-	
-	
-	public String next(){
-		getPagination().nextPage();
-		recreateModel();
-		return "browse";
-	}
-	
-	public String previous(){
-		getPagination().previousPage();
-		recreateModel();
-		return "browse";
-	}
-	
-	
+			
 	/**
 	 * @return the term
 	 */

@@ -20,7 +20,9 @@ public class SupplierController implements Serializable{
 	@Inject
 	private SupplierService supplierService;
 	
-	private Supplier supplier;
+	//private Supplier supplier;
+	@Inject private SelectedSupplier supplier;
+	private Supplier nSupplier;
 	private String company;
 	private String name;
 	private String email;
@@ -73,34 +75,23 @@ public class SupplierController implements Serializable{
 		return "imsSuppliers";
 	}
 	
-	public Supplier view(String id) {
-		supplier = supplierService.findSupplierById(id);
-		return supplier;
+	public String view(String id) {
+		supplier.setSupplier(supplierService.findSupplierById(id));
+		return "Supplier";
 	}
 	
 	public Supplier getSupplier() {
-		return supplier;
+		return nSupplier;
 	}
 	
 	public void setSupplier(Supplier supplier) {
-		this.supplier = supplier;
+		this.nSupplier = supplier;
 	}
 	
 	/**
 	 *  adds a new supplier via various convoluted methods in different classes
 	 */
-	public String persistSupplier(){
-//		Supplier lastId = new Supplier();
-//		lastId.setId(0);
-//		
-//		ArrayList<Supplier> sups=(ArrayList<Supplier>) supplierService.findAll();
-//		for(Supplier sup:sups){
-//			if (sup.getId()>lastId.getId()){
-//				lastId=sup;
-//			}
-//		}
-
-		
+	public String persistSupplier(){	
 		supplierService.persistSupplier(company, name, phone, email);
 		recreateModel();
 		

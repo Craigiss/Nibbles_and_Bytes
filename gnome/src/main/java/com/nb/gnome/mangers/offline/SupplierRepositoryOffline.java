@@ -56,5 +56,16 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 					}
 		return sup;
 	}
+
+	@Override
+	public Supplier findSupplierByContact(String s) {
+		Supplier sup = new Supplier();
+		for (Supplier supplier : initialData.getSuppliers()){
+			if (supplier.getName().toLowerCase().contains(s.toLowerCase())){
+				sup = supplier;
+			}
+		}
+		return sup;
+	}
 	
 }

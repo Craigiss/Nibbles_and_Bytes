@@ -52,6 +52,10 @@ public class SupplierService {
 			return null;
 		}	
 	}
+	
+	public Supplier findSupplierByContact(String name){
+		return supplierManager.findSupplierByContact(name);
+	}
 
 	/**
 	 *  finds a supplier by a given company name

@@ -18,8 +18,11 @@ public interface SupplierRepository {
 	//Read
 	public List<Supplier> findSupplierByCompany(String company);
 	
-	//Read by id (partially copied from James's code)
+	//Read by id
 	public Supplier findSupplierById(long id);
+	
+	
+	public Supplier findSupplierByContact(String s);
 	
 	public List<Supplier> findAll();
 	
