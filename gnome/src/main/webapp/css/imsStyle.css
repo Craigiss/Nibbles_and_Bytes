@@ -122,15 +122,15 @@ a:hover {
 	opacity: 0.6;
 }
 
-.col-sm-4:hover, .col-sm-1:hover, .col-sm-12:hover, .col-sm-3:hover{
+.mainButton:hover, .col-sm-1:hover, .col-sm-12:hover, .col-sm-3:hover, .listItem:hover{
 	opacity: 0.6;
 }
 
-.col-sm-4 a, .col-sm-1 a, .col-sm-12 a, .col-sm-3 a {
+.mainButton a, .col-sm-1 a, .col-sm-12 a, .col-sm-3 a, .listItem a {
 	text-decoration: none;
 }
 
-.col-sm-4 a:visited, .col-sm-1 a:visited, .col-sm-12 a:visited, .col-sm-3 a:visited  {
+.mainButton a:visited, .col-sm-1 a:visited, .col-sm-12 a:visited, .col-sm-3 a:visited, .listItem a:visited  {
 	color: white;
 }
 
@@ -282,7 +282,7 @@ a:hover {
 	font-size: 18px;
 }
 
-.supDetails{
+.listDetails{
 	margin-bottom: 15px;
 	color: black!important;
 }
@@ -356,7 +356,8 @@ ul{
 	opacity: 1;
 }
 
-.detail_headers{
+
+.detail_headers:hover{
 	opacity: 1;
 }
 
