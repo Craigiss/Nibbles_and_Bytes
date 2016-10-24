@@ -24,7 +24,7 @@
 				<div class="col-sm-12" id="header">Inventory Management System</div>
 			</div>
 
-			<div class="row" id="search">
+			<div class="row indexSearch" id="search">
 				<h:form>
 					<div class="col-sm-11" id="searchText">
 						<h:inputText a:placeholder="Search..."
@@ -36,6 +36,19 @@
 							<h:graphicImage class="glass_back" value="img/glass.png" />
 						</h:commandLink>
 					</div>
+					<div>
+					<h:selectOneRadio id ="testing" value="#{search.searchType}">
+   						<div class ="col-sm-4">
+   						<f:selectItem itemValue="Products" itemLabel="Products" />
+   						</div>
+   						<div class ="col-sm-4">
+   						<f:selectItem itemValue="Supplier" itemLabel="Supplier" />
+   						</div>
+   						<div class ="col-sm-4">
+   						<f:selectItem itemValue="PO" itemLabel="PO"/>
+   						</div>
+   					</h:selectOneRadio>
+   					</div>			
 				</h:form>
 			</div>
 

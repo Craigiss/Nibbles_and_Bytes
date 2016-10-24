@@ -16,6 +16,7 @@ import com.nb.gnome.service.SupplierService;
 public class SearchController{
 	
 	private String term;
+	private String searchType;
 	
 	@Inject private ProductService productServ;
 	@Inject private SupplierService supplierServ;
@@ -27,6 +28,20 @@ public class SearchController{
 	@Inject private SupplierController supController;
 	
 	
+	/**
+	 * @return the searchType
+	 */
+	public String getSearchType() {
+		return searchType;
+	}
+
+	/**
+	 * @param searchType the searchType to set
+	 */
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
+
 	public String searchProd(){
 		String returnValue = "";
 		Product p = productServ.findProductById(term);

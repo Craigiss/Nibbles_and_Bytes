@@ -54,7 +54,7 @@ public class InitialData {
 		products.add(p3);
 		
 		Supplier s1 = new Supplier();
-		s1.setCompany("LawnFlamingosWholesale");
+		s1.setCompany("Lawn Flamingos Wholesale");
 		s1.setId(001);
 		s1.setName("Augustine Loris Poutine III");
 		s1.setPhone("01645839242");
@@ -62,7 +62,7 @@ public class InitialData {
 		suppliers.add(s1);
 		
 		Supplier s2 = new Supplier();
-		s2.setCompany("JacuzziBabies");
+		s2.setCompany("Jacuzzi Babies");
 		s2.setId(002);
 		s2.setName("Howard Schultz");
 		s2.setPhone("07483627292");
@@ -70,7 +70,7 @@ public class InitialData {
 		suppliers.add(s2);
 		
 		Supplier s3 = new Supplier();
-		s3.setCompany("SensiblerMiddleAgedHomeOwners");
+		s3.setCompany("Sensibler Middle Aged Home Owners");
 		s3.setId(003);
 		s3.setName("Maurice 'the madman' Mortimer");
 		s3.setPhone("026492672555");

@@ -58,6 +58,10 @@ img{
 	padding-top: 8px;
 }
 
+.indexSearch{
+	height: 80px!important;
+}
+
 .glass_back{
 	width: 39px;
 	padding-top: 3px;
@@ -369,6 +373,11 @@ ul{
 .text:hover{
 	 opacity: 1;
 	}
+	
+	
+#testing{
+	color: black;
+}
 
 	
 	
