@@ -39,6 +39,9 @@ public class Product {
 	@Column(name = "stockLevel")
 	int stockLevel;
 	
+	@Column(name = "porousStockLevel")
+	int porousStockLevel;
+	
 	@Column(name = "supplierID")
 	@ManyToOne
 	@JoinColumn(name="FKCategoryID",
@@ -53,12 +56,13 @@ public class Product {
 		
 	}
 	
-	public Product(int id, String name, String description, double price, int stockLevel){
+	public Product(int id, String name, String description, double price, int stockLevel, int porousStockLevel){
 		this.productID = id;
 		this.productName = name;
 		this.description = description;
 		this.price = price;
 		this.stockLevel= stockLevel;
+		this.porousStockLevel= porousStockLevel;
 		
 	}
 
@@ -122,6 +126,16 @@ public class Product {
 	public void setStockLevel(int stockLevel) {
 		this.stockLevel = stockLevel;
 	}
+	
+	
+	public int getPorousStockLevel() {
+		return porousStockLevel;
+	}
+
+	public void setPorousStockLevel(int porousStockLevel) {
+		this.porousStockLevel = porousStockLevel;
+	}
+
 	/**
 	 * @return the supplierID
 	 */
