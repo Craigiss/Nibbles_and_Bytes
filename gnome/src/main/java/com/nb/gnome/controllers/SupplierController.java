@@ -37,13 +37,20 @@ public class SupplierController implements Serializable{
 			pagination = new PaginationHelper(10){
 		@Override 
 		public int getItemsCount() {
-			return supplierService.findAll().size();
+			if (dataModel == null){
+				  return supplierService.findAll().size();
+				}
+				else {
+					return dataModel.getRowCount();
+				}
 		}
 	
 		@Override public DataModel<Supplier>createPageDataModel(){
 			try{
 				return new ListDataModel<Supplier>(supplierService.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
-			} catch (Exception e) { return new ListDataModel<Supplier>(supplierService.findAll().subList(getPageFirstItem(),getItemsCount()));
+			} catch (Exception e) {
+				return new ListDataModel<Supplier>(
+						supplierService.findAll().subList(getPageFirstItem(),getItemsCount()));
 		}
 		}
 		};
