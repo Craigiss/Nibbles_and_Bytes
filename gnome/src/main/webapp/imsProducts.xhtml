@@ -68,7 +68,7 @@
 
 		  	<!-- Generation of products into grid -->
 		  	<ui:repeat var="product" value="#{products.dataModel}">
-		  		<div class="row table">
+		  		<div class="row table listItem">
 					<div class="col-sm-2 prodDetails">
 						<h:form>
 							<h:commandLink action="#{products.view(product)}" value="#{product.productID}"/>

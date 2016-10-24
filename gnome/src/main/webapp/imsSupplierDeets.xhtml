@@ -8,17 +8,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 	<ui:define name="title">
-			Product details - IMS
+			Supplier details - IMS
 	</ui:define>
 
 	<!-- Title appearing in top left of the page -->
 	<ui:define name="pagetitle">
-			Products
+			Suppliers
 	</ui:define>
 
 	<!-- Breadcrumbs appearing in top right of the page -->
 	<ui:define name="breadcrumbs">
-			<a href="imsIndex.xhtml">Home</a> > <a href="imsSuppliers.xhtml">Products</a><h:outputText value=" > #{selectedSupplier.supplier.company}" />
+			<a href="imsIndex.xhtml">Home</a> > <a href="imsSuppliers.xhtml">Suppliers</a><h:outputText value=" > #{selectedSupplier.supplier.company}" />
 	</ui:define>
 	
 	<ui:define name="backButton">
@@ -31,10 +31,8 @@
 <!-- Content goes here -->
 <ui:define name="maincontent">
 	<div class = "row">
-		<div class="col-sm-12">
-			<p class="detail_headers">
+		<div class="col-sm-12 detail_headers">
 				<h:outputText value="#{selectedSupplier.supplier.company}" />
-			</p>
 		</div>
 	</div>
 	<div class="row">
