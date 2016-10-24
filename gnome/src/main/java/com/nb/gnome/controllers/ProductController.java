@@ -95,11 +95,9 @@ public class ProductController implements Serializable {
 		return "browse";
 	}
 	
-	public String view (String id){
-		System.out.println(">>>> selected ID: " + id);
-		product.setProduct(productService.findProductById(id));
-
-		return "Product";
+	public String view (Product p){
+		product.setProduct(p);
+		return "imsProdDeets";
 	}
 	
 	public String persistProduct(){
