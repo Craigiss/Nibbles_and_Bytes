@@ -39,13 +39,20 @@ public class SupplierController implements Serializable{
 			pagination = new PaginationHelper(10){
 		@Override 
 		public int getItemsCount() {
-			return supplierService.findAll().size();
+			if (dataModel == null){
+				  return supplierService.findAll().size();
+				}
+				else {
+					return dataModel.getRowCount();
+				}
 		}
 	
 		@Override public DataModel<Supplier>createPageDataModel(){
 			try{
 				return new ListDataModel<Supplier>(supplierService.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
-			} catch (Exception e) { return new ListDataModel<Supplier>(supplierService.findAll().subList(getPageFirstItem(),getItemsCount()));
+			} catch (Exception e) {
+				return new ListDataModel<Supplier>(
+						supplierService.findAll().subList(getPageFirstItem(),getItemsCount()));
 		}
 		}
 		};
@@ -91,9 +98,15 @@ public class SupplierController implements Serializable{
 	/**
 	 *  adds a new supplier via various convoluted methods in different classes
 	 */
-	public String persistSupplier(){	
+
+	public String persistSupplier(){
 		supplierService.persistSupplier(company, name, phone, email);
 		recreateModel();
+		
+		company="";
+		name="";
+		phone="";
+		email="";
 		
 		return "imsSuppliers";
 	}

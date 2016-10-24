@@ -23,8 +23,8 @@ public class ProductService {
 	/**
 	 * Calls Product Manager method, pooling params together to create a new product object
 	 */
-	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel){
-		Product prodprod = new Product(productManager.findAll().size() +1, mName, mDescription, mPrice, mStockLevel);
+	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel){
+		Product prodprod = new Product(productManager.findAll().size() +1, mName, mDescription, mPrice, mStockLevel, mporousStockLevel);
 		productManager.persistProduct(prodprod);
 	}
 	

@@ -30,6 +30,7 @@ public class ProductController implements Serializable {
 	private String description;
 	private double price;
 	private int stockLevel;
+	private int porousStockLevel;
 
 	private void recreateModel() {
 		dataModel = null;
@@ -94,17 +95,19 @@ public class ProductController implements Serializable {
 		return "browse";
 	}
 	
-	public String view (String id){
-		System.out.println(">>>> selected ID: " + id);
-		product.setProduct(productService.findProductById(id));
-
-		return "Product";
+	public String view (Product p){
+		product.setProduct(p);
+		return "imsProdDeets";
 	}
 	
-	public String persistProduct(){	
-		productService.persistProduct(name, description, price, stockLevel);
+	public String persistProduct(){
+		productService.persistProduct(name, description, price, stockLevel, porousStockLevel);
 		recreateModel();
-		
+		name="";
+		description="";
+		price=0;
+		stockLevel=0;
+		porousStockLevel=0;
 		return "imsProducts";
 	}
 
@@ -190,6 +193,22 @@ public class ProductController implements Serializable {
 	 */
 	public void setStockLevel(int stockLevel) {
 		this.stockLevel = stockLevel;
+	}
+	
+	
+
+	/**
+	 * @return the porousStockLevel
+	 */
+	public int getPorousStockLevel() {
+		return porousStockLevel;
+	}
+
+	/**
+	 * @param porousStockLevel the porousStockLevel to set
+	 */
+	public void setPorousStockLevel(int porousStockLevel) {
+		this.porousStockLevel = porousStockLevel;
 	}
 
 	/**
