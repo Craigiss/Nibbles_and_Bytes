@@ -48,7 +48,7 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 	public List<PurchaseOrder> findPurchaseOrderBySupplier(Supplier s) {
 		List<PurchaseOrder> po = new ArrayList<PurchaseOrder>();
 		for(PurchaseOrder p : initialData.getPurchaseOrders()){
-			if(p.getSupplierid().getId() == s.getId()){
+			if(p.getSupplier().getId() == s.getId()){
 				po.add(p);
 			}
 		}

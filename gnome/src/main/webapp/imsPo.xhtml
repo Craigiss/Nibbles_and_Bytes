@@ -23,7 +23,7 @@
 		</ui:define>
 		
 		<ui:define name="backFunction">
-		 <h:commandLink action="#{po.reset()}" value="" class="hovering">
+		 <h:commandLink action="#{pos.reset()}" value="" class="hovering">
            			<h:graphicImage class="glass_back" value="img/back.png"/>
          </h:commandLink>
 		</ui:define>
@@ -74,16 +74,16 @@
 		  		<div class="row" id="table">
 					<div class="col-sm-4 supDetails">
 						<h:form>
-							<h:commandLink action="#{po.view(po.id)}" value="#{po.supplier}"/>
+							<h:commandLink action="#{pos.view(po.id)}" value="#{po.supplier.company}"/>
 						</h:form>
 					</div>
 			    	<div class="col-sm-4 supDetails">
 			    		<h:form>
-			      			<h:commandLink action="#{po.view(po.id)}" value="#{po.product}"/>
+			      			<h:commandLink action="#{pos.view(po.id)}" value="#{po.product}"/>
 			      		</h:form>
 			    	</div>
 			    	<div class="col-sm-4 supDetails">
-			      		<h:outputText value="#{po.quanity}"/>
+			      		<h:outputText value="#{po.quantity}"/>
 			   		</div>
 		   		</div>
 		   	</ui:repeat>

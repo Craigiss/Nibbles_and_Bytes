@@ -371,10 +371,12 @@ ul{
 }
 
 .text:hover{
-	 opacity: 1;
-	}
+	opacity: 1;
+}
 
-	
+.listCenter{
+	text-align: center;
+}
 	
 
 
@@ -389,7 +391,7 @@ ul{
 	}
 
 	.supDetails, .prodDetails, .pageing{
-	width: 33%;
+	width: 25%;
 	float: left;
 	padding-top: initial;
 	padding-right: initial;
