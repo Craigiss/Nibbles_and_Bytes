@@ -82,9 +82,9 @@ public class SupplierController implements Serializable{
 		return "imsSuppliers";
 	}
 	
-	public String view(String id) {
-		supplier.setSupplier(supplierService.findSupplierById(id));
-		return "Supplier";
+	public String view(Supplier s) {
+		supplier.setSupplier(s);
+		return "imsSupplierDeets";
 	}
 	
 	public Supplier getSupplier() {

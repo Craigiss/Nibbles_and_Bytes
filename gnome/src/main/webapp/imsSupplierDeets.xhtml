@@ -20,6 +20,12 @@
 	<ui:define name="breadcrumbs">
 			<a href="imsIndex.xhtml">Home</a> > <a href="imsSuppliers.xhtml">Products</a><h:outputText value=" > #{selectedSupplier.supplier.company}" />
 	</ui:define>
+	
+	<ui:define name="backButton">
+		 <a href="imsSuppliers.xhtml" class="hovering">
+             <img class="glass_back" src="img/back.png"/>
+         </a>
+    </ui:define>
 
 
 <!-- Content goes here -->
