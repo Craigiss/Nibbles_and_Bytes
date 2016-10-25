@@ -35,20 +35,6 @@ public class PurchaseOrder {
 	@ManyToOne 
 	@JoinColumn(name = "FKSupplierid", nullable = false)
 	private Supplier supplier;
-	
-	/**
-	 * @return the supplierid
-	 */
-	public Supplier getSupplierid() {
-		return supplier;
-	}
-
-	/**
-	 * @param supplierid the supplierid to set
-	 */
-	public void setSupplierid(Supplier supplier) {
-		this.supplier = supplier;
-	}
 
 	/**
 	 * @return the addresses
@@ -117,7 +103,7 @@ public class PurchaseOrder {
 		this.status = status;
 	}
 	
-	public Supplier getSupplier(Supplier s){
+	public Supplier getSupplier(){
 		return supplier;
 	}
 	

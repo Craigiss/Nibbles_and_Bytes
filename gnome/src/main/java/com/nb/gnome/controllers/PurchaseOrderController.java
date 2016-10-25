@@ -43,6 +43,12 @@ public class PurchaseOrderController implements Serializable{
 		return pagination;
 	}
 	
+	public String reset(){
+		dataModel = null;
+		return "imsIndex";
+				
+	}
+	
 	public DataModel<PurchaseOrder> getDataModel() {
 		if (dataModel ==null)
 			dataModel = getPagination().createPageDataModel();
