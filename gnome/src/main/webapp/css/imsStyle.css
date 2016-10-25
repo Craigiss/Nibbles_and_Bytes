@@ -149,10 +149,6 @@ a:hover {
 	text-decoration: none;
 }
 
-.mainButton a:visited, .col-sm-1 a:visited, .col-sm-12 a:visited, .col-sm-3 a:visited, .listItem a:visited  {
-	color: white;
-}
-
 /*end of homepage css*/
 
 
