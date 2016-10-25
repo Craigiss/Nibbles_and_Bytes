@@ -78,10 +78,13 @@ public class InitialData {
 		suppliers.add(s3);
 		
 		PurchaseOrder po1 = new PurchaseOrder();
+		List<PurchaseOrderDetails> list1 = new ArrayList<PurchaseOrderDetails>();
+//		list1.add(new PurchaseOrderDetails().setProduct(p1));
 		po1.setId(001);
 		po1.setDate(new Date(2016,05,01));
 		po1.setStatus("Archived");
 		po1.setSupplier(s1);
+//		po1.setLines(lines1);
 		purchaseOrders.add(po1);
 		
 		PurchaseOrder po2 = new PurchaseOrder();

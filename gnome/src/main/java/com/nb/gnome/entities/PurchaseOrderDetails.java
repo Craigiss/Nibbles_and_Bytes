@@ -19,8 +19,7 @@ public class PurchaseOrderDetails {
 	private long id;
 	
 	@OneToMany
-	@JoinColumn (name = "FKProductId", nullable = false)
-	private int productId;
+	private Product product;
 	
 	@OneToMany
 	@JoinColumn (name = "FKPurchaseOrder", nullable = false)
@@ -54,19 +53,31 @@ public class PurchaseOrderDetails {
 	}
 
 	/**
-	 * Method to get the product ordered within the purchase order detail instance
-	 * @return Returns product object ordered within the purchase order detail instance
+	 * @return the id
 	 */
-	public int getProductId() {
-		return productId;
+	public long getId() {
+		return id;
 	}
 
 	/**
-	 * Method to set the product ordered within the purchase order detail instance
-	 * @param productId Input is the product object to be linked with the instance
+	 * @param id the id to set
 	 */
-	public void setProduct(int productId) {
-		this.productId = productId;
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the product
+	 */
+	public Product getProduct() {
+		return product;
+	}
+
+	/**
+	 * @param product the product to set
+	 */
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	/**

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.nb.gnome.entities.PurchaseOrder;
+import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.helper.PaginationHelper;
 import com.nb.gnome.managers.PurchaseOrderRepository;
 import com.nb.gnome.service.PurchaseOrderService;
@@ -19,7 +20,10 @@ import javax.inject.Named;
 public class PurchaseOrderController implements Serializable{
 	@Inject
 	private PurchaseOrderService purchaseOrderService;
-	private PurchaseOrder purchaseOrder;
+	
+	@Inject
+	private SelectedPurchaseOrder purchaseOrder;
+	private PurchaseOrder nPurchaseOrder;
 	private PaginationHelper pagination;
 	private DataModel<PurchaseOrder> dataModel = null;
 
@@ -74,8 +78,7 @@ public class PurchaseOrderController implements Serializable{
 	 * @return
 	 */
 	public PurchaseOrder findPurchaseOrderById(long id) {
-		purchaseOrder = purchaseOrderService.findPurchaseOrderById(id);
-		return purchaseOrder;
+		return purchaseOrderService.findPurchaseOrderById(id);
 	}
 	
 	/**
@@ -86,12 +89,17 @@ public class PurchaseOrderController implements Serializable{
 		return purchaseOrderService.findAll();
 	}
 	
+	public String view(PurchaseOrder p) {
+		purchaseOrder.setPurchaseOrder(p);
+		return "imsSupplierDeets";
+	}
+	
 	public PurchaseOrder getPurchaseOrder() {
-		return purchaseOrder;
+		return nPurchaseOrder;
 	}
 	
 	public void setPurchaseOrder(PurchaseOrder purchaseOrder) {
-		this.purchaseOrder = purchaseOrder;
+		this.nPurchaseOrder = purchaseOrder;
 	}	
 	}
 

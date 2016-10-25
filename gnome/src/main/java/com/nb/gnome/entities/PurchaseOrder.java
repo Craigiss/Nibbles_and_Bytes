@@ -35,23 +35,25 @@ public class PurchaseOrder {
 	@ManyToOne 
 	@JoinColumn(name = "FKSupplierid", nullable = false)
 	private Supplier supplier;
+	
+	@OneToMany(targetEntity=PurchaseOrderDetails.class)
+	private List<PurchaseOrderDetails> lines;
 
 	/**
 	 * @return the addresses
 	 */
-	public List<PurchaseOrderDetails> getAddresses() {
-		return addresses;
+	public List<PurchaseOrderDetails> getLines() {
+		return lines;
 	}
 
 	/**
 	 * @param addresses the addresses to set
 	 */
-	public void setAddresses(List<PurchaseOrderDetails> addresses) {
-		this.addresses = addresses;
+	public void setLines(List<PurchaseOrderDetails> lines) {
+		this.lines = lines;
 	}
 
-	@OneToMany(targetEntity=PurchaseOrderDetails.class)
-	private List<PurchaseOrderDetails> addresses;
+
 	
 	/**
 	 * Default Constructor
@@ -111,4 +113,17 @@ public class PurchaseOrder {
 		this.supplier = s;
 	}
 
+	public String calculateTotal(){
+		int pounds = 0;
+		int pence = 0;
+		for(PurchaseOrderDetails d : lines){
+			pounds += (int) (d.getProduct().getPrice() / 1);
+			pence += (int) ((d.getProduct().getPrice()) * 100) % 100;
+			if(pence >= 100){
+				pounds++;
+				pence =- 100;
+			}
+		}
+		return "£" + pounds + "." + pence;
+	}
 }
