@@ -35,3 +35,6 @@
 {
     text-decoration: none;
 }
+#body{
+	min-height: 686px !important;
+}

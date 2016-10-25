@@ -13,7 +13,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <meta name="viewport" content="width=device-width, initialscale=1" />
 
 <title>
-	Checkout
+	OrderConfirmation
 </title>
 <link href="css/Checkout.css" rel="stylesheet"/>
 <ui:insert name="css"/>
@@ -58,7 +58,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 	</div>
 	
     <div id="body" style="margin-top: 50px;"> 
-    <center><h1>Checkout</h1></center>
+    <center><h1>Order Confirmation</h1></center>
 		<div class="panel panel-default">
 		  <div class="panel-heading">
 			<h3 class="panel-title">Basket</h3>
@@ -66,26 +66,30 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 		  <!-- Table -->
 		  <table class="table">
 			<tr>
-				<th>Id</th>
-				<th>Name</th> 
-				<th>Quantity</th>
-				<th>Price</th>
+				<th>Line 1</th>
+				<th>Town</th> 
+				<th>County</th>
+				<th>Post Code</th>
+				<th>Select one</th>
 			</tr>
-		<ui:repeat var="product" value="#{Basket.products}">
+	<form action="">
+
+		<ui:repeat var="addressLine" value="#{Account.address}">
+	
 			<tr>
-				<td><h:outputText value="#{product.productID}"/></td>
-				<td><h:outputText value="#{product.productName}"/></td>
-				<td><h:outputText value="#{product.quantity}"/></td>
-				<td>&#163;<h:outputText value="#{Basket.UpdatePrice(product.quantity,product.price)}"/></td>
+				
+				<td><h:outputText value="#{addressLine.line1}"/></td>
+				<td><h:outputText value="#{addressLine.town}"/></td>
+				<td><h:outputText value="#{addressLine.county}"/></td>
+				<td><h:outputText value="#{addressLine.postcode}"/></td>
+			    <td>
+			   		    <input type="radio" name="address" value="#{addressLine.id}"/>
+			    </td>
+				
 			</tr>
 	    </ui:repeat>
-	    	<tr>
-	    		<th></th>
-	    		<th></th>
-	    		
-	    		<th>Total:</th>
-	    		<td><h:outputText value="&#163;#{Basket.total}"/></td>
-	    	</tr>
+
+</form>
 
 		  </table>
 
@@ -103,17 +107,17 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 			</div>    
 			<div class="col-md-6">
 				<div class=" pull-right">
-					<h:commandLink action="CheckoutAddress.xhtml"  >
-						<h:commandButton class="btn btn-success" value="Proceed" type="submit"  />
-					</h:commandLink>		
+
+					<h:commandButton class="btn btn-success" value="Proceed" type="submit"  />
+								
 				</div>
 			</div>
 		</div>
 		</h:form>	
     </div>   
-   <div class="progress">
-	  <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
-	    30% Complete
+      <div class="progress">
+	  <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+	    100% Complete
 	  </div>
 	</div>
    <div id="footer"> 

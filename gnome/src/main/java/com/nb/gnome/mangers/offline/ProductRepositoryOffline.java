@@ -36,11 +36,18 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	//Read
 	@Override
-	public List<Product> getProductByKeyword(String keyword){ // To sort out
-//  How would this be possible?
-		
-		
-		return null; // ben's favourite
+	public List<Product> getProductByKeyword(String keyword){ 
+
+	List<Product> keywordProduct = new ArrayList<Product>();
+
+	for (Product p: initialData.getProducts()){
+	if (p.getProductName().toLowerCase().contains(keyword.toLowerCase()) || p.getDescription().contains(keyword.toLowerCase())){
+	keywordProduct.add(p);
+	System.out.println(p.getProductName());
+	}
+
+	}
+	return keywordProduct;
 	}
 	
 	@Override

@@ -24,7 +24,14 @@ public class AccountController implements Serializable {
 	
 
 	private List<Address> address;
-    private String email; 
+    /**
+	 * @return the address
+	 */
+	public List<Address> getAddress() {
+		return address;
+	}
+
+	private String email; 
     private String firstName; 
     private String surname; 
     private String addressFirstLine;

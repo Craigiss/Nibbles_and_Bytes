@@ -6,7 +6,7 @@ import javax.ejb.Stateful;
 
 import com.nb.gnome.entities.Product;
 @Stateful
-public class CheckoutService {
+public class CheckoutService  {
 	
 	public double totalPrice(ArrayList<Product> products){
 		double total = 0;

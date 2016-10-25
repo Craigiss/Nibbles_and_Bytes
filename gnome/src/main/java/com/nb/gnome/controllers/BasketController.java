@@ -36,7 +36,20 @@ public class BasketController implements Serializable {
 			this.cost = cost;
 		}
 	}
-	
+	String basketName = "Basket";
+	/**
+	 * @return the basketName
+	 */
+	public String getBasketName() {
+		return basketName;
+	}
+
+	/**
+	 * @param basketName the basketName to set
+	 */
+	public void setBasketName(String basketName) {
+		this.basketName = basketName;
+	}
 	ArrayList<item> ids = new ArrayList<item>();
 	String submit;
 	
@@ -48,6 +61,12 @@ public class BasketController implements Serializable {
 	CheckoutService checkoutService; 
 	private double total; 
 	ArrayList<Product> products = new ArrayList<Product>();
+	int totalItems =0;
+	public void updateBasketName(int quant){
+		totalItems += quant;
+		basketName = "Basket (" + (totalItems) +")"; 
+		
+	}
 	
 	public void addProduct(int id, int quantity,double cost){
 		if(ids == null){
@@ -56,6 +75,7 @@ public class BasketController implements Serializable {
 		cost = cost * quantity;
 		ids.add(new item(id,quantity,cost));
 		setSubmit("Item added to basket");
+		updateBasketName(quantity);
 	}
 	public void clearSubmit(){
 		setSubmit(null);
@@ -99,7 +119,7 @@ public class BasketController implements Serializable {
 			}
 			exists = false;
 		}		
-		ids = null;
+		ids = new ArrayList<item>();
 		setSubmit(null);
 		return "Basket";
 	}
@@ -122,6 +142,8 @@ public class BasketController implements Serializable {
 	}
 	public String ClearBasket(){
 		products = new ArrayList<Product>();
+		basketName = "Basket";
+		totalItems =0;
 		return "Basket";
 	}
 	

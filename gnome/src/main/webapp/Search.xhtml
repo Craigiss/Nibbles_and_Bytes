@@ -30,7 +30,7 @@ Search
 					<div class="col-xs-4">
 						<h:commandLink
 						action="#{searchProducts.previous()}"
-						value="Previous page #{searchProducts.pagination.pageSize}"
+						value="Previous "
 						rendered="#{searchProducts.pagination.hasPreviousPage}"
 						/>
 					</div>
@@ -44,16 +44,16 @@ Search
 						<h:commandLink
 						action="#{searchProducts.next()}"
 						rendered="#{searchProducts.pagination.hasNextPage}"
-						value="Next #{searchProducts.pagination.pageSize}"
+						value="Next"
 						/>
 					</div>
 				</div>
 				<div class="row">
 					<!-- product grid-->
 						<ui:repeat var="product"
-						value="#{searchProducts.dataModel}">
+						value="#{products.dataModel}">
 							<div class="col-sm-3">
-							<h:commandLink action="#{searchProducts.view(product.productID)}"  >
+							<h:commandLink action="#{products.view(product.productID)}"  >
 								<h:graphicImage 
 								
 								value="#{product.imgPath}"
@@ -74,7 +74,7 @@ Search
 					<div class="col-xs-4">
 						<h:commandLink
 						action="#{searchProducts.previous()}"
-						value="Previous page #{searchProducts.pagination.pageSize}"
+						value="Previous"
 						rendered="#{searchProducts.pagination.hasPreviousPage}"
 						/>
 					</div>
@@ -88,7 +88,7 @@ Search
 						<h:commandLink
 						action="#{searchProducts.next()}"
 						rendered="#{searchProducts.pagination.hasNextPage}"
-						value="Next #{searchProducts.pagination.pageSize}"
+						value="Next"
 						/>
 					</div>
 				</div>

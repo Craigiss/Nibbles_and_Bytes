@@ -36,7 +36,12 @@ public class InitialData {
 		aa.setCounty("County");
 		aa.setPostcode("Post code");
 		addresses.add(aa);
-		
+		Address aa1 = new Address();
+		aa1.setLine1("First Line2");
+		aa1.setLine2("Second Line2");
+		aa1.setCounty("County2");
+		aa1.setPostcode("Post code2");
+		addresses.add(aa1);
 		Customer cu = new Customer();
 		cu.setEmail("Email");
 		cu.setFirstName("firstName");

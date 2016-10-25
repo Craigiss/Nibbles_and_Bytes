@@ -1,6 +1,7 @@
 package com.nb.gnome.controllers;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -107,6 +108,11 @@ public class ProductController implements Serializable {
 			dataModel = getPagination().createPageDataModel();
 		return dataModel;
 	}
+	
+	public void setDataModel(ArrayList<Product> model){
+		dataModel.setWrappedData(model);
+	}
+	
 	public List<Review> getReviewModel(){
 		if (reviewModel == null){
 			return null;
@@ -118,13 +124,13 @@ public class ProductController implements Serializable {
 	public String next(){
 		getPagination().nextPage();
 		recreateModel();
-		return "browse";
+		return "Search";
 	}
 	
 	public String previous(){
 		getPagination().previousPage();
 		recreateModel();
-		return "browse";
+		return "Search";
 	}
 	
 	public String view (int id){

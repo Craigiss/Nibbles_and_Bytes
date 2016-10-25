@@ -25,6 +25,7 @@ public class UpdateAccountService {
 		
 		Customer c = customerRepository.getCustomerByEmail(userCredentials.getEmail());
 		userCredentials.setEmail(email);
+		userCredentials.setUser(firstName);
 		Address a = new Address();
 		ArrayList<Address> addresses = new ArrayList<Address>();
 		a.setLine2(addressSecondLine);
