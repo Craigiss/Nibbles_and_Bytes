@@ -32,21 +32,15 @@
 					</div>
 					<div class="col-sm-1">
 						<h:commandLink class="hovering"
-							action="#{search.searchProd('ims')}">
+							action="#{search.search()}">
 							<h:graphicImage class="glass_back" value="img/glass.png" />
 						</h:commandLink>
 					</div>
-					<div>
-					<h:selectOneRadio id ="testing" value="#{search.searchType}">
-   						<div class ="col-sm-4">
-   						<f:selectItem itemValue="Products" itemLabel="Products" />
-   						</div>
-   						<div class ="col-sm-4">
-   						<f:selectItem itemValue="Supplier" itemLabel="Supplier" />
-   						</div>
-   						<div class ="col-sm-4">
-   						<f:selectItem itemValue="PO" itemLabel="PO"/>
-   						</div>
+					<div class= "col-sm-12">
+					<h:selectOneRadio value="#{search.searchType}" class="testing">
+   						<f:selectItem itemValue="Products" itemLabel="Products" value="#{search.searchType}"/>
+   						<f:selectItem itemValue="Suppliers" itemLabel="Suppliers" value="#{search.searchType}"/>
+   						<f:selectItem itemValue="PO" itemLabel="PO" value="#{search.searchType}"/>
    					</h:selectOneRadio>
    					</div>			
 				</h:form>

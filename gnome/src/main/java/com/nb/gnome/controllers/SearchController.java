@@ -17,6 +17,7 @@ public class SearchController{
 	
 	private String term;
 	private String searchType;
+	private boolean optionChecked;
 	
 	@Inject private ProductService productServ;
 	@Inject private SupplierService supplierServ;
@@ -40,7 +41,43 @@ public class SearchController{
 	 */
 	public void setSearchType(String searchType) {
 		this.searchType = searchType;
+		if (searchType != null){
+		optionChecked =true;
+		}
 	}
+	
+	/**
+	 * @return the optionChecked
+	 */
+	public boolean isOptionChecked() {
+		return optionChecked;
+	}
+
+	/**
+	 * @param optionChecked the optionChecked to set
+	 */
+	public void setOptionChecked(boolean optionChecked) {
+		this.optionChecked = optionChecked;
+	}
+	
+	public String search(){
+		String returnValue = "";
+		if (optionChecked == false){
+			returnValue = "imsIndex";
+		}
+		else if (searchType.equals("Products")){
+			returnValue = searchProd();
+		}
+		else if (searchType.equals("Suppliers")){
+			returnValue = searchSuppliers();
+		}
+		else{
+			returnValue = "imsError";
+		}
+		
+		return returnValue;
+	}
+	
 
 	public String searchProd(){
 		String returnValue = "";
@@ -52,6 +89,7 @@ public class SearchController{
 		}
 		else if (pList.size() > 0){
 			for(Product prod : pList){
+				prodController.getDataModel();
 				prodController.setData(pList);
 				returnValue = "imsProducts";
 			}
@@ -62,7 +100,7 @@ public class SearchController{
 		return returnValue;		
 	}
 	
-	public String searchSuppliers(String service){
+	public String searchSuppliers(){
 		String returnValue = "";
 		Supplier idSupp = supplierServ.findSupplierById(term);
 		Supplier contactSupp = supplierServ.findSupplierByContact(term);
@@ -77,6 +115,7 @@ public class SearchController{
 			returnValue = "imsSupplierDeets";
 		}
 		else if (companyList.size() > 0){
+			supController.getDataModel();
 			supController.setData(companyList);
 			returnValue = "imsSuppliers";
 		}
