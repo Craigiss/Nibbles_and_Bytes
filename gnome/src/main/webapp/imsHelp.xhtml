@@ -3,7 +3,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="templates/imsTemplate.xhtml">
+	template="templates/imsTemplateDetails.xhtml">
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -22,36 +22,13 @@
 			<a href="imsIndex.xhtml">Home</a> > Help
 		</ui:define>
 		
-		<ui:define name="backFunction">
+		<ui:define name="backButton">
+		 <h:form>
 		 <h:commandLink action="#{help.reset()}" value="" class="hovering">
            			<h:graphicImage class="glass_back" value="img/back.png"/>
          </h:commandLink>
+         </h:form>
 		</ui:define>
-
-<!-- 		Operations buttons 
-		<ui:define name="addbtn">
-			<a href="addSupplier.xhtml">
-			Add <img src="img/add.png" class="icon opsicon"/>
-			</a>
-		</ui:define>
-
-		<ui:define name="editbtn">
-			<a href="imsIndex.xhtml">
-			Edit <img src="img/edit.png" class="icon opsicon"/>
-			</a>
-		</ui:define>
-		
-		<ui:define name="deletebtn">
-			<a href="imsIndex.xhtml">
-			Delete <img src="img/bin.png" class="icon opsicon"/>
-			</a>
-		</ui:define>
-
-		<ui:define name="searchButtonAction">
-		            	<h:commandLink class="hovering" action="#{search.searchSuppliers('ims')}"> 
-              		<h:graphicImage class="glass_back" value="img/glass.png"/>
-           		</h:commandLink>
-        </ui:define> -->
 
 		<!-- Main content of  -->
 		<ui:define name="maincontent">
@@ -61,29 +38,40 @@
 		  		<div class="col-sm-12 heading supDetails">
 		  			<h2>FAQs</h2>
 		  		</div>
+		  	</div>
+		  	<div class="row" id="table">
 		  		<div class="col-sm-12 heading supDetails">
 		  			<h3>Q: How do I log out?</h3>
 		  			<p>Proceed to the main home page for the IMS home page and push the green, log out button in the lower right
 		  			hand corner of the screen.  Wait for acknowledgement that the log out has been completed. 
 		  			</p>
 		  		</div>
+		  		<br/>
+		  	</div>
+		  	<div class="row" id="table">
 		  		<div class="col-sm-12 heading supDetails">
 		  			<h3>Q: What do the analytics show?</h3>
 		  			<p>The analytics show a comparison between current sale trends that can be toggled against week on week, month on month and
 		  			year on year sales.  They are designed to help you keep certain items in stock during busy seasonal promotional periods.
 		  			</p>
 		  		</div>
+		  	</div>
+		  	<div class="row" id="table">
 		  		<div class="col-sm-12 heading supDetails">
 		  			<h3>Q: Why do I not have access to admin?</h3>
 		  			<p>Only the warehouse manager has access to admin.  You must be logged in as the warehouse manager in order to undertake
 		  			admin functions.
 		  			</p>
 		  		</div>
+		  	</div>
+		  	<div class="row" id="table">
 		  		<div class="col-sm-12 heading supDetails">
 		  			<h3>Q: What can I call you?</h3>
 		  			<p>I can call you Betty.  Betty when you call me, you can call me Allllllllllllllll!
 		  			</p>
 		  		</div>
+		  	</div>
+		  	<div class="row" id="table">
 		  		<div class="col-sm-12 heading supDetails">
 		  			<h3>Q: Not found a solution to your problem?</h3>
 		  			<p>Contact Belvedere on 01245 777345.  He is the Guru of IMS knowledge and is always happy to help 24/7; it's kinda weird.
@@ -91,39 +79,6 @@
 		  		</div>
 		   
 		  	</div>
-
-<!-- 		  	Generation of suppliers into grid
-		  	<ui:repeat var="supplier" value="#{suppliers.dataModel}">
-		  		<div class="row table listItem">
-					<div class="col-sm-4 supDetails">
-						<h:form>
-							<h:commandLink action="#{suppliers.view(supplier)}" value="#{supplier.company}" class ="supDetails"/>
-						</h:form>
-					</div>
-			    	<div class="col-sm-4 supDetails">
-			    		<h:form>
-			      			<h:commandLink action="#{suppliers.view(supplier)}" value="#{supplier.phone}" class ="supDetails"/>
-			      		</h:form>
-			    	</div>
-			    	<div class="col-sm-4 supDetails">
-			      		<h:outputText value="#{supplier.name}"/>
-			   		</div>
-		   		</div>
-		   	</ui:repeat> -->
-
-		   	<!-- <h:form>   		
-		   			<div class="row">
-	   				<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
-	   					<h:commandLink action="#{suppliers.previous()}" value="Previous" rendered="#{suppliers.pagination.hasPreviousPage}" />
-	   				</div>
-		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
-		   				<h:outputText value="Showing suppliers #{suppliers.pagination.pageFirstItem + 1} to #{suppliers.pagination.getPageLastItem() + 1} of #{suppliers.pagination.itemsCount}" />
-		   			</div>
-		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
-		   				<h:commandLink action="#{suppliers.next}" rendered="#{suppliers.pagination.hasNextPage}" value="Next" />
-		   			</div>
-		   		</div>
-		   	</h:form> -->
 		</ui:define>
 
 </ui:composition>
