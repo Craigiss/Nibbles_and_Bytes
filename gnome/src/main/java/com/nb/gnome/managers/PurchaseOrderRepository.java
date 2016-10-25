@@ -3,6 +3,7 @@ package com.nb.gnome.managers;
 import java.util.List;
 
 import com.nb.gnome.entities.PurchaseOrder;
+import com.nb.gnome.entities.PurchaseOrderDetails;
 import com.nb.gnome.entities.Supplier;
 
 /**
@@ -22,4 +23,8 @@ public interface PurchaseOrderRepository {
 		public List<PurchaseOrder> findPurchaseOrderBySupplier(Supplier s);
 		
 		public List<PurchaseOrder> findAll();
+		
+		public int findItemsQuantity(PurchaseOrder p);
+		
+		public List<PurchaseOrderDetails> getOrderLines(PurchaseOrder p);
 }

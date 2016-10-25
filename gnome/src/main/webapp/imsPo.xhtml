@@ -30,7 +30,7 @@
 
 		<!-- Operations buttons - add/edit/delete -->
 		<ui:define name="addbtn">
-			<a href="imsIndex.xhtml">
+			<a href="addPurchaseOrder.xhtml">
 			Add <img src="img/add.png" class="icon opsicon"/>
 			</a>
 		</ui:define>
@@ -57,48 +57,56 @@
 		<ui:define name="maincontent">
 
 			<!-- Grid for suppliers -->
-		  	<div class="row" id="table">
-		  		<div class="col-sm-4 heading supDetails">
-		  			Supplier Name
+		  	<div class="row table">
+		  		<div class="col-sm-2 heading supDetails">
+		  			ID
 		  		</div>
-		   		<div class="col-sm-4 heading supDetails">
-	     			Product Ordered
+		   		<div class="col-sm-6 heading supDetails">
+	     			Supplier
 	    		</div>
-	    		<div class="col-sm-4 heading supDetails">
-		      		Quantity Ordered
+	    		<div class="col-sm-2 heading supDetails listCenter">
+		      		Items
+		   		</div>
+		   		<div class="col-sm-2 heading supDetails listCenter">
+		      		Total
 		   		</div>
 		  	</div>
 
 		  	<!-- Generation of suppliers into grid -->
 		  	<ui:repeat var="po" value="#{pos.dataModel}">
-		  		<div class="row" id="table">
-					<div class="col-sm-4 supDetails">
+		  		<div class="row table listItem">
+		  			<div class="col-sm-2 supDetails">
+						<h:form>
+							<h:commandLink action="#{pos.view(po.id)}" value="#{po.id}"/>
+						</h:form>
+					</div>
+					<div class="col-sm-6 supDetails">
 						<h:form>
 							<h:commandLink action="#{pos.view(po.id)}" value="#{po.supplier.company}"/>
 						</h:form>
 					</div>
-			    	<div class="col-sm-4 supDetails">
+			    	<div class="col-sm-2 supDetails listCenter">
 			    		<h:form>
-			      			<h:commandLink action="#{pos.view(po.id)}" value="#{po.product}"/>
+			      			<h:commandLink action="#{pos.view(po.id)}" value="#{pos.findLines(po)}"/>
 			      		</h:form>
 			    	</div>
-			    	<div class="col-sm-4 supDetails">
-			      		<h:outputText value="#{po.quantity}"/>
+			    	<div class="col-sm-2 supDetails listCenter">
+			      		<h:outputText value="#{pos.calculateTotal(po)}"/>
 			   		</div>
 		   		</div>
 		   	</ui:repeat>
 
 
-		   	<h:form>
-			   	<div class="row">
-	   				<div class="col-sm-4 col-xs-4 nbbuttonp">
-	   					<h:commandLink action="#{pos.previous}" value="Previous #{pos.pagination.pageSize}" rendered="#{pos.pagination.hasPreviousPage}" />
+		   	<h:form>   		
+		   			<div class="row">
+	   				<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+	   					<h:commandLink action="#{pos.previous()}" value="Previous" rendered="#{pos.pagination.hasPreviousPage}" />
 	   				</div>
-		   			<div class="col-sm-4 col-xs-4 nbbuttonp">
-		   				<h:outputText value="#{pos.pagination.pageFirstItem + 1} to #{pos.pagination.pageLastItem + 1}/#{pos.pagination.itemsCount}" />
+		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+		   				<h:outputText value="Showing POs #{pos.pagination.pageFirstItem + 1} to #{pos.pagination.getPageLastItem() + 1} of #{pos.pagination.itemsCount}" />
 		   			</div>
-		   			<div class="col-sm-4 col-xs-4 nbbuttonp">
-		   				<h:commandLink action="#{pos.next}" rendered="#{pos.pagination.hasNextPage}" value="#Next #{pos.pagination.pageSize}" />
+		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+		   				<h:commandLink action="#{pos.next}" rendered="#{pos.pagination.hasNextPage}" value="Next" />
 		   			</div>
 		   		</div>
 		   	</h:form>

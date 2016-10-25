@@ -1,5 +1,3 @@
-
-
 input{
 	padding:0px;
 	margin: 0px;
@@ -7,6 +5,20 @@ input{
 	border-width: 0px;
 	width: 100%;
 	padding-left: 10px;
+}
+
+.testing{
+	color: white;
+    margin: auto;
+    padding-left: 57px;
+    font-size: 14px;
+    display: table;
+    width: 100%;
+}
+
+td{
+	width: 33%;
+	text-align: center;
 }
 
 ::-webkit-input-placeholder {
@@ -59,6 +71,10 @@ img{
 
 #searchText{
 	padding-top: 8px;
+}
+
+.indexSearch{
+	height: 90px!important;	
 }
 
 .glass_back{
@@ -131,10 +147,6 @@ a:hover {
 
 .mainButton a, .col-sm-1 a, .col-sm-12 a, .col-sm-3 a, .listItem a {
 	text-decoration: none;
-}
-
-.mainButton a:visited, .col-sm-1 a:visited, .col-sm-12 a:visited, .col-sm-3 a:visited, .listItem a:visited  {
-	color: white;
 }
 
 /*end of homepage css*/
@@ -277,6 +289,7 @@ a:hover {
 .heading{
 	font-weight: bold;
 	color: black;
+	text-decoration: underline;
 }
 
 .supDetails, .prodDetails, .pageing{
@@ -377,8 +390,6 @@ ul{
 .listCenter{
 	text-align: center;
 }
-	
-
 
 @media screen and (max-width: 770px){
 
@@ -396,7 +407,7 @@ ul{
 	padding-top: initial;
 	padding-right: initial;
 	margin: initial;
-	font-size: 1.3em;
+	font-size: 1em;
     text-align: center;
 	}
 

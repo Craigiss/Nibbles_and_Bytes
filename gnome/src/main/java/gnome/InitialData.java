@@ -54,7 +54,7 @@ public class InitialData {
 		products.add(p3);
 		
 		Supplier s1 = new Supplier();
-		s1.setCompany("LawnFlamingosWholesale");
+		s1.setCompany("Lawn Flamingos Wholesale");
 		s1.setId(001);
 		s1.setName("Augustine Loris Poutine III");
 		s1.setPhone("01645839242");
@@ -62,7 +62,7 @@ public class InitialData {
 		suppliers.add(s1);
 		
 		Supplier s2 = new Supplier();
-		s2.setCompany("JacuzziBabies");
+		s2.setCompany("Jacuzzi Babies");
 		s2.setId(002);
 		s2.setName("Howard Schultz");
 		s2.setPhone("07483627292");
@@ -70,24 +70,41 @@ public class InitialData {
 		suppliers.add(s2);
 		
 		Supplier s3 = new Supplier();
-		s3.setCompany("SensiblerMiddleAgedHomeOwners");
+		s3.setCompany("Sensibler Middle Aged Home Owners");
 		s3.setId(003);
 		s3.setName("Maurice 'the madman' Mortimer");
 		s3.setPhone("026492672555");
 		s3.setEmail("iwillsellyouverysensiblelawnornamentsatareasonableprice@madmansales.com");
 		suppliers.add(s3);
 		
+		//Purchase Orders + Purchase Order Details
 		PurchaseOrder po1 = new PurchaseOrder();
-		po1.setId(001);
+		po1.setId(2);
 		po1.setDate(new Date(2016,05,01));
 		po1.setStatus("Archived");
 		po1.setSupplier(s1);
+		
+		List<PurchaseOrderDetails> linesPO1 = new ArrayList<PurchaseOrderDetails>();
+		
+		PurchaseOrderDetails pod1 = new PurchaseOrderDetails();
+		pod1.setProduct(p1);
+		pod1.setQuantity(2);
+		pod1.setPurchaseOrder(po1);
+		purchaseOrderDetails.add(pod1);
+		
+		PurchaseOrderDetails pod2 = new PurchaseOrderDetails();
+		pod2.setProduct(p2);
+		pod2.setQuantity(1);
+		pod2.setPurchaseOrder(po1);
+		purchaseOrderDetails.add(pod2);
+
 		purchaseOrders.add(po1);
 		
 		PurchaseOrder po2 = new PurchaseOrder();
-		po2.setId(002);
+		po2.setId(6);
 		po2.setDate(new Date(2016,11,22));
 		po2.setStatus("Waiting Payment");
+		po2.setSupplier(s3);
 		purchaseOrders.add(po2);
 	}
 	

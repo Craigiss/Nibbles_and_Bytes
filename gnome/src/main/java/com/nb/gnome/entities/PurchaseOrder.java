@@ -35,23 +35,6 @@ public class PurchaseOrder {
 	@ManyToOne 
 	@JoinColumn(name = "FKSupplierid", nullable = false)
 	private Supplier supplier;
-
-	/**
-	 * @return the addresses
-	 */
-	public List<PurchaseOrderDetails> getAddresses() {
-		return addresses;
-	}
-
-	/**
-	 * @param addresses the addresses to set
-	 */
-	public void setAddresses(List<PurchaseOrderDetails> addresses) {
-		this.addresses = addresses;
-	}
-
-	@OneToMany(targetEntity=PurchaseOrderDetails.class)
-	private List<PurchaseOrderDetails> addresses;
 	
 	/**
 	 * Default Constructor
@@ -110,5 +93,4 @@ public class PurchaseOrder {
 	public void setSupplier(Supplier s){
 		this.supplier = s;
 	}
-
 }
