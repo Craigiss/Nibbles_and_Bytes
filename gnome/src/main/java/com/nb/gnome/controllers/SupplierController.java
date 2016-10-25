@@ -42,7 +42,7 @@ public class SupplierController implements Serializable{
 	
 	public PaginationHelper getPagination() {
 		if (pagination == null)	
-			pagination = new PaginationHelper(10){
+			pagination = new PaginationHelper(2){
 		@Override 
 		public int getItemsCount() {
 			if (dataModel == null){
@@ -79,7 +79,7 @@ public class SupplierController implements Serializable{
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();
-		return "imsSuppliers";
+		return "browse";
 	}
 	
 	public String previous() {

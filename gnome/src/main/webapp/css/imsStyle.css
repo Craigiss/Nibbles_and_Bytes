@@ -391,6 +391,21 @@ ul{
 	text-align: center;
 }
 
+.addElement{
+	padding-left: 15px;
+	padding-top: 15px;
+	color: black;
+}
+
+.uTextInput{
+	width: 80%;
+	border: 1px grey solid;
+}
+
+.addops{
+	padding-top: 15px;
+}
+
 @media screen and (max-width: 770px){
 
 	#search{
