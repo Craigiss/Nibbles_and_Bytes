@@ -30,7 +30,7 @@
 
 		<!-- Operations buttons - add/edit/delete -->
 		<ui:define name="addbtn">
-			<a href="imsIndex.xhtml">
+			<a href="addPurchaseOrder.xhtml">
 			Add <img src="img/add.png" class="icon opsicon"/>
 			</a>
 		</ui:define>
@@ -64,10 +64,10 @@
 		   		<div class="col-sm-6 heading supDetails">
 	     			Supplier
 	    		</div>
-	    		<div class="col-sm-2 heading supDetails">
+	    		<div class="col-sm-2 heading supDetails listCenter">
 		      		Items
 		   		</div>
-		   		<div class="col-sm-2 heading supDetails">
+		   		<div class="col-sm-2 heading supDetails listCenter">
 		      		Total
 		   		</div>
 		  	</div>
@@ -85,12 +85,12 @@
 							<h:commandLink action="#{pos.view(po.id)}" value="#{po.supplier.company}"/>
 						</h:form>
 					</div>
-			    	<div class="col-sm-2 supDetails">
+			    	<div class="col-sm-2 supDetails listCenter">
 			    		<h:form>
 			      			<h:commandLink action="#{pos.view(po.id)}" value="#{pos.findLines(po)}"/>
 			      		</h:form>
 			    	</div>
-			    	<div class="col-sm-2 supDetails">
+			    	<div class="col-sm-2 supDetails listCenter">
 			      		<h:outputText value="#{pos.calculateTotal(po)}"/>
 			   		</div>
 		   		</div>
