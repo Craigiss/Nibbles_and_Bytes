@@ -100,13 +100,13 @@
 		   	<h:form>   		
 		   			<div class="row">
 	   				<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
-	   					<h:commandLink action="#{suppliers.previous()}" value="Previous" rendered="#{suppliers.pagination.hasPreviousPage}" />
+	   					<h:commandLink action="#{pos.previous()}" value="Previous" rendered="#{pos.pagination.hasPreviousPage}" />
 	   				</div>
 		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
-		   				<h:outputText value="Showing suppliers #{suppliers.pagination.pageFirstItem + 1} to #{suppliers.pagination.getPageLastItem() + 1} of #{suppliers.pagination.itemsCount}" />
+		   				<h:outputText value="Showing POs #{pos.pagination.pageFirstItem + 1} to #{pos.pagination.getPageLastItem() + 1} of #{pos.pagination.itemsCount}" />
 		   			</div>
 		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
-		   				<h:commandLink action="#{suppliers.next}" rendered="#{suppliers.pagination.hasNextPage}" value="Next" />
+		   				<h:commandLink action="#{pos.next}" rendered="#{pos.pagination.hasNextPage}" value="Next" />
 		   			</div>
 		   		</div>
 		   	</h:form>
