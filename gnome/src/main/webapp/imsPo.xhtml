@@ -61,7 +61,7 @@
 		  		<div class="col-sm-2 heading supDetails">
 		  			ID
 		  		</div>
-		   		<div class="col-sm-5 heading supDetails">
+		   		<div class="col-sm-6 heading supDetails">
 	     			Supplier
 	    		</div>
 	    		<div class="col-sm-2 heading supDetails">
@@ -74,39 +74,39 @@
 
 		  	<!-- Generation of suppliers into grid -->
 		  	<ui:repeat var="po" value="#{pos.dataModel}">
-		  		<div class="row table">
+		  		<div class="row table listItem">
 		  			<div class="col-sm-2 supDetails">
 						<h:form>
 							<h:commandLink action="#{pos.view(po.id)}" value="#{po.id}"/>
 						</h:form>
 					</div>
-					<div class="col-sm-5 supDetails">
+					<div class="col-sm-6 supDetails">
 						<h:form>
 							<h:commandLink action="#{pos.view(po.id)}" value="#{po.supplier.company}"/>
 						</h:form>
 					</div>
 			    	<div class="col-sm-2 supDetails">
 			    		<h:form>
-			      			<h:commandLink action="#{pos.view(po.id)}" value="#{po.lines.length()}"/>
+			      			<h:commandLink action="#{pos.view(po.id)}" value="#{pos.findLines(po)}"/>
 			      		</h:form>
 			    	</div>
-			    	<div class="col-sm-3 supDetails">
-			      		<h:outputText value="#{po.calculateTotal()}"/>
+			    	<div class="col-sm-2 supDetails">
+			      		<h:outputText value="#{pos.calculateTotal(po)}"/>
 			   		</div>
 		   		</div>
 		   	</ui:repeat>
 
 
-		   	<h:form>
-			   	<div class="row">
-	   				<div class="col-sm-4 col-xs-4 nbbuttonp">
-	   					<h:commandLink action="#{pos.previous}" value="Previous #{pos.pagination.pageSize}" rendered="#{pos.pagination.hasPreviousPage}" />
+		   	<h:form>   		
+		   			<div class="row">
+	   				<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+	   					<h:commandLink action="#{suppliers.previous()}" value="Previous" rendered="#{suppliers.pagination.hasPreviousPage}" />
 	   				</div>
-		   			<div class="col-sm-4 col-xs-4 nbbuttonp">
-		   				<h:outputText value="#{pos.pagination.pageFirstItem + 1} to #{pos.pagination.pageLastItem + 1}/#{pos.pagination.itemsCount}" />
+		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+		   				<h:outputText value="Showing suppliers #{suppliers.pagination.pageFirstItem + 1} to #{suppliers.pagination.getPageLastItem() + 1} of #{suppliers.pagination.itemsCount}" />
 		   			</div>
-		   			<div class="col-sm-4 col-xs-4 nbbuttonp">
-		   				<h:commandLink action="#{pos.next}" rendered="#{pos.pagination.hasNextPage}" value="#Next #{pos.pagination.pageSize}" />
+		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+		   				<h:commandLink action="#{suppliers.next}" rendered="#{suppliers.pagination.hasNextPage}" value="Next" />
 		   			</div>
 		   		</div>
 		   	</h:form>

@@ -77,20 +77,34 @@ public class InitialData {
 		s3.setEmail("iwillsellyouverysensiblelawnornamentsatareasonableprice@madmansales.com");
 		suppliers.add(s3);
 		
+		//Purchase Orders + Purchase Order Details
 		PurchaseOrder po1 = new PurchaseOrder();
-		List<PurchaseOrderDetails> list1 = new ArrayList<PurchaseOrderDetails>();
-//		list1.add(new PurchaseOrderDetails().setProduct(p1));
-		po1.setId(001);
+		po1.setId(2);
 		po1.setDate(new Date(2016,05,01));
 		po1.setStatus("Archived");
 		po1.setSupplier(s1);
-//		po1.setLines(lines1);
+		
+		List<PurchaseOrderDetails> linesPO1 = new ArrayList<PurchaseOrderDetails>();
+		
+		PurchaseOrderDetails pod1 = new PurchaseOrderDetails();
+		pod1.setProduct(p1);
+		pod1.setQuantity(2);
+		pod1.setPurchaseOrder(po1);
+		purchaseOrderDetails.add(pod1);
+		
+		PurchaseOrderDetails pod2 = new PurchaseOrderDetails();
+		pod2.setProduct(p2);
+		pod2.setQuantity(1);
+		pod2.setPurchaseOrder(po1);
+		purchaseOrderDetails.add(pod2);
+
 		purchaseOrders.add(po1);
 		
 		PurchaseOrder po2 = new PurchaseOrder();
-		po2.setId(002);
+		po2.setId(6);
 		po2.setDate(new Date(2016,11,22));
 		po2.setStatus("Waiting Payment");
+		po2.setSupplier(s3);
 		purchaseOrders.add(po2);
 	}
 	

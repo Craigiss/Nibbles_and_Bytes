@@ -91,7 +91,7 @@ public class PurchaseOrderController implements Serializable{
 	
 	public String view(PurchaseOrder p) {
 		purchaseOrder.setPurchaseOrder(p);
-		return "imsSupplierDeets";
+		return "imsPurchaseOrderDeets";
 	}
 	
 	public PurchaseOrder getPurchaseOrder() {
@@ -100,6 +100,17 @@ public class PurchaseOrderController implements Serializable{
 	
 	public void setPurchaseOrder(PurchaseOrder purchaseOrder) {
 		this.nPurchaseOrder = purchaseOrder;
-	}	
+	}
+	
+	public int findLines(PurchaseOrder p){
+		return purchaseOrderService.findItemsQuantity(p);
+	}
+	
+	public String calculateTotal(PurchaseOrder p){
+		return purchaseOrderService.calculateTotal(p);
+	}
+	
+	
+	
 	}
 
