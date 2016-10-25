@@ -57,33 +57,41 @@
 		<ui:define name="maincontent">
 
 			<!-- Grid for suppliers -->
-		  	<div class="row" id="table">
-		  		<div class="col-sm-4 heading supDetails">
-		  			Supplier Name
+		  	<div class="row table">
+		  		<div class="col-sm-2 heading supDetails">
+		  			ID
 		  		</div>
-		   		<div class="col-sm-4 heading supDetails">
-	     			Product Ordered
+		   		<div class="col-sm-5 heading supDetails">
+	     			Supplier
 	    		</div>
-	    		<div class="col-sm-4 heading supDetails">
-		      		Quantity Ordered
+	    		<div class="col-sm-2 heading supDetails">
+		      		Items
+		   		</div>
+		   		<div class="col-sm-2 heading supDetails">
+		      		Total
 		   		</div>
 		  	</div>
 
 		  	<!-- Generation of suppliers into grid -->
 		  	<ui:repeat var="po" value="#{pos.dataModel}">
-		  		<div class="row" id="table">
-					<div class="col-sm-4 supDetails">
+		  		<div class="row table">
+		  			<div class="col-sm-2 supDetails">
+						<h:form>
+							<h:commandLink action="#{pos.view(po.id)}" value="#{po.id}"/>
+						</h:form>
+					</div>
+					<div class="col-sm-5 supDetails">
 						<h:form>
 							<h:commandLink action="#{pos.view(po.id)}" value="#{po.supplier.company}"/>
 						</h:form>
 					</div>
-			    	<div class="col-sm-4 supDetails">
+			    	<div class="col-sm-2 supDetails">
 			    		<h:form>
-			      			<h:commandLink action="#{pos.view(po.id)}" value="#{po.product}"/>
+			      			<h:commandLink action="#{pos.view(po.id)}" value="#{po.lines.length()}"/>
 			      		</h:form>
 			    	</div>
-			    	<div class="col-sm-4 supDetails">
-			      		<h:outputText value="#{po.quantity}"/>
+			    	<div class="col-sm-3 supDetails">
+			      		<h:outputText value="#{po.calculateTotal()}"/>
 			   		</div>
 		   		</div>
 		   	</ui:repeat>
