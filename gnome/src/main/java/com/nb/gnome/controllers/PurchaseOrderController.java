@@ -91,7 +91,7 @@ public class PurchaseOrderController implements Serializable{
 	
 	public String view(PurchaseOrder p) {
 		purchaseOrder.setPurchaseOrder(p);
-		return "imsPurchaseOrderDeets";
+		return "imsPoDeets";
 	}
 	
 	public PurchaseOrder getPurchaseOrder() {

@@ -73,28 +73,28 @@
 		  	</div>
 
 		  	<!-- Generation of suppliers into grid -->
-		  	<ui:repeat var="po" value="#{pos.dataModel}">
+	  	<ui:repeat var="po" value="#{pos.dataModel}">
 		  		<div class="row table listItem">
 		  			<div class="col-sm-2 supDetails">
 						<h:form>
-							<h:commandLink action="#{pos.view(po.id)}" value="#{po.id}"/>
+							<h:commandLink action="#{pos.view(purchaseOrder)}" value="#{po.id}"/>
 						</h:form>
 					</div>
 					<div class="col-sm-6 supDetails">
 						<h:form>
-							<h:commandLink action="#{pos.view(po.id)}" value="#{po.supplier.company}"/>
+							<h:commandLink action="#{pos.view(purchaseOrder)}" value="#{po.supplier.company}"/>
 						</h:form>
 					</div>
 			    	<div class="col-sm-2 supDetails listCenter">
 			    		<h:form>
-			      			<h:commandLink action="#{pos.view(po.id)}" value="#{pos.findLines(po)}"/>
+			      			<h:commandLink action="#{pos.view(purchaseOrder)}" value="#{po.lines}"/>
 			      		</h:form>
 			    	</div>
 			    	<div class="col-sm-2 supDetails listCenter">
 			      		<h:outputText value="#{pos.calculateTotal(po)}"/>
 			   		</div>
 		   		</div>
-		   	</ui:repeat>
+		   </ui:repeat> 
 
 
 		   	<h:form>   		
