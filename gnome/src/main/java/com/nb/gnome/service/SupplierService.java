@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.SupplierRepository;
 

@@ -373,7 +373,7 @@ ul{
 .detail_headers{
 	font-size: 20px;
 	padding-top: 20px;
-	padding-left: 30px;
+	/* padding-left: 30px; */
 	opacity: 1;
 }
 
@@ -408,6 +408,12 @@ ul{
 
 .addops{
 	padding-top: 15px;
+}
+
+.subtitle{
+	font-size: 18px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
 
 @media screen and (max-width: 770px){
