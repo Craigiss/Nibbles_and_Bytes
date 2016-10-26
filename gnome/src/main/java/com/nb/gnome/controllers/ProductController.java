@@ -2,7 +2,8 @@ package com.nb.gnome.controllers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
+
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -53,7 +54,7 @@ public class ProductController implements Serializable {
 					  return productService.findAll().size();
 					}
 					else {
-						return dataModel.getRowCount();
+						return dataModel.getRowCount() + (pagination.getPage() * pagination.getPageSize());
 					}
 					
 					
@@ -111,6 +112,10 @@ public class ProductController implements Serializable {
 		stockLevel=0;
 		porousStockLevel=0;
 		return "imsProducts";
+	}
+	
+	public List<Product> findAll(){
+		return productService.findAll();
 	}
 
 	/**

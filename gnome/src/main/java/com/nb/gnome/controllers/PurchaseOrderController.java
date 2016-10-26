@@ -33,8 +33,14 @@ public class PurchaseOrderController implements Serializable{
 	
 	public PaginationHelper getPagination() {
 		if (pagination == null)	pagination = new PaginationHelper(10){
-		@Override public int getItemsCount() {
-			return purchaseOrderService.findAll().size();
+		@Override
+		public int getItemsCount() {
+			if (dataModel == null){
+				  return purchaseOrderService.findAll().size();
+				}
+				else {
+					return dataModel.getRowCount() + (pagination.getPage() * pagination.getPageSize());
+				}
 		}
 	
 		@Override public DataModel<PurchaseOrder>createPageDataModel(){
@@ -91,7 +97,7 @@ public class PurchaseOrderController implements Serializable{
 	
 	public String view(PurchaseOrder p) {
 		purchaseOrder.setPurchaseOrder(p);
-		return "imsPurchaseOrderDeets";
+		return "imsPoDeets";
 	}
 	
 	public PurchaseOrder getPurchaseOrder() {

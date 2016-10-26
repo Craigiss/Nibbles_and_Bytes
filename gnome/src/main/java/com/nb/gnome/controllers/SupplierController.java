@@ -2,6 +2,7 @@ package com.nb.gnome.controllers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
@@ -49,7 +50,7 @@ public class SupplierController implements Serializable{
 				  return supplierService.findAll().size();
 				}
 				else {
-					return dataModel.getRowCount();
+					return dataModel.getRowCount() + (pagination.getPage() * pagination.getPageSize());
 				}
 		}
 	
@@ -99,6 +100,10 @@ public class SupplierController implements Serializable{
 	
 	public void setSupplier(Supplier supplier) {
 		this.nSupplier = supplier;
+	}
+	
+	public List<Supplier> findAll(){
+		return supplierService.findAll();
 	}
 	
 	/**
