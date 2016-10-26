@@ -103,7 +103,7 @@
 	   					<h:commandLink action="#{pos.previous()}" value="Previous" rendered="#{pos.pagination.hasPreviousPage}" />
 	   				</div>
 		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
-		   				<h:outputText value="Showing POs #{pos.pagination.pageFirstItem + 1} to #{pos.pagination.getPageLastItem() + 1} of #{pos.pagination.itemsCount}" />
+		   				<h:outputText value="Showing POs #{pos.pagination.pageFirstItem + 1} to #{pos.pagination.getPageLastItem()} of #{pos.findAll().size()}" />
 		   			</div>
 		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
 		   				<h:commandLink action="#{pos.next}" rendered="#{pos.pagination.hasNextPage}" value="Next" />
