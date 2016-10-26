@@ -107,7 +107,13 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 					  </div>
 				    <div class="secondNav" style="clear: both">
 					  <ul class="nav navbar-nav">
-						<li><a href="Search.xhtml">Gnomes</a></li>
+						<li>							
+							<h:form>
+								<h:link outcome="Gnomes">
+									<h:commandLink action="#{search.openCategoryPage()}" value="#{search.term}"  />
+								</h:link>
+							</h:form>
+						</li> <!-- TO FIX --> 
 						<li><a >Pools &amp; HotTubs</a></li>
 						<li><a href="Accessories.xhtml">Gnomes Accessories</a></li>
 						<li><a >Garden Ornaments</a></li>

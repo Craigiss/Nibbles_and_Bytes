@@ -9,48 +9,36 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.nb.gnome.entities.Product;
+import com.nb.gnome.managers.ProductRepository;
 
 @Named("search")
 @SessionScoped
 public class SearchController implements Serializable {
-	
-	
+	@Inject
+	ProductRepository productManager;
+	@Inject 
+	SearchCatalogueController searchCatController;
 	private ArrayList<Product> products = new ArrayList<Product>();
-	@Inject ProductController productController;
+	
 	private SelectedProduct selectedProduct;
 	private Product product;
 	private String term;
 	
 	
 	public String search(){
+		products = (ArrayList<Product>) productManager.getProductByKeyword(term);
 		
-		Product p1 = new Product();
-		p1.setProductName("King of the 7 Gnomedoms");
-		p1.setProductID(1);
-		p1.setImgPath("img/GameofGnomes.jpg");
-		p1.setDescription("Every now and again a piece of wordplay comes along that's so sumptuous, so irresistible that it would be a travesty to not bring it to life (Robocup anyone?). We present to you... Game of Gnomes. The original may have been forged from a thousand swords in the fiery exhalation of a dragon named 'Balerion the Black Dread', but this slightly diminutive version is appropriately made up of an assortment of rusty gardening tools.");
-		p1.setPrice(17.99);
-		p1.setStockLevel(115);
-		products.add(p1);
+		searchCatController.getDataModel();
+		searchCatController.setDataModel(products);
 		
-		Product p2 = new Product();
-		p2.setProductName("The Laundry Line");
-		p2.setProductID(2);
-		p2.setImgPath("img/Laundry.gif");
-		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
-		p2.setPrice(2.99);
-		p2.setStockLevel(115);
-		products.add(p2);
+		return "Search";
+	}
+	
+	public String openCategoryPage(){
+		products = (ArrayList<Product>) productManager.getProductByCategory(term);
 		
-		products.add(p1);
-		products.add(p2);
-		
-		productController.getDataModel();
-		productController.setDataModel(products);
-		
-		
-		
-		
+		searchCatController.getDataModel();
+		searchCatController.setDataModel(products);
 		
 		return "Search";
 	}

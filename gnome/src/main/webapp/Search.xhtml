@@ -51,9 +51,9 @@ Search
 				<div class="row">
 					<!-- product grid-->
 						<ui:repeat var="product"
-						value="#{products.dataModel}">
+						value="#{searchProducts.dataModel}">
 							<div class="col-sm-3">
-							<h:commandLink action="#{products.view(product.productID)}"  >
+							<h:commandLink action="#{searchProducts.view(product.productID)}"  >
 								<h:graphicImage 
 								
 								value="#{product.imgPath}"

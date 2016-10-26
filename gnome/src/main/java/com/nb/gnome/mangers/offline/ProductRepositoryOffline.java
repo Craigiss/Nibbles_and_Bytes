@@ -63,9 +63,23 @@ public class ProductRepositoryOffline implements ProductRepository {
 	}
 	
 	@Override
-	public List<Product> getProductByCategory(String category){ // To sort out
+	public List<Product> getProductByCategory(String category){ // To TEST by cam
 		List<Product> prod = new ArrayList<Product>();
-		for (Product p: initialData.getProducts()){
+		
+		for (Product p : initialData.getProducts()){
+			boolean flag = false;						// Whether ANY of the product's categories have matched the category we are looking for.
+			for (Category c : p.getCategories()){
+				if (c.getName() == category) {
+					flag = true;
+					break;
+				}
+			}
+			if (flag == true){
+				prod.add(p);
+			}
+		}
+		/*
+		for (Product p : initialData.getProducts()){
 			List<Category> categories = new ArrayList<Category>();
 			categories = p.getCategories();			
 			for (Category c : categories){
@@ -75,6 +89,8 @@ public class ProductRepositoryOffline implements ProductRepository {
 				}
 			}
 		}
+			*/
+
 		return prod;
 	}
 	
