@@ -35,9 +35,12 @@ public class AccountController implements Serializable {
     private String firstName; 
     private String surname; 
     private String addressFirstLine;
-    private String postcode;
-    private String county; 
     private String addressSecondLine;
+    private String town;
+    private String county; 
+    private String postcode;
+
+
 
 	/**
 	 * @return the userCredentials
@@ -45,6 +48,8 @@ public class AccountController implements Serializable {
 	public UserCredentials getUserCredentials() {
 		return userCredentials;
 	}
+
+
 
 	/**
 	 * @param userCredentials the userCredentials to set
@@ -158,7 +163,7 @@ public class AccountController implements Serializable {
 		return accountManager.getCustomerByEmail(userCredentials.getEmail()).getEmail(); 
 	}
 	
-	public String getaddressFirstLine(){
+	public String getAddressFirstLine(){
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
 			return address.get(0).getLine1();					// 		 (until we can add a page to view multiple addresses).
@@ -166,7 +171,7 @@ public class AccountController implements Serializable {
 			return "No address found - Please add your address details."; 
 	}
 	
-	public String getaddressSecondLine(){
+	public String getAddressSecondLine(){
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
 			return address.get(0).getLine2();					// 		 (until we can add a page to view multiple addresses).
@@ -188,6 +193,24 @@ public class AccountController implements Serializable {
 			return address.get(0).getPostcode();				// 		 (until we can add a page to view multiple addresses).
 		else
 			return "No address found - Please add your address details."; 
+	}
+	
+	/**
+	 * @return the town
+	 */
+	public String getTown() {
+		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
+			return address.get(0).getTown();					// 		 (until we can add a page to view multiple addresses).
+		else
+			return "No address found - Please add your address details."; 
+	}
+
+	/**
+	 * @param town the town to set
+	 */
+	public void setTown(String town) {
+		this.town = town;
 	}
 }
 

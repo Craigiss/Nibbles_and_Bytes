@@ -35,7 +35,7 @@ public class SearchCatalogueController implements Serializable {
 			
 			
 			
-			pagination = new PaginationHelper(12) {
+			pagination = new PaginationHelper(5) {
 				@Override
 				public int getItemsCount() {
 					return productRepository.findAll().size();
