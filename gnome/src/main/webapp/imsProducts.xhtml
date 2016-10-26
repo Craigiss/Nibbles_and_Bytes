@@ -3,6 +3,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
 	template="templates/imsTemplate.xhtml">
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -30,23 +32,9 @@
 
 		<!-- Operations buttons - add/edit/delete -->
 		<ui:define name="addbtn">
-			<a href="addProduct.xhtml">
-			Add <img src="img/add.png" class="icon opsicon"/>
+			<a href="addProduct.xhtml" id="add">
+			Add New Product <img src="img/add.png" class="icon opsicon"/>
 			</a>
-		</ui:define>
-
-		<ui:define name="editbtn">
-			<a href="imsIndex.xhtml">
-			Edit <img src="img/edit.png" class="icon opsicon"/>
-			</a>
-		</ui:define>
-
-		<ui:define name="deletebtn">
-			<h:form>	
-			<h:commandLink action="#{button.delete('products')}" value="Delete" >
-				<h:graphicImage class="icon opsicon" value="img/bin.png" />			
-			</h:commandLink>
-			</h:form>
 		</ui:define>
 
 		<ui:define name="searchButtonAction">
@@ -63,7 +51,7 @@
 		  		<div class="col-sm-2 heading prodDetails">
 		  			Product ID
 		  		</div>
-		   		<div class="col-sm-6 heading prodDetails">
+		   		<div class="col-sm-4 heading prodDetails">
 	     			Product Name
 	    		</div>
 	    		<div class="col-sm-2 heading prodDetails listCenter">
@@ -72,18 +60,23 @@
 		   		<div class="col-sm-2 heading prodDetails listCenter">
 		      		Porousware Stock
 		   		</div>
+		   		<div class="col-sm-1 heading prodDetails listCenter">
+		      		Delete
+		   		</div>
+		   		<div class="col-sm-1 heading prodDetails listCenter">
+		      		Edit
+		   		</div>
 		  	</div>
 
 		  	<!-- Generation of products into grid -->
 		  	<ui:repeat var="product" value="#{products.dataModel}">
 		  		<div class="row table listItem">
-					<div class="col-sm-2 prodDetails">
+					<div class="col-sm-2 prodDetails">				
 						<h:form>
-							<input type="radio" class="selected" name="selected" value="#{button.passId(products.product.product.productID)}"/>
 							<h:commandLink action="#{products.view(product)}" value="#{product.productID}"/>
 						</h:form>
 					</div>
-			    	<div class="col-sm-6 prodDetails">
+			    	<div class="col-sm-4 prodDetails">
 			    		<h:form>
 			      			<h:commandLink action="#{products.view(product)}" value="#{product.productName}"/>
 			      		</h:form>
@@ -94,6 +87,20 @@
 			   		<div class="col-sm-2 prodDetails listCenter">
 			      		<h:outputText value="#{product.porousStockLevel}"/>
 			   		</div>
+			   		<div class="col-sm-1 prodDetails">
+			    	<h:form>	
+			    		<h:commandLink action="#{button.delete(product.productID,'products')}" value="" class="hovering">
+           					<h:graphicImage class="editorTools" value="img/bin.png" />
+        				</h:commandLink>
+        			</h:form>
+			    	</div>
+			    	<div class="col-sm-1 prodDetails">
+			    	<h:form>	
+			    		<h:commandLink action="#{products.test(product.productID)}" value="" class="hovering">
+           					<h:graphicImage class="editorTools" value="img/edit.png"/>
+        				</h:commandLink>
+        			</h:form>
+			    	</div>
 		   		</div>
 		   	</ui:repeat>
 

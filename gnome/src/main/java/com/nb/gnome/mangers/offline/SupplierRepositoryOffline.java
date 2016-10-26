@@ -40,8 +40,15 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 	
 	@Override
 	public List<Supplier> findAll(){
-		List<Supplier> s = initialData.getSuppliers();
-		return s;
+		List<Supplier> suppliers = new ArrayList<Supplier>();
+		for (Supplier s: initialData.getSuppliers())
+		{
+			if (s.isDeleted() ==false)
+			{
+				suppliers.add(s);
+			}
+		}
+		return suppliers;
 		
 	}
 
