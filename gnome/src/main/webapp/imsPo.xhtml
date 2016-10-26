@@ -71,17 +71,17 @@
 		  		<div class="row table listItem">
 		  			<div class="col-sm-2 supDetails">
 						<h:form>
-							<h:commandLink action="#{pos.view(purchaseOrder)}" value="#{po.id}"/>
+							<h:commandLink action="#{pos.view(po)}" value="#{po.id}"/>
 						</h:form>
 					</div>
 					<div class="col-sm-5 supDetails">
 						<h:form>
-							<h:commandLink action="#{pos.view(purchaseOrder)}" value="#{po.supplier.company}"/>
+							<h:commandLink action="#{pos.view(po)}" value="#{po.supplier.company}"/>
 						</h:form>
 					</div>
 			    	<div class="col-sm-1 supDetails listCenter">
 			    		<h:form>
-			      			<h:commandLink action="#{pos.view(purchaseOrder)}" value="#{po.lines}"/>
+			      			<h:commandLink action="#{pos.view(po)}" value="#{po.lines}"/>
 			      		</h:form>
 			    	</div>
 			    	<div class="col-sm-2 supDetails listCenter">

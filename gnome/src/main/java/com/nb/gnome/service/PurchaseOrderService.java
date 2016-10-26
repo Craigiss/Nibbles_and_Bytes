@@ -1,5 +1,6 @@
 package com.nb.gnome.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -20,7 +21,23 @@ public class PurchaseOrderService {
 	private InitialData initialData;
 	@Inject
 	private PurchaseOrderRepository purchaseOrderManager;
+	@Inject
+	private InitialData initialData;
 	
+<<<<<<< HEAD
+	public void persistPurchaseOrder(int mId, Date mDate, String mStatus){
+		PurchaseOrder popo = new PurchaseOrder(purchaseOrderManager.findAll().size() +1, mDate, mStatus);
+		purchaseOrderManager.persistPurchaseOrder(popo);
+	}
+
+	/**
+	 * Returns purchase order with id matching the parameter
+	 * @param id
+	 * @return Purchase Order with ID matching parameter
+	 */
+	public PurchaseOrder findPurchaseOrderById(long id){
+		return purchaseOrderManager.findPurchaseOrderById(id);
+=======
 	public PurchaseOrder findPoById(String id){
 		
 		try{
@@ -30,6 +47,7 @@ public class PurchaseOrderService {
 		catch( Exception e){
 			return null;
 		}	
+>>>>>>> 35dab9bf5f8d55d9affc76e8cc123a4388a78050
 	}
 	
 	

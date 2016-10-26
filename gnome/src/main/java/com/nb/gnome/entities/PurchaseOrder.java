@@ -51,6 +51,12 @@ public class PurchaseOrder {
 		deleted = false;
 	}
 	
+	public PurchaseOrder(int id, Date date, String status){
+		this.id=id;
+		this.date=date;
+		this.status=status;
+	}
+	
 	
 	/**
 	 * @return the addresses
