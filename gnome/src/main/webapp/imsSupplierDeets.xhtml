@@ -56,32 +56,32 @@
 		</div>
 		<!-- Grid for suppliers -->
 		<div class="row table">
-			<div class="col-sm-2 heading supDetails">ID</div>
-			<div class="col-sm-6 heading supDetails">Supplier</div>
-			<div class="col-sm-2 heading supDetails listCenter">Items</div>
-			<div class="col-sm-2 heading supDetails listCenter">Total</div>
+			<div class="col-sm-3 heading supDetails">ID</div>
+			<div class="col-sm-3 heading supDetails">Date</div>
+			<div class="col-sm-3 heading supDetails listCenter">Items</div>
+			<div class="col-sm-3 heading supDetails listCenter">Total</div>
 		</div>
 		<ui:repeat var="po" value="#{selectedSupplier.dataModel}">
 			<div class="row table listItem">
-				<div class="col-sm-2 supDetails">
+				<div class="col-sm-3 supDetails">
 					<h:form>
 						<h:commandLink action="#{pos.view(purchaseOrder)}"
 							value="#{po.id}" />
 					</h:form>
 				</div>
-				<div class="col-sm-6 supDetails">
+				<div class="col-sm-3 supDetails">
 					<h:form>
 						<h:commandLink action="#{pos.view(purchaseOrder)}"
-							value="#{po.supplier.company}" />
+							value="#{po.date}" />
 					</h:form>
 				</div>
-				<div class="col-sm-2 supDetails listCenter">
+				<div class="col-sm-3 supDetails listCenter">
 					<h:form>
 						<h:commandLink action="#{pos.view(purchaseOrder)}"
 							value="#{po.lines}" />
 					</h:form>
 				</div>
-				<div class="col-sm-2 supDetails listCenter">
+				<div class="col-sm-3 supDetails listCenter">
 					<h:outputText value="#{pos.calculateTotal(po)}" />
 				</div>
 			</div>
