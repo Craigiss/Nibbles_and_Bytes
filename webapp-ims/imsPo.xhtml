@@ -4,8 +4,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	template="templates/imsTemplate.xhtml">
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 		<!-- Tab title defined -->
 		<ui:define name="title">
@@ -21,69 +21,100 @@
 		<ui:define name="breadcrumbs">
 			<a href="imsIndex.xhtml">Home</a> > Purchase Orders
 		</ui:define>
+		
+		<ui:define name="backFunction">
+		 <h:commandLink action="#{pos.reset()}" value="" class="hovering">
+           			<h:graphicImage class="glass_back" value="img/back.png"/>
+         </h:commandLink>
+		</ui:define>
 
 		<!-- Operations buttons - add/edit/delete -->
 		<ui:define name="addbtn">
-			<!-- Would bring up a form for new supplier -->
-			<h:outputLink value="imsIndex.xhtml">
+			<a href="addPurchaseOrder.xhtml">
+			Add <img src="img/add.png" class="icon opsicon"/>
+			</a>
 		</ui:define>
 
-		<ui:define name="editbutton">
-			<!-- Would bring up editable supplier details page -->
-			<h:outputLink value="imsIndex.xhtml">
-		</ui:define>
-
-		<ui:define name="deletebtn">
-			<!-- Would mark supplier as deleted -->
-			<h:outputLink value="imsIndex.xhtml">
-		</ui:define>
+		<ui:define name="searchButtonAction">
+		            	<h:commandLink class="hovering" action="#{search.searchPo()}"> 
+              		<h:graphicImage class="glass_back" value="img/glass.png"/>
+           		</h:commandLink>
+        </ui:define>
 
 		<!-- Main content of  -->
 		<ui:define name="maincontent">
 
 			<!-- Grid for suppliers -->
-		  	<div class="row" id="table">
-		  		<div class="col-sm-4 heading supDetails">
-		  			Supplier Name
+		  	<div class="row table">
+		  		<div class="col-sm-2 heading supDetails">
+		  			ID
 		  		</div>
-		   		<div class="col-sm-4 heading supDetails">
-	     			Product Ordered
+		   		<div class="col-sm-5 heading supDetails">
+	     			Supplier
 	    		</div>
-	    		<div class="col-sm-4 heading supDetails">
-		      		Quantity Ordered
+	    		<div class="col-sm-1 heading supDetails listCenter">
+		      		Items
+		   		</div>
+		   		<div class="col-sm-2 heading supDetails listCenter">
+		      		Total
+		   		</div>
+		   		<div class="col-sm-1 heading supDetails listCenter">
+		      		Delete
+		   		</div>
+		   		<div class="col-sm-1 heading supDetails listCenter">
+		      		Edit
 		   		</div>
 		  	</div>
 
 		  	<!-- Generation of suppliers into grid -->
-		  	<ui:repeat var="po" value="#{pos.dataModel}">
-		  		<div class="row" id="table">
-					<div class="col-sm-4 supDetails">
+	  	<ui:repeat var="po" value="#{pos.dataModel}">
+		  		<div class="row table listItem">
+		  			<div class="col-sm-2 supDetails">
 						<h:form>
-							<h:commandLink action="#{pos.view(po.id)}" value="#{po.supplier}"/>
+							<h:commandLink action="#{pos.view(purchaseOrder)}" value="#{po.id}"/>
 						</h:form>
 					</div>
-			    	<div class="col-sm-4 supDetails">
+					<div class="col-sm-5 supDetails">
+						<h:form>
+							<h:commandLink action="#{pos.view(purchaseOrder)}" value="#{po.supplier.company}"/>
+						</h:form>
+					</div>
+			    	<div class="col-sm-1 supDetails listCenter">
 			    		<h:form>
-			      			<h:commandLink action="#{pos.view(po.id)}" value="#{po.product}"/>
+			      			<h:commandLink action="#{pos.view(purchaseOrder)}" value="#{po.lines}"/>
 			      		</h:form>
 			    	</div>
-			    	<div class="col-sm-4 supDetails">
-			      		<h:outputText value="#{po.quanity}"/>
+			    	<div class="col-sm-2 supDetails listCenter">
+			      		<h:outputText value="#{pos.calculateTotal(po)}"/>
 			   		</div>
+			   		<div class="col-sm-1 prodDetails">
+			    	<h:form>	
+			    		<h:commandLink action="#{button.delete(po.id,'po')}" value="" class="hovering">
+           					<h:graphicImage class="editorTools" value="img/bin.png" />
+        				</h:commandLink>
+        			</h:form>
+			    	</div>
+			    	<div class="col-sm-1 prodDetails">
+			    	<h:form>	
+			    		<h:commandLink action="#{products.test(product.productID)}" value="" class="hovering">
+           					<h:graphicImage class="editorTools" value="img/edit.png"/>
+        				</h:commandLink>
+        			</h:form>
+			    	</div>
 		   		</div>
-		   	</ui:repeat>
+		   </ui:repeat> 
 
 
-		   	<h:form>
-			   	<div class="row">
-	   				<div class="col-sm-4 nbbuttonp">
-	   					<h:commandLink action="#{pos.previous}" value="Previous #{pos.pagination.pageSize}" rendered="#{pos.pagination.hasPreviousPage}" />
+		   	<h:form>   		
+		   			<div class="row">
+	   				<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+	   					<h:commandLink action="#{pos.previous()}" value="Previous" rendered="#{pos.pagination.hasPreviousPage}" />
 	   				</div>
-		   			<div class="col-sm-4 nbbuttonp">
-		   				<h:outputText value="#{pos.pagination.pageFirstItem + 1} to #{pos.pagination.pageLastItem + 1}/#{pos.pagination.itemsCount}" />
+		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+		   				<h:outputText value="Showing POs #{pos.pagination.pageFirstItem + 1} to #{pos.pagination.getPageLastItem()} of #{pos.findAll().size()}" />
 		   			</div>
-		   			<div class="col-sm-4 nbbuttonp">
-		   				<h:commandLink action="#{pos.next}" rendered="#{pos.pagination.hasNextPage}" value="#Next #{pos.pagination.pageSize}" />
+		   			<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+		   				<h:commandLink action="#{pos.next}" rendered="#{pos.pagination.hasNextPage}" value="Next" />
 		   			</div>
 		   		</div>
 		   	</h:form>
