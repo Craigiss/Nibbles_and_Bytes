@@ -70,8 +70,8 @@ public class Product {
 	public void setImgPath(String imgPath) {
 		this.imgPath = imgPath;
 	}
-	@ManyToMany(targetEntity=Category.class)
-	private List<Category> categories;
+	@OneToMany(targetEntity=ProductCategory.class)
+	private List<ProductCategory> productCategories;
 
 	/**
 	 * @return the productID
@@ -148,8 +148,8 @@ public class Product {
 	/**
 	 * @return the categories
 	 */
-	public List<Category> getCategories() {
-		return categories;
+	public List<ProductCategory> getProductCategories() {
+		return productCategories;
 	}
 	
 

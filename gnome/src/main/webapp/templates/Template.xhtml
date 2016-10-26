@@ -1,215 +1,251 @@
 <!DOCTYPE html>
-<html lang="en"
-xmlns ="https://www.w3.org/1999/xhtml"
-
-xmlns:f="http://java.sun.com/jsf/core"
-xmlns:h="http://java.sun.com/jsf/html"
-xmlns:ui="http://java.sun.com/jsf/facelets"
-xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<html lang="en" xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initialscale=1" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initialscale=1" />
 
-<title>
-	<ui:insert name="title"/>
-</title>
-<link href="css/Template.css" rel="stylesheet"/>
-<ui:insert name="css"/>
-<link href="css/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"/>
+	<title><ui:insert name="title" /></title>
+	<link href="css/Template.css" rel="stylesheet" />
+	<ui:insert name="css" />
+	<link href="css/bootstrap-3.3.7-dist/css/bootstrap.css"
+		rel="stylesheet" />
 
 
 </h:head>
 <f:view>
-<body >
-<div id="container">
-   <div id="header">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
+	<body>
+		<div id="container">
+			<div id="header">
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
 
-				<div class="navbar-header">
-				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-				  data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				  </button>
-				</div>
-				
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<div id="topNav" >
-					<a class="navbar-brand" href="homePage.xhtml">
-						<img src="img/lgo.png" width="250px"/> 
-					</a>
-					
-				
-						<h:form class="navbar-form navbar-left searchBar"  >
-						<div class="form-group">
-							<h:inputText type="text" class="form-control" 
-							a:placeholder="Search" value="#{search.term}" 
-							 />	   </div>	
-							<h:commandButton type="submit" class="btn btn-default" value="Search" action="#{search.search()}"/>
-						
-						 </h:form>
-					
-					  <ul class="nav navbar-nav navbar-right pull-right" >
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse"
+								data-target="#bs-example-navbar-collapse-1"
+								aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span> <span
+									class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
+							</button>
+						</div>
 
-						<li id="leftBorder">
-							<a href="homePage.xhtml">Home</a>
-						</li>
-						<li id="leftBorder">
-							<h:link rendered="#{User.user eq null}" value ="Login" outcome="loginPage"/>
-							<h:form rendered="#{User.user ne null}" >
-								<div id="loggedIn">
-									<h:link rendered="#{User.user ne null}" value="Hello #{User.user}," outcome="account"/> 	
-									<button  value="Logout" type="button" data-toggle="modal" data-target="#logOutModal" >Logout?</button>	
+						<div class="collapse navbar-collapse"
+							id="bs-example-navbar-collapse-1">
+							<div id="topNav">
+								<a class="navbar-brand" href="homePage.xhtml"> <img
+									src="img/lgo.png" width="250px" />
+								</a>
+
+
+								<h:form class="navbar-form navbar-left searchBar">
+									<div class="form-group">
+										<h:inputText type="text" class="form-control"
+											a:placeholder="Search" value="#{search.term}" />
+									</div>
+									<h:commandButton type="submit" class="btn btn-default"
+										value="Search" action="#{search.search()}" />
+
+								</h:form>
+
+								<ul class="nav navbar-nav navbar-right pull-right">
+
+									<li id="leftBorder"><a href="homePage.xhtml">Home</a></li>
+									<li id="leftBorder"><h:link
+											rendered="#{User.user eq null}" value="Login"
+											outcome="loginPage" /> <h:form
+											rendered="#{User.user ne null}">
+											<div id="loggedIn">
+												<h:link rendered="#{User.user ne null}"
+													value="Hello #{User.user}," outcome="account" />
+												<button value="Logout" type="button" data-toggle="modal"
+													data-target="#logOutModal">Logout?</button>
+											</div>
+										</h:form> <!-- Modal -->
+										<div class="modal fade" id="logOutModal" tabindex="-1"
+											role="dialog" aria-labelledby="myModalLabel">
+											<div class="modal-dialog" role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"
+															aria-label="Close">
+															<span aria-hidden="true">X</span>
+														</button>
+														<h4 class="modal-title" id="myModalLabel">Logout</h4>
+													</div>
+													<div class="modal-body">Are you sure you want to
+														logout?</div>
+													<div class="modal-footer">
+														<button type="button" class="btn pull-left btn-danger"
+															data-dismiss="modal">Cancel</button>
+														<h:form>
+															<h:commandButton class="btn btn-success" value="Confirm"
+																type="submit" action="#{login.logout()}"
+																style="right:10px;" />
+														</h:form>
+													</div>
+												</div>
+											</div>
+										</div></li>
+									<li id="leftBorder"><h:form>
+											<h:link outcome="Basket">
+												<h:commandLink action="#{Basket.fillBasket()}"
+													value="#{Basket.basketName}" />
+											</h:link>
+										</h:form></li>
+									<li><h:link rendered="#{User.user eq null}"
+											value="Account" outcome="loginPage" /> <h:link
+											rendered="#{User.user ne null}" value="Account"
+											outcome="account" /></li>
+
+								</ul>
+							</div>
+							<h:form>
+								<div class="secondNav" style="clear: both">
+									<ul class="nav navbar-nav">
+										<li><h:link outcome="Gnomes">
+												<h:commandLink action="#{search.openCategoryPage('Gnomes')}"
+													value="Gnomes" />
+											</h:link></li>
+										<!-- TO FIX -->
+										<li><h:link outcome="PoolsAndHotTubs">
+												<h:commandLink
+													action="#{search.openCategoryPage('PoolsAndHotTubs')}"
+													value="Pools &amp; Hot Tubs" />
+											</h:link></li>
+										<li><h:link outcome="GnomeAccessories">
+												<h:commandLink
+													action="#{search.openCategoryPage('GnomeAccessories')}"
+													value="Gnome Accessories" />
+											</h:link></li>
+										<li><h:link outcome="GardenOrnaments">
+												<h:commandLink
+													action="#{search.openCategoryPage('GardenOrnaments')}"
+													value="Garden Ornaments" />
+											</h:link></li>
+										<li><h:link outcome="GnomeCare">
+												<h:commandLink
+													action="#{search.openCategoryPage('GnomeCare')}"
+													value="Gnome Care" />
+											</h:link></li>
+									</ul>
 								</div>
 							</h:form>
-								
-<!-- Modal -->
-<div class="modal fade" id="logOutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
-        <h4 class="modal-title" id="myModalLabel">Log Out</h4>
-      </div>
-      <div class="modal-body">
-       Are you sure you want to log out?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn pull-left btn-danger" data-dismiss="modal">Cancel</button>
-        <h:form>
-        <h:commandButton class="btn btn-success" value="Confirm" type="submit" action="#{login.logout()}" style="right:10px;" />
-        </h:form>
-      </div>
-    </div>
-  </div>
-</div>
-						</li>
-						<li id="leftBorder">
-							<h:form>
-								<h:link outcome="Basket">
-									<h:commandLink action="#{Basket.fillBasket()}" value="#{Basket.basketName}"  />
-								</h:link>
-							</h:form>
-								
-						</li>
-						<li>
-							<h:link rendered="#{User.user eq null}" value ="Account" outcome="loginPage"/>
-							<h:link rendered="#{User.user ne null}" value="Account" outcome="account"/> 			
-						
-						</li>
-						
-					  </ul>
-					  </div>
-				    <div class="secondNav" style="clear: both">
-					  <ul class="nav navbar-nav">
-						<li>							
-							<h:form>
-								<h:link outcome="Gnomes">
-									<h:commandLink action="#{search.openCategoryPage()}" value="#{search.term}"  />
-								</h:link>
-							</h:form>
-						</li> <!-- TO FIX --> 
-						<li><a >Pools &amp; HotTubs</a></li>
-						<li><a href="Accessories.xhtml">Gnomes Accessories</a></li>
-						<li><a >Garden Ornaments</a></li>
-						<li><a >Gnome Care</a></li>
-					  </ul>	
+						</div>
+					</div>
+				</nav>
+			</div>
+
+			<div id="body">
+				<ui:insert name="mainContent" />
+			</div>
+
+			<div id="footer">
+				<div id="siteMap" class="container-fluid">
+					<div class="row">
+						<h:form>
+							<div class="col-md-3"></div>
+							<div class="col-xs-12 col-md-1  ">
+								<ul>
+									<li><h4>
+											<a href="#">Gnomes</a>
+										</h4></li>
+									<li><a href="#">Themed </a></li>
+									<li><a href="#">Seasonal </a></li>
+									<li><a href="#">Classic </a></li>
+									<li><a href="#">Specialist</a></li>
+								</ul>
+							</div>
+							<div class="col-xs-12 col-md-1">
+								<ul>
+									<li><h4>
+											<a href="#">Pools &amp; Hot Tubs</a>
+										</h4></li>
+									<li><a href="#">Pools </a></li>
+									<li><a href="#">Hot Tubs </a></li>
+								</ul>
+							</div>
+							<div class="col-xs-12 col-md-1">
+								<ul>
+									<li><h4>
+											<a href="#">Gnomes and accessories</a>
+										</h4></li>
+									<li><a href="#">Equipment</a></li>
+									<li><a href="#">Clothes </a></li>
+								</ul>
+							</div>
+							<div class="col-xs-12 col-md-1">
+								<ul>
+									<li><h4>
+											<a href="#">Garden Ornaments</a>
+										</h4></li>
+									<li><a href="#">Patio </a></li>
+									<li><a href="#">Tree</a></li>
+									<li><a href="#">Wall </a></li>
+									<li><a href="#">Lawn </a></li>
+								</ul>
+							</div>
+							<div class="col-xs-12 col-md-1">
+								<ul>
+									<li><h4>
+											<a href="#">Garden Care</a>
+										</h4></li>
+									<li><a href="#">Brushes </a></li>
+									<li><a href="#">Polish/Wax </a></li>
+									<li><a href="#">Paint </a></li>
+									<li><a href="#">Porous </a></li>
+								</ul>
+							</div>
+							<div class="col-xs-12 col-md-1">
+								<ul>
+									<li><h4>
+											<a href="Help.xhtml">Help &amp; FAQ</a>
+										</h4></li>
+									<li><h4>
+											<a href="Contact.xhtml">Contact Us</a>
+										</h4></li>
+									<li><h4>
+											<a href="Deliverys.xhtml">Delivery/Returns</a>
+										</h4></li>
+									<li>
+										<h4>
+											<h:link rendered="#{User.user eq null}" value="Account"
+												outcome="loginPage" />
+											<h:link rendered="#{User.user ne null}" value="Account"
+												outcome="account" />
+										</h4>
+									</li>
+									<li><h4>
+											<a href="About.xhtml">About</a>
+										</h4></li>
+								</ul>
+							</div>
+							<div class="col-md-3"></div>
+						</h:form>
+					</div>
+				</div>
+				<div class="row" id="footerName">
+					<div class="col-xs-12 col-md-12">
+						<h4>Nibbles and Bytes - NB Gardens</h4>
 					</div>
 				</div>
 			</div>
-		</nav>	
-	</div>
-	
-    <div id="body"> 
-		<ui:insert name="mainContent"/>
-    </div>   
-   
-   <div id="footer"> 
-		<div id="siteMap" class="container-fluid">
-			<div class="row">
-				<h:form>
-					<div class="col-md-3">
-					</div>
-					<div class="col-xs-12 col-md-1  ">
-						<ul>
-							<li><h4><a href="#">Gnomes</a> </h4></li>
-							<li><a href="#">Themed </a></li>
-							<li><a href="#">Seasonal </a></li>
-							<li><a href="#">Classic </a></li>
-							<li><a href="#">Specialist</a> </li>
-						</ul>
-					</div>
-					<div class="col-xs-12 col-md-1">
-					<ul>
-						<li><h4><a href="#">Pools &amp; Hot Tubs</a></h4> </li>
-						<li><a href="#">Pools </a></li>
-						<li><a href="#">Hot Tubs </a></li>
-					</ul>
-					</div>
-					<div class="col-xs-12 col-md-1">
-					<ul>
-						<li><h4><a href="#">Gnomes and accessories</a></h4> </li>
-						<li><a href="#">Equipment</a> </li>
-						<li><a href="#">Clothes </a></li>
-					</ul>
-					</div>
-					<div class="col-xs-12 col-md-1">
-					<ul>
-						<li><h4><a href="#">Garden Ornaments</a></h4> </li>
-						<li><a href="#">Patio </a></li>
-						<li><a href="#">Tree</a> </li>
-						<li><a href="#">Wall </a></li>
-						<li><a href="#">Lawn </a></li>
-					</ul>
-					</div>
-					<div class="col-xs-12 col-md-1">
-					<ul>
-						<li><h4><a href="#">Garden Care</a></h4> </li>
-						<li><a href="#">Brushes </a></li>
-						<li><a href="#">Polish/Wax </a></li>
-						<li><a href="#">Paint </a></li>
-						<li><a href="#">Porous </a></li>
-					</ul>
-					</div>
-					<div class="col-xs-12 col-md-1">
-					<ul>
-						<li><h4><a href="Help.xhtml">Help &amp; FAQ</a></h4> </li>
-						<li><h4><a href="Contact.xhtml">Contact Us</a></h4> </li>
-						<li><h4><a href="Deliverys.xhtml">Delivery/Returns</a></h4> </li>
-						<li>
-							<h4>
-								<h:link rendered="#{User.user eq null}" value ="Account" outcome="loginPage"/>
-								<h:link rendered="#{User.user ne null}" value="Account" outcome="account"/> 			
-							</h4>
-						</li>
-						<li><h4><a href="About.xhtml">About</a></h4> </li>
-					</ul>
-					</div>
-					<div class="col-md-3">
-					</div>
-				</h:form>
-			</div>
+
+
+
 		</div>
-		<div class="row" id="footerName">
-			<div  class="col-xs-12 col-md-12">
-				<h4>Nibbles and Bytes - NB Gardens</h4>
-			</div>
-		</div>
-   </div>
-   
-
-   
-</div>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
-</body>
+	</body>
 </f:view>
 </html>

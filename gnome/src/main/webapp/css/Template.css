@@ -72,6 +72,12 @@ padding-left:5px;
 .secondNav{
 
 	padding-left:35% !important;
+	text-decoration: none;
+}
+.secondNav  li, a {
+	text-decoration: none;
+	color:gray !important;
+	padding-right: 15px;
 }
 .navbar-brand{
 	transform:translate(-25%,-80%);

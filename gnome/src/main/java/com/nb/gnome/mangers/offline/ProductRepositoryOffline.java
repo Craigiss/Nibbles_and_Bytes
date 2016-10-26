@@ -2,6 +2,7 @@
  * 
  */
 package com.nb.gnome.mangers.offline;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import javax.inject.Inject;
 import com.nb.gnome.entities.Category;
 import com.nb.gnome.entities.Customer;
 import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.ProductCategory;
 import com.nb.gnome.managers.ProductRepository;
 
 import gnome.InitialData;
@@ -65,32 +67,21 @@ public class ProductRepositoryOffline implements ProductRepository {
 	@Override
 	public List<Product> getProductByCategory(String category){ // To TEST by cam
 		List<Product> prod = new ArrayList<Product>();
-		
-		for (Product p : initialData.getProducts()){
-			boolean flag = false;						// Whether ANY of the product's categories have matched the category we are looking for.
-			for (Category c : p.getCategories()){
-				if (c.getName() == category) {
-					flag = true;
-					break;
-				}
-			}
-			if (flag == true){
-				prod.add(p);
-			}
-		}
-		/*
-		for (Product p : initialData.getProducts()){
-			List<Category> categories = new ArrayList<Category>();
-			categories = p.getCategories();			
-			for (Category c : categories){
-				if (c.getName() == category){
-					prod.add(p);
-					break;
-				}
-			}
-		}
-			*/
+		int categoryIdToFind = -1;
 
+		for (Category c : initialData.getCategories()){			// Matches the category name with the id of the category.
+			if (c.getName().equals(category)){
+				categoryIdToFind = c.getId();
+				break;
+			}
+		}
+		if (categoryIdToFind != -1){											// If the category id is valid
+				for (ProductCategory pc : initialData.getProductCategories()){	// For each of the productCategories.
+					if (pc.getCategoryID() == categoryIdToFind){				// If any of the product match the category we are looking for
+						prod.add(getProductByID(pc.getProductID()));			// Add the product
+					}
+				}
+		}
 		return prod;
 	}
 	
@@ -105,7 +96,7 @@ public class ProductRepositoryOffline implements ProductRepository {
 		}
 		return prod;
 	}
-	
+
 	@Override
 	public int getStockLevel(int id){
 		int stockLevel=-1;
@@ -152,15 +143,15 @@ public class ProductRepositoryOffline implements ProductRepository {
     	return p;
     	
     }
-
+/*
 	@Override
 	public List<Category> getProductCategories(Product prodprod) {
 		List<Category> cat = new ArrayList<Category>();
-		cat = prodprod.getCategories();	
+		cat = prodprod.getProductCategories();	
 		
 		return cat;
 	}
-
+*/
 	@Override
 	public void setQuantity(int id, int quantity) {
 		for (Product p: initialData.getProducts()){
@@ -169,6 +160,12 @@ public class ProductRepositoryOffline implements ProductRepository {
 			 	p.setQuantity(quantity);	
 			}
 		}
+	}
+
+	@Override
+	public List<Category> getProductCategories(Product prodprod) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

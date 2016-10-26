@@ -29,7 +29,7 @@ public class InitialData {
 	
 
 	public InitialData(){
-		
+																						// Addresses
 		Address aa = new Address();
 		aa.setLine1("First Line");
 		aa.setLine2("Second Line");
@@ -42,6 +42,8 @@ public class InitialData {
 		aa1.setCounty("County2");
 		aa1.setPostcode("Post code2");
 		addresses.add(aa1);
+		
+																						// Customers
 		Customer cu = new Customer();
 		cu.setEmail("Email");
 		cu.setFirstName("firstName");
@@ -50,7 +52,7 @@ public class InitialData {
 		cu.setPassword("password");
 		customers.add(cu);
 		
-		
+																						// Sales orders
 		SalesOrder sO1 = new SalesOrder();
 		sO1.setId(1);
 		sO1.setDate("11/12/2016");
@@ -63,7 +65,7 @@ public class InitialData {
 		sO2.setStatus("Processing");
 		sO2.setCustomer(cu);
 		salesOrders.add(sO2);
-		
+																						// Reviews
 		Review r1 = new Review();
 		r1.setProductID(1);
 		r1.setDate("11/12/2016");
@@ -83,7 +85,32 @@ public class InitialData {
 		r3.setReviewText(" Perfect for my garden 3");
 		reviews.add(r3);
 		
+		Category c1 = new Category();													// Categories
+		c1.setId(001);
+		c1.setName("Gnomes");
 		
+		Category c2 = new Category();
+		c2.setId(002);
+		c2.setName("PoolsAndHotTubs");
+		
+		Category c3 = new Category();
+		c3.setId(003);
+		c3.setName("GnomeAccessories");
+		
+		Category c4 = new Category();
+		c4.setId(004);
+		c4.setName("GardenOrnaments");
+		
+		Category c5 = new Category();
+		c5.setId(005);
+		c5.setName("GnomeCare");
+		
+		categories.add(c1);
+		categories.add(c2);
+		categories.add(c3);
+		categories.add(c4);
+		categories.add(c5);
+																						// Products
 		Product p1 = new Product();
 		p1.setProductName("King of the 7 Gnomedoms");
 		p1.setProductID(1);
@@ -92,6 +119,7 @@ public class InitialData {
 		p1.setPrice(17.99);
 		p1.setStockLevel(115);
 		products.add(p1);
+		
 		
 		Product p2 = new Product();
 		p2.setProductName("The Laundry Line");
@@ -156,10 +184,6 @@ public class InitialData {
 		p8.setStockLevel(8008135);
 		products.add(p8);
 		
-		
-		
-		
-		
 		Product p11 = new Product();
 		p11.setProductName("King of the 7 Gnomedoms");
 		p11.setProductID(11);
@@ -185,6 +209,7 @@ public class InitialData {
 		p13.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p13.setPrice(4.99);
 		p13.setStockLevel(115);
+		
 		products.add(p13);
 		
 		Product p14 = new Product();
@@ -232,9 +257,61 @@ public class InitialData {
 		p18.setStockLevel(8008135);
 		products.add(p18);
 		
+		Product p19 = new Product();
+		p19.setProductName("Westbury Pool Table");
+		p19.setProductID(19);
+		p19.setImgPath("img/westburyPoolTable019.jpg");
+		p19.setDescription("Dive into the pool table of pure magnificence.");
+		p19.setPrice(209.99);
+		p19.setStockLevel(8008135);
+		products.add(p19);
 		
+																							// Product Categories
+		ProductCategory pc1 = new ProductCategory();
+		pc1.setCategoryID(001);
+		pc1.setProductID(1);
 		
-
+		ProductCategory pc2 = new ProductCategory();
+		pc2.setCategoryID(001);
+		pc2.setProductID(2);
+		
+		ProductCategory pc3 = new ProductCategory();
+		pc3.setCategoryID(001);
+		pc3.setProductID(3);
+		
+		ProductCategory pc4 = new ProductCategory();
+		pc4.setCategoryID(001);
+		pc4.setProductID(4);
+		
+		ProductCategory pc5 = new ProductCategory();
+		pc5.setCategoryID(001);
+		pc5.setProductID(5);
+		
+		ProductCategory pc6 = new ProductCategory();
+		pc6.setCategoryID(001);
+		pc6.setProductID(6);
+		
+		ProductCategory pc7 = new ProductCategory();
+		pc7.setCategoryID(001);
+		pc7.setProductID(7);
+		
+		ProductCategory pc8 = new ProductCategory();
+		pc8.setCategoryID(002);
+		pc8.setProductID(19);
+		
+		ProductCategory pc9 = new ProductCategory();
+		pc9.setCategoryID(001);
+		pc9.setProductID(1);
+																								// Product Categories
+		productCategories.add(pc1);
+		productCategories.add(pc2);
+		productCategories.add(pc3);
+		productCategories.add(pc4);
+		productCategories.add(pc5);
+		productCategories.add(pc6);
+		productCategories.add(pc7);
+		productCategories.add(pc8);
+		productCategories.add(pc9);
 		
 		Supplier s1 = new Supplier();
 		s1.setCompany("LawnFlamingosWholesale");
@@ -272,6 +349,8 @@ public class InitialData {
 		po2.setDate(new Date(2016,11,22));
 		po2.setStatus("Waiting Payment");
 		purchaseOrders.add(po2);
+		
+
 	}
 	
 	
