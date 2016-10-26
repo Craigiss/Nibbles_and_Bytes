@@ -7,9 +7,13 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.service.ProductService;
+import com.nb.gnome.service.PurchaseOrderService;
 import com.nb.gnome.service.SupplierService;
+
+import gnome.InitialData;
 
 @Named("search")
 @RequestScoped
@@ -21,12 +25,15 @@ public class SearchController{
 	
 	@Inject private ProductService productServ;
 	@Inject private SupplierService supplierServ;
+	@Inject private PurchaseOrderService poServ;
 	
 	@Inject private SelectedProduct selectedProd;
 	@Inject private SelectedSupplier selectedSup;	
+	@Inject private SelectedPo selectedPo;
 	
 	@Inject private ProductController prodController;
 	@Inject private SupplierController supController;
+	@Inject private PurchaseOrderController poController;
 	
 	
 	/**
@@ -70,6 +77,9 @@ public class SearchController{
 		}
 		else if (searchType.equals("Suppliers")){
 			returnValue = searchSuppliers();
+		}
+		else if (searchType.equals("PO")){
+			returnValue = searchPo();
 		}
 		else{
 			returnValue = "imsError";
@@ -124,7 +134,32 @@ public class SearchController{
 		}
 		return returnValue;		
 	}
-			
+	
+	public String searchPo(){
+		String returnValue = "";
+		PurchaseOrder p = poServ.findPoById(term);
+		ArrayList<Supplier> companyList = (ArrayList<Supplier>)supplierServ.findSupplierByCompany(term);	
+		ArrayList<PurchaseOrder> pList = new ArrayList<PurchaseOrder>();
+		for (Supplier s : companyList){
+			pList = (ArrayList<PurchaseOrder>)poServ.findPurchaseOrderBySupplier(s);
+		}
+		if (p !=null){
+			selectedPo.setPurchaseOrder(p);
+			returnValue = "imsPoDeets";
+		}
+		else if (pList.size() > 0){
+			for(PurchaseOrder po : pList){
+				poController.getDataModel();
+				poController.setData(pList);
+				returnValue = "imsPo";
+			}
+		}
+		else{
+			returnValue = "imsError";
+		}
+		return returnValue;		
+	}
+		
 	/**
 	 * @return the term
 	 */

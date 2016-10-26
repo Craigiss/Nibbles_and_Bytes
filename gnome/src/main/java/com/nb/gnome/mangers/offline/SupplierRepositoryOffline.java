@@ -68,7 +68,7 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 	public Supplier findSupplierByContact(String s) {
 		Supplier sup = new Supplier();
 		for (Supplier supplier : initialData.getSuppliers()){
-			if (supplier.getName().contains(s)){
+			if (supplier.getName().toLowerCase().contains(s.toLowerCase())){
 				sup = supplier;
 			}
 		}

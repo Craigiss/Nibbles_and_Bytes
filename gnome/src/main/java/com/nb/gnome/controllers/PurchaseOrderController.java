@@ -1,9 +1,12 @@
 package com.nb.gnome.controllers;
 
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
+import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.PurchaseOrderDetails;
 import com.nb.gnome.entities.Supplier;
@@ -74,6 +77,10 @@ public class PurchaseOrderController implements Serializable{
 		
 	}
 	
+	public void setData(ArrayList<PurchaseOrder> model ){
+		dataModel.setWrappedData(model);
+	}
+	
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();
@@ -91,8 +98,8 @@ public class PurchaseOrderController implements Serializable{
 	 * @param id
 	 * @return
 	 */
-	public PurchaseOrder findPurchaseOrderById(long id) {
-		return purchaseOrderService.findPurchaseOrderById(id);
+	public PurchaseOrder findPurchaseOrderById(String id) {
+		return purchaseOrderService.findPoById(id);
 	}
 	
 	/**
@@ -220,6 +227,10 @@ public class PurchaseOrderController implements Serializable{
 	 */
 	public void setPagination(PaginationHelper pagination) {
 		this.pagination = pagination;
+	}
+	
+	public List<PurchaseOrder> findPurchaseOrderBySupplier(Supplier s){
+		return purchaseOrderService.findPurchaseOrderBySupplier(s);
 	}
 	
 	

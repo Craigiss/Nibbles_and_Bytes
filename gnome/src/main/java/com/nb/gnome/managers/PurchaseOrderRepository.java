@@ -18,7 +18,7 @@ public interface PurchaseOrderRepository {
 		//Read
 		public List<PurchaseOrder> findPurchaseOrder();
 		
-		public PurchaseOrder findPurchaseOrderById(long id);
+		public PurchaseOrder findPurchaseOrderById(int id);
 		
 		public List<PurchaseOrder> findPurchaseOrderBySupplier(Supplier s);
 		

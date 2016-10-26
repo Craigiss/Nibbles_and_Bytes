@@ -22,9 +22,10 @@
 	</ui:define>
 
 	<ui:define name="backFunction">
-		 <h:commandLink action="#{selectedSupplier.reset()}" value="" class="hovering">
-           			<h:graphicImage class="glass_back" value="img/back.png"/>
-         </h:commandLink>
+		<h:commandLink action="#{selectedSupplier.reset()}" value=""
+			class="hovering">
+			<h:graphicImage class="glass_back" value="img/back.png" />
+		</h:commandLink>
 	</ui:define>
 
 
@@ -56,36 +57,53 @@
 		</div>
 		<!-- Grid for suppliers -->
 		<div class="row table">
-			<div class="col-sm-2 heading supDetails">ID</div>
-			<div class="col-sm-6 heading supDetails">Supplier</div>
-			<div class="col-sm-2 heading supDetails listCenter">Items</div>
-			<div class="col-sm-2 heading supDetails listCenter">Total</div>
+			<div class="col-sm-3 heading supDetails listCenter">ID</div>
+			<div class="col-sm-3 heading supDetails listCenter">Date</div>
+			<div class="col-sm-3 heading supDetails listCenter">Items</div>
+			<div class="col-sm-3 heading supDetails listCenter">Total</div>
 		</div>
 		<ui:repeat var="po" value="#{selectedSupplier.dataModel}">
 			<div class="row table listItem">
-				<div class="col-sm-2 supDetails">
+				<div class="col-sm-3 supDetails listCenter">
 					<h:form>
 						<h:commandLink action="#{pos.view(purchaseOrder)}"
 							value="#{po.id}" />
 					</h:form>
 				</div>
-				<div class="col-sm-6 supDetails">
+				<div class="col-sm-3 supDetails listCenter">
 					<h:form>
 						<h:commandLink action="#{pos.view(purchaseOrder)}"
-							value="#{po.supplier.company}" />
+							value="#{po.date}" />
 					</h:form>
 				</div>
-				<div class="col-sm-2 supDetails listCenter">
+				<div class="col-sm-3 supDetails listCenter">
 					<h:form>
 						<h:commandLink action="#{pos.view(purchaseOrder)}"
-							value="#{po.lines}" />
+							value="#{pos.findLines(po)}" />
 					</h:form>
 				</div>
-				<div class="col-sm-2 supDetails listCenter">
+				<div class="col-sm-3 supDetails listCenter">
 					<h:outputText value="#{pos.calculateTotal(po)}" />
 				</div>
 			</div>
 		</ui:repeat>
+
+		<h:form>
+			<div class="row">
+				<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+					<h:commandLink action="#{selectedSupplier.previous()}" value="Previous"
+						rendered="#{selectedSupplier.pagination.hasPreviousPage}" />
+				</div>
+				<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+					<h:outputText
+						value="Showing POs #{selectedSupplier.pagination.pageFirstItem + 1} to #{selectedSupplier.pagination.getPageLastItem()} of #{pos.findPurchaseOrderBySupplier(selectedSupplier.supplier).size()}" />
+				</div>
+				<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+					<h:commandLink action="#{selectedSupplier.next}"
+						rendered="#{selectedSupplier.pagination.hasNextPage}" value="Next" />
+				</div>
+			</div>
+		</h:form>
 
 	</ui:define>
 </ui:composition>
