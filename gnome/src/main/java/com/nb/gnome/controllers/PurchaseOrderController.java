@@ -123,6 +123,10 @@ public class PurchaseOrderController implements Serializable{
 		return purchaseOrderService.calculateTotal(p);
 	}
 	
+	public List<PurchaseOrder> findPurchaseOrderBySupplier(Supplier s){
+		return purchaseOrderService.findPurchaseOrderBySupplier(s);
+	}
+	
 	
 	
 	}
