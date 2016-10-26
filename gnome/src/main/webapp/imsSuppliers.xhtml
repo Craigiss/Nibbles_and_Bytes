@@ -31,19 +31,7 @@
 		<!-- Operations buttons - add/edit/delete -->
 		<ui:define name="addbtn">
 			<a href="addSupplier.xhtml">
-			Add <img src="img/add.png" class="icon opsicon"/>
-			</a>
-		</ui:define>
-
-		<ui:define name="editbtn">
-			<a href="imsIndex.xhtml">
-			Edit <img src="img/edit.png" class="icon opsicon"/>
-			</a>
-		</ui:define>
-		
-		<ui:define name="deletebtn">
-			<a href="imsIndex.xhtml">
-			Delete <img src="img/bin.png" class="icon opsicon"/>
+			Add New Supplier <img src="img/add.png" class="icon opsicon"/>
 			</a>
 		</ui:define>
 
@@ -61,11 +49,17 @@
 		  		<div class="col-sm-4 heading supDetails">
 		  			Supplier Name
 		  		</div>
-		   		<div class="col-sm-4 heading supDetails">
+		   		<div class="col-sm-3 heading supDetails">
 	     			Supplier Number
 	    		</div>
-	    		<div class="col-sm-4 heading supDetails">
+	    		<div class="col-sm-3 heading supDetails">
 		      		Contact Person
+		   		</div>
+		   		<div class="col-sm-1 heading prodDetails listCenter">
+		      		Delete
+		   		</div>
+		   		<div class="col-sm-1 heading prodDetails listCenter">
+		      		Edit
 		   		</div>
 		  	</div>
 
@@ -77,14 +71,28 @@
 							<h:commandLink action="#{suppliers.view(supplier)}" value="#{supplier.company}" class ="supDetails"/>
 						</h:form>
 					</div>
-			    	<div class="col-sm-4 supDetails">
+			    	<div class="col-sm-3 supDetails">
 			    		<h:form>
 			      			<h:commandLink action="#{suppliers.view(supplier)}" value="#{supplier.phone}" class ="supDetails"/>
 			      		</h:form>
 			    	</div>
-			    	<div class="col-sm-4 supDetails">
+			    	<div class="col-sm-3 supDetails">
 			      		<h:outputText value="#{supplier.name}"/>
 			   		</div>
+			   		<div class="col-sm-1 prodDetails">
+			    	<h:form>	
+			    		<h:commandLink action="#{button.delete(supplier.id,'suppliers')}" value="" class="hovering">
+           					<h:graphicImage class="editorTools" value="img/bin.png" />
+        				</h:commandLink>
+        			</h:form>
+			    	</div>
+			    	<div class="col-sm-1 prodDetails">
+			    	<h:form>	
+			    		<h:commandLink action="#{products.test(product.productID)}" value="" class="hovering">
+           					<h:graphicImage class="editorTools" value="img/edit.png"/>
+        				</h:commandLink>
+        			</h:form>
+			    	</div>
 		   		</div>
 		   	</ui:repeat>
 

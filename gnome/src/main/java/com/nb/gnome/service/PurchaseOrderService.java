@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.PurchaseOrderDetails;
+import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.PurchaseOrderRepository;
 
 @Stateless
@@ -58,6 +59,10 @@ public class PurchaseOrderService {
 			}
 		}
 		return "£" + pounds + "." + String.format("%02d", pence);
+	}
+	
+	public List<PurchaseOrder> findPurchaseOrderBySupplier(Supplier s){
+		return purchaseOrderManager.findPurchaseOrderBySupplier(s);
 	}
 	
 }

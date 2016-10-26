@@ -1,11 +1,10 @@
-<ui:composition
-	xmlns="https://www.w3.org/1999/xhtml"
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	template="templates/imsTemplateDetails.xhtml">
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<ui:define name="title">
 			Supplier details - IMS
@@ -13,77 +12,80 @@
 
 	<!-- Title appearing in top left of the page -->
 	<ui:define name="pagetitle">
-			Suppliers
+			Supplier Details
 	</ui:define>
 
 	<!-- Breadcrumbs appearing in top right of the page -->
 	<ui:define name="breadcrumbs">
-			<a href="imsIndex.xhtml">Home</a> > <a href="imsSuppliers.xhtml">Suppliers</a><h:outputText value=" > #{selectedSupplier.supplier.company}" />
+		<a href="imsIndex.xhtml">Home</a> > <a href="imsSuppliers.xhtml">Suppliers</a>
+		<h:outputText value=" &gt; #{selectedSupplier.supplier.company}" />
 	</ui:define>
-	
-	<ui:define name="backButton">
-		 <a href="imsSuppliers.xhtml" class="hovering">
-             <img class="glass_back" src="img/back.png"/>
-         </a>
-    </ui:define>
+
+	<ui:define name="backFunction">
+		 <h:commandLink action="#{selectedSupplier.reset()}" value="" class="hovering">
+           			<h:graphicImage class="glass_back" value="img/back.png"/>
+         </h:commandLink>
+	</ui:define>
 
 
-<!-- Content goes here -->
-<ui:define name="maincontent">
-	<div class = "row">
-		<div class="col-sm-12 detail_headers">
-				<h:outputText value="#{selectedSupplier.supplier.company}" />
+	<!-- Content goes here -->
+	<ui:define name="maincontent">
+
+		<div>
+			<h3>
+				<h:outputText value="#{selectedSupplier.supplier.getCompany()}" />
+			</h3>
+			<br />
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-5">
-		<!-- <h:graphicImage value="#{selected.product.imgPath}"/>	 -->	
+		<div>
+			<h4>Contact</h4>
 		</div>
-		<div class="col-sm-7 text">
-			<!-- <h:outputText value="#{selectedSupplier.supplier}"/> -->
+		<div>
+			<h:outputText value="#{selectedSupplier.supplier.getName()}" />
 		</div>
-	</div>
-	<div class = "row">
-		<div class = "col-sm-12">
-			<p class="detail_headers"> Supplier Details </p>
+		<div>
+			<h:outputText value="#{selectedSupplier.supplier.getPhone()}" />
 		</div>
-	</div>
-	<div class = "row">
-		<div class = "col-sm-12 text">
-			<h:outputText value="#{selectedSupplier.supplier.name}"/>
-			<br/>
-		 	<h:outputText value="#{selectedSupplier.supplier.phone}"/>
+		<div>
+			<h:outputText value="#{selectedSupplier.supplier.getEmail()}" />
 		</div>
-	</div>
-	<div class = "row">
-		<div class="col-sm-6 buttonOfJoy col-xs-6">
-			<p id="email_text">email</p>
+
+		<br />
+		<div>
+			<h4>Purchase Orders</h4>
 		</div>
-		<div class="col-sm-2 buttonOfJoy col-xs-2">
-		    <h:form>	
-            	<h:commandLink class="hovering" action="#{supplier.email()}"> 
-              		<h:graphicImage class="sys" value="img/email.png"/>
-           		</h:commandLink>
-            </h:form>
+		<!-- Grid for suppliers -->
+		<div class="row table">
+			<div class="col-sm-2 heading supDetails">ID</div>
+			<div class="col-sm-6 heading supDetails">Supplier</div>
+			<div class="col-sm-2 heading supDetails listCenter">Items</div>
+			<div class="col-sm-2 heading supDetails listCenter">Total</div>
 		</div>
-		<div class="col-sm-2 buttonOfJoy col-xs-2">
-			<p id="print_text">print</p>
-		</div>
-		<div class="col-sm-2 buttonOfJoy col-xs-2">
-			<h:form>	
-            	<h:commandLink class="hovering" action="#{product.print()}"> 
-              		<h:graphicImage class="sys" value="img/print.png"/>
-           		</h:commandLink>
-        	</h:form>
-		</div>
-	</div>
-	<div class = "row">
-		<div class = "col-sm-12">
-			<p class="detail_headers"> Analytics</p>
-		</div>
-	</div>
-		<ul>
-		<li><h:graphicImage id="graph" value="img/graph.png"/></li>
-	</ul>
+		<ui:repeat var="po" value="#{selectedSupplier.dataModel}">
+			<div class="row table listItem">
+				<div class="col-sm-2 supDetails">
+					<h:form>
+						<h:commandLink action="#{pos.view(purchaseOrder)}"
+							value="#{po.id}" />
+					</h:form>
+				</div>
+				<div class="col-sm-6 supDetails">
+					<h:form>
+						<h:commandLink action="#{pos.view(purchaseOrder)}"
+							value="#{po.supplier.company}" />
+					</h:form>
+				</div>
+				<div class="col-sm-2 supDetails listCenter">
+					<h:form>
+						<h:commandLink action="#{pos.view(purchaseOrder)}"
+							value="#{po.lines}" />
+					</h:form>
+				</div>
+				<div class="col-sm-2 supDetails listCenter">
+					<h:outputText value="#{pos.calculateTotal(po)}" />
+				</div>
+			</div>
+		</ui:repeat>
+
 	</ui:define>
 </ui:composition>

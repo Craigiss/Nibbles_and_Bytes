@@ -7,7 +7,10 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.nb.gnome.controllers.ProductController;
+import com.nb.gnome.controllers.PurchaseOrderController;
+import com.nb.gnome.controllers.SupplierController;
 import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.Supplier;
 
 
@@ -17,6 +20,8 @@ import gnome.InitialData;
 public class ButtonService {
 	@Inject private InitialData initialData; 
 	@Inject private ProductController prodController;
+	@Inject private SupplierController supplierController;
+	@Inject private PurchaseOrderController poController;
 		
 	public String deleteProduct(int id){
 		for(Product p : initialData.getProducts())
@@ -41,11 +46,21 @@ public class ButtonService {
 			}
 		}
 		
+		supplierController.reset();
 		return "imsSupplier";
 	}
 	
 	public String deletePo(int id){	
-		return "";
+		List<PurchaseOrder> po = new ArrayList<PurchaseOrder>();
+		po = initialData.getPurchaseOrders();
+		for(PurchaseOrder p : po){
+			if (p.getId() == id){
+				p.setDeleted(true);
+			}
+		}
+		
+		poController.reset();
+		return "imsPo";
 	}
 
 }

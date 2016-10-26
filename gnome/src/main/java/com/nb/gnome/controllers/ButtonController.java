@@ -15,47 +15,29 @@ public class ButtonController implements Serializable {
 	
 	@Inject
 	private ButtonService buttonService;
-	private int idOfDeleted;
 	
-	public String delete(String deleteLocation){
+	
+	
+	public String delete(int id ,String deleteLocation){
 		String returnValue;
-		if(idOfDeleted == 0)
+		
+		if(id == 0)
 		{
 			returnValue ="imsProducts";
 		}
 		else if (deleteLocation.equals("products"))
 		{
-			returnValue = buttonService.deleteProduct(idOfDeleted);
+			returnValue = buttonService.deleteProduct(id);
 		}
-		else if (deleteLocation.equals("supplier"))
+		else if (deleteLocation.equals("suppliers"))
 		{
-			returnValue = buttonService.deleteSupplier(idOfDeleted);
+			returnValue = buttonService.deleteSupplier(id);
 		}
 		else
 		{
-			returnValue = buttonService.deletePo(idOfDeleted);
+			returnValue = buttonService.deletePo(id);
 		}
 		
 		return returnValue;
 	}
-
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return idOfDeleted;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void passId(int id) {
-		idOfDeleted = id;
-	}
-
-		
-	
-	
-	
-
 }
