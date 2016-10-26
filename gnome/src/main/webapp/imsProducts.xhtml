@@ -42,9 +42,11 @@
 		</ui:define>
 
 		<ui:define name="deletebtn">
-			<a href="imsIndex.xhtml">
-			Delete <img src="img/bin.png" class="icon opsicon"/>
-			</a>
+			<h:form>	
+			<h:commandLink action="#{button.delete('products')}" value="Delete" >
+				<h:graphicImage class="icon opsicon" value="img/bin.png" />			
+			</h:commandLink>
+			</h:form>
 		</ui:define>
 
 		<ui:define name="searchButtonAction">
@@ -77,6 +79,7 @@
 		  		<div class="row table listItem">
 					<div class="col-sm-2 prodDetails">
 						<h:form>
+							<input type="radio" class="selected" name="selected" value="#{button.passId(products.product.product.productID)}"/>
 							<h:commandLink action="#{products.view(product)}" value="#{product.productID}"/>
 						</h:form>
 					</div>

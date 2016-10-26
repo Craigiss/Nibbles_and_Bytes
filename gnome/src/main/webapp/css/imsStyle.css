@@ -16,6 +16,10 @@ input{
     width: 100%;
 }
 
+.select{
+	float: left;
+}
+
 td{
 	width: 33%;
 	text-align: center;

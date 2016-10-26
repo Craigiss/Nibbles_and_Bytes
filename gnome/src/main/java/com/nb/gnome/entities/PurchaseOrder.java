@@ -38,7 +38,19 @@ public class PurchaseOrder {
 	
 	@OneToMany(targetEntity=PurchaseOrderDetails.class)
 	private List<PurchaseOrderDetails> lines;
+	
+	@Column(name = "deleted")
+	private boolean deleted;
 
+	/**
+	 * Default Constructor
+	 */
+	
+	public PurchaseOrder() {
+		deleted = false;
+	}
+	
+	
 	/**
 	 * @return the addresses
 	 */
@@ -51,16 +63,6 @@ public class PurchaseOrder {
 	 */
 	public void setLines(List<PurchaseOrderDetails> lines) {
 		this.lines = lines;
-	}
-
-
-	
-	/**
-	 * Default Constructor
-	 */
-	
-	public PurchaseOrder() {
-
 	}
 
 	/**
@@ -126,4 +128,21 @@ public class PurchaseOrder {
 		}
 		return "£" + pounds + "." + pence;
 	}
+
+
+	/**
+	 * @return the deleted
+	 */
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+
+	/**
+	 * @param deleted the deleted to set
+	 */
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+
 }

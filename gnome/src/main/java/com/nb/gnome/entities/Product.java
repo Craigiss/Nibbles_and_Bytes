@@ -22,32 +22,35 @@ public class Product {
 	@Column(name = "productID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull
-	int productID;
+	private int productID;
 	
 	@Column(name = "productName")
-	String productName;
+	private String productName;
 	
 	@Column(name = "description")
-	String description;
+	private String description;
 	
 	@Column(name = "price")
-	double price;
+	private double price;
 	
 	@Column(name ="image")
-	String imgPath;
+	private String imgPath;
 	
 	@Column(name = "stockLevel")
-	int stockLevel;
+	private int stockLevel;
 	
 	@Column(name = "porousStockLevel")
-	int porousStockLevel;
+	private int porousStockLevel;
+	
+	@Column(name ="deleted")
+	private boolean deleted;
 	
 	@Column(name = "supplierID")
 	@ManyToOne
 	@JoinColumn(name="FKCategoryID",
 	nullable = false)
 	@NotNull
-	int supplierID;
+	private int supplierID;
 	
 	@ManyToMany(targetEntity=Category.class)
 	private List<Category> categories;
@@ -63,6 +66,7 @@ public class Product {
 		this.price = price;
 		this.stockLevel= stockLevel;
 		this.porousStockLevel= porousStockLevel;
+		deleted = false;
 		
 	}
 
@@ -174,6 +178,18 @@ public class Product {
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;
 	}
-	
 
+	/**
+	 * @return the deleted
+	 */
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	/**
+	 * @param deleted the deleted to set
+	 */
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
 }

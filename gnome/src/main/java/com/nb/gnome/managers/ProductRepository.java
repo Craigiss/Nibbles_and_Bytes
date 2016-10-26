@@ -30,4 +30,6 @@ public interface ProductRepository {
 
 	public void persistProduct(String name, String description, double price, int stockLevel); 
 	
+	public void deleteProduct(Product p);
+	
 }

@@ -41,6 +41,9 @@ public class Supplier {
 	@Size (min = 2, max = 225)
 	private String email;
 	
+	@Column(name = "deleted")
+	private boolean deleted;
+	
 	
 	
 	public Supplier(){
@@ -53,6 +56,7 @@ public class Supplier {
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
+		deleted = false;
 	}
 
 	/* Getters and Setters */
@@ -153,4 +157,17 @@ public class Supplier {
 		this.email = email;
 	}
 
+	/**
+	 * @return the deleted
+	 */
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	/**
+	 * @param deleted the deleted to set
+	 */
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
 }

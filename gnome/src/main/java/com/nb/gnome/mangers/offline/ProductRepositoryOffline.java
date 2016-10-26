@@ -131,9 +131,13 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
     @Override
 	public List<Product> findAll(){
-    	List<Product> p = initialData.getProducts();
-    	
-    	return p;
+    	List<Product> products = new ArrayList<Product>();
+    	for (Product p : initialData.getProducts())
+    		if(p.isDeleted() == false)
+    		{
+    			products.add(p);
+    		}
+    	return products;
     	
     }
 
@@ -150,6 +154,13 @@ public class ProductRepositoryOffline implements ProductRepository {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void deleteProduct(Product p) {
+		
+	}
+	
+	
 
 
 	
