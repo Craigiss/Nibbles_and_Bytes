@@ -35,19 +35,7 @@
 			</a>
 		</ui:define>
 
-		<ui:define name="editbtn">
-			<a href="imsIndex.xhtml">
-			Edit <img src="img/edit.png" class="icon opsicon"/>
-			</a>
-		</ui:define>
-
-		<ui:define name="deletebtn">
-			<a href="imsIndex.xhtml">
-			Delete <img src="img/bin.png" class="icon opsicon"/>
-			</a>
-		</ui:define>
-
-				<ui:define name="searchButtonAction">
+		<ui:define name="searchButtonAction">
 		            	<h:commandLink class="hovering" action="#{search.searchSuppliers('ims')}"> 
               		<h:graphicImage class="glass_back" value="img/glass.png"/>
            		</h:commandLink>
@@ -61,14 +49,20 @@
 		  		<div class="col-sm-2 heading supDetails">
 		  			ID
 		  		</div>
-		   		<div class="col-sm-6 heading supDetails">
+		   		<div class="col-sm-5 heading supDetails">
 	     			Supplier
 	    		</div>
-	    		<div class="col-sm-2 heading supDetails listCenter">
+	    		<div class="col-sm-1 heading supDetails listCenter">
 		      		Items
 		   		</div>
 		   		<div class="col-sm-2 heading supDetails listCenter">
 		      		Total
+		   		</div>
+		   		<div class="col-sm-1 heading supDetails listCenter">
+		      		Delete
+		   		</div>
+		   		<div class="col-sm-1 heading supDetails listCenter">
+		      		Edit
 		   		</div>
 		  	</div>
 
@@ -80,12 +74,12 @@
 							<h:commandLink action="#{pos.view(po.id)}" value="#{po.id}"/>
 						</h:form>
 					</div>
-					<div class="col-sm-6 supDetails">
+					<div class="col-sm-5 supDetails">
 						<h:form>
 							<h:commandLink action="#{pos.view(po.id)}" value="#{po.supplier.company}"/>
 						</h:form>
 					</div>
-			    	<div class="col-sm-2 supDetails listCenter">
+			    	<div class="col-sm-1 supDetails listCenter">
 			    		<h:form>
 			      			<h:commandLink action="#{pos.view(po.id)}" value="#{pos.findLines(po)}"/>
 			      		</h:form>
@@ -93,6 +87,20 @@
 			    	<div class="col-sm-2 supDetails listCenter">
 			      		<h:outputText value="#{pos.calculateTotal(po)}"/>
 			   		</div>
+			   		<div class="col-sm-1 prodDetails">
+			    	<h:form>	
+			    		<h:commandLink action="#{button.delete(po.id,'po')}" value="" class="hovering">
+           					<h:graphicImage class="editorTools" value="img/bin.png" />
+        				</h:commandLink>
+        			</h:form>
+			    	</div>
+			    	<div class="col-sm-1 prodDetails">
+			    	<h:form>	
+			    		<h:commandLink action="#{products.test(product.productID)}" value="" class="hovering">
+           					<h:graphicImage class="editorTools" value="img/edit.png"/>
+        				</h:commandLink>
+        			</h:form>
+			    	</div>
 		   		</div>
 		   	</ui:repeat>
 

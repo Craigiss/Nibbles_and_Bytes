@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.PurchaseOrderDetails;
 import com.nb.gnome.entities.Supplier;
@@ -41,8 +42,13 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 }
 	@Override
 	public List<PurchaseOrder> findAll() {
-		List<PurchaseOrder> po = initialData.getPurchaseOrders();
-		return po;
+		List<PurchaseOrder> po = new ArrayList<PurchaseOrder>();
+    	for (PurchaseOrder p : initialData.getPurchaseOrders())
+    		if(p.isDeleted() == false)
+    		{
+    			po.add(p);
+    		}
+    	return po;
 	}
 	
 	@Override

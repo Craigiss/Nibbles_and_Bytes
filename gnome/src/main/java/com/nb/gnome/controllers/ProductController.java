@@ -2,8 +2,10 @@ package com.nb.gnome.controllers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
@@ -223,10 +225,7 @@ public class ProductController implements Serializable {
 	 */
 	public void setProduct(SelectedProduct product) {
 		this.product = product;
-	}
-	
-	
-	
+	}	
 	
 	
 }

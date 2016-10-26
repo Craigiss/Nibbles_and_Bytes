@@ -9,15 +9,11 @@ input{
 
 .testing{
 	color: white;
-    margin: auto;
-    padding-left: 57px;
-    font-size: 14px;
-    display: table;
-    width: 100%;
-}
-
-.select{
-	float: left;
+	margin: auto;
+	padding-left: 57px;
+	font-size: 14px;
+	display: table;
+	width: 100%;
 }
 
 td{
@@ -42,6 +38,10 @@ img{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.editorTools{
+	width: 25px;
 }
 
 /* Page title styling */
@@ -206,6 +206,8 @@ a:hover {
 	padding-left: 15px;
     padding-top: 5px;
 	font-size: 1em;
+	border: 3px solid white;
+    box-sizing: border-box;
 }
 
 .nbbutton a{
@@ -293,7 +295,6 @@ a:hover {
 .heading{
 	font-weight: bold;
 	color: black;
-	text-decoration: underline;
 }
 
 .supDetails, .prodDetails, .pageing{
@@ -395,20 +396,6 @@ ul{
 	text-align: center;
 }
 
-.addElement{
-	padding-left: 15px;
-	padding-top: 15px;
-	color: black;
-}
-
-.uTextInput{
-	width: 80%;
-	border: 1px grey solid;
-}
-
-.addops{
-	padding-top: 15px;
-}
 
 @media screen and (max-width: 770px){
 
@@ -426,7 +413,7 @@ ul{
 	padding-top: initial;
 	padding-right: initial;
 	margin: initial;
-	font-size: 1em;
+	font-size: 1.3em;
     text-align: center;
 	}
 
