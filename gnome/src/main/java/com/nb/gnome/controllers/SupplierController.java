@@ -91,6 +91,9 @@ public class SupplierController implements Serializable{
 	
 	public String view(Supplier s) {
 		supplier.setSupplier(s);
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		System.out.println("selected supplier is: " +s.toString());
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		return "imsSupplierDeets";
 	}
 	
