@@ -5,35 +5,33 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.PurchaseOrderDetails;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.PurchaseOrderRepository;
 
+import gnome.InitialData;
+
 @Stateless
 public class PurchaseOrderService {
 
 	@Inject
+	private InitialData initialData;
+	@Inject
 	private PurchaseOrderRepository purchaseOrderManager;
 	
-
-	/**
-	 * Returns purchase order with id matching the parameter
-	 * @param id
-	 * @return Purchase Order with ID matching parameter
-	 */
-	public PurchaseOrder findPurchaseOrderById(long id){
-		return purchaseOrderManager.findPurchaseOrderById(id);
+	public PurchaseOrder findPoById(String id){
+		
+		try{
+			int searchId = Integer.parseInt(id);
+			return purchaseOrderManager.findPurchaseOrderById(searchId);
+		}
+		catch( Exception e){
+			return null;
+		}	
 	}
 	
-	/**
-	 * Calls sister method parsing String input as long
-	 * @param id
-	 * @return Purchase Order with ID matching parameter
-	 */
-	public PurchaseOrder findPurchaseOrderById(String id){
-		return findPurchaseOrderById(Long.parseLong(id));
-	}
 	
 	/**
 	 * Calls method within purchaseOrderManager to return all Purchase Orders

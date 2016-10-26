@@ -31,7 +31,7 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 	}
 	
 	@Override
-	public PurchaseOrder findPurchaseOrderById(long id) {
+	public PurchaseOrder findPurchaseOrderById(int id) {
 		PurchaseOrder po = new PurchaseOrder();
 		for(PurchaseOrder p : initialData.getPurchaseOrders()){
 			if(p.getId() == id){

@@ -1,8 +1,10 @@
 package com.nb.gnome.controllers;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
+import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.helper.PaginationHelper;
@@ -22,7 +24,7 @@ public class PurchaseOrderController implements Serializable{
 	private PurchaseOrderService purchaseOrderService;
 	
 	@Inject
-	private SelectedPurchaseOrder purchaseOrder;
+	private SelectedPo purchaseOrder;
 	private PurchaseOrder nPurchaseOrder;
 	private PaginationHelper pagination;
 	private DataModel<PurchaseOrder> dataModel = null;
@@ -66,6 +68,10 @@ public class PurchaseOrderController implements Serializable{
 		
 	}
 	
+	public void setData(ArrayList<PurchaseOrder> model ){
+		dataModel.setWrappedData(model);
+	}
+	
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();
@@ -83,8 +89,8 @@ public class PurchaseOrderController implements Serializable{
 	 * @param id
 	 * @return
 	 */
-	public PurchaseOrder findPurchaseOrderById(long id) {
-		return purchaseOrderService.findPurchaseOrderById(id);
+	public PurchaseOrder findPurchaseOrderById(String id) {
+		return purchaseOrderService.findPoById(id);
 	}
 	
 	/**

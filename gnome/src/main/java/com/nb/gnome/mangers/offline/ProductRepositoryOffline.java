@@ -41,7 +41,7 @@ public class ProductRepositoryOffline implements ProductRepository {
 		List<Product> keywordProduct = new ArrayList<Product>();
 		
 		for (Product p: initialData.getProducts()){
-			if (p.getProductName().toLowerCase().contains(keyword.toLowerCase()) || p.getDescription().contains(keyword.toLowerCase())){
+			if (p.getProductName().toLowerCase().contains(keyword.toLowerCase()) || p.getDescription().toLowerCase().contains(keyword.toLowerCase())){
 				keywordProduct.add(p);
 				System.out.println(p.getProductName());
 			}

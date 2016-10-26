@@ -2,7 +2,8 @@
 <html lang="en" xmlns="https://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <h:head>
 	<meta charset="utf-8" />
@@ -42,7 +43,7 @@
 					<div class="col-sm-9" id="search">
 						<div class="col-sm-8" id="searchText">
 							<h:form>
-								<h:inputText placeholder="Search..."
+								<h:inputText a:placeholder="Search..."
 									label="Search Bar IMS System" value="#{search.term}" />
 							</h:form>
 						</div>
