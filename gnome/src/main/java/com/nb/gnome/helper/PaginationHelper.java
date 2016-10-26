@@ -22,18 +22,12 @@ public abstract class PaginationHelper{
 	}
 	
 	public int getPageLastItem(){
-		int i = getPageFirstItem() + itemsPerPage - 1;
-		int count = getItemsCount() - 1;
-		if (count > i){
-			//i = count;
+		if(getItemsCount() < ((page + 1) * getPageSize())){
+			return getItemsCount();
 		}
 		else{
-			i = getItemsCount() - 1;
+			return (page + 1) * getPageSize();
 		}
-		if (i < 0){
-			i = 0;
-		}
-		return i;
 	}
 	
 	public boolean isHasNextPage(){
@@ -60,5 +54,9 @@ public abstract class PaginationHelper{
 	
 	public void setPageSize(int itemsPerPage){
 		this.itemsPerPage = itemsPerPage;
+	}
+	
+	public int getPage(){
+		return page;
 	}
 }
