@@ -18,7 +18,7 @@
 
 	<!-- Breadcrumbs appearing in top right of the page -->
 	<ui:define name="breadcrumbs">
-			<a href="imsIndex.xhtml">Home</a> > <a href="imsPo.xhtml">Purchase Orders</a><h:outputText value=" > #{selectedPo.purchaseOrder.lines}" />
+			<a href="imsIndex.xhtml">Home</a> > <a href="imsPo.xhtml">Purchase Orders</a><h:outputText value=" > #{selectedPo.purchaseOrder.id}" />
 	</ui:define>
 	
 	<ui:define name="backFunction">
@@ -42,6 +42,7 @@
 	</div>
 	<div class = "row">
 		<div class = "col-sm-12 text">
+		<p>SAKE</p>
 			<h:outputText value="#{selectedPo.purchaseOrder.id}"/>
 			<br/>
 		 	<h:outputText value="#{selectedPo.purchaseOrder.date}"/>
