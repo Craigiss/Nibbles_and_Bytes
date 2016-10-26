@@ -55,9 +55,9 @@ public class InitialData {
 		Supplier s1 = new Supplier();
 		s1.setCompany("Lawn Flamingos Wholesale");
 		s1.setId(001);
-		s1.setName("Augustine Loris Poutine III");
+		s1.setName("Augustine Poutine");
 		s1.setPhone("01645839242");
-		s1.setEmail("mynameisaugustineandmyparentslovepoutine@lawnflamingoswholesale.lol");
+		s1.setEmail("augustine@lawnflamingoswholesale.lol");
 		suppliers.add(s1);
 		
 		Supplier s2 = new Supplier();
