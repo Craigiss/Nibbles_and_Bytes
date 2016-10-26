@@ -36,6 +36,7 @@ public class PurchaseOrder {
 	@JoinColumn(name = "FKSupplierid", nullable = false)
 	private Supplier supplier;
 	
+
 	@OneToMany(targetEntity=PurchaseOrderDetails.class)
 	private List<PurchaseOrderDetails> lines;
 	

@@ -293,6 +293,7 @@ a:hover {
 .heading{
 	font-weight: bold;
 	color: black;
+	text-decoration: underline;
 }
 
 .supDetails, .prodDetails, .pageing{
@@ -394,6 +395,20 @@ ul{
 	text-align: center;
 }
 
+.addElement{
+	padding-left: 15px;
+	padding-top: 15px;
+	color: black;
+}
+
+.uTextInput{
+	width: 80%;
+	border: 1px grey solid;
+}
+
+.addops{
+	padding-top: 15px;
+}
 
 @media screen and (max-width: 770px){
 
@@ -411,7 +426,7 @@ ul{
 	padding-top: initial;
 	padding-right: initial;
 	margin: initial;
-	font-size: 1.3em;
+	font-size: 1em;
     text-align: center;
 	}
 

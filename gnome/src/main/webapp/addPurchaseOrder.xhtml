@@ -16,14 +16,14 @@
 
 	<body>
 	    <div class="container">
-	      
+	      	      	
 	      	<div class="row" id="topline">
 				<div id="title">
 					Add New Supplier
 				</div>
 	
 				<p id="bread">
-					<a href="imsIndex.xhtml">Home</a> > <a href="imsSuppliers.xhtml">Suppliers</a> > Add new supplier
+					<a href="imsIndex.xhtml">Home</a> > <a href="imsPurchaseOrders.xhtml">Purchase Orders</a> > Add new purchase order
 				</p>
 				<div style="clear: both;"></div>
 			</div>
@@ -55,58 +55,46 @@
 		    </div>
 
 		    <!-- Content -->
-		   <div class="row"> 
-		   <div class="col-sm-3"></div>
-		   <div class="col-sm-6">
-		   	<h:form>
-		   		<div class="addElement">
-				    <div class="row">
+		   <div> 
+			   <h:form>
+				    <div class="row listDetail">
 				    	Company Name:
 				    </div>
-				    <div class="row uTextInput">
-						<h:inputText type="text" value="#{suppliers.company}" required="true"/>
+				    <div class="row">
+						<h:inputText type="text" value="#{suppliers.company}" required="true"/>  
 					</div>
-				</div>
-				<div class="addElement">
 					<div class="row">
 				    	Name of Contact:
 				    </div>
-				    <div class="row uTextInput">
+				    <div class="row">
 						<h:inputText type="text" value="#{suppliers.name}" required="true"/>
 					</div>
-				</div>
-				<div class="addElement">
 					<div class="row">
 				    	Phone Number:
 				    </div>
-				    <div class="row uTextInput">
+				    <div class="row">
 						<h:inputText type="text" value="#{suppliers.phone}" required="true"/>
 					</div>
-				</div>
-				<div class="addElement">
 				   	<div class="row">
 				    	Email Address:
 				    </div>
-				    <div class="row uTextInput">
-				        <h:inputText type="text" value="#{suppliers.email}" required="true"/>
+				    <div class="row">
+						<h:inputText type="text" value="#{suppliers.email}" required="true"/>
 					</div>
-				</div>
-
-				<div class="row addops">
-					<div class="col-sm-4 nbbutton" id="save">
+	
+					<div class="row">
+						<div class="col-sm-4 nbbutton" id="save">
+							
+								<h:commandLink class="nbbutton" action="#{suppliers.persistSupplier()}" value="Save"/>
 						
-							<h:commandLink class="nbbutton" action="#{suppliers.persistSupplier()}" value="Save"/>
-					
+						</div>
+						<div class="col-sm-4 nbbutton"/>
+						<div class="col-sm-4 nbbutton" id="cancel">
+							<a href="imsSuppliers.xhtml">Cancel</a>
+						</div>
 					</div>
-					<div class="col-sm-4 nbbutton"/>
-					<div class="col-sm-4 nbbutton" id="cancel">
-						<a href="imsSuppliers.xhtml">Cancel</a>
-					</div>
-				</div>
 				</h:form>
-				</div>
-				<div class="col-sm-3"></div>
-				</div>
+			</div>
 
 		    <!-- Footer -->
 		    <div class="row">
