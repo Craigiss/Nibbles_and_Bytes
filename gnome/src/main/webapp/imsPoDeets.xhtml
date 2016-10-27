@@ -1,11 +1,11 @@
- <ui:composition
-	xmlns="https://www.w3.org/1999/xhtml"
+
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	template="templates/imsTemplateDetails.xhtml">
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<ui:define name="title">
 			Purchase Order details - IMS
@@ -18,97 +18,96 @@
 
 	<!-- Breadcrumbs appearing in top right of the page -->
 	<ui:define name="breadcrumbs">
-			<a href="imsIndex.xhtml">Home</a> > <a href="imsPo.xhtml">Purchase Orders</a> > <h:outputText value="#{selectedPo.purchaseOrder.id}" />
+		<a href="imsIndex.xhtml">Home</a> > <a href="imsPo.xhtml">Purchase
+			Orders</a> > <h:outputText value="#{selectedPo.purchaseOrder.id}" />
 	</ui:define>
-	
+
 	<ui:define name="backFunction">
-		 <a href="imsPo.xhtml" class="hovering">
-             <img class="glass_back" src="img/back.png"/>
-         </a>
-    </ui:define>
+		<a href="imsPo.xhtml" class="hovering"> <img class="glass_back"
+			src="img/back.png" />
+		</a>
+	</ui:define>
 
 
-<!-- Content goes here -->
-<ui:define name="maincontent">
-	<div class = "row">
-		<div class="col-sm-12 detail_headers">
+	<!-- Content goes here -->
+	<ui:define name="maincontent">
+		<div class="row">
+			<div class="col-sm-12 detail_headers">
 				<h:outputText value="#{selectedPo.purchaseOrder.lines}" />
+			</div>
 		</div>
-	</div>
-	<div class = "row">
-		<div class = "col-sm-12">
-			<p class="detail_headers"> Purchase Order Details </p>
+		<div class="row">
+			<div class="col-sm-12">
+				<p class="detail_headers">Purchase Order Details</p>
+			</div>
 		</div>
-	</div>
-	<div class = "row">
-		<div class = "col-sm-12 text">
-		<p></p>
-			<h:outputText value="Purchase order Id: "/>
-			<h:outputText value="#{selectedPo.purchaseOrder.getId()}"/>
-			<br/>
-			<h:outputText value="Date purchase order was processed: "/>
-		 	<h:outputText value="#{selectedPo.purchaseOrder.getDate()}"/>
-		 	<br/>
-		 	<h:outputText value="Status of purchase order: "/>
-		 	<h:outputText value="#{selectedPo.purchaseOrder.getStatus()}"/>
+		<div class="row">
+			<div class="col-sm-12 text">
+				<p></p>
+				<h:outputText value="Purchase order Id: " />
+				<h:outputText value="#{selectedPo.purchaseOrder.getId()}" />
+				<br />
+				<h:outputText value="Date purchase order was processed: " />
+				<h:outputText value="#{selectedPo.purchaseOrder.getDate()}" />
+				<br />
+				<h:outputText value="Status of purchase order: " />
+				<h:outputText value="#{selectedPo.purchaseOrder.getStatus()}" />
+			</div>
 		</div>
-	</div>
-	<div class = "row">
-		<div class="col-sm-6 buttonOfJoy col-xs-6">
-			<p id="email_text">email</p>
+		<div class="row">
+			<div class="col-sm-6 buttonOfJoy col-xs-6">
+				<p id="email_text">email</p>
+			</div>
+			<div class="col-sm-2 buttonOfJoy col-xs-2">
+				<h:form>
+					<!-- SORT OUT THIS LINE LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  -->
+					<h:commandLink class="hovering" action="#{supplier.email()}">
+						<h:graphicImage class="sys" value="img/email.png" />
+					</h:commandLink>
+				</h:form>
+			</div>
+			<div class="col-sm-2 buttonOfJoy col-xs-2">
+				<p id="print_text">print</p>
+			</div>
+			<div class="col-sm-2 buttonOfJoy col-xs-2">
+				<h:form>
+					<h:commandLink class="hovering" action="#{product.print()}">
+						<h:graphicImage class="sys" value="img/print.png" />
+					</h:commandLink>
+				</h:form>
+			</div>
 		</div>
-		<div class="col-sm-2 buttonOfJoy col-xs-2">
-		    <h:form>	
-		    <!-- SORT OUT THIS LINE LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  -->
-            	<h:commandLink class="hovering" action="#{supplier.email()}"> 
-              		<h:graphicImage class="sys" value="img/email.png"/>
-           		</h:commandLink>
-            </h:form>
-		</div>
-		<div class="col-sm-2 buttonOfJoy col-xs-2">
-			<p id="print_text">print</p>
-		</div>
-		<div class="col-sm-2 buttonOfJoy col-xs-2">
-			<h:form>	
-            	<h:commandLink class="hovering" action="#{product.print()}"> 
-              		<h:graphicImage class="sys" value="img/print.png"/>
-           		</h:commandLink>
-        	</h:form>
-		</div>
-	</div>
-	<ui:repeat var="po" value="#{selectedSupplier.dataModel}">
+
+		<div class="col-sm-2" />
+		<div class="col-sm-4 supDetails listCenter">Product</div>
+		<div class="col-sm-4 supDetails listCenter">Quantity</div>
+		<div class="col-sm-2" />
+
+		<ui:repeat var="po" value="#{selectedPo.dataModel}">
 			<div class="row table listItem">
-				<div class="col-sm-2 supDetails">
+				<div class="col-sm-2" />
+				<div class="col-sm-4 supDetails listCenter">
 					<h:form>
 						<h:commandLink action="#{pos.view(purchaseOrder)}"
-							value="#{po.id}" />
+							value="#{po.product.productName}" />
 					</h:form>
 				</div>
-				<div class="col-sm-6 supDetails">
+				<div class="col-sm-4 supDetails listCenter">
 					<h:form>
 						<h:commandLink action="#{pos.view(purchaseOrder)}"
-							value="#{po.supplier.company}" />
+							value="#{po.quantity}" />
 					</h:form>
 				</div>
-				<div class="col-sm-2 supDetails listCenter">
-					<h:form>
-						<h:commandLink action="#{pos.view(purchaseOrder)}"
-							value="#{po.lines}" />
-					</h:form>
-				</div>
-				<div class="col-sm-2 supDetails listCenter">
-					<h:outputText value="#{pos.calculateTotal(po)}" />
-				</div>
+				<div class="col-sm-2" />
 			</div>
 		</ui:repeat>
-	<div class = "row">
-		<div class = "col-sm-12">
-			<p class="detail_headers"> Analytics</p>
+		<div class="row">
+			<div class="col-sm-12">
+				<p class="detail_headers">Analytics</p>
+			</div>
 		</div>
-	</div>
 		<ul>
-		<li><h:graphicImage id="graph" value="img/graph.png"/></li>
-	</ul>
+			<li><h:graphicImage id="graph" value="img/graph.png" /></li>
+		</ul>
 	</ui:define>
 </ui:composition>
- 

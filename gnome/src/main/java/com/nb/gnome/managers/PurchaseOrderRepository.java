@@ -25,6 +25,4 @@ public interface PurchaseOrderRepository {
 		public List<PurchaseOrder> findAll();
 		
 		public int findItemsQuantity(PurchaseOrder p);
-		
-		public List<PurchaseOrderDetails> getOrderLines(PurchaseOrder p);
 }

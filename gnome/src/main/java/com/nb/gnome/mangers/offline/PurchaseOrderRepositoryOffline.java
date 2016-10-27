@@ -64,23 +64,7 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 	
 	@Override
 	public int findItemsQuantity(PurchaseOrder p){
-		int i = 0;
-		for(PurchaseOrderDetails pod : initialData.getPurchaseOrderDetails()){
-			if(pod.getPurchaseOrder() == p){
-				i += pod.getQuantity();
-			}
-		}
-		return i;
+		return p.getLines().size();
 	}
 	
-	@Override
-	public List<PurchaseOrderDetails> getOrderLines(PurchaseOrder p){
-		List<PurchaseOrderDetails> list = new ArrayList<PurchaseOrderDetails>();
-		for(PurchaseOrderDetails pod : initialData.getPurchaseOrderDetails()){
-			if(pod.getPurchaseOrder() == p){
-				list.add(pod);
-			}
-		}
-		return list;
-	}
 }

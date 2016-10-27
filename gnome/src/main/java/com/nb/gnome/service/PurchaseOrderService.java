@@ -21,8 +21,8 @@ public class PurchaseOrderService {
 	@Inject
 	private PurchaseOrderRepository purchaseOrderManager;
 
-	public void persistPurchaseOrder(int mId, Date mDate, String mStatus) {
-		PurchaseOrder popo = new PurchaseOrder(purchaseOrderManager.findAll().size() + 1, mDate, mStatus);
+	public void persistPurchaseOrder(int mId, Date mDate, String mStatus, List<PurchaseOrderDetails> mList) {
+		PurchaseOrder popo = new PurchaseOrder(purchaseOrderManager.findAll().size() + 1, mDate, mStatus, mList);
 		purchaseOrderManager.persistPurchaseOrder(popo);
 	}
 
@@ -64,7 +64,7 @@ public class PurchaseOrderService {
 	public String calculateTotal(PurchaseOrder p) {
 		int pounds = 0;
 		int pence = 0;
-		for (PurchaseOrderDetails d : purchaseOrderManager.getOrderLines(p)) {
+		for (PurchaseOrderDetails d : p.getLines()) {
 			pounds += (int) (d.getProduct().getPrice() * d.getQuantity() / 1);
 			pence += (int) ((d.getProduct().getPrice() * d.getQuantity()) * 100) % 100;
 			if (pence >= 100) {

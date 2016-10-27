@@ -14,8 +14,5 @@ public interface PurchaseOrderDetailsRepository {
 	
 	//Create
 	public void persistPOD(PurchaseOrderDetails pod);
-	
-	//Read
-	public List<PurchaseOrderDetails> getPurchaseOrderDetails(PurchaseOrder po);
 
 }

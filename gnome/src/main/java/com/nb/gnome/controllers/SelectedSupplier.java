@@ -2,6 +2,7 @@ package com.nb.gnome.controllers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
@@ -22,6 +23,7 @@ public class SelectedSupplier implements Serializable {
 	private PurchaseOrderService purchaseOrderService;
 	private PaginationHelper pagination;
 	private DataModel<PurchaseOrder> dataModel = null;
+	private List<PurchaseOrder> listData;
 
 	/**
 	 * @return the supplier
@@ -44,6 +46,7 @@ public class SelectedSupplier implements Serializable {
 
 	public String reset() {
 		dataModel = null;
+		listData = null;
 		return "imsSuppliers";
 	}
 
@@ -53,37 +56,37 @@ public class SelectedSupplier implements Serializable {
 
 				@Override
 				public int getItemsCount() {
-					if (dataModel == null) {
-						return purchaseOrderService.findPurchaseOrderBySupplier(supplier).size();
+					if (listData == null) {
+						return purchaseOrderService.findAll().size();
 					} else {
-						return dataModel.getRowCount() + (pagination.getPage() * pagination.getPageSize());
+						return listData.size();
 					}
 				}
 
 				@Override
 				public DataModel<PurchaseOrder> createPageDataModel() {
+					// Return products to fill page
 					try {
 						return new ListDataModel<PurchaseOrder>(
-								purchaseOrderService.findPurchaseOrderBySupplier(supplier).subList(getPageFirstItem(),
-										getPageFirstItem() + getPageSize()));
-					} catch (Exception e) {
-						return new ListDataModel<PurchaseOrder>(purchaseOrderService
-								.findPurchaseOrderBySupplier(supplier).subList(getPageFirstItem(), getItemsCount()));
+								listData.subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+					}
+					// Or if there aren't enough, return the rest of them
+					catch (Exception e) {
+						return new ListDataModel<PurchaseOrder>(listData.subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 			};
+
 		return pagination;
 	}
 
 	public DataModel<PurchaseOrder> getDataModel() {
-		if (dataModel == null)
-			dataModel = getPagination().createPageDataModel();
+		if (listData == null) {
+			listData = purchaseOrderService.findPurchaseOrderBySupplier(supplier);
+		}
+		dataModel = getPagination().createPageDataModel();
 		return dataModel;
 
-	}
-
-	public void setData(ArrayList<PurchaseOrder> model) {
-		dataModel.setWrappedData(model);
 	}
 
 	public String next() {
@@ -96,6 +99,21 @@ public class SelectedSupplier implements Serializable {
 		getPagination().previousPage();
 		recreateModel();
 		return "imsSupplierDeets";
+	}
+
+	/**
+	 * @return the listData
+	 */
+	public List<PurchaseOrder> getListData() {
+		return listData;
+	}
+
+	/**
+	 * @param listData
+	 *            the listData to set
+	 */
+	public void setListData(List<PurchaseOrder> listData) {
+		this.listData = listData;
 	}
 
 }

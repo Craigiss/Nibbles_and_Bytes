@@ -21,10 +21,6 @@ public class PurchaseOrderDetails {
 	@OneToMany
 	private Product product;
 	
-	@OneToMany
-	@JoinColumn (name = "FKPurchaseOrder", nullable = false)
-	private PurchaseOrder purchaseOrder;
-	
 	@Column (name = "quantity", nullable = false)
 	private int quantity;
 	
@@ -80,19 +76,4 @@ public class PurchaseOrderDetails {
 		this.product = product;
 	}
 
-	/**
-	 * Method to get the purchase order this purchase order detail is linked to
-	 * @return Returns purchase order object
-	 */
-	public PurchaseOrder getPurchaseOrder() {
-		return purchaseOrder;
-	}
-
-	/**
-	 * Method to set the purchase order this instance is linked to
-	 * @param purchaseOrder Input is the purchase order this instance should be linked to
-	 */
-	public void setPurchaseOrder(PurchaseOrder purchaseOrder) {
-		this.purchaseOrder = purchaseOrder;
-	}
 }

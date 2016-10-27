@@ -2,6 +2,7 @@ package com.nb.gnome.controllers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
@@ -18,13 +19,71 @@ import com.nb.gnome.service.PurchaseOrderService;
 @Named("selectedPo")
 @SessionScoped
 public class SelectedPo implements Serializable {
-	private PurchaseOrderDetails purchaseOrderDetails;
 	private PurchaseOrder purchaseOrder;
 	@Inject
 	private PurchaseOrderService purchaseOrderService;
 	private PaginationHelper pagination;
-	private DataModel<PurchaseOrder> dataModel = null;
-	
+	private DataModel<PurchaseOrderDetails> dataModel = null;
+	private List<PurchaseOrderDetails> listData;
+
+	public void recreateModel() {
+		dataModel = null;
+	}
+
+	public String reset() {
+		dataModel = null;
+		listData = null;
+		return "imsPo";
+	}
+
+	public PaginationHelper getPagination() {
+		if (pagination == null)
+			pagination = new PaginationHelper(5) {
+
+				@Override
+				public int getItemsCount() {
+					return purchaseOrder.getLines().size();
+				}
+
+				@Override
+				public DataModel<PurchaseOrderDetails> createPageDataModel() {
+					// Return products to fill page
+					try {
+						return new ListDataModel<PurchaseOrderDetails>(
+								listData.subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+					}
+					// Or if there aren't enough, return the rest of them
+					catch (Exception e) {
+						return new ListDataModel<PurchaseOrderDetails>(
+								listData.subList(getPageFirstItem(), getItemsCount()));
+					}
+				}
+			};
+
+		return pagination;
+	}
+
+	public DataModel<PurchaseOrderDetails> getDataModel() {
+		if (listData == null){
+			listData = purchaseOrder.getLines();
+		}
+		dataModel = getPagination().createPageDataModel();
+		return dataModel;
+
+	}
+
+	public String next() {
+		getPagination().nextPage();
+		recreateModel();
+		return "imsPoDeets";
+	}
+
+	public String previous() {
+		getPagination().previousPage();
+		recreateModel();
+		return "imsPoDeets";
+	}
+
 	/**
 	 * @return the purchaseOrder
 	 */
@@ -33,83 +92,26 @@ public class SelectedPo implements Serializable {
 	}
 
 	/**
-	 * @param purchaseOrder the purchaseOrder to set
+	 * @param purchaseOrder
+	 *            the purchaseOrder to set
 	 */
 	public void setPurchaseOrder(PurchaseOrder purchaseOrder) {
 		this.purchaseOrder = purchaseOrder;
 	}
 
 	/**
-	 * @return the purchaseOrderDetails
+	 * @return the listData
 	 */
-	public PurchaseOrderDetails getPurchaseOrderDetails() {
-		return purchaseOrderDetails;
+	public List<PurchaseOrderDetails> getListData() {
+		return listData;
 	}
 
 	/**
-	 * @param purchaseOrderDetails the purchaseOrderDetails to set
+	 * @param listData
+	 *            the listData to set
 	 */
-	public void setPurchaseOrderDetails(PurchaseOrderDetails purchaseOrderDetails) {
-		this.purchaseOrderDetails = purchaseOrderDetails;
+	public void setListData(List<PurchaseOrderDetails> listData) {
+		this.listData = listData;
 	}
-
-	public void recreateModel() {
-		dataModel = null;
-	}
-	
-	public String reset(){
-		dataModel = null;
-		return "imsPo";	
-	}
-	
-	public PaginationHelper getPagination() {
-		if (pagination == null)	
-			pagination = new PaginationHelper(5){
-			
-		@Override 
-		public int getItemsCount() {
-			if (dataModel == null){
-				  return purchaseOrderService.findAll().size();
-				}
-				else {
-					return dataModel.getRowCount() + (pagination.getPage() * pagination.getPageSize());
-				}
-		}
-	
-		@Override public DataModel<PurchaseOrder>createPageDataModel(){
-			try{
-				return new ListDataModel<PurchaseOrder>(purchaseOrderService.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
-			} catch (Exception e) {
-				return new ListDataModel<PurchaseOrder>(
-						purchaseOrderService.findAll().subList(getPageFirstItem(),getItemsCount()));
-		}
-		}
-		};
-		return pagination;
-	}
-	
-	public DataModel<PurchaseOrder> getDataModel() {
-		if (dataModel ==null)
-			dataModel = getPagination().createPageDataModel();
-		return dataModel;
-		
-	}
-	
-	public void setData(ArrayList<PurchaseOrder> model ){
-		dataModel.setWrappedData(model);
-	}
-	
-	public String next() {
-		getPagination().nextPage();
-		recreateModel();
-		return "browse";
-	}
-	
-	public String previous() {
-		getPagination().previousPage();
-		recreateModel();
-		return "imsPo";
-	}
-	
 
 }

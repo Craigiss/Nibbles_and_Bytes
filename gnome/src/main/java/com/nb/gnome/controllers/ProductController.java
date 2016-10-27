@@ -19,8 +19,6 @@ import com.nb.gnome.entities.Product;
 @SessionScoped
 public class ProductController implements Serializable {
 
-	// Convert to ProductService - gots to make sure that this is a Service
-	// object, not a Manager!!!!
 	@Inject
 	private ProductService productService;
 
@@ -34,6 +32,7 @@ public class ProductController implements Serializable {
 	private double price;
 	private int stockLevel;
 	private int porousStockLevel;
+	private List<Product> listData;
 
 	private void recreateModel() {
 		dataModel = null;
@@ -41,6 +40,7 @@ public class ProductController implements Serializable {
 
 	public String reset() {
 		dataModel = null;
+		listData = null;
 		return "imsIndex";
 	}
 
@@ -49,22 +49,24 @@ public class ProductController implements Serializable {
 			pagination = new PaginationHelper(2) {
 				@Override
 				public int getItemsCount() {
-					if (dataModel == null) {
+					if (listData == null) {
 						return productService.findAll().size();
 					} else {
-						return dataModel.getRowCount() + (pagination.getPage() * pagination.getPageSize());
+						return listData.size();
 					}
-
 				}
 
 				@Override
 				public DataModel<Product> createPageDataModel() {
+					//Return products to fill page
 					try {
-						return new ListDataModel<Product>(productService.findAll().subList(getPageFirstItem(),
+						return new ListDataModel<Product>(listData.subList(getPageFirstItem(),
 								getPageFirstItem() + getPageSize()));
-					} catch (Exception e) {
+					}
+					//Or if there aren't enough, return the rest of them
+					catch (Exception e) {
 						return new ListDataModel<Product>(
-								productService.findAll().subList(getPageFirstItem(), getItemsCount()));
+								listData.subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 			};
@@ -73,13 +75,15 @@ public class ProductController implements Serializable {
 	}
 
 	public DataModel<Product> getDataModel() {
-		if (dataModel == null)
-			dataModel = getPagination().createPageDataModel();
+		if(listData == null){
+			listData = productService.findAll();
+		}
+		dataModel = getPagination().createPageDataModel();
 		return dataModel;
 	}
 
 	public void setData(ArrayList<Product> model) {
-		dataModel.setWrappedData(model);
+		listData = model;
 	}
 
 	public String next() {
@@ -107,6 +111,7 @@ public class ProductController implements Serializable {
 		price = 0;
 		stockLevel = 0;
 		porousStockLevel = 0;
+		reset();
 		return "imsProducts";
 	}
 
@@ -218,5 +223,21 @@ public class ProductController implements Serializable {
 	public void setProduct(SelectedProduct product) {
 		this.product = product;
 	}
+
+	/**
+	 * @return the listData
+	 */
+	public List<Product> getListData() {
+		return listData;
+	}
+
+	/**
+	 * @param listData the listData to set
+	 */
+	public void setListData(List<Product> listData) {
+		this.listData = listData;
+	}
+	
+	
 
 }
