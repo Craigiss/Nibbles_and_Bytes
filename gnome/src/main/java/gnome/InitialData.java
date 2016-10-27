@@ -136,6 +136,20 @@ public class InitialData {
 		purchaseOrderDetails.add(pod6);
 
 		purchaseOrders.add(po3);
+		
+		//Inventory Staff Account details
+		
+		ISAccount isa1 = new ISAccount();
+		isa1.setEmail("PaulVanDyke@TranceNation.com");
+		isa1.setPassword("ilovetrance");
+		isa1.setName("Paul Van Dyke");
+		iSAccounts.add(isa1);
+		
+		ISAccount isa2 = new ISAccount();
+		isa2.setEmail("CyrilSneer@GreenHavenCottage.com");
+		isa2.setPassword("ihateraccoons");
+		isa2.setName("Cyril Sneer");
+		iSAccounts.add(isa2);
 	}
 	
 	
