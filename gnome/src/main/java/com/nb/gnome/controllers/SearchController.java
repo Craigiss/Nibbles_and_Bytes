@@ -98,11 +98,11 @@ public class SearchController{
 			returnValue = "imsProdDeets";
 		}
 		else if (pList.size() > 0){
-			for(Product prod : pList){
+			
 				prodController.getDataModel();
 				prodController.setData(pList);
 				returnValue = "imsProducts";
-			}
+			
 		}
 		else{
 			returnValue = "imsError";

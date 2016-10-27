@@ -18,7 +18,7 @@
 
 	<!-- Breadcrumbs appearing in top right of the page -->
 	<ui:define name="breadcrumbs">
-			<a href="imsIndex.xhtml">Home</a> > <a href="imsPo.xhtml">Purchase Orders</a><h:outputText value=" > #{selectedPo.purchaseOrder.id}" />
+			<a href="imsIndex.xhtml">Home</a> > <a href="imsPo.xhtml">Purchase Orders</a> > <h:outputText value="#{selectedPo.purchaseOrder.id}" />
 	</ui:define>
 	
 	<ui:define name="backFunction">
@@ -42,12 +42,15 @@
 	</div>
 	<div class = "row">
 		<div class = "col-sm-12 text">
-		<p>SAKE</p>
-			<h:outputText value="#{selectedPo.purchaseOrder.id}"/>
+		<p></p>
+			<h:outputText value="Purchase order Id: "/>
+			<h:outputText value="#{selectedPo.purchaseOrder.getId()}"/>
 			<br/>
-		 	<h:outputText value="#{selectedPo.purchaseOrder.date}"/>
+			<h:outputText value="Date purchase order was processed: "/>
+		 	<h:outputText value="#{selectedPo.purchaseOrder.getDate()}"/>
 		 	<br/>
-		 	<h:outputText value="#{selectedPo.purchaseOrder.status}"/>
+		 	<h:outputText value="Status of purchase order: "/>
+		 	<h:outputText value="#{selectedPo.purchaseOrder.getStatus()}"/>
 		</div>
 	</div>
 	<div class = "row">
@@ -73,6 +76,31 @@
         	</h:form>
 		</div>
 	</div>
+	<ui:repeat var="po" value="#{selectedSupplier.dataModel}">
+			<div class="row table listItem">
+				<div class="col-sm-2 supDetails">
+					<h:form>
+						<h:commandLink action="#{pos.view(purchaseOrder)}"
+							value="#{po.id}" />
+					</h:form>
+				</div>
+				<div class="col-sm-6 supDetails">
+					<h:form>
+						<h:commandLink action="#{pos.view(purchaseOrder)}"
+							value="#{po.supplier.company}" />
+					</h:form>
+				</div>
+				<div class="col-sm-2 supDetails listCenter">
+					<h:form>
+						<h:commandLink action="#{pos.view(purchaseOrder)}"
+							value="#{po.lines}" />
+					</h:form>
+				</div>
+				<div class="col-sm-2 supDetails listCenter">
+					<h:outputText value="#{pos.calculateTotal(po)}" />
+				</div>
+			</div>
+		</ui:repeat>
 	<div class = "row">
 		<div class = "col-sm-12">
 			<p class="detail_headers"> Analytics</p>

@@ -185,7 +185,7 @@ a:hover {
     height: 50px;
 }
 
-.col-sm-6{
+#analytics .col-sm-6{
 	padding-top: 10px;
 	height: 350px;
 	border: 3px solid white;
@@ -399,12 +399,29 @@ ul{
 	text-align: center;
 }
 
-
-.subtitle{
-	font-size: 18px;
-	padding-top: 15px;
-	padding-bottom: 15px;
+.uTextInput{
+	border: 1px solid silver;
+	padding: 0px!important;
 }
+
+.addElement{
+	padding-top: 15px;
+	color: black!important;
+}
+
+.addButs{
+	height: 50px;
+	margin-top: 15px;
+}
+
+.addops{
+	padding-top: 170px;
+}
+
+#addSupplierForm{
+	padding-bottom: 50px;
+}
+
 
 @media screen and (max-width: 990px){
 	.legend div{
@@ -423,6 +440,16 @@ ul{
 }
 
 }
+
+#supplierDetails .col-sm-6{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#tableTitle{
+	padding-top: 20px;
+}
+
 
 @media screen and (max-width: 770px){
 
@@ -449,7 +476,6 @@ ul{
 	padding-right: 47px;
 	}
 }
-
 
 @media screen and (max-width: 534px){
 

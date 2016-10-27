@@ -1,5 +1,7 @@
 package com.nb.gnome.helper;
 
+import java.util.List;
+
 import javax.faces.model.DataModel;
 
 /* Code taken from the lectures for pagination */
@@ -7,7 +9,7 @@ import javax.faces.model.DataModel;
 public abstract class PaginationHelper{
 	private int itemsPerPage;
 	private int page;
-	
+	private List<Object> listData;
 	
 	public PaginationHelper(int itemsPerPage){
 		this.itemsPerPage = itemsPerPage;
@@ -59,4 +61,21 @@ public abstract class PaginationHelper{
 	public int getPage(){
 		return page;
 	}
+
+	/**
+	 * @return the listData
+	 */
+	public List<Object> getListData() {
+		return listData;
+	}
+
+	/**
+	 * @param listData the listData to set
+	 */
+	public void setListData(List<Object> listData) {
+		this.listData = listData;
+	}
+	
+	
+	
 }

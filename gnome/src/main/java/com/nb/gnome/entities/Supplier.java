@@ -41,6 +41,10 @@ public class Supplier {
 	@Size (min = 2, max = 225)
 	private String email;
 	
+	@Column (name = "description", length = 500)
+	@Size (min = 0, max = 500)
+	private String description;
+	
 	@Column(name = "deleted")
 	private boolean deleted;
 	
@@ -50,12 +54,13 @@ public class Supplier {
 		
 	}
 	
-	public Supplier(int id, String company, String name, String phone, String email){
+	public Supplier(int id, String company, String name, String phone, String email, String description){
 		this.id = id;
 		this.company = company;
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
+		this.description = description;
 		deleted = false;
 	}
 
@@ -155,6 +160,20 @@ public class Supplier {
 	 **/
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	/**

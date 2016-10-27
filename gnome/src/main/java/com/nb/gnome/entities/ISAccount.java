@@ -33,7 +33,29 @@ public class ISAccount {
 	@Size (min = 2, max = 255)
 	private String name;
 	
+	@NotNull
+	@Column (name = "admin", nullable = false)
+	boolean admin;
+	
 	//constructors
+	
+	public ISAccount(){
+		
+	}
+	
+	public ISAccount(String nEmail, String nPassword, String nName) {
+		email = nEmail;
+		password = nPassword;
+		name = nName;
+		admin = false;
+	}
+	
+	public ISAccount(String nEmail, String nPassword, String nName, boolean nAdmin) {
+		email = nEmail;
+		password = nPassword;
+		name = nName;
+		admin = nAdmin;
+	}
 	/**
 	 * Method to get the inventory staff email address 
 	 * @return inventory staff email address
@@ -76,6 +98,22 @@ public class ISAccount {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	/**
+	 * @return the admin
+	 */
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	/**
+	 * @param admin the admin to set
+	 */
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+	
+	
 	
 	
 	
