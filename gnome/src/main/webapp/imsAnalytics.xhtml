@@ -1,0 +1,71 @@
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	template="templates/imsTemplateDetails.xhtml">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+	<!-- Tab title defined -->
+	<ui:define name="title">
+			Analytics - IMS
+		</ui:define>
+
+	<!-- Title appearing in top left of the page -->
+	<ui:define name="pagetitle">
+			Analytics
+		</ui:define>
+
+	<!-- Breadcrumbs appearing in top right of the page -->
+	<ui:define name="breadcrumbs">
+		<a href="imsIndex.xhtml">Home</a> > Analytics
+		</ui:define>
+
+	<ui:define name="backFunction">
+		<h:commandLink action="#{graph.reset()}" value="" class="hovering">
+			<h:graphicImage class="glass_back" value="img/back.png" />
+		</h:commandLink>
+	</ui:define>
+
+	<ui:define name="searchButtonAction">
+		<h:commandLink class="hovering">
+			<h:graphicImage class="glass_back" value="img/glass.png" />
+		</h:commandLink>
+	</ui:define>
+
+
+
+	<!-- Main content of  -->
+	<ui:define name="maincontent">
+
+
+		<div class="row">
+			<div class="col-sm-6" id="admin">
+				<rich:chart id="pie" title="Product Stock Level">
+					<rich:chartLegend sorting="descending" />
+					<rich:chartSeries data="#{graphs.pie}" type="pie" />
+				</rich:chart>
+				<div>
+				<p>Critical Stock</p>
+				<ui:repeat var="graph" value="#{graphs.productDataModel}">
+					<div>
+						<h:form>
+							<h:commandLink action="#{products.view(product)}" value="h"/>
+						</h:form>
+					</div>				
+				</ui:repeat>
+				</div>
+			</div>
+			<div class="col-sm-6" id="analy"></div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6" id="log"></div>
+
+			<div class="col-sm-6" id="po"></div>
+		</div>
+	</ui:define>
+
+</ui:composition>

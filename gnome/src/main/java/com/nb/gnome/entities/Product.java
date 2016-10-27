@@ -192,4 +192,8 @@ public class Product {
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
 	}
+	
+	public String toString(){
+		return getProductName() + " " + getStockLevel();
+	}
 }

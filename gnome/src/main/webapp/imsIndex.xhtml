@@ -75,7 +75,7 @@
 
 			<div class="row">
 				<div class="col-sm-4 mainButton" id="admin">
-					<h:outputLink value="#">Admin
+					<h:outputLink value="imsAnalytics.xhtml">Admin
               <div>
 							<h:graphicImage value="img/admin.png" />
 						</div>
@@ -83,6 +83,9 @@
 				</div>
 
 				<div class="col-sm-4 mainButton" id="analy">
+					<h:form>
+					<h:commandLink action="#{graph.reCreatePie()}"/>
+					</h:form>
 					<h:outputLink value="imsAnalytics.xhtml">Analytics
               <div>
 							<h:graphicImage value="img/anal.png" />

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import com.nb.gnome.controllers.GraphController;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.managers.ProductRepository;
 
@@ -19,12 +20,14 @@ public class ProductService {
 	private ProductRepository productManager;
 	@Inject
 	private InitialData initialData;
+	@Inject GraphController graph;
 	
 	/**
 	 * Calls Product Manager method, pooling params together to create a new product object
 	 */
 	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel){
 		Product prodprod = new Product(productManager.findAll().size() +1, mName, mDescription, mPrice, mStockLevel, mporousStockLevel);
+		graph.setPie(prodprod.getProductName(),prodprod.getStockLevel());
 		productManager.persistProduct(prodprod);
 	}
 	
@@ -37,6 +40,11 @@ public class ProductService {
 		List<Product> s = productManager.findAll();
 		return s;
 		
+	}
+	
+	public List<Product> findCriticalStock(){
+		List<Product> s = productManager.findCritical();
+		return s;		
 	}
 	
 	public Product findProductById(String id){

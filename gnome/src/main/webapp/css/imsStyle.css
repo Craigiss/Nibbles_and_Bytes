@@ -1,3 +1,22 @@
+.legend div{
+	width: 15px;
+}
+
+.legend td{
+	width: 80px;
+	font-size: 12px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.legend .legendLabel{
+	width: 175px;
+}
+
+.chart-title{
+	margin-bottom: 20px;
+}
+
 input{
 	padding:0px;
 	margin: 0px;
@@ -174,22 +193,6 @@ a:hover {
     font-size: 18px;
 	color: white;
 }
-
-.chart{
-	padding-top: 55px;
-	margin: auto;
-	display: table;
-}
-
-.chart div {
-  font: 10px sans-serif;
-  background-color: white;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  color: black;
-}
-
 
 /*BEN CODE*/
 .icon{
@@ -401,6 +404,24 @@ ul{
 	font-size: 18px;
 	padding-top: 15px;
 	padding-bottom: 15px;
+}
+
+@media screen and (max-width: 990px){
+	.legend div{
+	width: 15px;
+}
+
+.legend td{
+	width: 15px;
+	font-size: 12px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.legend .legendLabel{
+	width: 80px;
+}
+
 }
 
 @media screen and (max-width: 770px){
