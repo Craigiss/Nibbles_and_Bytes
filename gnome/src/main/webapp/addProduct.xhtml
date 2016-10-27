@@ -30,7 +30,7 @@
 		<!-- Back button and search bar -->
 		<div class="row">
 			<div class="col-sm-3" id="back">
-				<a href="imsIndex.xhtml" class="hovering"> <img
+				<a href="imsProducts.xhtml" class="hovering"> <img
 					class="glass_back" src="img/back.png" />
 				</a>
 			</div>
@@ -68,7 +68,7 @@
 						<div class="row"><h4>Description</h4></div>
 						<div class="row">
 							<h:inputTextarea id="descriptionInput" rows="10" value="#{products.description}"
-								required="true" style="min-width: 100%; resize:none; max-length:1000"/>
+								required="true" style="min-width: 100%; resize:none; max-length:1000; border: 1px solid silver;"/>
 						</div>
 					</div>
 					<div class="addElement">
@@ -79,7 +79,7 @@
 						</div>
 					</div>
 					<div class="addElement">
-						<div class="row"><h4>Stock</h4></div>
+						<div class="row"><h4>Stock Level</h4></div>
 						<div class="row">
 							<div class="col-sm-5 listCenter">
 								Normal

@@ -30,7 +30,7 @@
 		<!-- Back button and search bar -->
 		<div class="row">
 			<div class="col-sm-3" id="back">
-				<a href="imsIndex.xhtml" class="hovering"> <img
+				<a href="imsSuppliers.xhtml" class="hovering"> <img
 					class="glass_back" src="img/back.png" />
 				</a>
 			</div>
@@ -54,53 +54,76 @@
 		</div>
 
 		<!-- Content -->
-		<div class="row">
-			<div class="col-sm-3"></div>
-			<div class="col-sm-6">
-				<h:form>
+		<h:form>
+			<div class="row" id="addSupplierForm">
+				<div class="col-sm-1" />
+				<div class="col-sm-4">
 					<div class="addElement">
-						<div class="row">Company Name:</div>
+						<div class="row">
+							<h4>Company Name</h4>
+						</div>
 						<div class="row uTextInput">
 							<h:inputText type="text" value="#{suppliers.company}"
 								required="true" />
 						</div>
 					</div>
+
 					<div class="addElement">
-						<div class="row">Name of Contact:</div>
+						<div class="row">
+							<h4>Description</h4>
+						</div>
+						<div class="row">
+							<h:inputTextarea id="descriptionInput" rows="10"
+								value="#{suppliers.description}" required="true"
+								style="min-width: 100%; resize:none; max-length:1000; border: 1px solid silver;" />
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2" />
+				<div class="col-sm-4">
+					<div class="addElement">
+						<div class="row">
+							<h4>Name of Contact</h4>
+						</div>
 						<div class="row uTextInput">
 							<h:inputText type="text" value="#{suppliers.name}"
 								required="true" />
 						</div>
 					</div>
 					<div class="addElement">
-						<div class="row">Phone Number:</div>
+						<div class="row">
+							<h4>Phone Number</h4>
+						</div>
 						<div class="row uTextInput">
 							<h:inputText type="text" value="#{suppliers.phone}"
 								required="true" />
 						</div>
 					</div>
 					<div class="addElement">
-						<div class="row">Email Address:</div>
+						<div class="row">
+							<h4>Email Address</h4>
+						</div>
 						<div class="row uTextInput">
 							<h:inputText type="text" value="#{suppliers.email}"
 								required="true" />
 						</div>
 					</div>
-
-					<div class="row addops">
-						<h:commandLink class="listCenter"
-							action="#{suppliers.persistSupplier()}">
-							<div class="col-sm-4 addButs listCenter" id="save">Save</div>
-						</h:commandLink>
-						<div class="col-sm-4 addButs" />
-						<a href="imsSuppliers.xhtml">
-							<div class="col-sm-4 addButs listCenter" id="cancel">Cancel</div>
-						</a>
-					</div>
-				</h:form>
+				</div>
+				<div class="col-sm-1" />
 			</div>
-			<div class="col-sm-3"></div>
-		</div>
+			<div class="row addops">
+				<div class="col-sm-1 addButs" />
+				<h:commandLink class="listCenter"
+					action="#{suppliers.persistSupplier()}">
+					<div class="col-sm-4 addButs listCenter" id="save">Save</div>
+				</h:commandLink>
+				<div class="col-sm-2 addButs" />
+				<a href="imsSuppliers.xhtml">
+					<div class="col-sm-4 addButs listCenter" id="cancel">Cancel</div>
+				</a>
+				<div class="col-sm-1 addButs" />
+			</div>
+		</h:form>
 
 		<!-- Footer -->
 		<div class="row">
@@ -113,7 +136,8 @@
 			</div>
 
 		</div>
-
 	</div>
+
+
 </body>
 </html>

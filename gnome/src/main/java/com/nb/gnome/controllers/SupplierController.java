@@ -28,6 +28,7 @@ public class SupplierController implements Serializable {
 	private String name;
 	private String email;
 	private String phone;
+	private String description;
 	private PaginationHelper pagination;
 	private DataModel<Supplier> dataModel = null;
 
@@ -105,7 +106,7 @@ public class SupplierController implements Serializable {
 	 */
 
 	public String persistSupplier() {
-		supplierService.persistSupplier(company, name, phone, email);
+		supplierService.persistSupplier(company, name, phone, email, description);
 		recreateModel();
 		getDataModel();
 
@@ -113,6 +114,7 @@ public class SupplierController implements Serializable {
 		name = "";
 		phone = "";
 		email = "";
+		description = "";
 
 		return "imsSuppliers";
 	}
@@ -199,6 +201,20 @@ public class SupplierController implements Serializable {
 	 */
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	/**

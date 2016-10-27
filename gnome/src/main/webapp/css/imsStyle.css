@@ -397,17 +397,38 @@ ul{
 }
 
 .uTextInput{
-	border: 1px solid grey;
+	border: 1px solid silver;
+	padding: 0px!important;
 }
 
 .addElement{
 	padding-top: 15px;
+	color: black!important;
 }
 
 .addButs{
 	height: 50px;
 	margin-top: 15px;
 }
+
+.addops{
+	padding-top: 170px;
+}
+
+#addSupplierForm{
+	padding-bottom: 50px;
+}
+
+#supplierDetails .col-sm-6{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#tableTitle{
+	padding-top: 20px;
+}
+
+
 
 @media screen and (max-width: 770px){
 
@@ -434,7 +455,6 @@ ul{
 	padding-right: 47px;
 	}
 }
-
 
 @media screen and (max-width: 534px){
 

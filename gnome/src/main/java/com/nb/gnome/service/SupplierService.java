@@ -24,8 +24,8 @@ public class SupplierService {
 	/**
 	 * Calls Supplier Manager method, pooling params together to create a new Supplier object
 	 */
-	public void persistSupplier(String mCompany, String mName, String mPhone, String mEmail){
-		Supplier supsup = new Supplier(supplierManager.findAll().size() +1, mCompany, mName, mPhone, mEmail);
+	public void persistSupplier(String mCompany, String mName, String mPhone, String mEmail, String mDescription){
+		Supplier supsup = new Supplier(supplierManager.findAll().size() +1, mCompany, mName, mPhone, mEmail, mDescription);
 		supplierManager.persistSupplier(supsup);
 	}
 	
