@@ -21,7 +21,7 @@ public class UpdateAccountService {
 	@Inject 
 	UserCredentials userCredentials;
 	
-	public void updateAccount(String firstName, String surname, String email, String firstLine, String postcode, String county, String addressSecondLine){
+	public void updateAccount(String firstName, String surname, String email, String firstLine, String postcode, String county, String addressSecondLine, String town){
 		
 		Customer c = customerRepository.getCustomerByEmail(userCredentials.getEmail());
 		userCredentials.setEmail(email);
@@ -32,6 +32,7 @@ public class UpdateAccountService {
 		a.setLine1(firstLine);						// Does the addresses stuff
 		a.setPostcode(postcode);
 		a.setCounty(county);
+		a.setTown(town);
 		addresses.add(a);
 		
 		customerRepository.changeEmailAddress(email, c.getId());

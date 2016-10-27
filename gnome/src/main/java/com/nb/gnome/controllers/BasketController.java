@@ -132,6 +132,8 @@ public class BasketController implements Serializable {
 		return String.format("%1$.2f", quan);
 		
 	}
+	
+	
 
 	/**
 	 * @param products the products to set

@@ -33,12 +33,14 @@ public class InitialData {
 		Address aa = new Address();
 		aa.setLine1("First Line");
 		aa.setLine2("Second Line");
+		aa.setTown("Town");
 		aa.setCounty("County");
 		aa.setPostcode("Post code");
 		addresses.add(aa);
 		Address aa1 = new Address();
 		aa1.setLine1("First Line2");
 		aa1.setLine2("Second Line2");
+		aa1.setTown("Town2");
 		aa1.setCounty("County2");
 		aa1.setPostcode("Post code2");
 		addresses.add(aa1);
