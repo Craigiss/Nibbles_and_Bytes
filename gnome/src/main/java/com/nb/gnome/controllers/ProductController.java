@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
@@ -19,15 +18,16 @@ import com.nb.gnome.entities.Product;
 @Named("products")
 @SessionScoped
 public class ProductController implements Serializable {
-	
-	//Convert to ProductService - gots to make sure that this is a Service object, not a Manager!!!!
+
+	// Convert to ProductService - gots to make sure that this is a Service
+	// object, not a Manager!!!!
 	@Inject
 	private ProductService productService;
-	
-	@Inject private SelectedProduct product;
+
+	@Inject
+	private SelectedProduct product;
 	private PaginationHelper pagination;
 	private DataModel<Product> dataModel = null;
-	private Product nproduct;
 	private int productID;
 	private String name;
 	private String description;
@@ -38,39 +38,35 @@ public class ProductController implements Serializable {
 	private void recreateModel() {
 		dataModel = null;
 	}
-	
-	public String reset(){
+
+	public String reset() {
 		dataModel = null;
 		return "imsIndex";
-				
 	}
 
 	public PaginationHelper getPagination() {
 		if (pagination == null)
-			pagination = new PaginationHelper(10) {
+			pagination = new PaginationHelper(2) {
 				@Override
 				public int getItemsCount() {
-					if (dataModel == null){
-					  return productService.findAll().size();
-					}
-					else {
+					if (dataModel == null) {
+						return productService.findAll().size();
+					} else {
 						return dataModel.getRowCount() + (pagination.getPage() * pagination.getPageSize());
 					}
-					
-					
+
 				}
 
 				@Override
-				public DataModel<Product>createPageDataModel() {
+				public DataModel<Product> createPageDataModel() {
 					try {
-						return new ListDataModel<Product>(
-								productService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+						return new ListDataModel<Product>(productService.findAll().subList(getPageFirstItem(),
+								getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
 						return new ListDataModel<Product>(
 								productService.findAll().subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
-
 			};
 
 		return pagination;
@@ -81,55 +77,41 @@ public class ProductController implements Serializable {
 			dataModel = getPagination().createPageDataModel();
 		return dataModel;
 	}
-	
-	public void setData(ArrayList<Product> model ){
+
+	public void setData(ArrayList<Product> model) {
 		dataModel.setWrappedData(model);
 	}
-	
-	public String next(){
+
+	public String next() {
 		getPagination().nextPage();
 		recreateModel();
-		return "browse";
+		return "imsProducts";
 	}
-	
-	public String previous(){
+
+	public String previous() {
 		getPagination().previousPage();
 		recreateModel();
-		return "browse";
+		return "imsProducts";
 	}
-	
-	public String view (Product p){
+
+	public String view(Product p) {
 		product.setProduct(p);
 		return "imsProdDeets";
 	}
-	
-	public String persistProduct(){
+
+	public String persistProduct() {
 		productService.persistProduct(name, description, price, stockLevel, porousStockLevel);
 		recreateModel();
-		name="";
-		description="";
-		price=0;
-		stockLevel=0;
-		porousStockLevel=0;
+		name = "";
+		description = "";
+		price = 0;
+		stockLevel = 0;
+		porousStockLevel = 0;
 		return "imsProducts";
 	}
-	
-	public List<Product> findAll(){
+
+	public List<Product> findAll() {
 		return productService.findAll();
-	}
-
-	/**
-	 * @return the nproduct
-	 */
-	public Product getNproduct() {
-		return nproduct;
-	}
-
-	/**
-	 * @param nproduct the nproduct to set
-	 */
-	public void setNproduct(Product nproduct) {
-		this.nproduct = nproduct;
 	}
 
 	/**
@@ -140,7 +122,8 @@ public class ProductController implements Serializable {
 	}
 
 	/**
-	 * @param productID the productID to set
+	 * @param productID
+	 *            the productID to set
 	 */
 	public void setProductID(int productID) {
 		this.productID = productID;
@@ -154,7 +137,8 @@ public class ProductController implements Serializable {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -168,7 +152,8 @@ public class ProductController implements Serializable {
 	}
 
 	/**
-	 * @param description the description to set
+	 * @param description
+	 *            the description to set
 	 */
 	public void setDescription(String description) {
 		this.description = description;
@@ -182,7 +167,8 @@ public class ProductController implements Serializable {
 	}
 
 	/**
-	 * @param price the price to set
+	 * @param price
+	 *            the price to set
 	 */
 	public void setPrice(double price) {
 		this.price = price;
@@ -196,13 +182,12 @@ public class ProductController implements Serializable {
 	}
 
 	/**
-	 * @param stockLevel the stockLevel to set
+	 * @param stockLevel
+	 *            the stockLevel to set
 	 */
 	public void setStockLevel(int stockLevel) {
 		this.stockLevel = stockLevel;
 	}
-	
-	
 
 	/**
 	 * @return the porousStockLevel
@@ -212,7 +197,8 @@ public class ProductController implements Serializable {
 	}
 
 	/**
-	 * @param porousStockLevel the porousStockLevel to set
+	 * @param porousStockLevel
+	 *            the porousStockLevel to set
 	 */
 	public void setPorousStockLevel(int porousStockLevel) {
 		this.porousStockLevel = porousStockLevel;
@@ -226,11 +212,11 @@ public class ProductController implements Serializable {
 	}
 
 	/**
-	 * @param product the product to set
+	 * @param product
+	 *            the product to set
 	 */
 	public void setProduct(SelectedProduct product) {
 		this.product = product;
-	}	
-	
-	
+	}
+
 }
