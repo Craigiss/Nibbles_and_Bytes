@@ -31,19 +31,31 @@ public class InitialData {
 	public InitialData(){
 																						// Addresses
 		Address aa = new Address();
-		aa.setLine1("First Line");
-		aa.setLine2("Second Line");
-		aa.setTown("Town");
-		aa.setCounty("County");
-		aa.setPostcode("Post code");
+		aa.setLine1("95 Crowborough Lane");
+		aa.setLine2("Kents Hill");
+		aa.setTown("Milton Keynes");
+		aa.setCounty("Bucks");
+		aa.setPostcode("mk76jn");
+		aa.setId(1);
 		addresses.add(aa);
+		
 		Address aa1 = new Address();
 		aa1.setLine1("First Line2");
 		aa1.setLine2("Second Line2");
 		aa1.setTown("Town2");
 		aa1.setCounty("County2");
 		aa1.setPostcode("Post code2");
-		addresses.add(aa1);
+		aa.setId(2);
+		addresses.add(aa1);		
+		
+		Address aa2 = new Address();
+		aa2.setLine1("First Line3");
+		aa2.setLine2("Second Line3");
+		aa2.setTown("Town3");
+		aa2.setCounty("County3");
+		aa2.setPostcode("Post code3");
+		aa.setId(3);
+		addresses.add(aa2);
 		
 																						// Customers
 		Customer cu = new Customer();
@@ -53,6 +65,17 @@ public class InitialData {
 		cu.setAddresses(addresses);
 		cu.setPassword("password");
 		customers.add(cu);
+		
+		
+																						// Customer <-> Address
+		
+		CustomerAccountAddress caa1 = new CustomerAccountAddress();
+		caa1.setUsername(cu);
+		List<Address> cuAddr = new ArrayList<Address>();
+		cuAddr.add(aa);
+		cuAddr.add(aa1);
+		caa1.setAddress(cuAddr);				// Cameron | Not sure which one to use yet to link customer to addresses?
+		cu.setAddresses(cuAddr);
 		
 																						// Sales orders
 		SalesOrder sO1 = new SalesOrder();

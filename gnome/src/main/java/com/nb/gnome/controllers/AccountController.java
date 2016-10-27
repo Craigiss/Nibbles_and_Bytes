@@ -9,6 +9,8 @@ import javax.inject.Named;
 
 import com.nb.gnome.entities.Address;
 import com.nb.gnome.managers.CustomerRepository;
+import com.nb.gnome.service.AddressService;
+import com.nb.gnome.service.LoginService;
 import com.nb.gnome.service.UpdateAccountService;
 import com.nb.gnome.service.UserCredentials;
 
@@ -17,19 +19,17 @@ import com.nb.gnome.service.UserCredentials;
 public class AccountController implements Serializable {
 	@Inject
 	UserCredentials userCredentials;
+	
 	@Inject 
 	UpdateAccountService updateAccountService;
 	@Inject
 	CustomerRepository accountManager;
 	
+	AddressService addressService;
+	
 
 	private List<Address> address;
-    /**
-	 * @return the address
-	 */
-	public List<Address> getAddress() {
-		return address;
-	}
+
 
 	private String email; 
     private String firstName; 
@@ -40,8 +40,55 @@ public class AccountController implements Serializable {
     private String county; 
     private String postcode;
 
+    private int selectedAddress;								// The ID of the address selected by the dropdown box.
+    
+    public void updateAddresses(){
+    	address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+    	for (Address a: address){
+    		if (a.getId()==selectedAddress){
+    			setTown(a.getTown());
+    			setAddressFirstLine(a.getLine1());
+    	    	setAddressSecondLine(a.getLine2());
+    	    	setPostcode(a.getPostcode());
+    	    	setCounty(a.getPostcode());
+    		}
+    	}
+    
+   
+    }
+    
+    public String getAddressSummary(){
+    	return(addressService.addressSummary(selectedAddress));
+    }
 
+    public String goHome(){
+		return "homePage";
+    	
+    }
+    
+    /**
+	 * @return the selectedAddress
+	 */
+	public int getSelectedAddress() {
+		return selectedAddress;
+	}
 
+	/**
+	 * @param selectedAddress the selectedAddress to set
+	 */
+	public void setSelectedAddress(int selectedAddress) {
+		this.selectedAddress = selectedAddress;
+	}
+
+	/**
+	 * @return the address
+	 */
+	public List<Address> getAddress() {
+		//return addressService.getCustomerAddresses();
+		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+		return address;
+	}
+	
 	/**
 	 * @return the userCredentials
 	 */
@@ -166,7 +213,7 @@ public class AccountController implements Serializable {
 	public String getAddressFirstLine(){
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
-			return address.get(0).getLine1();					// 		 (until we can add a page to view multiple addresses).
+			return address.get(selectedAddress).getLine1();					// 		 (until we can add a page to view multiple addresses).
 		else
 			return "No address found - Please add your address details."; 
 	}
@@ -174,15 +221,16 @@ public class AccountController implements Serializable {
 	public String getAddressSecondLine(){
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
-			return address.get(0).getLine2();					// 		 (until we can add a page to view multiple addresses).
+			return address.get(selectedAddress).getLine2();					// 		 (until we can add a page to view multiple addresses).
 		else
 			return "No address found - Please add your address details."; 
 	}
 	
+
 	public String getCounty(){
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
-			return address.get(0).getCounty();					// 		 (until we can add a page to view multiple addresses).
+			return address.get(selectedAddress).getCounty();					// 		 (until we can add a page to view multiple addresses).
 		else
 			return "No address found - Please add your address details."; 
 	}
@@ -190,7 +238,7 @@ public class AccountController implements Serializable {
 	public String getPostcode(){
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
-			return address.get(0).getPostcode();				// 		 (until we can add a page to view multiple addresses).
+			return address.get(selectedAddress).getPostcode();				// 		 (until we can add a page to view multiple addresses).
 		else
 			return "No address found - Please add your address details."; 
 	}
@@ -201,7 +249,7 @@ public class AccountController implements Serializable {
 	public String getTown() {
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
-			return address.get(0).getTown();					// 		 (until we can add a page to view multiple addresses).
+			return address.get(selectedAddress).getTown();					// 		 (until we can add a page to view multiple addresses).
 		else
 			return "No address found - Please add your address details."; 
 	}

@@ -1,5 +1,7 @@
 package com.nb.gnome.mangers.offline;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
@@ -19,6 +21,32 @@ public class AddressRepositoryOffline implements AddressRepository{
 	@Override
 	public void persistAddress(Address a){
 		initialData.addAddress(a);
+	}
+	
+	@Override
+	public int getAddressIdByFirstLineAndPostcode(String firstLine, String postcode){
+		int id = -1;
+		for (Address a : initialData.getAddresses()){
+			if (a.getLine1() == firstLine && a.getPostcode() == postcode){
+				id = a.getId();
+				break;
+			}
+		}
+		return(id);
+	}
+	
+	@Override
+	public Address getAddressById(int id){
+		for(Address a : initialData.getAddresses()){
+			if (a.getId() == id)
+				return(a);
+		}
+		return null;
+
+	}
+	
+	public List<Address> getAddresses(){
+		return initialData.getAddresses();
 	}
 	
 	//Read method called from Customer

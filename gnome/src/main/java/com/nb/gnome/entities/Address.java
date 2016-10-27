@@ -152,4 +152,13 @@ public class Address {
 		this.postcode = postcode;
 	}
 
+	/**
+	 * @return the customers
+	 */
+	public List<Customer> getCustomers() {
+		return customers;
+	}
+	
+	
+
 }

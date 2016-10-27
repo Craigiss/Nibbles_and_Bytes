@@ -1,48 +1,60 @@
-<ui:composition
-xmlns="https://www.w3.org/1999/xhtml"
-xmlns:f="http://java.sun.com/jsf/core"
-xmlns:h="http://java.sun.com/jsf/html"
-xmlns:ui="http://java.sun.com/jsf/facelets"
-xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-template="templates/Template.xhtml">
-<meta charset="utf-8" />
-<ui:define name="title">
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="templates/Template.xhtml">
+	<meta charset="utf-8" />
+	<ui:define name="title">
 Account Page
 </ui:define>
 
-<ui:define name="css">
-	<link href="css/account.css" rel="stylesheet"/>
-</ui:define>
-<ui:define name="mainContent">
+	<ui:define name="css">
+		<link href="css/account.css" rel="stylesheet" />
+	</ui:define>
+	<ui:define name="mainContent">
 
-	<div id="sidebar">
-	<h:form>
-		<ul class="nav nav-pills nav-stacked">
-		  <li role="presentation" class="active"><a href="#account" data-toggle="tab">Account Options</a></li>
-		  <li role="presentation"><a href="#orders" data-toggle="tab">Orders</a></li>
-		  <li role="presentation"><h:commandButton action="#{login.logout()}" value="Logout"  class="btn btn-danger" style=" width:100%"/> </li>
-		</ul>
-		</h:form>
-	</div>
-	
-	<div class="tab-content">
-      <div class="tab-pane active" id="account">
-         <div class="panel panel-default">
-			  <div class="panel-heading">
-				<h3 class="panel-title">Account Options</h3>
-			  </div>
-			  <div class="panel-body">
-		
-			  <h:form>
-				<div class="input-group" >
-				    <h:inputText id="firstName" type="text" a:placeholder="First Name" class="form-control" value="#{Account.firstName}"/>
-				</div>	
-				<div class="input-group" >
-				    <h:inputText id="surname" type="text" a:placeholder="Surname" class="form-control" value="#{Account.surname}"/>
-				</div>
-				<div class="input-group" >
-				    <h:inputText id="email" type="text" a:placeholder="Email" class="form-control" value="#{Account.email}"/>
-				</div>
+		<div id="sidebar">
+			<h:form>
+				<ul class="nav nav-pills nav-stacked">
+					<li role="presentation" class="active"><a href="#account"
+						data-toggle="tab">Account Options</a></li>
+					<li role="presentation"><a href="#orders" data-toggle="tab">Orders</a></li>
+					<li role="presentation"><h:commandButton
+							action="#{login.logout()}" value="Logout" class="btn btn-danger"
+							style=" width:100%" /></li>
+				</ul>
+			</h:form>
+		</div>
+
+		<div class="tab-content">
+			<div class="tab-pane active" id="account">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Account Options</h3>
+					</div>
+					<div class="panel-body">
+
+						<h:form>
+							<div>
+								<h:inputText id="firstName" type="text"
+									a:placeholder="First Name" class="col-md-3"
+									value="#{Account.firstName}" />
+								<h:inputText id="surname" type="text" a:placeholder="Surname"
+									class="col-md-3" value="#{Account.surname}" />
+								<h:inputText id="email" type="text" a:placeholder="Email"
+									class="col-md-6" value="#{Account.email}" />
+							</div>
+				
+				<p> Select an address </p>
+				
+
+								
+						
+				<h:selectOneMenu value="#{Account.selectedAddress}" onchange="#{Account.updateAddresses()}" valueChangeListener="#{Account.updateAddresses()}"> 
+					<f:selectItems value="#{Account.address}" var="customerAddress"	itemLabel="#{customerAddress.line1}" itemValue="#{customerAddress.id}"/>
+				</h:selectOneMenu>
+				
 				<div class="input-group">
 				    <h:inputText id ="Line1" type="text" a:placeholder="Address Line 1" class="form-control" value="#{Account.addressFirstLine}"/>
 				</div>
@@ -58,40 +70,44 @@ Account Page
 				<div class="input-group">
 				    <h:inputText id="postCode" type="text" a:placeholder="Postcode" class="form-control" value="#{Account.postcode}" />
 				</div>
-			
-					<h:commandButton  class="btn btn-success pull-right"  action="#{Account.updateAccount()}" type="submit" value="Update"/>
-		
-			  </h:form>
-			</div>
-		</div>
-      </div>
-      <div class="tab-pane" id="orders">
-        <div class="panel panel-default">
-			  <div class="panel-heading">
-				<h3 class="panel-title">Orders</h3>
-			  </div>
-			  <div class="panel-body">		
-					<!-- Table -->
-				  <table class="table">
-					<tr>
-						<th>Id</th>
-						<th>Date</th> 
-						<th>Status</th> 
-					</tr>
-						<ui:repeat var="orders" value="#{order.products}">
-							<tr>
-								<td><h:outputText value="#{orders.id}"/></td>
-								<td><h:outputText value="#{orders.date}"/></td>
-								<td><h:outputText value="#{orders.status}"/></td>
-							</tr>
-					    </ui:repeat>
-				  </table>
-			</div>
-		</div>
-      </div>
-   </div>
-	
+				<!-- TESTING -->
+				<h:commandButton class="btn btn-success pull-left"
+								action="#{Account.updateAddresses()}" type="submit" value="Refresh Address" />
+				
+							<h:commandButton class="btn btn-success pull-right"
+								action="#{Account.updateAccount()}" type="submit" value="Update" />
 
-	
- </ui:define>
+						</h:form>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="orders">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Orders</h3>
+					</div>
+					<div class="panel-body">
+						<!-- Table -->
+						<table class="table">
+							<tr>
+								<th>Id</th>
+								<th>Date</th>
+								<th>Status</th>
+							</tr>
+							<ui:repeat var="orders" value="#{order.products}">
+								<tr>
+									<td><h:outputText value="#{orders.id}" /></td>
+									<td><h:outputText value="#{orders.date}" /></td>
+									<td><h:outputText value="#{orders.status}" /></td>
+								</tr>
+							</ui:repeat>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	</ui:define>
 </ui:composition>

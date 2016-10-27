@@ -1,5 +1,7 @@
 package com.nb.gnome.managers;
 
+import java.util.List;
+
 import com.nb.gnome.entities.Address;
 
 /**
@@ -12,5 +14,11 @@ public interface AddressRepository {
 
 	//Create
 	public void persistAddress(Address a);
+
+	public Address getAddressById(int id);
+	
+	public int getAddressIdByFirstLineAndPostcode(String firstLine, String postcode);
+	
+	public List<Address> getAddresses();
 	
 }
