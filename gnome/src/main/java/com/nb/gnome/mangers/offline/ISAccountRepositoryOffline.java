@@ -1,5 +1,6 @@
 package com.nb.gnome.mangers.offline;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -20,19 +21,27 @@ public class ISAccountRepositoryOffline implements ISAccountRepository{
 
 	@Override
 	public void persistISAccount(ISAccount isa) {
-		initialData.addInventoryStaffAccount(isa);		
+		initialData.addISAccount(isa);		
 	}
 
 	@Override
 	public ISAccount findISAccountByEmail(String email) {
 		ISAccount is = new ISAccount();
-		for (ISAccount isa : initialData.getInventoryStaffAccounts()){
+		for (ISAccount isa : initialData.getISAccounts()){
 			if (isa.getEmail().equals(email))
 			{
 				is = isa;
 			}
 		}
 		return is;
+	}
+	
+	@Override
+	public List<ISAccount> findAll(){
+		List<ISAccount> accounts = new ArrayList<ISAccount>();
+		for (ISAccount a : initialData.getISAccounts())
+			accounts.add(a);
+		return accounts;
 	}
 	
 	@Override

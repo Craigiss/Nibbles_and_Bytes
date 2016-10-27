@@ -22,4 +22,6 @@ public interface ISAccountRepository {
 	public void updateISAccountName(ISAccount isa);
 	public void updateISAccountEmail(ISAccount isa);
 	public void updateISAccountPassword(ISAccount isa);
+
+	public List<ISAccount> findAll();
 }

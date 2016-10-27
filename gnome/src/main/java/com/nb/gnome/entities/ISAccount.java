@@ -33,7 +33,18 @@ public class ISAccount {
 	@Size (min = 2, max = 255)
 	private String name;
 	
+	
 	//constructors
+	
+	public ISAccount(){
+		
+	}
+	
+	public ISAccount(String nEmail, String nPassword, String nName) {
+		email = nEmail;
+		password = nPassword;
+		name = nName;
+	}
 	/**
 	 * Method to get the inventory staff email address 
 	 * @return inventory staff email address
