@@ -32,6 +32,11 @@ public class PurchaseOrderService {
 	 * @param id
 	 * @return Purchase Order with ID matching parameter
 	 */
+	public PurchaseOrder findPurchaseOrderById(int id){
+		return purchaseOrderManager.findPurchaseOrderById(id);
+
+	}	
+	
 	public PurchaseOrder findPoById(String id) {
 
 		try {
@@ -39,8 +44,9 @@ public class PurchaseOrderService {
 			return purchaseOrderManager.findPurchaseOrderById(searchId);
 		} catch (Exception e) {
 			return null;
-		}
+		}	
 	}
+	
 
 	/**
 	 * Calls method within purchaseOrderManager to return all Purchase Orders
