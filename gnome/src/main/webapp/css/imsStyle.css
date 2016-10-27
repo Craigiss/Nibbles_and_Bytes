@@ -166,7 +166,7 @@ a:hover {
     height: 50px;
 }
 
-.col-sm-6{
+#analytics .col-sm-6{
 	padding-top: 10px;
 	height: 350px;
 	border: 3px solid white;
@@ -396,12 +396,19 @@ ul{
 	text-align: center;
 }
 
-
-.subtitle{
-	font-size: 18px;
-	padding-top: 15px;
-	padding-bottom: 15px;
+.uTextInput{
+	border: 1px solid grey;
 }
+
+.addElement{
+	padding-top: 15px;
+}
+
+.addButs{
+	height: 50px;
+	margin-top: 15px;
+}
+
 
 @media screen and (max-width: 770px){
 

@@ -15,15 +15,15 @@ import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-@Named(value="suppliers")
+@Named(value = "suppliers")
 @SessionScoped
-public class SupplierController implements Serializable{
+public class SupplierController implements Serializable {
 	@Inject
 	private SupplierService supplierService;
-	
-	//private Supplier supplier;
-	@Inject private SelectedSupplier supplier;
-	private Supplier nSupplier;
+
+	// private Supplier supplier;
+	@Inject
+	private SelectedSupplier supplier;
 	private String company;
 	private String name;
 	private String email;
@@ -34,100 +34,95 @@ public class SupplierController implements Serializable{
 	public void recreateModel() {
 		dataModel = null;
 	}
-	
-	public String reset(){
+
+	public String reset() {
 		dataModel = null;
 		return "imsIndex";
-				
+
 	}
-	
+
 	public PaginationHelper getPagination() {
-		if (pagination == null)	
-			pagination = new PaginationHelper(10){
-		@Override 
-		public int getItemsCount() {
-			if (dataModel == null){
-				  return supplierService.findAll().size();
+		if (pagination == null)
+			pagination = new PaginationHelper(10) {
+				@Override
+				public int getItemsCount() {
+					if (dataModel == null) {
+						return supplierService.findAll().size();
+					} else {
+						//return amount of products in the whole data model (think in terms of search results - not all suppliers)
+						return dataModel.getRowCount() + (pagination.getPage() * pagination.getPageSize());
+					}
 				}
-				else {
-					return dataModel.getRowCount() + (pagination.getPage() * pagination.getPageSize());
+
+				@Override
+				public DataModel<Supplier> createPageDataModel() {
+					try {
+						return new ListDataModel<Supplier>(supplierService.findAll().subList(getPageFirstItem(),
+								getPageFirstItem() + getPageSize()));
+					} catch (Exception e) {
+						return new ListDataModel<Supplier>(
+								supplierService.findAll().subList(getPageFirstItem(), getItemsCount()));
+					}
 				}
-		}
-	
-		@Override public DataModel<Supplier>createPageDataModel(){
-			try{
-				return new ListDataModel<Supplier>(supplierService.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
-			} catch (Exception e) {
-				return new ListDataModel<Supplier>(
-						supplierService.findAll().subList(getPageFirstItem(),getItemsCount()));
-		}
-		}
-		};
+			};
 		return pagination;
 	}
-	
+
 	public DataModel<Supplier> getDataModel() {
-		if (dataModel ==null)
+		if (dataModel == null)
 			dataModel = getPagination().createPageDataModel();
 		return dataModel;
-		
+
 	}
-	
-	public void setData(ArrayList<Supplier> model ){
+
+	public void setData(ArrayList<Supplier> model) {
 		dataModel.setWrappedData(model);
 	}
-	
+
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();
 		return "browse";
 	}
-	
+
 	public String previous() {
 		getPagination().previousPage();
 		recreateModel();
 		return "imsSuppliers";
 	}
-	
+
 	public String view(Supplier s) {
 		supplier.setSupplier(s);
 		return "imsSupplierDeets";
 	}
-	
-	public Supplier getSupplier() {
-		return nSupplier;
-	}
-	
-	public void setSupplier(Supplier supplier) {
-		this.nSupplier = supplier;
-	}
-	
-	public List<Supplier> findAll(){
+
+	public List<Supplier> findAll() {
 		return supplierService.findAll();
 	}
-	
+
 	/**
-	 *  adds a new supplier via various convoluted methods in different classes
+	 * adds a new supplier via various convoluted methods in different classes
 	 */
 
-	public String persistSupplier(){
+	public String persistSupplier() {
 		supplierService.persistSupplier(company, name, phone, email);
 		recreateModel();
-		
-		company="";
-		name="";
-		phone="";
-		email="";
-		
+		getDataModel();
+
+		company = "";
+		name = "";
+		phone = "";
+		email = "";
+
 		return "imsSuppliers";
 	}
-	
 
 	/**
-	 *  finds a supplier by a given company name
+	 * finds a supplier by a given company name
+	 * 
 	 * @param comp
 	 */
-	public void findSupplierByCompany(String comp){
+	public void findSupplierByCompany(String comp) {
 		supplierService.findSupplierByCompany(comp);
 	}
 
@@ -139,7 +134,8 @@ public class SupplierController implements Serializable{
 	}
 
 	/**
-	 * @param supplierService the supplierService to set
+	 * @param supplierService
+	 *            the supplierService to set
 	 */
 	public void setSupplierService(SupplierService supplierService) {
 		this.supplierService = supplierService;
@@ -153,7 +149,8 @@ public class SupplierController implements Serializable{
 	}
 
 	/**
-	 * @param company the company to set
+	 * @param company
+	 *            the company to set
 	 */
 	public void setCompany(String company) {
 		this.company = company;
@@ -167,7 +164,8 @@ public class SupplierController implements Serializable{
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -181,7 +179,8 @@ public class SupplierController implements Serializable{
 	}
 
 	/**
-	 * @param email the email to set
+	 * @param email
+	 *            the email to set
 	 */
 	public void setEmail(String email) {
 		this.email = email;
@@ -195,29 +194,26 @@ public class SupplierController implements Serializable{
 	}
 
 	/**
-	 * @param phone the phone to set (these auto-generated comments are lol)
+	 * @param phone
+	 *            the phone to set (these auto-generated comments are lol)
 	 */
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
 	/**
-	 * @param pagination the pagination to set
+	 * @param pagination
+	 *            the pagination to set
 	 */
 	public void setPagination(PaginationHelper pagination) {
 		this.pagination = pagination;
 	}
 
 	/**
-	 * @param dataModel the dataModel to set
+	 * @param dataModel
+	 *            the dataModel to set
 	 */
 	public void setDataModel(DataModel<Supplier> dataModel) {
 		this.dataModel = dataModel;
-	}	
-	
-	
-	
-	
-	
 	}
-
+}
