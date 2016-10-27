@@ -58,6 +58,10 @@ public class InitialData {
 		s1.setName("Augustine Poutine");
 		s1.setPhone("01645839242");
 		s1.setEmail("augustine@lawnflamingoswholesale.lol");
+		s1.setDescription("These guys sell lawn flamingos in bulk. Low prices but we tend to have their stock for a while."
+				+ " Augustine is friendly enough, but don't talk to them about gnomes. They have incredible delivery time, "
+				+ "as they are able to ship 1,000 flamingos for next day delivery. This is now a test to see how far down the"
+				+ "text will go and if it will collide with the PO table that shows all the POs for this supplier.");
 		suppliers.add(s1);
 		
 		Supplier s2 = new Supplier();
@@ -66,6 +70,7 @@ public class InitialData {
 		s2.setName("Howard Schultz");
 		s2.setPhone("07483627292");
 		s2.setEmail("hottubsareawesome@jacuzzibabies.com");
+		s2.setDescription("This supplier sells great jacuzzis. They have always been reliable, and Howard is always very helpful. Require one week to deliver an order.");
 		suppliers.add(s2);
 		
 		Supplier s3 = new Supplier();
@@ -74,6 +79,8 @@ public class InitialData {
 		s3.setName("Maurice 'the madman' Mortimer");
 		s3.setPhone("026492672555");
 		s3.setEmail("sensiblelawnornamentsatareasonableprice@madmansales.com");
+		s3.setDescription("Good supplier but be careful of Maurice. He can be a bit temperamental at times, so don't haggle too much on the price. "
+				+ "Delivery time depends on the size of the order, but should be safe for 3 business days if order quantity is less than 500. ");
 		suppliers.add(s3);
 		
 		//Purchase Orders + Purchase Order Details
