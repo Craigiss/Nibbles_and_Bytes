@@ -42,13 +42,67 @@ public class ISAccountService {
 	 * Calls the ISAccount manager method, pooling params together to create a new account object
 	 * */
 	public void persistISAccount(String nEmail, String nPassword, String nName){
-		ISAccount isaisa = new ISAccount(nEmail, nPassword, nName);
-		iSAccountManager.persistISAccount(isaisa);
+		if (accountCheck(nEmail)){
+			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName);
+			iSAccountManager.persistISAccount(isaisa);
+		}else{
+			int code=1;
+			accountError(1);
+		}
+	}
+	
+	public void persistISAccountAdmin(String nEmail, String nPassword, String nName, boolean nAdmin){
+		if (accountCheck(nEmail)){
+			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName, nAdmin);
+			iSAccountManager.persistISAccountAdmin(isaisa);
+		}else{
+			int code=1;
+			accountError(code);
+		}
+	}
+	public String logInToIms(String nEmail, String nPassword){
+		boolean validLogOn= false;
+		if(!accountCheck(nEmail)){
+			int code=3;
+			accountError(code);
+		}
+		else{
+			String recordedPassword=iSAccountManager.findISAccountByEmail(nEmail).getPassword();
+			if(recordedPassword.equals(nPassword)){
+				validLogOn=true;
+			}
+			else{
+				int code=2;
+				accountError(code);
+			}
+		}
+		if(validLogOn==true){
+			return "imsIndex";
+		}
+		else{
+			return null;
+		}
 	}
 	
 	public List<ISAccount> findAll(){
 		List<ISAccount> a = iSAccountManager.findAll();
 		return a;
+	}
+	
+	// To be adjusted once page is completed
+	private String accountError(int code){
+		if(code == 1){
+			System.out.println("account already exists");
+			return "account already exists";
+		}
+		else if(code==2){
+			System.out.println("email and password do not match records");
+			return "email and password do not match records";
+		}
+		else{
+			System.out.println("email not recognised");
+			return "email not recognised";
+		}
 	}
 	
 	

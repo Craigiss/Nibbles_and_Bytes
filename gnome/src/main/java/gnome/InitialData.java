@@ -143,13 +143,22 @@ public class InitialData {
 		isa1.setEmail("PaulVanDyke@TranceNation.com");
 		isa1.setPassword("ilovetrance");
 		isa1.setName("Paul Van Dyke");
+		isa1.setAdmin(false);
 		iSAccounts.add(isa1);
 		
 		ISAccount isa2 = new ISAccount();
 		isa2.setEmail("CyrilSneer@GreenHavenCottage.com");
 		isa2.setPassword("ihateraccoons");
 		isa2.setName("Cyril Sneer");
+		isa2.setAdmin(false);
 		iSAccounts.add(isa2);
+		
+		ISAccount isa3 = new ISAccount();
+		isa3.setEmail("admin");
+		isa3.setPassword("password");
+		isa3.setName("admin");
+		isa3.setAdmin(true);
+		iSAccounts.add(isa3);
 	}
 	
 	

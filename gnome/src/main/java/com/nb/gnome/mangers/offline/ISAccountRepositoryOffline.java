@@ -23,6 +23,12 @@ public class ISAccountRepositoryOffline implements ISAccountRepository{
 	public void persistISAccount(ISAccount isa) {
 		initialData.addISAccount(isa);		
 	}
+	
+	@Override
+	public void persistISAccountAdmin(ISAccount isa) {
+		initialData.addISAccount(isa);
+		
+	}
 
 	@Override
 	public ISAccount findISAccountByEmail(String email) {
@@ -61,5 +67,7 @@ public class ISAccountRepositoryOffline implements ISAccountRepository{
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }
