@@ -216,7 +216,7 @@ public class InitialData {
 	/**
 	 * @return the inventoryStaffAccounts
 	 */
-	public List<ISAccount> getInventoryStaffAccounts() {
+	public List<ISAccount> getISAccounts() {
 		return iSAccounts;
 	}
 	
@@ -224,7 +224,7 @@ public class InitialData {
 	 * Adds an inventory staff account to the data set
 	 * @param isa Input is new inventory staff account to be added
 	 */
-	public void addInventoryStaffAccount(ISAccount isa ){
+	public void addISAccount(ISAccount isa ){
 		iSAccounts.add(isa);
 	}
 
