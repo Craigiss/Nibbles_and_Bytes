@@ -38,7 +38,7 @@ public class SelectedPo implements Serializable {
 
 	public PaginationHelper getPagination() {
 		if (pagination == null)
-			pagination = new PaginationHelper(5) {
+			pagination = new PaginationHelper(10) {
 
 				@Override
 				public int getItemsCount() {

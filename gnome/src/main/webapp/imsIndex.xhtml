@@ -94,7 +94,10 @@
 				</div>
 
 				<div class="col-sm-4 mainButton" id="log">
-					<h:outputLink value="#">Logout
+				<h:form>
+				<h:commandLink action = "#{IMSUser.resetCredentials()}"/>
+				</h:form>
+					<h:outputLink value="imsLogin.xhtml">Logout
               <div>
 							<h:graphicImage value="img/log.png" />
 						</div>
