@@ -83,7 +83,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 				<td><h:outputText value="#{addressLine.county}"/></td>
 				<td><h:outputText value="#{addressLine.postcode}"/></td>
 			    <td>
-			   		    <input type="radio" name="address" value="#{addressLine.id}"  onclick="#{order.setSelectedId(addressLine.id)}" />
+			   		    <input type="radio" name="address" value="#{addressLine.id}"  onclick="#order.setSelectedId(addressLine.id)" />
 			    </td>
 				
 			</tr>

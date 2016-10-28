@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.nb.gnome.entities.Address;
+import com.nb.gnome.managers.AddressRepository;
 import com.nb.gnome.managers.CustomerRepository;
 import com.nb.gnome.service.AddressService;
 import com.nb.gnome.service.LoginService;
@@ -25,6 +26,8 @@ public class AccountController implements Serializable {
 	UpdateAccountService updateAccountService;
 	@Inject
 	CustomerRepository accountManager;
+	@Inject
+	AddressRepository addressManager;
 	
 	AddressService addressService;
 	
@@ -41,13 +44,13 @@ public class AccountController implements Serializable {
     private String county; 
     private String postcode;
 
-    private int selectedAddress;								// The ID of the address selected by the dropdown box.
+    private int selectedAddress = 1 ;								// The ID of the address selected by the dropdown box.
     
     public void updateAddresses(ValueChangeEvent e){
     	
     	address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
     	for (Address a: address){
-    		if (a.getId()==selectedAddress){
+    		if (a.getId()==addressManager.getAddressById(address.get(selectedAddress).getId()).getId()){ // Change here
     			setTown(a.getTown());
     			setAddressFirstLine(a.getLine1());
     	    	setAddressSecondLine(a.getLine2());
