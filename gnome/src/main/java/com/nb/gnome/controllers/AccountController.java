@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -42,7 +43,8 @@ public class AccountController implements Serializable {
 
     private int selectedAddress;								// The ID of the address selected by the dropdown box.
     
-    public void updateAddresses(){
+    public void updateAddresses(ValueChangeEvent e){
+    	
     	address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
     	for (Address a: address){
     		if (a.getId()==selectedAddress){

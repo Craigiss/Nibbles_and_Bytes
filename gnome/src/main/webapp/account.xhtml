@@ -51,8 +51,9 @@ Account Page
 
 								
 						
-				<h:selectOneMenu value="#{Account.selectedAddress}" onchange="#{Account.updateAddresses()}" valueChangeListener="#{Account.updateAddresses()}"> 
+				<h:selectOneMenu value="#{Account.selectedAddress}" onchange="submit()" valueChangeListener="#{Account.updateAddresses}"> 
 					<f:selectItems value="#{Account.address}" var="customerAddress"	itemLabel="#{customerAddress.line1}" itemValue="#{customerAddress.id}"/>
+					
 				</h:selectOneMenu>
 				
 				<div class="input-group">

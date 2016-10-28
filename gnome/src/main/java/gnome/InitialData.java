@@ -36,7 +36,7 @@ public class InitialData {
 		aa.setTown("Milton Keynes");
 		aa.setCounty("Bucks");
 		aa.setPostcode("mk76jn");
-		aa.setId(1);
+		aa.setId(10);
 		addresses.add(aa);
 		
 		Address aa1 = new Address();
@@ -45,7 +45,7 @@ public class InitialData {
 		aa1.setTown("Town2");
 		aa1.setCounty("County2");
 		aa1.setPostcode("Post code2");
-		aa.setId(2);
+		aa1.setId(11);
 		addresses.add(aa1);		
 		
 		Address aa2 = new Address();
@@ -54,7 +54,7 @@ public class InitialData {
 		aa2.setTown("Town3");
 		aa2.setCounty("County3");
 		aa2.setPostcode("Post code3");
-		aa.setId(3);
+		aa2.setId(12);
 		addresses.add(aa2);
 		
 																						// Customers
