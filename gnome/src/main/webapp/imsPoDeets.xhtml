@@ -31,32 +31,55 @@
 
 	<!-- Content goes here -->
 	<ui:define name="maincontent">
+		<div class="container">
 		<div class="row">
-			<div class="col-sm-12 detail_headers">
-				<h:outputText value="#{selectedPo.purchaseOrder.lines}" />
-			</div>
+			<h3>Purchase Order Details</h3>
 		</div>
-		<div class="row">
-			<div class="col-sm-12">
-				<p class="detail_headers">Purchase Order Details</p>
-			</div>
-		</div>
-		<div class="row">
+		<div class="row" id="podetails">
 			<div class="col-sm-12 text">
-				<p></p>
-				<h:outputText value="Purchase order Id: " />
-				<h:outputText value="#{selectedPo.purchaseOrder.getId()}" />
+				<h:outputText value="Purchase Order ID: " />
+				<h:outputText value="#{selectedPo.purchaseOrder.id}" />
 				<br />
-				<h:outputText value="Date purchase order was processed: " />
-				<h:outputText value="#{selectedPo.purchaseOrder.getDate()}" />
+				<h:outputText value="Date: " />
+				<h:outputText value="#{selectedPo.purchaseOrder.date}" />
 				<br />
-				<h:outputText value="Status of purchase order: " />
-				<h:outputText value="#{selectedPo.purchaseOrder.getStatus()}" />
+				<h:outputText value="Supplier: " />
+				<h:outputText value="#{selectedPo.purchaseOrder.supplier.company}" />
+				<br />
+				<h:outputText value="Purchase Order Status: " />
+				<h:outputText value="#{selectedPo.purchaseOrder.status}" />
 			</div>
 		</div>
+
+		<div class="row listItem" id="tableTitle">
+			<div class="col-sm-10 supDetails">
+				<h4>Product</h4>
+			</div>
+			<div class="col-sm-2 supDetails listCenter">
+				<h4>Quantity</h4>
+			</div>
+		</div>
+
+		<ui:repeat var="po" value="#{selectedPo.dataModel}">
+			<div class="row table listItem">
+				<div class="col-sm-10 supDetails">
+					<h:form>
+						<h:commandLink action="#{pos.view(purchaseOrder)}"
+							value="#{po.product.productName}" />
+					</h:form>
+				</div>
+				<div class="col-sm-2 supDetails listCenter">
+					<h:form>
+						<h:commandLink action="#{pos.view(purchaseOrder)}"
+							value="#{po.quantity}" />
+					</h:form>
+				</div>
+			</div>
+		</ui:repeat>
+
 		<div class="row">
 			<div class="col-sm-6 buttonOfJoy col-xs-6">
-				<p id="email_text">email</p>
+				<p id="email_text">Email</p>
 			</div>
 			<div class="col-sm-2 buttonOfJoy col-xs-2">
 				<h:form>
@@ -67,7 +90,7 @@
 				</h:form>
 			</div>
 			<div class="col-sm-2 buttonOfJoy col-xs-2">
-				<p id="print_text">print</p>
+				<p id="print_text">Print</p>
 			</div>
 			<div class="col-sm-2 buttonOfJoy col-xs-2">
 				<h:form>
@@ -78,29 +101,6 @@
 			</div>
 		</div>
 
-		<div class="col-sm-2" />
-		<div class="col-sm-4 supDetails listCenter">Product</div>
-		<div class="col-sm-4 supDetails listCenter">Quantity</div>
-		<div class="col-sm-2" />
-
-		<ui:repeat var="po" value="#{selectedPo.dataModel}">
-			<div class="row table listItem">
-				<div class="col-sm-2" />
-				<div class="col-sm-4 supDetails listCenter">
-					<h:form>
-						<h:commandLink action="#{pos.view(purchaseOrder)}"
-							value="#{po.product.productName}" />
-					</h:form>
-				</div>
-				<div class="col-sm-4 supDetails listCenter">
-					<h:form>
-						<h:commandLink action="#{pos.view(purchaseOrder)}"
-							value="#{po.quantity}" />
-					</h:form>
-				</div>
-				<div class="col-sm-2" />
-			</div>
-		</ui:repeat>
 		<div class="row">
 			<div class="col-sm-12">
 				<p class="detail_headers">Analytics</p>
@@ -109,5 +109,6 @@
 		<ul>
 			<li><h:graphicImage id="graph" value="img/graph.png" /></li>
 		</ul>
+		</div>
 	</ui:define>
 </ui:composition>
