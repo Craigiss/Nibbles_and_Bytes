@@ -20,6 +20,8 @@ import javax.inject.Named;
 public class SupplierController implements Serializable {
 	@Inject
 	private SupplierService supplierService;
+	@Inject
+	IMSUserCredentials userCredentials;
 
 	// private Supplier supplier;
 	@Inject
@@ -44,8 +46,12 @@ public class SupplierController implements Serializable {
 
 	}
 	
-	public String addSupplier(){
-		return "addSupplier";
+	public String goToAddSupplier(){
+		String returnPage = "addSupplier";
+		if ((userCredentials.getName() == null)) {
+			returnPage = "imsLogin";
+		}
+		return returnPage;
 	}
 
 	public PaginationHelper getPagination() {
@@ -103,13 +109,19 @@ public class SupplierController implements Serializable {
 	}
 
 	public String view(Supplier s) {
+		String returnPage = "imsSupplierDeets";
+		if (!(userCredentials.getName() == null)) {
 		supplier.setSupplier(s);
-		return "imsSupplierDeets";
+		}else {
+			returnPage = "imsLogin";
+		}		
+		return returnPage;
 	}
 
 	public List<Supplier> findAll() {
 		return supplierService.findAll();
 	}
+	
 
 	/**
 	 * adds a new supplier via various convoluted methods in different classes

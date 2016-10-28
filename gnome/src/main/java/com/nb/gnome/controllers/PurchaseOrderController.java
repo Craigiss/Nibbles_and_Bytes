@@ -25,6 +25,9 @@ import javax.inject.Named;
 public class PurchaseOrderController implements Serializable {
 	@Inject
 	private PurchaseOrderService purchaseOrderService;
+	
+	@Inject
+	IMSUserCredentials userCredentials;
 
 	@Inject
 	private SelectedPo purchaseOrder;
@@ -46,6 +49,14 @@ public class PurchaseOrderController implements Serializable {
 		listData = null;
 		return "imsIndex";
 
+	}
+	
+	public String goToAddPOPage(){
+		String returnPage = "addPurchaseOrder";
+		if ((userCredentials.getName() == null)) {
+			returnPage = "imsLogin";
+		}
+		return returnPage;
 	}
 
 	public PaginationHelper getPagination() {
@@ -122,8 +133,14 @@ public class PurchaseOrderController implements Serializable {
 	}
 
 	public String view(PurchaseOrder p) {
-		purchaseOrder.setPurchaseOrder(p);
-		return "imsPoDeets";
+		String returnPage = "imsPoDeets";
+		if (!(userCredentials.getName() == null)) {
+			purchaseOrder.setPurchaseOrder(p);
+
+		} else {
+			returnPage = "imsLogin";
+		}
+		return returnPage;
 	}
 
 	public int findLines(PurchaseOrder purchaseOrder) {
