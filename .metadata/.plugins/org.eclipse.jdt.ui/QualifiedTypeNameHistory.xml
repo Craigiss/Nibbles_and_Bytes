@@ -29,4 +29,5 @@
 <fullyQualifiedTypeName name="javax.faces.model.DataModel"/>
 <fullyQualifiedTypeName name="com.nb.gnome.entities.Supplier"/>
 <fullyQualifiedTypeName name="com.nb.gnome.entities.Address"/>
+<fullyQualifiedTypeName name="com.nb.gnome.managers.AddressRepository"/>
 </qualifiedTypeNameHistroy>

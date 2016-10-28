@@ -1,0 +1,62 @@
+package MyHibernateApp.com.nb.hibernate;
+
+import java.util.Properties;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.Service;
+import org.hibernate.service.ServiceRegistry;
+
+import com.nb.models.Customer;
+
+
+
+
+public class MyHibernateApplication {
+
+	public static void main(String[] args) {
+		
+		//Create properties class object and set hibernate properties
+		
+		Properties props = new Properties();
+
+		props.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
+		props.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/jacob");
+		props.setProperty("hibernate.connection.username", "root");
+		props.setProperty("hibernate.connection.password", "");
+		props.setProperty("hibernate.show_sql", "true");
+		props.setProperty("hibernate.hbm2ddl.auto", "create");
+		
+		//step 2 
+		
+		//create configuration class object 
+		
+		Configuration cfg = new Configuration().addProperties(props).addAnnotatedClass(Customer.class);
+		
+		ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).build();
+			
+	
+		SessionFactory sessionFactory = cfg.buildSessionFactory(serviceRegistry);
+		
+		Session session = sessionFactory.openSession();
+		
+		Transaction tx = session.beginTransaction(); 
+		
+		Customer c1 = new Customer();
+		c1.setCustomername("Jacob");
+		
+		
+		session.save(c1);
+		
+		tx.commit();
+		
+		session.close();
+		
+		sessionFactory.close();
+	
+	}
+
+}

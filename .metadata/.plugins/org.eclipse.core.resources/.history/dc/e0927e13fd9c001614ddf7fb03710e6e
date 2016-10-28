@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns ="https://www.w3.org/1999/xhtml"
+
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initialscale=1" />
+
+<title>
+	Checkout
+</title>
+<link href="css/Checkout.css" rel="stylesheet"/>
+<ui:insert name="css"/>
+<link href="css/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"/>
+
+
+</h:head>
+<f:view>
+<body >
+<div id="container">
+   <div id="header">
+   <nav class="navbar navbar-default">
+			<div class="container-fluid">
+
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+				  data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<div id="topNav" >
+					<a class="navbar-brand" href="homePage.xhtml">
+						<img src="img/lgo.png" width="150px"/> 
+					</a>
+									
+					  <ul class="nav navbar-nav navbar-right pull-right" >
+
+						<li id="leftBorder">
+							<a href="homePage.xhtml">Home</a>
+						</li>
+			
+					  </ul>
+					  </div>
+				</div>
+			</div>
+		</nav>	
+	</div>
+	
+    <div id="body" style="margin-top: 50px;"> 
+    <center><h1>Select Address</h1></center>
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+			<h3 class="panel-title">Basket</h3>
+		  </div>
+		  <!-- Table -->
+		  <table class="table">
+			<tr>
+				<th>Line 1</th>
+				<th>Town</th> 
+				<th>County</th>
+				<th>Post Code</th>
+				<th>Select one</th>
+			</tr>
+	<h:form>
+
+		<ui:repeat var="addressLine" value="#{Account.address}">
+	
+			<tr>
+				
+				<td><h:outputText value="#{addressLine.line1}"/></td>
+				<td><h:outputText value="#{addressLine.town}"/></td>
+				<td><h:outputText value="#{addressLine.county}"/></td>
+				<td><h:outputText value="#{addressLine.postcode}"/></td>
+			    <td>
+			   		   <h:commandLink action="#{order.}" value="select" />
+			   		   <!--  <input type="radio" name="address" value="#{addressLine.id}"  onclick="order.setSelectedId(addressLine.id);" />--> 
+			    </td>
+				
+			</tr>
+	    </ui:repeat>
+
+</h:form>
+
+		  </table>
+
+		  
+		</div>
+		<h:form>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="btn-group">
+
+					<h:commandLink action="Basket.xhtml"  >
+						<h:commandButton class="btn btn-danger" value="Cancel" type="submit" />
+					</h:commandLink>
+				</div>
+			</div>    
+			<div class="col-md-6">
+				<div class=" pull-right">
+					<h:commandLink action="#{order.saveAddress(order.selectedId)}"  >
+						<h:commandButton class="btn btn-success" value="Proceed" type="submit"  />
+					</h:commandLink>			
+				</div>
+			</div>
+		</div>
+		</h:form>	
+    </div>   
+   <div class="progress">
+	  <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+	    50% Complete
+	  </div>
+	</div>
+   <div id="footer"> 
+	
+   </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+</body>
+</f:view>
+</html>

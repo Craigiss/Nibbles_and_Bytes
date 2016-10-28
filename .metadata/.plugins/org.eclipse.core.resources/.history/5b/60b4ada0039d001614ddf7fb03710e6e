@@ -1,0 +1,40 @@
+package com.nb.gnome.service;
+
+import java.util.ArrayList;
+
+import javax.ejb.Stateful;
+
+import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.SalesOrder;
+import com.nb.gnome.entities.SalesOrderDetails;
+import com.nb.gnome.managers.SalesOrderDetailsRepository;
+import com.nb.gnome.managers.SalesOrderRepository;
+@Stateful
+public class CheckoutService  {
+	private SalesOrder order; 
+	private SalesOrderDetails salesOrderDetails;
+	private SalesOrderRepository salesOrdermanager; 
+	private SalesOrderDetailsRepository salesOrderDetailsManager; 
+	
+	public double totalPrice(ArrayList<Product> products){
+		double total = 0;
+		
+		for (Product p : products){
+			total += (p.getPrice()*p.getQuantity());
+		}
+		String totalP = String.format("%1$.2f", total);
+		total = Double.parseDouble(totalP);
+		return total;
+		
+	}
+	
+	public void completeOrder(){
+		order.setId(salesOrdermanager.findAll().size()+1);
+		
+		
+		
+		
+		salesOrderDetails.setFKSalesOrderId(order.getId());
+		salesOrderDetails.setId(salesOrderDetailsManager.findAll().size()+1);
+	}
+}

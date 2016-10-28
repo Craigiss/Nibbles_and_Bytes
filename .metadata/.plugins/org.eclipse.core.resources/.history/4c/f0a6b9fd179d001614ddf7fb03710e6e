@@ -1,0 +1,25 @@
+package com.nb.gnome.service;
+
+import java.time.LocalDate;
+
+import javax.inject.Inject;
+
+import com.nb.gnome.entities.Review;
+import com.nb.gnome.managers.ReviewRepository;
+
+public class ReviewService {
+		@Inject 
+		ReviewRepository reviewRepository; 
+		
+		
+		
+		public void completeReview(String Comment){
+			Review r = new Review(); 
+			r.setProductID(reviewRepository.findAll().size()+1);
+			r.setDate(LocalDate.now().toString());
+			r.setRating(5);
+			r.setReviewText(Comment);
+			reviewRepository.persistReview(r);
+		}
+
+}

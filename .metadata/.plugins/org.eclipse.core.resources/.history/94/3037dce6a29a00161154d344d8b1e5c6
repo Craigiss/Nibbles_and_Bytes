@@ -1,0 +1,52 @@
+package com.nb.models;
+
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Customer {
+	
+	
+	@Id
+	@GeneratedValue 
+	private int customerid;
+	private String customername;
+	
+	@Embedded 
+	private Address address;
+	
+	
+	
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public int getCustomerid() {
+		return customerid;
+	}
+	public void setCustomerid(int customerid) {
+		this.customerid = customerid;
+	}
+	public String getCustomername() {
+		return customername;
+	}
+	public void setCustomername(String customername) {
+		this.customername = customername;
+	}
+	
+	@Override
+	public String toString() {
+		return "Customer [customerid=" + customerid + ", customername=" + customername + ", address=" + address + "]";
+	}
+
+	
+	
+	
+	
+	
+	
+}

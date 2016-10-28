@@ -1,0 +1,69 @@
+package com.nb.gnome.controllers;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import com.nb.gnome.entities.Address;
+import com.nb.gnome.entities.SalesOrder;
+import com.nb.gnome.managers.AddressRepository;
+import com.nb.gnome.service.OrderService;
+
+
+@Named ("order")
+@SessionScoped
+public class OrderController implements Serializable {
+	@Inject 
+	OrderService orderService; 
+	@Inject 
+	AddressRepository addressManager;
+	
+    private Address savedAddress;
+    private int selectedId;
+	
+	
+	private ArrayList<SalesOrder> products = new ArrayList<SalesOrder>();
+
+	public ArrayList<SalesOrder> getProducts() {
+		products = orderService.retrieveOrders();
+		return products;
+	}
+
+	public void setProductss(ArrayList<SalesOrder> products) {
+		this.products = products;
+	}
+
+	public String saveAddress(int id){
+		savedAddress = addressManager.getAddressById(id);
+		return "OrderConfirmation";
+		
+	}
+	
+
+	public Address getSavedAddress() {
+		return savedAddress;
+	}
+
+	public void setSavedAddress(Address savedAddress) {
+		this.savedAddress = savedAddress;
+	}
+
+	public int getSelectedId() {
+		return selectedId;
+	}
+
+	public void setSelectedId(int selectedId) {
+		this.selectedId = selectedId;
+	}
+
+	public void setProducts(ArrayList<SalesOrder> products) {
+		this.products = products;
+	}
+
+
+}
+
