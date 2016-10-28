@@ -11,7 +11,9 @@ import javax.inject.Named;
 import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.SalesOrder;
 import com.nb.gnome.managers.AddressRepository;
+import com.nb.gnome.service.CheckoutService;
 import com.nb.gnome.service.OrderService;
+import com.nb.gnome.service.UserCredentials;
 
 
 @Named ("order")
@@ -21,6 +23,12 @@ public class OrderController implements Serializable {
 	OrderService orderService; 
 	@Inject 
 	AddressRepository addressManager;
+	@Inject 
+	CheckoutService checkoutService; 
+	@Inject 
+	BasketController basketController;
+	@Inject 
+	UserCredentials  userCredentials; 
 	
     private Address savedAddress;
     private int selectedId;
@@ -30,16 +38,7 @@ public class OrderController implements Serializable {
 	private String county; 
 	private String postcode; 
 	
-	private ArrayList<SalesOrder> products = new ArrayList<SalesOrder>();
 
-	public ArrayList<SalesOrder> getProducts() {
-		products = orderService.retrieveOrders();
-		return products;
-	}
-
-	public void setProductss(ArrayList<SalesOrder> products) {
-		this.products = products;
-	}
 
 	public String saveAddress(int id){
 		savedAddress = new Address();
@@ -51,6 +50,11 @@ public class OrderController implements Serializable {
 		postcode = savedAddress.getPostcode();
 		return "OrderConfirmation";
 		
+	}
+	
+	public String completeOrder(){
+		checkoutService.completeOrder(basketController.getProducts(), userCredentials.getId());
+		return "homePage";
 	}
 	
 
@@ -70,9 +74,6 @@ public class OrderController implements Serializable {
 		this.selectedId = selectedId;
 	}
 
-	public void setProducts(ArrayList<SalesOrder> products) {
-		this.products = products;
-	}
 
 	public String getAddressSecondLine() {
 		return addressSecondLine;

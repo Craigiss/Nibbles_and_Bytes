@@ -48,5 +48,11 @@ public class SalesOrderDetailsRepositoryOffline implements SalesOrderDetailsRepo
 		return newOne;
 	}
 	
+	@Override
+	public List<SalesOrderDetails> findAll() {
+		return initialData.getSalesOrdersDetails();
+	}
+
+	
 }
 

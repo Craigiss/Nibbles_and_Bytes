@@ -84,7 +84,6 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 				<td><h:outputText value="#{addressLine.postcode}"/></td>
 			    <td>
 			   		   <h:commandLink action="#{order.saveAddress(addressLine.id)}" value="select" />
-			   		   <!--  <input type="radio" name="address" value="#{addressLine.id}"  onclick="order.setSelectedId(addressLine.id);" />--> 
 			    </td>
 				
 			</tr>
@@ -106,13 +105,6 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 					</h:commandLink>
 				</div>
 			</div>    
-			<div class="col-md-6">
-				<div class=" pull-right">
-					<h:commandLink action="#{order.saveAddress(order.selectedId)}"  >
-						<h:commandButton class="btn btn-success" value="Proceed" type="submit"  />
-					</h:commandLink>			
-				</div>
-			</div>
 		</div>
 		</h:form>	
     </div>   

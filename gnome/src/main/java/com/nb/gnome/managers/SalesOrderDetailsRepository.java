@@ -20,5 +20,7 @@ public interface SalesOrderDetailsRepository {
 	public List<SalesOrderDetails> findSalesOrderDetailsByOrder(SalesOrder so);
 	
 	public SalesOrderDetails findSalesOrderDetailsById(long id);
+
+	List<SalesOrderDetails> findAll();
 	
 }

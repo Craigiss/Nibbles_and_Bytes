@@ -186,10 +186,10 @@
 						</div>
 						<div class="col-md-6">
 							<div class=" pull-right">
-
-								<h:commandButton class="btn btn-success" value="Complete Order"
+								<h:commandlink action = "#{order.completeOrder()}">
+									<h:commandButton class="btn btn-success" value="Complete Order"
 									type="submit" />
-
+								</h:commandLink>
 							</div>
 						</div>
 					</div>
