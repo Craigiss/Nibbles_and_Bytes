@@ -1,40 +1,59 @@
-<ui:composition
-xmlns="https://www.w3.org/1999/xhtml"
-xmlns:f="http://java.sun.com/jsf/core"
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
-xmlns:h="http://java.sun.com/jsf/html"
-xmlns:ui="http://java.sun.com/jsf/facelets"
-xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-template="templates/Template.xhtml">
-<meta charset="utf-8" />
-<ui:define name="title">
-IMS Login Page
-</ui:define>
-<!-- <ui:define name="css">
-    <link href="css/login.css" rel="stylesheet"/>
-</ui:define> -->
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="css/Template.css" rel="stylesheet" />
+	<link href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+		rel="stylesheet" />
 
-<ui:define name="mainContent">
+	<title>NBGardens IMS Login</title>
+</h:head>
 
-<h:form class="form-signin">    
-    <h2 class="form-signin-heading">Please sign in</h2>
-    <h:inputText value="#{isAccount.email}"  type="email" id="inputEmail"
-    class="form-control" a:placeholder="Email address"  autofocus=""
-    requiredMessage="Please Enter Email"/>
-    <h:inputSecret value="#{isAccount.password}" type="password" id="inputPassword" 
-    class="form-control" a:placeholder="Password" 
-    requiredMessage="Please Enter Password" />
+<f:view>
+	<body>
+		<div id="container">
+			<div id="header">
+				<center>
+					<h1>NB Gardens IMS</h1>
+				</center>
+			</div>
 
-    <h:commandButton class="btn btn-lg btn-primary btn-block" 
-    type="submit" action="#{login.login()}" value="Sign In" />
-    <h:form rendered="#{login.error ne null}" >
-        <div id="alerttt"  class="alert alert-danger" style="visiblity:visible"> 
-             <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
-             <h:outputText value="#{login.error}" />
-         </div>
-    </h:form>
-</h:form>
+			<div id="body">
+				<h:form class="form-signin">
+					<h2 class="form-signin-heading">Please sign in</h2>
+					<h:inputText value="#{isAccount.email}" type="email"
+						id="inputEmail" class="form-control" a:placeholder="Email address"
+						autofocus="" requiredMessage="Please Enter Email" />
+					<h:inputSecret value="#{isAccount.password}" type="password"
+						id="inputPassword" class="form-control" a:placeholder="Password"
+						requiredMessage="Please Enter Password" />
 
+					<h:commandButton class="btn btn-lg btn-primary btn-block"
+						type="submit" action="#{isAccount.login()}" value="Sign In" />
 
-</ui:define>
-</ui:composition>
+				</h:form>
+
+			</div>
+
+			<div id="footer">
+				<h:form rendered="#{isAccount.error ne null}">
+					<div id="alerttt" class="alert alert-danger"
+						style="visiblity: visible">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
+						<h:outputText value="#{isAccount.error}" />
+					</div>
+				</h:form>
+			</div>
+		</div>
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	</body>
+</f:view>
+</html>

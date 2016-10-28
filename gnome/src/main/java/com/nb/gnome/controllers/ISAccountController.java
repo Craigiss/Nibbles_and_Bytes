@@ -25,12 +25,12 @@ public class ISAccountController implements Serializable{
     private String error;
 
     
-    public String login(String nEmail, String nPassword){
+    public String login(){
     	String pageReturn = "imsLogin";
-    	if(iSAService.logInToIms(nEmail, nPassword).equals("successful")){
+    	if(iSAService.logInToIms(email, password).equals("successful")){
     		pageReturn="imsIndex";
     	}else{
-    		error=iSAService.getError();
+    		setError(iSAService.getError());
     	}
      
     	return pageReturn;
@@ -82,6 +82,22 @@ public class ISAccountController implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	/**
+	 * @return the error
+	 */
+	public String getError() {
+		return error;
+	}
+
+	/**
+	 * @param error the error to set
+	 */
+	public void setError(String error) {
+		this.error = error;
+	}
+	
+	
     
     
 }

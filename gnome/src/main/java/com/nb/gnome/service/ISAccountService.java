@@ -32,10 +32,10 @@ public class ISAccountService {
 		boolean accountValid = false;
 		CHECK: for (ISAccount a : accounts){
 			if (a.getEmail().equals(nEmail)){
-				accountValid = false;
+				accountValid = true;
 				break CHECK;			}
 			else{
-				accountValid = true;
+				accountValid = false;
 			}
 		}
 		return accountValid;
@@ -77,7 +77,8 @@ public class ISAccountService {
 	}
 	public String logInToIms(String nEmail, String nPassword){
 		boolean validLogOn= false;
-		if(!accountCheck(nEmail)){
+		boolean check = accountCheck(nEmail);
+		if(!check){
 			int code=3;
 			accountError(code);
 		}
@@ -97,7 +98,7 @@ public class ISAccountService {
 			return "successful";
 		}
 		else{
-			return null;
+			return "imsLogin";
 		}
 	}
 	
