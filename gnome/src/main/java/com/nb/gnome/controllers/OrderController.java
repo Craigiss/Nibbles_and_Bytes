@@ -41,9 +41,9 @@ public class OrderController implements Serializable {
 		this.products = products;
 	}
 
-	public String saveAddress(){
+	public String saveAddress(int id){
 		savedAddress = new Address();
-		savedAddress = addressManager.getAddressById(selectedId);
+		savedAddress = addressManager.getAddressById(id);
 		addressSecondLine = savedAddress.getLine2();
 		addressFirstLine = savedAddress.getLine1();
 		town = savedAddress.getTown();

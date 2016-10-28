@@ -48,16 +48,23 @@ public class AccountController implements Serializable {
     
     public void updateAddresses(ValueChangeEvent e){												// Updates address by drop down box selected address.
     	address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();		// Gets the customer's addresses.
-   
-    	
+    	int addressIdToFind =0;
+
+		for(Address a : address)
+		{
+			if(a.getId() == selectedAddress)
+				addressIdToFind =a.getId();
+		}
     	for (Address a: address){
-    		if (a.getId()==selectedAddress){ // if the address id matches the id of the new address we are looking for...
+    		if (a.getId()==addressIdToFind){ // if the address id matches the id of the new address we are looking for...
     			setTown(a.getTown());
     			setAddressFirstLine(a.getLine1());
     	    	setAddressSecondLine(a.getLine2());
     	    	setPostcode(a.getPostcode());
-    	    	setCounty(a.getPostcode());
+    	    	setCounty(a.getCounty());
+    	    	break;
     		}
+    		
     	}
     
    
@@ -218,35 +225,72 @@ public class AccountController implements Serializable {
 	
 	public String getAddressFirstLine(){
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
-		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
-			return address.get(selectedAddress).getLine1();					// 		 (until we can add a page to view multiple addresses).
+	if(address.size() > 0)	{
+			
+			for(Address a : address)
+			{
+				if(a.getId() == selectedAddress)
+					return a.getLine1();
+			}
+			return address.get(selectedAddress).getLine1();		
+		}
+			// 		 (until we can add a page to view multiple addresses).
 		else
-			return "No address found - Please add your address details."; 
+			return "No address found - Please add your address details.";
+
+
 	}
 	
 	public String getAddressSecondLine(){
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
-		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
-			return address.get(selectedAddress).getLine2();					// 		 (until we can add a page to view multiple addresses).
+	if(address.size() > 0)	{
+			
+			for(Address a : address)
+			{
+				if(a.getId() == selectedAddress)
+					return a.getLine2();
+			}
+			return address.get(selectedAddress).getLine2();		
+		}
+			// 		 (until we can add a page to view multiple addresses).
 		else
-			return "No address found - Please add your address details."; 
+			return "No address found - Please add your address details.";
+
 	}
 	
 
 	public String getCounty(){
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
-		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
-			return address.get(selectedAddress).getCounty();					// 		 (until we can add a page to view multiple addresses).
+	if(address.size() > 0)	{
+			
+			for(Address a : address)
+			{
+				if(a.getId() == selectedAddress)
+					return a.getCounty();
+			}
+			return address.get(selectedAddress).getCounty();		
+		}
+			// 		 (until we can add a page to view multiple addresses).
 		else
-			return "No address found - Please add your address details."; 
+			return "No address found - Please add your address details.";
+
 	}
 	
 	public String getPostcode(){
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
-		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
-			return address.get(selectedAddress).getPostcode();				// 		 (until we can add a page to view multiple addresses).
+	if(address.size() > 0)	{
+			
+			for(Address a : address)
+			{
+				if(a.getId() == selectedAddress)
+					return a.getPostcode();
+			}
+			return address.get(selectedAddress).getPostcode();		
+		}
+			// 		 (until we can add a page to view multiple addresses).
 		else
-			return "No address found - Please add your address details."; 
+			return "No address found - Please add your address details.";
+
 	}
 	
 	/**
@@ -254,10 +298,19 @@ public class AccountController implements Serializable {
 	 */
 	public String getTown() {
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
-		if(address.size() > 0)									// TEMP: If an address exists, use the first address of the customer 
-			return address.get(selectedAddress).getTown();					// 		 (until we can add a page to view multiple addresses).
+	if(address.size() > 0)	{
+			
+			for(Address a : address)
+			{
+				if(a.getId() == selectedAddress)
+					return a.getTown();
+			}
+			return address.get(selectedAddress).getTown();		
+		}
+			// 		 (until we can add a page to view multiple addresses).
 		else
-			return "No address found - Please add your address details."; 
+			return "No address found - Please add your address details.";
+
 	}
 
 	/**
