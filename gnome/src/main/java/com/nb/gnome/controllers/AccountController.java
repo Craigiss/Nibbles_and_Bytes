@@ -32,7 +32,7 @@ public class AccountController implements Serializable {
 	AddressService addressService;
 	
 
-	private List<Address> address;
+	private List<Address> address;									// Customer's addresses.
 
 
 	private String email; 
@@ -44,13 +44,14 @@ public class AccountController implements Serializable {
     private String county; 
     private String postcode;
 
-    private int selectedAddress = 1 ;								// The ID of the address selected by the dropdown box.
+    private int selectedAddress;								// The ID of the address selected by the dropdown box.
     
-    public void updateAddresses(ValueChangeEvent e){
+    public void updateAddresses(ValueChangeEvent e){												// Updates address by drop down box selected address.
+    	address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();		// Gets the customer's addresses.
+   
     	
-    	address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
     	for (Address a: address){
-    		if (a.getId()==addressManager.getAddressById(address.get(selectedAddress).getId()).getId()){ // Change here
+    		if (a.getId()==selectedAddress){ // if the address id matches the id of the new address we are looking for...
     			setTown(a.getTown());
     			setAddressFirstLine(a.getLine1());
     	    	setAddressSecondLine(a.getLine2());

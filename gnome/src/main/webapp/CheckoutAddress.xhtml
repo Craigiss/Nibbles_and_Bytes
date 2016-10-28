@@ -74,23 +74,22 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 			</tr>
 	<h:form>
 
-		<ui:repeat var="addressLine" value="#{Account.address}">
+		<f:selectItems value="#{Account.address}" var="addressLine">
 	
 			<tr>
-				
 				<td><h:outputText value="#{addressLine.line1}"/></td>
 				<td><h:outputText value="#{addressLine.town}"/></td>
 				<td><h:outputText value="#{addressLine.county}"/></td>
 				<td><h:outputText value="#{addressLine.postcode}"/></td>
 			    <td>
 			   		    <h:selectOneRadio value = "#{order.selectedId}">
-			   		    <f:selectItem itemLable = "" itemValue = "#{addressLine.id}" />
+			   		    <f:selectItem itemLabel = "" itemValue = "#{addressLine.id}" />
 			   		    </h:selectOneRadio>
 			   		    <!--  <input type="radio" name="address" value="#{addressLine.id}"  onclick="#order.setSelectedId(addressLine.id)" />-->
 			    </td>
 				
 			</tr>
-	    </ui:repeat>
+	    </f:selectItems >
 
 </h:form>
 
@@ -110,7 +109,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 			</div>    
 			<div class="col-md-6">
 				<div class=" pull-right">
-					<h:commandLink action="#{order.saveAddress(order.selectedId)}"  >
+					<h:commandLink action="#{order.saveAddress()}"  >
 						<h:commandButton class="btn btn-success" value="Proceed" type="submit"  />
 					</h:commandLink>			
 				</div>
