@@ -17,8 +17,6 @@ import gnome.InitialData;
 public class PurchaseOrderService {
 
 	@Inject
-	private InitialData initialData;
-	@Inject
 	private PurchaseOrderRepository purchaseOrderManager;
 
 	public void persistPurchaseOrder(int mId, Date mDate, String mStatus, List<PurchaseOrderDetails> mList) {

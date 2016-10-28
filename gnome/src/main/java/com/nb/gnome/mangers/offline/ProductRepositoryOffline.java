@@ -159,6 +159,30 @@ public class ProductRepositoryOffline implements ProductRepository {
 	public void deleteProduct(Product p) {
 		
 	}
+
+	@Override
+	public List<Product> findCritical() {
+		List<Product> products = new ArrayList<Product>();
+		for (Product p : initialData.getProducts())
+		{
+			if (p.getStockLevel() <= 10){
+				products.add(p);
+			}
+		}
+		return products;
+	}
+	
+	@Override
+	public List<Product> findCriticalPourous() {
+		List<Product> products = new ArrayList<Product>();
+		for (Product p : initialData.getProducts())
+		{
+			if (p.getPorousStockLevel() <= 10){
+				products.add(p);
+			}
+		}
+		return products;
+	}
 	
 	
 

@@ -223,6 +223,10 @@ public class ProductController implements Serializable {
 	public void setProduct(SelectedProduct product) {
 		this.product = product;
 	}
+	
+	public String productToString(){
+		return product.getProduct().getProductName() + " " + product.getProduct().getStockLevel();
+	}
 
 	/**
 	 * @return the listData

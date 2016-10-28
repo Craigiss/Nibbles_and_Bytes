@@ -31,7 +31,8 @@ public class InitialData {
 		p1.setProductID(1);
 		p1.setDescription("A beautiful pink plastic flamingo to place in your tropical garden");
 		p1.setPrice(15.99);
-		p1.setStockLevel(115);
+		p1.setStockLevel(5);
+		p1.setPorousStockLevel(15);
 		p1.setImgPath("img/Flamingo.gif");
 		products.add(p1);
 		
@@ -41,6 +42,7 @@ public class InitialData {
 		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p2.setPrice(24.99);
 		p2.setStockLevel(115);
+		p2.setPorousStockLevel(6);
 		p2.setImgPath("img/gnomezilla.png");
 		products.add(p2);
 		
@@ -50,7 +52,35 @@ public class InitialData {
 		p3.setDescription("tim loves java and being in the garden");
 		p3.setPrice(24.99);
 		p3.setStockLevel(1015);
+		p3.setPorousStockLevel(20);
 		products.add(p3);
+		
+		Product p4 = new Product();
+		p4.setProductName("Gnome Of Gnomes - Ned Gnome");
+		p4.setProductID(004);
+		p4.setDescription("Dont lose your head!");
+		p4.setPrice(14.99);
+		p4.setStockLevel(1);
+		p4.setPorousStockLevel(8);
+		products.add(p4);
+		
+		Product p5 = new Product();
+		p5.setProductName("Gnome Trek - Kirk & Spok");
+		p5.setProductID(005);
+		p5.setDescription("Travelling where no gnome has gone before!");
+		p5.setPrice(20.99);
+		p5.setStockLevel(6);
+		p5.setPorousStockLevel(3);
+		products.add(p5);
+		
+		Product p6 = new Product();
+		p6.setProductName("Benny - Gnomeo&Juliet");
+		p6.setProductID(006);
+		p6.setDescription("Tragic Gnomes");
+		p6.setPrice(12.99);
+		p6.setStockLevel(7);
+		p6.setPorousStockLevel(1);
+		products.add(p6);
 		
 		Supplier s1 = new Supplier();
 		s1.setCompany("Lawn Flamingos Wholesale");
@@ -127,21 +157,42 @@ public class InitialData {
 		
 		po2.setLines(listOfPOD);
 		purchaseOrders.add(po2);
-//		
-//		PurchaseOrder po3 = new PurchaseOrder();
-//		po3.setId(1);
-//		po3.setDate(new Date(116,10,22));
-//		po3.setStatus("Archived");
-//		po3.setSupplier(s1);
-//		
-//		PurchaseOrderDetails pod5 = new PurchaseOrderDetails();
-//		pod5.setProduct(p1);
-//		pod5.setQuantity(2);
-//		listOfPOD.add(pod5);
-//		purchaseOrderDetails.add(pod5);
-//
-//		po3.setLines(listOfPOD);
-//		purchaseOrders.add(po3);
+		
+		PurchaseOrder po3 = new PurchaseOrder();
+		po3.setId(1);
+		po3.setDate(new Date(116,10,22));
+		po3.setStatus("Archived");
+		po3.setSupplier(s1);
+		
+		PurchaseOrderDetails pod5 = new PurchaseOrderDetails();
+		pod5.setProduct(p1);
+		pod5.setQuantity(2);
+		listOfPOD.add(pod5);
+		purchaseOrderDetails.add(pod5);
+
+		po3.setLines(listOfPOD);
+		purchaseOrders.add(po3);
+		
+		PurchaseOrder po4 = new PurchaseOrder();
+		po4.setId(9);
+		po4.setDate(new Date(116,11,4));
+		po4.setStatus("Archived");
+		po4.setSupplier(s3);
+		
+		PurchaseOrderDetails pod7 = new PurchaseOrderDetails();
+		pod7.setProduct(p1);
+		pod7.setQuantity(2);
+		listOfPOD.add(pod7);
+		purchaseOrderDetails.add(pod7);
+		
+		PurchaseOrderDetails pod8 = new PurchaseOrderDetails();
+		pod8.setProduct(p2);
+		pod8.setQuantity(1);
+		listOfPOD.add(pod8);
+		purchaseOrderDetails.add(pod8);
+
+		po4.setLines(listOfPOD);
+		purchaseOrders.add(po4);
 		
 		//Inventory Staff Account details
 		

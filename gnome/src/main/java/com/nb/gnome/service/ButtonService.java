@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import com.nb.gnome.controllers.GraphController;
 import com.nb.gnome.controllers.ProductController;
 import com.nb.gnome.controllers.PurchaseOrderController;
 import com.nb.gnome.controllers.SupplierController;
@@ -22,6 +23,7 @@ public class ButtonService {
 	@Inject private ProductController prodController;
 	@Inject private SupplierController supplierController;
 	@Inject private PurchaseOrderController poController;
+	@Inject private GraphController graph;
 		
 	public String deleteProduct(int id){
 		for(Product p : initialData.getProducts())
@@ -29,6 +31,8 @@ public class ButtonService {
 			if (p.getProductID() == id)
 			{
 				p.setDeleted(true);
+				if (p.getStockLevel()<=10){graph.removeSegment(p.getProductName() + " " + p.getStockLevel() + " products remaining ");}
+				if (p.getPorousStockLevel()<=10){graph.removeSegment3(p.getProductName() + " " + p.getPorousStockLevel() + " products remaining ");}
 			}
 		}
 		prodController.reset();
