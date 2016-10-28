@@ -3,7 +3,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:rich="http://richfaces.org/rich"
-	template="templates/imsTemplateDetails.xhtml">
+	template="templates/imsTemplateDetails.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -24,7 +25,7 @@
 		</ui:define>
 
 	<ui:define name="backFunction">
-		<h:commandLink action="#{graph.reset()}" value="" class="hovering">
+		<h:commandLink action="#{graphs.reset()}" value="" class="hovering">
 			<h:graphicImage class="glass_back" value="img/back.png" />
 		</h:commandLink>
 	</ui:define>
@@ -40,31 +41,32 @@
 	<!-- Main content of  -->
 	<ui:define name="maincontent">
 
-
-		<div class="row">
-			<div class="col-sm-6" id="admin">
-				<rich:chart id="pie" title="Product Stock Level">
-					<rich:chartLegend sorting="descending" />
-					<rich:chartSeries data="#{graphs.pie}" type="pie" />
-				</rich:chart>
-				<div>
-				<p>Critical Stock</p>
-				<ui:repeat var="graph" value="#{graphs.productDataModel}">
-					<div>
-						<h:form>
-							<h:commandLink action="#{products.view(product)}" value="h"/>
-						</h:form>
-					</div>				
-				</ui:repeat>
+		<div id="analytics">
+			<div class="row">
+				<div class="col-sm-6" id="admin">
+					<rich:chart id="pie" title="Critical Stock">
+						<rich:chartLegend sorting="descending" />
+						<rich:chartSeries data="#{graphs.pie}" type="pie" />
+					</rich:chart>
+				</div>
+				<div class="col-sm-6" id="analy">
+					<rich:chart id="pie2" title="Supplier Lifetime Usage">
+						<rich:chartLegend sorting="descending" />
+						<rich:chartSeries data="#{graphs.pie2}" type="pie" />
+					</rich:chart>
 				</div>
 			</div>
-			<div class="col-sm-6" id="analy"></div>
-		</div>
 
-		<div class="row">
-			<div class="col-sm-6" id="log"></div>
+			<div class="row">
+				<div class="col-sm-6" id="log">
+					<rich:chart id="pie3" title="Critical Pourous Stock">
+						<rich:chartLegend sorting="descending" />
+						<rich:chartSeries data="#{graphs.pie3}" type="pie" />
+					</rich:chart>
+				</div>
 
-			<div class="col-sm-6" id="po"></div>
+				<div class="col-sm-6" id="po"></div>
+			</div>
 		</div>
 	</ui:define>
 

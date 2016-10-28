@@ -27,7 +27,7 @@ public class ProductService {
 	 */
 	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel){
 		Product prodprod = new Product(productManager.findAll().size() +1, mName, mDescription, mPrice, mStockLevel, mporousStockLevel);
-		graph.setPie(prodprod.getProductName(),prodprod.getStockLevel());
+		graph.setPie(prodprod.getProductName() + " " + prodprod.getStockLevel() + " products remaining ",prodprod.getStockLevel());
 		productManager.persistProduct(prodprod);
 	}
 	
@@ -44,6 +44,11 @@ public class ProductService {
 	
 	public List<Product> findCriticalStock(){
 		List<Product> s = productManager.findCritical();
+		return s;		
+	}
+	
+	public List<Product> findCriticalStockPourous(){
+		List<Product> s = productManager.findCriticalPourous();
 		return s;		
 	}
 	

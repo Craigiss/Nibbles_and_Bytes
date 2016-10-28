@@ -33,5 +33,7 @@ public interface ProductRepository {
 	public void deleteProduct(Product p);
 
 	public List<Product> findCritical();
+
+	public List<Product> findCriticalPourous();
 	
 }

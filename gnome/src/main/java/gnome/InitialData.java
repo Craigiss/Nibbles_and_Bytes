@@ -31,7 +31,7 @@ public class InitialData {
 		p1.setProductID(1);
 		p1.setDescription("A beautiful pink plastic flamingo to place in your tropical garden");
 		p1.setPrice(15.99);
-		p1.setStockLevel(115);
+		p1.setStockLevel(5);
 		p1.setImgPath("img/Flamingo.gif");
 		products.add(p1);
 		
@@ -49,8 +49,32 @@ public class InitialData {
 		p3.setProductID(003);
 		p3.setDescription("tim loves java and being in the garden");
 		p3.setPrice(24.99);
-		p3.setStockLevel(1015);
+		p3.setStockLevel(8);
 		products.add(p3);
+		
+		Product p4 = new Product();
+		p4.setProductName("Gnome Of Gnomes - Ned Gnome");
+		p4.setProductID(003);
+		p4.setDescription("Dont lose your head!");
+		p4.setPrice(14.99);
+		p4.setStockLevel(1);
+		products.add(p4);
+		
+		Product p5 = new Product();
+		p5.setProductName("Gnome Trek - Kirk & Spok");
+		p5.setProductID(004);
+		p5.setDescription("Travelling where no gnome has gone before!");
+		p5.setPrice(20.99);
+		p5.setStockLevel(6);
+		products.add(p5);
+		
+		Product p6 = new Product();
+		p6.setProductName("Benny - Gnomeo&Juliet");
+		p6.setProductID(004);
+		p6.setDescription("Tragic Gnomes");
+		p6.setPrice(12.99);
+		p6.setStockLevel(7);
+		products.add(p6);
 		
 		Supplier s1 = new Supplier();
 		s1.setCompany("Lawn Flamingos Wholesale");
@@ -128,7 +152,7 @@ public class InitialData {
 		po3.setId(1);
 		po3.setDate(new Date(116,10,22));
 		po3.setStatus("Archived");
-		po3.setSupplier(s1);
+		po3.setSupplier(s2);
 		
 		PurchaseOrderDetails pod5 = new PurchaseOrderDetails();
 		pod5.setProduct(p1);
@@ -143,6 +167,26 @@ public class InitialData {
 		purchaseOrderDetails.add(pod6);
 
 		purchaseOrders.add(po3);
+		
+		PurchaseOrder po4 = new PurchaseOrder();
+		po4.setId(3);
+		po4.setDate(new Date(116,11,22));
+		po4.setStatus("Active");
+		po4.setSupplier(s3);
+		
+		PurchaseOrderDetails pod7 = new PurchaseOrderDetails();
+		pod7.setProduct(p1);
+		pod7.setQuantity(2);
+		pod7.setPurchaseOrder(po4);
+		purchaseOrderDetails.add(pod7);
+		
+		PurchaseOrderDetails pod8 = new PurchaseOrderDetails();
+		pod8.setProduct(p2);
+		pod8.setQuantity(1);
+		pod8.setPurchaseOrder(po4);
+		purchaseOrderDetails.add(pod8);
+
+		purchaseOrders.add(po4);
 		
 		//Inventory Staff Account details
 		
