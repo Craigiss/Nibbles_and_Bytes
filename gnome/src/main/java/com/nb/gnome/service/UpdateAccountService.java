@@ -1,12 +1,14 @@
 package com.nb.gnome.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Customer;
+import com.nb.gnome.managers.AddressRepository;
 import com.nb.gnome.managers.CustomerRepository;
 
 import gnome.InitialData;
@@ -20,24 +22,40 @@ public class UpdateAccountService {
 	InitialData initialData;  
 	@Inject 
 	UserCredentials userCredentials;
+	@Inject
+	AddressRepository addressRepository;
+	@Inject
+	AddressService addressService;
 	
-	public void updateAccount(String firstName, String surname, String email, String firstLine, String postcode, String county, String addressSecondLine, String town){
+	public void updateAccount(String firstName, String surname, String email){
 		
 		Customer c = customerRepository.getCustomerByEmail(userCredentials.getEmail());
 		userCredentials.setEmail(email);
 		userCredentials.setUser(firstName);
-		Address a = new Address();
-		ArrayList<Address> addresses = new ArrayList<Address>();
-		a.setLine2(addressSecondLine);
-		a.setLine1(firstLine);						// Does the addresses stuff
-		a.setPostcode(postcode);
-		a.setCounty(county);
-		a.setTown(town);
-		addresses.add(a);
-		
+
 		customerRepository.changeEmailAddress(email, c.getId());
 		customerRepository.changeFirstName(firstName, c.getId());
 		customerRepository.changeSurname(surname, c.getId());
-		customerRepository.changecustomerAddress(addresses, c.getId());
+
+	}
+	
+	public void updateAddress(int customerId, int addressId, String firstLine, String secondLine, String town, String county, String postcode){
+		ArrayList<Address> customersAddresses = (ArrayList<Address>) addressService.getCustomerAddresses();
+		
+		for (Address a : customersAddresses){
+			if (a.getId() == addressId){
+				customersAddresses.remove(a);			// Remove the address that we are changing.
+				Address updatedAddress = new Address();	// Edit the new address.
+				updatedAddress.setId(addressId);
+				updatedAddress.setLine1(firstLine);
+				updatedAddress.setLine2(secondLine);
+				updatedAddress.setTown(town);
+				updatedAddress.setPostcode(postcode);
+				customersAddresses.add(updatedAddress); // Add the updated address to the collection.
+				break;
+			}
+		}
+		
+		customerRepository.changecustomerAddress(customersAddresses, customerId);
 	}
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.ejb.Local;
 import javax.ejb.Stateful;
+import javax.inject.Inject;
 
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.SalesOrder;
@@ -14,10 +15,13 @@ import com.nb.gnome.managers.SalesOrderDetailsRepository;
 import com.nb.gnome.managers.SalesOrderRepository;
 @Stateful
 public class CheckoutService  {
-	private SalesOrder order; 
-	private SalesOrderDetails salesOrderDetails;
+	
+	
+	@Inject 
 	private SalesOrderRepository salesOrderManager; 
+	@Inject
 	private SalesOrderDetailsRepository salesOrderDetailsManager; 
+	@Inject
 	private CustomerRepository customerManager; 
 	
 	public double totalPrice(ArrayList<Product> products){
@@ -33,12 +37,15 @@ public class CheckoutService  {
 	}
 	
 	public void completeOrder(ArrayList<Product> products, int i){
+		SalesOrder order = new SalesOrder();
+		SalesOrderDetails salesOrderDetails = new SalesOrderDetails();
 		order.setId(salesOrderManager.findAll().size()+1);	
 		for (Product p: products){
 			salesOrderDetails.setFKSalesOrderId(order.getId());
 			salesOrderDetails.setId(salesOrderDetailsManager.findAll().size()+1);
 			salesOrderDetails.setProductId(p.getProductID());
 			salesOrderDetails.setQuantity(p.getQuantity());
+			salesOrderDetailsManager.persistSalesOrderDetails(salesOrderDetails);
 		order.setCustomer(customerManager.getCustomerById(i));
 		order.setDate(LocalDate.now().toString());
 		order.setStatus("Active");

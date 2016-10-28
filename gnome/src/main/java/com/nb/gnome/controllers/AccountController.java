@@ -135,7 +135,8 @@ public class AccountController implements Serializable {
 
 	public void updateAccount(){
 		System.out.println("reached");
-		updateAccountService.updateAccount(firstName, surname, email, addressFirstLine, postcode, county,addressSecondLine, town);
+		updateAccountService.updateAccount(firstName, surname, email);
+		updateAccountService.updateAddress(userCredentials.getId(), selectedAddress, addressFirstLine, addressSecondLine, town, county, postcode);
 	}
 
 	public void testingMethod()
