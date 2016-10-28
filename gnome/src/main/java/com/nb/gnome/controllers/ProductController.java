@@ -23,6 +23,9 @@ public class ProductController implements Serializable {
 	private ProductService productService;
 
 	@Inject
+	IMSUserCredentials userCredentials;
+
+	@Inject
 	private SelectedProduct product;
 	private PaginationHelper pagination;
 	private DataModel<Product> dataModel = null;
@@ -44,6 +47,14 @@ public class ProductController implements Serializable {
 		return "imsIndex";
 	}
 
+	public String goToAddProductPage() {
+		String returnPage = "addProduct";
+		if ((userCredentials.getName() == null)) {
+			returnPage = "imsLogin";
+		}
+		return returnPage;
+	}
+
 	public PaginationHelper getPagination() {
 		if (pagination == null)
 			pagination = new PaginationHelper(2) {
@@ -58,15 +69,14 @@ public class ProductController implements Serializable {
 
 				@Override
 				public DataModel<Product> createPageDataModel() {
-					//Return products to fill page
+					// Return products to fill page
 					try {
-						return new ListDataModel<Product>(listData.subList(getPageFirstItem(),
-								getPageFirstItem() + getPageSize()));
-					}
-					//Or if there aren't enough, return the rest of them
-					catch (Exception e) {
 						return new ListDataModel<Product>(
-								listData.subList(getPageFirstItem(), getItemsCount()));
+								listData.subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+					}
+					// Or if there aren't enough, return the rest of them
+					catch (Exception e) {
+						return new ListDataModel<Product>(listData.subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 			};
@@ -75,7 +85,7 @@ public class ProductController implements Serializable {
 	}
 
 	public DataModel<Product> getDataModel() {
-		if(listData == null){
+		if (listData == null) {
 			listData = productService.findAll();
 		}
 		dataModel = getPagination().createPageDataModel();
@@ -99,8 +109,13 @@ public class ProductController implements Serializable {
 	}
 
 	public String view(Product p) {
-		product.setProduct(p);
-		return "imsProdDeets";
+		String returnPage = "imsProdDeets";
+		if (!(userCredentials.getName() == null)) {
+			product.setProduct(p);
+		} else {
+			returnPage = "imsLogin";
+		}
+		return returnPage;
 	}
 
 	public String persistProduct() {
@@ -223,8 +238,8 @@ public class ProductController implements Serializable {
 	public void setProduct(SelectedProduct product) {
 		this.product = product;
 	}
-	
-	public String productToString(){
+
+	public String productToString() {
 		return product.getProduct().getProductName() + " " + product.getProduct().getStockLevel();
 	}
 
@@ -236,12 +251,11 @@ public class ProductController implements Serializable {
 	}
 
 	/**
-	 * @param listData the listData to set
+	 * @param listData
+	 *            the listData to set
 	 */
 	public void setListData(List<Product> listData) {
 		this.listData = listData;
 	}
-	
-	
 
 }
