@@ -42,6 +42,7 @@ public class OrderController implements Serializable {
 	}
 
 	public String saveAddress(int id){
+		savedAddress = new Address();
 		savedAddress = addressManager.getAddressById(id);
 		addressSecondLine = savedAddress.getLine2();
 		addressFirstLine = savedAddress.getLine1();
