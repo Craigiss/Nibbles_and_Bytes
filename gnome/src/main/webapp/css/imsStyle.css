@@ -124,14 +124,24 @@ img{
 
 #anButtons1{
 	background-color: #01B0F1;
-	height: 170px!important;
+	height: 173px!important;
 }
 
 #anButtons2{
 	background-color: #00AF50;
-	height: 170px!important;
+	height: 173px!important;
 }
 
+h2{
+	margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 155px;
+}
+
+#lineSep{
+	height: 134px;
+}
 
 #admin{
 	background-color: #7030A0;
