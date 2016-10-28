@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import com.nb.gnome.controllers.IMSUserCredentials;
 import com.nb.gnome.entities.ISAccount;
 import com.nb.gnome.managers.ISAccountRepository;
 
@@ -18,6 +19,10 @@ public class ISAccountService {
 	private ISAccountRepository iSAccountManager;
 	@Inject
 	private InitialData initialData;
+	@Inject
+	private IMSUserCredentials  userCredentials;
+	
+	private String error;
 	
 	/**
 	 * Method to check that an email address used for an account does/doesn't already exist - CMON TIM!!
@@ -28,14 +33,24 @@ public class ISAccountService {
 		CHECK: for (ISAccount a : accounts){
 			if (a.getEmail().equals(nEmail)){
 				accountValid = false;
-				break CHECK;
-			}
+				break CHECK;			}
 			else{
 				accountValid = true;
 			}
 		}
 		return accountValid;
 	}
+	
+/*	// Connors code
+	public boolean validateDetails(String email, String pass){
+		if(iSAccountManager.findISAccountByEmail(email)==null){
+			return false;
+		}
+		if(iSAccountManager.findISAccountByEmail(email).getPassword().matches(pass)){
+			return true;
+		}
+		return false;
+	}*/
 	
 	
 	/**
@@ -70,6 +85,8 @@ public class ISAccountService {
 			String recordedPassword=iSAccountManager.findISAccountByEmail(nEmail).getPassword();
 			if(recordedPassword.equals(nPassword)){
 				validLogOn=true;
+				userCredentials.setEmail(nEmail);
+				userCredentials.setName(iSAccountManager.findISAccountByEmail(nEmail).getName());
 			}
 			else{
 				int code=2;
@@ -77,7 +94,7 @@ public class ISAccountService {
 			}
 		}
 		if(validLogOn==true){
-			return "imsIndex";
+			return "successful";
 		}
 		else{
 			return null;
@@ -90,19 +107,35 @@ public class ISAccountService {
 	}
 	
 	// To be adjusted once page is completed
-	private String accountError(int code){
+	private void accountError(int code){
 		if(code == 1){
 			System.out.println("account already exists");
-			return "account already exists";
+			setError("account already exists");
 		}
 		else if(code==2){
 			System.out.println("email and password do not match records");
-			return "email and password do not match records";
+			setError("email and password do not match records");
 		}
 		else{
 			System.out.println("email not recognised");
-			return "email not recognised";
+			setError("email not recognised");
 		}
+		
+				
+	}
+
+	/**
+	 * @return the error
+	 */
+	public String getError() {
+		return error;
+	}
+
+	/**
+	 * @param error the error to set
+	 */
+	public void setError(String error) {
+		this.error = error;
 	}
 	
 	

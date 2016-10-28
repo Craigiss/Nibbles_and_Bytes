@@ -24,16 +24,4 @@ public class PurchaseOrderDetailsRepositoryOffline implements PurchaseOrderDetai
 		initialData.addPurchaseOrderDetails(pod);
 	}
 
-	@Override
-	public List<PurchaseOrderDetails> getPurchaseOrderDetails(PurchaseOrder po) {
-		ArrayList<PurchaseOrderDetails> list = new ArrayList<PurchaseOrderDetails>();
-		
-		for(PurchaseOrderDetails p : initialData.getPurchaseOrderDetails()){
-			if(p.getPurchaseOrder().getId() == po.getId()){
-				list.add(p);
-			}
-		}
-		return list;
-	}
-
 }

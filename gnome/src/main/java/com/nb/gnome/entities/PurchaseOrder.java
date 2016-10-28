@@ -51,10 +51,11 @@ public class PurchaseOrder {
 		deleted = false;
 	}
 	
-	public PurchaseOrder(int id, Date date, String status){
+	public PurchaseOrder(int id, Date date, String status, List<PurchaseOrderDetails> list){
 		this.id=id;
 		this.date=date;
 		this.status=status;
+		this.lines = list;
 	}
 	
 	
@@ -151,5 +152,7 @@ public class PurchaseOrder {
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
 	}
+	
+	
 
 }

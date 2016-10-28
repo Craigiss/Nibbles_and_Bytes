@@ -35,7 +35,6 @@ public class SearchController{
 	@Inject private SupplierController supController;
 	@Inject private PurchaseOrderController poController;
 	
-	
 	/**
 	 * @return the searchType
 	 */
@@ -98,11 +97,9 @@ public class SearchController{
 			returnValue = "imsProdDeets";
 		}
 		else if (pList.size() > 0){
-			
 				prodController.getDataModel();
-				prodController.setData(pList);
+				prodController.setListData(pList);
 				returnValue = "imsProducts";
-			
 		}
 		else{
 			returnValue = "imsError";
@@ -126,7 +123,7 @@ public class SearchController{
 		}
 		else if (companyList.size() > 0){
 			supController.getDataModel();
-			supController.setData(companyList);
+			supController.setListData(companyList);
 			returnValue = "imsSuppliers";
 		}
 		else{
@@ -150,7 +147,7 @@ public class SearchController{
 		else if (pList.size() > 0){
 			for(PurchaseOrder po : pList){
 				poController.getDataModel();
-				poController.setData(pList);
+				poController.setListData(pList);
 				returnValue = "imsPo";
 			}
 		}
@@ -173,7 +170,4 @@ public class SearchController{
 	public void setTerm(String term) {
 		this.term = term;
 	}
-	
-	
-
 }

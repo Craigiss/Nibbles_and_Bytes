@@ -31,6 +31,7 @@ public class SupplierController implements Serializable {
 	private String description;
 	private PaginationHelper pagination;
 	private DataModel<Supplier> dataModel = null;
+	private List<Supplier> listData;
 
 	public void recreateModel() {
 		dataModel = null;
@@ -38,52 +39,57 @@ public class SupplierController implements Serializable {
 
 	public String reset() {
 		dataModel = null;
+		listData = null;
 		return "imsIndex";
 
 	}
 
 	public PaginationHelper getPagination() {
 		if (pagination == null)
-			pagination = new PaginationHelper(10) {
-				@Override
-				public int getItemsCount() {
-					if (dataModel == null) {
-						return supplierService.findAll().size();
-					} else {
-						//return amount of products in the whole data model (think in terms of search results - not all suppliers)
-						return dataModel.getRowCount() + (pagination.getPage() * pagination.getPageSize());
-					}
+			pagination = new PaginationHelper(2) {
+			@Override
+			public int getItemsCount() {
+				if (listData == null) {
+					return supplierService.findAll().size();
+				} else {
+					return listData.size();
 				}
+			}
 
 				@Override
 				public DataModel<Supplier> createPageDataModel() {
+					// Return products to fill page
 					try {
-						return new ListDataModel<Supplier>(supplierService.findAll().subList(getPageFirstItem(),
-								getPageFirstItem() + getPageSize()));
-					} catch (Exception e) {
 						return new ListDataModel<Supplier>(
-								supplierService.findAll().subList(getPageFirstItem(), getItemsCount()));
+								listData.subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+					}
+					// Or if there aren't enough, return the rest of them
+					catch (Exception e) {
+						return new ListDataModel<Supplier>(listData.subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 			};
+
 		return pagination;
 	}
 
 	public DataModel<Supplier> getDataModel() {
-		if (dataModel == null)
-			dataModel = getPagination().createPageDataModel();
+		if (listData == null) {
+			listData = supplierService.findAll();
+		}
+		dataModel = getPagination().createPageDataModel();
 		return dataModel;
 
 	}
 
 	public void setData(ArrayList<Supplier> model) {
-		dataModel.setWrappedData(model);
+		listData = model;
 	}
 
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();
-		return "browse";
+		return "imsSuppliers";
 	}
 
 	public String previous() {
@@ -115,6 +121,8 @@ public class SupplierController implements Serializable {
 		phone = "";
 		email = "";
 		description = "";
+		
+		reset();
 
 		return "imsSuppliers";
 	}
@@ -211,7 +219,8 @@ public class SupplierController implements Serializable {
 	}
 
 	/**
-	 * @param description the description to set
+	 * @param description
+	 *            the description to set
 	 */
 	public void setDescription(String description) {
 		this.description = description;
@@ -232,4 +241,20 @@ public class SupplierController implements Serializable {
 	public void setDataModel(DataModel<Supplier> dataModel) {
 		this.dataModel = dataModel;
 	}
+
+	/**
+	 * @return the listData
+	 */
+	public List<Supplier> getListData() {
+		return listData;
+	}
+
+	/**
+	 * @param listData
+	 *            the listData to set
+	 */
+	public void setListData(List<Supplier> listData) {
+		this.listData = listData;
+	}
+
 }

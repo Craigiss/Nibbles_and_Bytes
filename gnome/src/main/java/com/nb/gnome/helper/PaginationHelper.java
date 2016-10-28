@@ -33,7 +33,7 @@ public abstract class PaginationHelper{
 	}
 	
 	public boolean isHasNextPage(){
-		return (page + 1) * itemsPerPage <= getItemsCount();
+		return (page + 1) * itemsPerPage < getItemsCount();
 	}
 	
 	public boolean isHasPreviousPage(){

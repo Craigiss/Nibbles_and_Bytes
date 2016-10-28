@@ -22,10 +22,10 @@ import javax.inject.Named;
 
 @Named("pos")
 @SessionScoped
-public class PurchaseOrderController implements Serializable{
+public class PurchaseOrderController implements Serializable {
 	@Inject
 	private PurchaseOrderService purchaseOrderService;
-	
+
 	@Inject
 	private SelectedPo purchaseOrder;
 	private int id;
@@ -33,101 +33,104 @@ public class PurchaseOrderController implements Serializable{
 	private String status;
 	private Supplier supplier;
 	private List<PurchaseOrderDetails> lines;
-	private PurchaseOrder nPurchaseOrder;
 	private PaginationHelper pagination;
 	private DataModel<PurchaseOrder> dataModel = null;
+	private List<PurchaseOrder> listData;
 
 	private void recreateModel() {
 		dataModel = null;
 	}
-	
-	public String reset(){
+
+	public String reset() {
 		dataModel = null;
+		listData = null;
 		return "imsIndex";
-				
+
 	}
-	
+
 	public PaginationHelper getPagination() {
-		if (pagination == null)	pagination = new PaginationHelper(10){
-		@Override
-		public int getItemsCount() {
-			if (dataModel == null){
-				  return purchaseOrderService.findAll().size();
+		if (pagination == null)
+			pagination = new PaginationHelper(2) {
+				@Override
+				public int getItemsCount() {
+					if (listData == null) {
+						return purchaseOrderService.findAll().size();
+					} else {
+						return listData.size();
+					}
 				}
-				else {
-					return dataModel.getRowCount() + (pagination.getPage() * pagination.getPageSize());
+
+				@Override
+				public DataModel<PurchaseOrder> createPageDataModel() {
+					// Return products to fill page
+					try {
+						return new ListDataModel<PurchaseOrder>(
+								listData.subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+					}
+					// Or if there aren't enough, return the rest of them
+					catch (Exception e) {
+						return new ListDataModel<PurchaseOrder>(listData.subList(getPageFirstItem(), getItemsCount()));
+					}
 				}
-		}
-	
-		@Override public DataModel<PurchaseOrder>createPageDataModel(){
-			try{
-				return new ListDataModel<PurchaseOrder>(purchaseOrderService.findAll().subList(getPageFirstItem(),getPageFirstItem() + getPageSize()));
-			} catch (Exception e) { return new ListDataModel<PurchaseOrder>(purchaseOrderService.findAll().subList(getPageFirstItem(),getItemsCount()));
-		}
-		}
-		};
+			};
+
 		return pagination;
 	}
-	
-	
+
 	public DataModel<PurchaseOrder> getDataModel() {
-		if (dataModel ==null)
-			dataModel = getPagination().createPageDataModel();
+		if (listData == null) {
+			listData = purchaseOrderService.findAll();
+		}
+		dataModel = getPagination().createPageDataModel();
 		return dataModel;
-		
+
 	}
-	
-	public void setData(ArrayList<PurchaseOrder> model ){
-		dataModel.setWrappedData(model);
+
+	public void setData(ArrayList<PurchaseOrder> model) {
+		listData = model;
 	}
-	
+
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();
 		return "imsPo";
 	}
-	
+
 	public String previous() {
 		getPagination().previousPage();
 		recreateModel();
 		return "imsPo";
 	}
-	
+
 	/**
 	 * Find Purchase Order by ID
+	 * 
 	 * @param id
 	 * @return
 	 */
 	public PurchaseOrder findPurchaseOrderById(String id) {
 		return purchaseOrderService.findPoById(id);
 	}
-	
+
 	/**
 	 * Retrieve all purchase orders on the system
+	 * 
 	 * @return
 	 */
-	public List<PurchaseOrder> findAll(){
+	public List<PurchaseOrder> findAll() {
 		return purchaseOrderService.findAll();
 	}
-	
+
 	public String view(PurchaseOrder p) {
 		purchaseOrder.setPurchaseOrder(p);
 		return "imsPoDeets";
 	}
-	
-	public PurchaseOrder getPurchaseOrder() {
-		return nPurchaseOrder;
-	}
-	
-	public void setPurchaseOrder(PurchaseOrder purchaseOrder) {
-		this.nPurchaseOrder = purchaseOrder;
-	}
-	
-	public int findLines(PurchaseOrder purchaseOrder){
+
+	public int findLines(PurchaseOrder purchaseOrder) {
 		return purchaseOrderService.findItemsQuantity(purchaseOrder);
 	}
-	
-	public String calculateTotal(PurchaseOrder p){
+
+	public String calculateTotal(PurchaseOrder p) {
 		return purchaseOrderService.calculateTotal(p);
 	}
 
@@ -139,7 +142,8 @@ public class PurchaseOrderController implements Serializable{
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -153,7 +157,8 @@ public class PurchaseOrderController implements Serializable{
 	}
 
 	/**
-	 * @param date the date to set
+	 * @param date
+	 *            the date to set
 	 */
 	public void setDate(Date date) {
 		this.date = date;
@@ -167,7 +172,8 @@ public class PurchaseOrderController implements Serializable{
 	}
 
 	/**
-	 * @param status the status to set
+	 * @param status
+	 *            the status to set
 	 */
 	public void setStatus(String status) {
 		this.status = status;
@@ -181,7 +187,8 @@ public class PurchaseOrderController implements Serializable{
 	}
 
 	/**
-	 * @param supplier the supplier to set
+	 * @param supplier
+	 *            the supplier to set
 	 */
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
@@ -195,57 +202,60 @@ public class PurchaseOrderController implements Serializable{
 	}
 
 	/**
-	 * @param lines the lines to set
+	 * @param lines
+	 *            the lines to set
 	 */
 	public void setLines(List<PurchaseOrderDetails> lines) {
 		this.lines = lines;
 	}
 
 	/**
-	 * @return the nPurchaseOrder
-	 */
-	public PurchaseOrder getnPurchaseOrder() {
-		return nPurchaseOrder;
-	}
-
-	/**
-	 * @param nPurchaseOrder the nPurchaseOrder to set
-	 */
-	public void setnPurchaseOrder(PurchaseOrder nPurchaseOrder) {
-		this.nPurchaseOrder = nPurchaseOrder;
-	}
-
-	/**
-	 * @param purchaseOrder the purchaseOrder to set
+	 * @param purchaseOrder
+	 *            the purchaseOrder to set
 	 */
 	public void setPurchaseOrder(SelectedPo purchaseOrder) {
 		this.purchaseOrder = purchaseOrder;
 	}
 
 	/**
-	 * @param pagination the pagination to set
+	 * @param pagination
+	 *            the pagination to set
 	 */
 	public void setPagination(PaginationHelper pagination) {
 		this.pagination = pagination;
 	}
-	
-	public List<PurchaseOrder> findPurchaseOrderBySupplier(Supplier s){
+
+	public List<PurchaseOrder> findPurchaseOrderBySupplier(Supplier s) {
 		return purchaseOrderService.findPurchaseOrderBySupplier(s);
 	}
-	
-	
-	public String persistPurchaseOrder(){
-		purchaseOrderService.persistPurchaseOrder(id, date, status);
+
+	public String persistPurchaseOrder() {
+		purchaseOrderService.persistPurchaseOrder(id, date, status, lines);
 		recreateModel();
-		
-		id=0;
-		date=null;
-		status="";
-		lines=null;
-		
+
+		id = 0;
+		date = null;
+		status = "";
+		lines = null;
+
+		listData = null;
+
 		return "imsPo";
 	}
-	
-	
+
+	/**
+	 * @return the listData
+	 */
+	public List<PurchaseOrder> getListData() {
+		return listData;
 	}
 
+	/**
+	 * @param listData
+	 *            the listData to set
+	 */
+	public void setListData(List<PurchaseOrder> listData) {
+		this.listData = listData;
+	}
+
+}

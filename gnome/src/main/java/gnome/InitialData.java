@@ -108,6 +108,8 @@ public class InitialData {
 		suppliers.add(s3);
 		
 		//Purchase Orders + Purchase Order Details
+		List<PurchaseOrderDetails> listOfPOD = new ArrayList<PurchaseOrderDetails>();
+		
 		PurchaseOrder po1 = new PurchaseOrder();
 		po1.setId(2);
 		po1.setDate(new Date(116,10,22));
@@ -117,15 +119,16 @@ public class InitialData {
 		PurchaseOrderDetails pod1 = new PurchaseOrderDetails();
 		pod1.setProduct(p1);
 		pod1.setQuantity(2);
-		pod1.setPurchaseOrder(po1);
+		listOfPOD.add(pod1);
 		purchaseOrderDetails.add(pod1);
 		
 		PurchaseOrderDetails pod2 = new PurchaseOrderDetails();
 		pod2.setProduct(p2);
 		pod2.setQuantity(1);
-		pod2.setPurchaseOrder(po1);
+		listOfPOD.add(pod2);
 		purchaseOrderDetails.add(pod2);
 
+		po1.setLines(listOfPOD);
 		purchaseOrders.add(po1);
 		
 		PurchaseOrder po2 = new PurchaseOrder();
@@ -137,16 +140,18 @@ public class InitialData {
 		PurchaseOrderDetails pod3 = new PurchaseOrderDetails();
 		pod3.setProduct(p3);
 		pod3.setQuantity(1);
-		pod3.setPurchaseOrder(po2);
+		listOfPOD.add(pod3);
 		purchaseOrderDetails.add(pod3);
 		
 		PurchaseOrderDetails pod4 = new PurchaseOrderDetails();
 		pod4.setProduct(p2);
 		pod4.setQuantity(1);
-		pod4.setPurchaseOrder(po2);
+		listOfPOD.add(pod4);
 		purchaseOrderDetails.add(pod4);
 		
+		po2.setLines(listOfPOD);
 		purchaseOrders.add(po2);
+
 		
 		PurchaseOrder po3 = new PurchaseOrder();
 		po3.setId(1);
