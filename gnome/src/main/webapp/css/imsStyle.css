@@ -122,6 +122,17 @@ img{
 	background-color: #01B0F1;
 }
 
+#anButtons1{
+	background-color: #01B0F1;
+	height: 170px!important;
+}
+
+#anButtons2{
+	background-color: #00AF50;
+	height: 170px!important;
+}
+
+
 #admin{
 	background-color: #7030A0;
 }
