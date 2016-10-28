@@ -14,6 +14,7 @@ import javax.inject.Named;
 import com.nb.gnome.helper.*;
 import com.nb.gnome.managers.ProductRepository;
 import com.nb.gnome.managers.ReviewRepository;
+import com.nb.gnome.service.ReviewService;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Review;
 import javax.enterprise.context.Dependent;
@@ -29,6 +30,8 @@ public class ProductController implements Serializable {
 	private ReviewRepository reviewRepository;
 	@Inject
 	private SelectedProduct product;
+	@Inject 
+	private ReviewService reviewService; 
 	private PaginationHelper pagination;
 	private int selected;
 	private DataModel<Product> dataModel = null;
@@ -38,6 +41,8 @@ public class ProductController implements Serializable {
 	}
 	private String selectedComboItem;
 	private static Map<String,Integer> availableItems;
+	private String review; 
+	private int score; 
 	
 	static{
 		availableItems = new LinkedHashMap<String, Integer>();
@@ -140,5 +145,31 @@ public class ProductController implements Serializable {
 			reviewModel = null;
 		return "Product";
 	}
+
+	public String writeReview(){
+		reviewService.completeReview(review,score);
+		return "Product";
+	}
+
+	public String getReview() {
+		return review;
+	}
+
+
+	public void setReview(String review) {
+		this.review = review;
+	}
+
+
+	public int getScore() {
+		return score;
+	}
+
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
+	
 	
 }
