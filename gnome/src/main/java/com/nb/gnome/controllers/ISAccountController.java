@@ -25,14 +25,19 @@ public class ISAccountController implements Serializable{
     private String error;
 
     
-    public String login(){
+    public String login(String nEmail, String nPassword){
+    	String pageReturn = "imsLogin";
+    	if(iSAService.logInToIms(nEmail, nPassword).equals("successful")){
+    		pageReturn="imsIndex";
+    	}else{
+    		error=iSAService.getError();
+    	}
      
-    	return "Not yet finished";
+    	return pageReturn;
     }
     
     public String logout(){
-    	iMSUserCredentials.setName(null);
-    	iMSUserCredentials.setEmail(null);
+    	iMSUserCredentials.resetCredentials();
     	return "imsLogin";
     }
 

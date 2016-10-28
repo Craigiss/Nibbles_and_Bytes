@@ -27,4 +27,9 @@ public class IMSUserCredentials implements Serializable {
     public String getName(){
         return name;
     }
+    
+    public void resetCredentials(){
+    	email=null;
+    	name=null;
+    }
 }

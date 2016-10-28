@@ -33,8 +33,7 @@ public class ISAccountService {
 		CHECK: for (ISAccount a : accounts){
 			if (a.getEmail().equals(nEmail)){
 				accountValid = false;
-				break CHECK;
-			}
+				break CHECK;			}
 			else{
 				accountValid = true;
 			}
@@ -42,6 +41,7 @@ public class ISAccountService {
 		return accountValid;
 	}
 	
+/*	// Connors code
 	public boolean validateDetails(String email, String pass){
 		if(iSAccountManager.findISAccountByEmail(email)==null){
 			return false;
@@ -50,7 +50,7 @@ public class ISAccountService {
 			return true;
 		}
 		return false;
-	}
+	}*/
 	
 	
 	/**
@@ -85,6 +85,8 @@ public class ISAccountService {
 			String recordedPassword=iSAccountManager.findISAccountByEmail(nEmail).getPassword();
 			if(recordedPassword.equals(nPassword)){
 				validLogOn=true;
+				userCredentials.setEmail(nEmail);
+				userCredentials.setName(iSAccountManager.findISAccountByEmail(nEmail).getName());
 			}
 			else{
 				int code=2;
@@ -92,7 +94,7 @@ public class ISAccountService {
 			}
 		}
 		if(validLogOn==true){
-			return "imsIndex";
+			return "successful";
 		}
 		else{
 			return null;
