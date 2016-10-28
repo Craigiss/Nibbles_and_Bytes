@@ -30,6 +30,11 @@ Basket Page
 				<td><h:outputText value="#{product.productName}"/></td>
 				<td><h:outputText value="#{product.quantity}"/></td>
 				<td>&#163;<h:outputText value="#{Basket.UpdatePrice(product.quantity,product.price)}"/></td>
+				<td>
+				<h:form>
+					<h:commandButton class="btn btn-danger btn-xs" value="-" type="submit" action="#{Basket.deleteProduct(product.productID)}"/>
+				</h:form>
+				</td>
 			</tr>
 	    </ui:repeat>
 		  </table>

@@ -126,6 +126,7 @@ template="templates/Template.xhtml">
 				<h2>Reviews</h2>
 					<button class="btn btn-success pull-left" value="Write Review" type="button" data-toggle="modal" data-target="#myModal" >Write a review</button>
 					<!-- Modal -->
+					   <h:form>
 					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					  <div class="modal-dialog" role="document">
 					    <div class="modal-content">
@@ -134,25 +135,25 @@ template="templates/Template.xhtml">
 					        <h4 class="modal-title" id="myModalLabel">Write Review</h4>
 					      </div>
 					      <div class="modal-body">
-					      <h:form>
+					   
 					      	<div class="container">			
 						       	<div id = "radioButtons">
 							       	<div class = "row text-center">
 										<h:selectOneRadio value ="#{products.score}" >
 											<div class="col-sm-2">
-												<f:selectItem itemValue= 5 itemLabel="Excellent" />
+												<f:selectItem itemValue= "5" itemLabel="Excellent" />
 											</div>
 											<div class="col-sm-2">
-												<f:selectItem itemValue= 4 itemLabel="Very Good" />
+												<f:selectItem itemValue= "4" itemLabel="Very Good" />
 											</div>
 											<div class="col-sm-2">
-												<f:selectItem itemValue= 3 itemLabel="Average" />
+												<f:selectItem itemValue= "3" itemLabel="Average" />
 											</div>
 											<div class="col-sm-2">
-												<f:selectItem itemValue= 2 itemLabel="Poor" />
+												<f:selectItem itemValue= "2" itemLabel="Poor" />
 											</div>
 											<div class="col-sm-4">
-												<f:selectItem itemValue= 1 itemLabel="Terrible" />
+												<f:selectItem itemValue= "1" itemLabel="Terrible" />
 											</div>
 										</h:selectOneRadio>
 									</div>
@@ -163,20 +164,20 @@ template="templates/Template.xhtml">
 							    </h:panelGrid>
 								
 							  </div>
-							</h:form>
+
 					      </div>
 					      <div class="modal-footer">
 					        <button type="button" class="btn pull-left btn-danger" data-dismiss="modal">Cancel</button>
-					        <h:form>
+
 					        	<h:commandLink action = "#{products.writeReview()}">
 					       			<h:commandButton class="btn btn-success" value="Confirm" type="submit"  style="right:10px;" />
 					        	</h:commandLink>
-					        </h:form>
+					       
 					      </div>
 					    </div>
 					  </div>
 					</div>
-					
+					 </h:form>
 		
 		
 				<div class="reviewcontainer" style="clear:both">
@@ -185,7 +186,6 @@ template="templates/Template.xhtml">
 						<div class="col-sm-4">
 							<div class="speech-bubble">
 								<p> <h:outputText value ="#{product.reviewText}" /> </p>
-								<p> <h:outputText value ="#{product.score}" /> </p>
 								<figure class="figure">	
 									<figcaption class="figure-caption"><h:outputText value ="#{product.date}" /></figcaption>
 								</figure>	

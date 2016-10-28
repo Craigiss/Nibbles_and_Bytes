@@ -149,6 +149,18 @@ public class BasketController implements Serializable {
 		return "Basket";
 	}
 	
+	public String deleteProduct(int productIdToDelete){
+		for (Product p : products){
+			if(p.getProductID() == productIdToDelete){
+				products.remove(p);
+				break;
+			}
+		}
+
+		totalItems--;
+		return("Basket");
+	}
+	
 	public String checkout(){
 		if (userCredentials.getEmail() == null || userCredentials.getEmail() == " "){
 			return "loginPage"; 

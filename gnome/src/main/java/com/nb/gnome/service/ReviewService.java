@@ -22,6 +22,7 @@ public class ReviewService {
 			r.setDate(LocalDate.now().toString());
 			r.setRating(score);
 			r.setReviewText(Comment);
+			
 			reviewRepository.persistReview(r);
 		}
 

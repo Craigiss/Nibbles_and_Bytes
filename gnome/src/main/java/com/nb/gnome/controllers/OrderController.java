@@ -23,6 +23,7 @@ public class OrderController implements Serializable {
 	OrderService orderService; 
 	@Inject 
 	AddressRepository addressManager;
+	@Inject
 	CheckoutService checkoutService; 
 	@Inject 
 	BasketController basketController;
