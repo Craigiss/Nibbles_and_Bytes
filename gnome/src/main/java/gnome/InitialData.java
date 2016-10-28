@@ -49,7 +49,7 @@ public class InitialData {
 		p3.setProductID(003);
 		p3.setDescription("tim loves java and being in the garden");
 		p3.setPrice(24.99);
-		p3.setStockLevel(8);
+		p3.setStockLevel(1015);
 		products.add(p3);
 		
 		Product p4 = new Product();
@@ -151,47 +151,21 @@ public class InitialData {
 		
 		po2.setLines(listOfPOD);
 		purchaseOrders.add(po2);
-
-		
-		PurchaseOrder po3 = new PurchaseOrder();
-		po3.setId(1);
-		po3.setDate(new Date(116,10,22));
-		po3.setStatus("Archived");
-		po3.setSupplier(s2);
-		
-		PurchaseOrderDetails pod5 = new PurchaseOrderDetails();
-		pod5.setProduct(p1);
-		pod5.setQuantity(2);
-		pod5.setPurchaseOrder(po3);
-		purchaseOrderDetails.add(pod5);
-		
-		PurchaseOrderDetails pod6 = new PurchaseOrderDetails();
-		pod6.setProduct(p2);
-		pod6.setQuantity(1);
-		pod6.setPurchaseOrder(po3);
-		purchaseOrderDetails.add(pod6);
-
-		purchaseOrders.add(po3);
-		
-		PurchaseOrder po4 = new PurchaseOrder();
-		po4.setId(3);
-		po4.setDate(new Date(116,11,22));
-		po4.setStatus("Active");
-		po4.setSupplier(s3);
-		
-		PurchaseOrderDetails pod7 = new PurchaseOrderDetails();
-		pod7.setProduct(p1);
-		pod7.setQuantity(2);
-		pod7.setPurchaseOrder(po4);
-		purchaseOrderDetails.add(pod7);
-		
-		PurchaseOrderDetails pod8 = new PurchaseOrderDetails();
-		pod8.setProduct(p2);
-		pod8.setQuantity(1);
-		pod8.setPurchaseOrder(po4);
-		purchaseOrderDetails.add(pod8);
-
-		purchaseOrders.add(po4);
+//		
+//		PurchaseOrder po3 = new PurchaseOrder();
+//		po3.setId(1);
+//		po3.setDate(new Date(116,10,22));
+//		po3.setStatus("Archived");
+//		po3.setSupplier(s1);
+//		
+//		PurchaseOrderDetails pod5 = new PurchaseOrderDetails();
+//		pod5.setProduct(p1);
+//		pod5.setQuantity(2);
+//		listOfPOD.add(pod5);
+//		purchaseOrderDetails.add(pod5);
+//
+//		po3.setLines(listOfPOD);
+//		purchaseOrders.add(po3);
 		
 		//Inventory Staff Account details
 		
