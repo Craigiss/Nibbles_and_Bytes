@@ -43,6 +43,10 @@ public class ProductController implements Serializable {
 		listData = null;
 		return "imsIndex";
 	}
+	
+	public String addProduct(){
+		return "addProduct";
+	}
 
 	public PaginationHelper getPagination() {
 		if (pagination == null)

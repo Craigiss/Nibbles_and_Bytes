@@ -43,6 +43,10 @@ public class SupplierController implements Serializable {
 		return "imsIndex";
 
 	}
+	
+	public String addSupplier(){
+		return "addSupplier";
+	}
 
 	public PaginationHelper getPagination() {
 		if (pagination == null)

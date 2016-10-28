@@ -30,9 +30,11 @@
 
 		<!-- Operations buttons - add/edit/delete -->
 		<ui:define name="addbtn">
-			<a href="addSupplier.xhtml">
-			Add New Supplier <img src="img/add.png" class="icon opsicon"/>
-			</a>
+			<h:form>
+			<h:commandLink action="#{suppliers.addSupplier()}" value="Add New Supplier" >
+			<img src="img/add.png" class="icon opsicon"/>
+			</h:commandLink>
+			</h:form>
 		</ui:define>
 
 		<ui:define name="searchButtonAction">
