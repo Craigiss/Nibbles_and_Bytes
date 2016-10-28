@@ -31,7 +31,8 @@ public class ButtonService {
 			if (p.getProductID() == id)
 			{
 				p.setDeleted(true);
-				graph.removeSegment(p.getProductName());
+				if (p.getStockLevel()<=10){graph.removeSegment(p.getProductName() + " " + p.getStockLevel() + " products remaining ");}
+				if (p.getPorousStockLevel()<=10){graph.removeSegment3(p.getProductName() + " " + p.getPorousStockLevel() + " products remaining ");}
 			}
 		}
 		prodController.reset();
