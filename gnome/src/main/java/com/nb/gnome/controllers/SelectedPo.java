@@ -26,62 +26,11 @@ public class SelectedPo implements Serializable {
 	private DataModel<PurchaseOrderDetails> dataModel = null;
 	private List<PurchaseOrderDetails> listData;
 
-	public void recreateModel() {
-		dataModel = null;
-	}
-
-	public String reset() {
-		dataModel = null;
-		listData = null;
-		return "imsPo";
-	}
-
-	public PaginationHelper getPagination() {
-		if (pagination == null)
-			pagination = new PaginationHelper(10) {
-
-				@Override
-				public int getItemsCount() {
-					return purchaseOrder.getLines().size();
-				}
-
-				@Override
-				public DataModel<PurchaseOrderDetails> createPageDataModel() {
-					// Return products to fill page
-					try {
-						return new ListDataModel<PurchaseOrderDetails>(
-								listData.subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
-					}
-					// Or if there aren't enough, return the rest of them
-					catch (Exception e) {
-						return new ListDataModel<PurchaseOrderDetails>(
-								listData.subList(getPageFirstItem(), getItemsCount()));
-					}
-				}
-			};
-
-		return pagination;
-	}
-
 	public DataModel<PurchaseOrderDetails> getDataModel() {
 		if (listData == null){
 			listData = purchaseOrder.getLines();
 		}
-		dataModel = getPagination().createPageDataModel();
-		return dataModel;
-
-	}
-
-	public String next() {
-		getPagination().nextPage();
-		recreateModel();
-		return "imsPoDeets";
-	}
-
-	public String previous() {
-		getPagination().previousPage();
-		recreateModel();
-		return "imsPoDeets";
+		return new ListDataModel<PurchaseOrderDetails>(listData);
 	}
 
 	/**

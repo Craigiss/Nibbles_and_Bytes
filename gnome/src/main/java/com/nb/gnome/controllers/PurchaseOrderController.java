@@ -6,12 +6,10 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.PurchaseOrderDetails;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.helper.PaginationHelper;
-import com.nb.gnome.managers.PurchaseOrderRepository;
 import com.nb.gnome.service.PurchaseOrderService;
 
 import javax.enterprise.context.SessionScoped;
@@ -34,12 +32,20 @@ public class PurchaseOrderController implements Serializable {
 	private int id;
 	private Date date;
 	private String status;
-	private Supplier supplier;
+	private String supplierName;
 	private List<PurchaseOrderDetails> lines;
 	private PaginationHelper pagination;
 	private DataModel<PurchaseOrder> dataModel = null;
 	private List<PurchaseOrder> listData;
 
+	//
+	//Delete this method after testing
+	//
+	public void printSupplier(String name){
+		supplierName=name;
+		System.out.println(supplierName);
+	}
+	
 	private void recreateModel() {
 		dataModel = null;
 	}
@@ -61,7 +67,7 @@ public class PurchaseOrderController implements Serializable {
 
 	public PaginationHelper getPagination() {
 		if (pagination == null)
-			pagination = new PaginationHelper(2) {
+			pagination = new PaginationHelper(10) {
 				@Override
 				public int getItemsCount() {
 					if (listData == null) {
@@ -197,21 +203,6 @@ public class PurchaseOrderController implements Serializable {
 	}
 
 	/**
-	 * @return the supplier
-	 */
-	public Supplier getSupplier() {
-		return supplier;
-	}
-
-	/**
-	 * @param supplier
-	 *            the supplier to set
-	 */
-	public void setSupplier(Supplier supplier) {
-		this.supplier = supplier;
-	}
-
-	/**
 	 * @return the lines
 	 */
 	public List<PurchaseOrderDetails> getLines() {
@@ -246,8 +237,13 @@ public class PurchaseOrderController implements Serializable {
 		return purchaseOrderService.findPurchaseOrderBySupplier(s);
 	}
 
-	public String persistPurchaseOrder() {
+	public String persistPurchaseOrder(String name) {
+		supplierName = name;
+		
+		//Deal with purchase order details here
+		//Run persist method
 		purchaseOrderService.persistPurchaseOrder(id, date, status, lines);
+		
 		recreateModel();
 
 		id = 0;
@@ -259,7 +255,7 @@ public class PurchaseOrderController implements Serializable {
 
 		return "imsPo";
 	}
-
+	
 	/**
 	 * @return the listData
 	 */
@@ -274,5 +270,21 @@ public class PurchaseOrderController implements Serializable {
 	public void setListData(List<PurchaseOrder> listData) {
 		this.listData = listData;
 	}
+
+	/**
+	 * @return the supplierName
+	 */
+	public String getSupplierName() {
+		return supplierName;
+	}
+
+	/**
+	 * @param supplierName the supplierName to set
+	 */
+	public void setSupplierName(String supplierName) {
+		this.supplierName = supplierName;
+	}
+	
+	
 
 }
