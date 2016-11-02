@@ -423,6 +423,7 @@ ul {
 .detail_headers {
 	font-size: 20px;
 	padding-top: 20px;
+	padding-bottom: 15px;
 	/* padding-left: 30px; */
 	opacity: 1;
 }
@@ -516,7 +517,7 @@ ul {
 }
 
 #loginPage {
-	width: 940px;
+	width: 100%;
 	margin: auto;
 	position: relative;
 }

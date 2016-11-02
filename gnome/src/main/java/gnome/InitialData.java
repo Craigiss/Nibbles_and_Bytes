@@ -29,7 +29,7 @@ public class InitialData {
 		Product p1 = new Product();
 		p1.setProductName("Lawn Flamingo");
 		p1.setProductID(1);
-		p1.setDescription("A beautiful pink plastic flamingo to place in your tropical garden");
+		p1.setDescription("A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden ");
 		p1.setPrice(15.99);
 		p1.setStockLevel(5);
 		p1.setPorousStockLevel(15);
@@ -39,7 +39,7 @@ public class InitialData {
 		Product p2 = new Product();
 		p2.setProductName("Godzilla gnome");
 		p2.setProductID(002);
-		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
+		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden ");
 		p2.setPrice(24.99);
 		p2.setStockLevel(115);
 		p2.setPorousStockLevel(6);
@@ -49,7 +49,7 @@ public class InitialData {
 		Product p3 = new Product();
 		p3.setProductName("Timtim the timmy tim gnome");
 		p3.setProductID(003);
-		p3.setDescription("tim loves java and being in the garden");
+		p3.setDescription("tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden ");
 		p3.setPrice(24.99);
 		p3.setStockLevel(1015);
 		p3.setPorousStockLevel(20);
