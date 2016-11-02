@@ -1,0 +1,97 @@
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="templates/Template.xhtml">
+	<meta charset="utf-8" />
+	<ui:define name="title">
+Order Complete.
+</ui:define>
+	<ui:define name="css">
+		<link href="css/homePage.css" rel="stylesheet" />
+		<link href="css/OrderSuccess.css" rel="stylesheet" />
+	</ui:define>
+
+	<ui:define name="mainContent">
+		<!-- Main content start -->
+
+			<div class="row centerBlock">
+				<div class="col-md-2 col-sm-0" />
+				<div class="col-md-8 col-sm-12">
+				<br/>
+				<div class="borderBlock">
+				
+					<div class="thankYou tickBlock">
+						<h1>
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+
+						</h1>
+					</div>
+					<div class="centerBlock">
+						<div class="detailsBlock">
+							<div class="row">
+								<div class="col-md-12 thankYou">
+									<h1>Thank you, your order has been received</h1>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 ">
+									<p>
+										You may track your order in <a href="account.xhtml">account.</a>
+									</p>
+									<br /> <b>Order Number: <h:outputText id="orderID"
+											type="text" a:placeholder="Order Reference Number"
+											value="#{order.orderID}" /> <h:outputText value=" " />
+									</b>
+									<p />
+
+
+									<p>Your order will be shipped to:</p>
+									<div class="customerDetailsBlock">
+
+
+										<h:outputText id="firstName" type="text"
+											a:placeholder="First Name" value="#{Account.firstName}" />
+										<h:outputText value=" " />
+
+
+										<h:outputText id="surname" type="text" a:placeholder="Surname"
+											value="#{Account.surname}" />
+										<p />
+										<h:outputText id="addressFirstLine" type="text"
+											a:placeholder="Line 1" value="#{order.addressFirstLine}" />
+										<p />
+										<h:outputText id="addressSecondLine" type="text"
+											a:placeholder="Line 2" value="#{order.addressSecondLine}" />
+										<p />
+										<h:outputText id="town" type="text" a:placeholder="County"
+											value="#{order.town}" />
+										<p />
+										<h:outputText id="county" type="text" a:placeholder="County"
+											value="#{order.county}" />
+										<p />
+										<h:outputText id="postcode" type="text"
+											a:placeholder="First Name" value="#{order.postcode}" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+					<br/>
+				</div>
+				<div class="col-md-2 col-sm-0" />
+			</div>
+			<div class="col-md-12 buttonBlock">
+				<a href="homePage.xhtml" class="btn btn-info " role="button">Back
+					to Home</a>
+			</div>
+
+
+
+
+
+			<!-- Main content end -->
+	</ui:define>
+</ui:composition>

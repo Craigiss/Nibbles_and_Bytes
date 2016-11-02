@@ -24,6 +24,8 @@ public class CheckoutService  {
 	@Inject
 	private CustomerRepository customerManager; 
 	
+	int mostRecentOrderID = -1;
+	
 	public double totalPrice(ArrayList<Product> products){
 		double total = 0;
 		
@@ -50,7 +52,12 @@ public class CheckoutService  {
 		order.setDate(LocalDate.now().toString());
 		order.setStatus("Active");
 		salesOrderManager.persistSalesOrder(order);
+		mostRecentOrderID = salesOrderManager.findAll().size();
 		}
 		
+
+	}
+	public String getCompletedOrderID(){
+		return Integer.toString(mostRecentOrderID);
 	}
 }
