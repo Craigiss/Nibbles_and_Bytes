@@ -13,6 +13,7 @@ import com.nb.gnome.entities.*;
 public class InitialData {
 
 	private List<Address> addresses = new ArrayList<Address>();
+	private List<Address> addresses2 = new ArrayList<Address>();
 	private List<Category> categories = new ArrayList<Category>();
 	private List<Customer> customers = new ArrayList<Customer>();
 	private List<CustomerAccountAddress> customerAccountAddresses = new ArrayList<CustomerAccountAddress>();
@@ -57,6 +58,17 @@ public class InitialData {
 		aa2.setId(12);
 		addresses.add(aa2);
 		
+		Address aa3 = new Address();
+		aa3.setLine1("26 Chadwick Road");
+		aa3.setLine2("Eccles");
+		aa3.setTown("Manchester");
+		aa3.setCounty("Manchester");
+		aa3.setPostcode("M30 0NZ");
+		aa3.setId(13);
+		addresses.add(aa3);
+		
+		addresses2.add(aa3);
+		
 																						// Customers
 		Customer cu = new Customer();
 		cu.setEmail("Email");
@@ -65,6 +77,14 @@ public class InitialData {
 		cu.setAddresses(addresses);
 		cu.setPassword("password");
 		customers.add(cu);
+		
+		Customer cu2 = new Customer();
+		cu2.setEmail("cameron@smart.com");
+		cu2.setFirstName("Cameron");
+		cu2.setSurname("Smart");
+		cu2.setAddresses(addresses2);
+		cu2.setPassword("goaway");
+		customers.add(cu2);
 		
 		
 																						// Customer <-> Address
