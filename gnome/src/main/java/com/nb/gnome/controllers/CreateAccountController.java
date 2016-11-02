@@ -26,6 +26,7 @@ public class CreateAccountController {
 	private String surname;
 	private String email;
 	private String addressFirstLine;
+	private String addressSecondLine;
 	private String postcode;
 	private String password;
 	private String reenteredPassword;
@@ -44,6 +45,11 @@ public class CreateAccountController {
 		}
 		if(addressFirstLine.equals("")){
 			setError("Please enter the first line of your address.");
+			return "loginPage";
+		}
+		
+		if(addressSecondLine.equals("")){
+			setError("Please enter the second line of your address.");
 			return "loginPage";
 		}
 
@@ -72,7 +78,7 @@ public class CreateAccountController {
 			return "loginPage";
 		}
 		
-		createAccountService.newUser(firstName, surname, email, addressFirstLine, postcode, password);
+		createAccountService.newUser(firstName, surname, email, addressFirstLine,addressSecondLine, postcode, password);
 		String outcome  = login();
 		return outcome;
 		
@@ -221,5 +227,14 @@ public class CreateAccountController {
 		userCredentials.setUser(loginService.getName(email));
 		return "homePage";
 	}
+
+	public String getAddressSecondLine() {
+		return addressSecondLine;
+	}
+
+	public void setAddressSecondLine(String addressSecondLine) {
+		this.addressSecondLine = addressSecondLine;
+	}
+	
 	
 }

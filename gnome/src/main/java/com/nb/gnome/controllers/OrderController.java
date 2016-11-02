@@ -38,24 +38,24 @@ public class OrderController implements Serializable {
 	private String county; 
 	private String postcode; 
 	
-	private ArrayList<SalesOrder> products = new ArrayList<>();
+	private ArrayList<SalesOrder> salesOrders = new ArrayList<>();
 	
 	
 
 	/**
 	 * @return the products
 	 */
-	public ArrayList<SalesOrder> getProducts() {
-		products = orderService.retrieveOrders();
-		return products;
+	public ArrayList<SalesOrder> getSalesOrders() {
+		salesOrders = orderService.retrieveOrders();
+		return salesOrders;
 	}
 
 	/**
 	 * @param products the products to set
 	 */
-	public void setProducts(ArrayList<SalesOrder> products) {
+	public void setSalesOrders(ArrayList<SalesOrder> products) {
 	
-		this.products = products;
+		this.salesOrders = products;
 	}
 
 	public String saveAddress(int id){
