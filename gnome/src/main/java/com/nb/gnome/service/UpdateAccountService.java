@@ -40,8 +40,8 @@ public class UpdateAccountService {
 	}
 	
 	public void updateAddress(int customerId, int addressId, String firstLine, String secondLine, String town, String county, String postcode){
-		ArrayList<Address> customersAddresses = (ArrayList<Address>) addressService.getCustomerAddresses();
-		
+		List<Address> customersAddresses = new ArrayList<Address>();
+		customersAddresses = addressService.getCustomerAddresses();
 		for (Address a : customersAddresses){
 			if (a.getId() == addressId){
 				customersAddresses.remove(a);			// Remove the address that we are changing.
