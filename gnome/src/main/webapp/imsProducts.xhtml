@@ -50,37 +50,37 @@
 
 		<!-- Grid for products -->
 		<div class="row table">
-			<div class="col-sm-2 heading prodDetails">Product ID</div>
-			<div class="col-sm-4 heading prodDetails">Product Name</div>
-			<div class="col-sm-2 heading prodDetails listCenter">Stock</div>
-			<div class="col-sm-2 heading prodDetails listCenter">
+			<div class="col-sm-2 col-xs-2 heading prodDetails">Product ID</div>
+			<div class="col-sm-4 col-xs-4 heading prodDetails">Product Name</div>
+			<div class="col-sm-2 col-xs-2 heading prodDetails listCenter">Stock</div>
+			<div class="col-sm-2 col-xs-2 heading prodDetails listCenter">
 				Porousware Stock</div>
-			<div class="col-sm-1 heading prodDetails listCenter">Delete</div>
-			<div class="col-sm-1 heading prodDetails listCenter">Edit</div>
+			<div class="col-sm-1 col-xs-1 heading prodDetails listCenter">Delete</div>
+			<div class="col-sm-1 col-xs-1 heading prodDetails listCenter">Edit</div>
 		</div>
 
 		<!-- Generation of products into grid -->
 		<ui:repeat var="product" value="#{products.dataModel}">
 			<div class="row table listItem">
-				<div class="col-sm-2 prodDetails">
+				<div class="col-sm-2 col-xs-2 prodDetails">
 					<h:form>
 						<h:commandLink action="#{products.view(product)}"
 							value="#{product.productID}" />
 					</h:form>
 				</div>
-				<div class="col-sm-4 prodDetails">
+				<div class="col-sm-4 col-xs-4 prodDetails">
 					<h:form>
 						<h:commandLink action="#{products.view(product)}"
 							value="#{product.productName}" />
 					</h:form>
 				</div>
-				<div class="col-sm-2 prodDetails listCenter">
+				<div class="col-sm-2 col-xs-2 prodDetails listCenter">
 					<h:outputText value="#{product.stockLevel}" />
 				</div>
-				<div class="col-sm-2 prodDetails listCenter">
+				<div class="col-sm-2 col-xs-2 prodDetails listCenter">
 					<h:outputText value="#{product.porousStockLevel}" />
 				</div>
-				<div class="col-sm-1 prodDetails">
+				<div class="col-sm-1 col-xs-1 prodDetails">
 					<h:form>
 						
 					
@@ -90,7 +90,7 @@
 					
 					</h:form>
 				</div>
-				<div class="col-sm-1 prodDetails">
+				<div class="col-sm-1 col-xs-1 prodDetails">
 					<h:form>
 						<h:commandLink action="#{products.test(product.productID)}"
 							value="" class="hovering">

@@ -16,7 +16,6 @@
 
 <body>
 	<div class="container">
-
 		<div class="row" id="topline">
 			<div id="title">Add New Supplier</div>
 
@@ -68,12 +67,12 @@
 						</div>
 					</div>
 
-					<div class="addElement">
+					<div class="addElement" >
 						<div class="row">
 							<h4>Description</h4>
 						</div>
 						<div class="row">
-							<h:inputTextarea id="descriptionInput" rows="10"
+							<h:inputTextarea id="descriptionInput" rows="7"
 								value="#{suppliers.description}" required="true"
 								style="min-width: 100%; resize:none; max-length:1000; border: 1px solid silver;" />
 						</div>
@@ -83,7 +82,7 @@
 				<div class="col-sm-4">
 					<div class="addElement">
 						<div class="row">
-							<h4>Name of Contact</h4>
+							<h4 id="nameContact">Name of Contact</h4>
 						</div>
 						<div class="row uTextInput">
 							<h:inputText type="text" value="#{suppliers.name}"

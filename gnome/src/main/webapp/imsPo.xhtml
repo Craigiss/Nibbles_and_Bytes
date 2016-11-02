@@ -48,43 +48,43 @@
 
 		<!-- Grid for suppliers -->
 		<div class="row table">
-			<div class="col-sm-2 heading supDetails">ID</div>
-			<div class="col-sm-5 heading supDetails">Supplier</div>
-			<div class="col-sm-1 heading supDetails listCenter">Items</div>
-			<div class="col-sm-2 heading supDetails listCenter">Total</div>
-			<div class="col-sm-1 heading supDetails listCenter">Delete</div>
-			<div class="col-sm-1 heading supDetails listCenter">Edit</div>
+			<div class="col-sm-2 col-xs-2 heading supDetails">ID</div>
+			<div class="col-sm-5 col-xs-5 heading supDetails">Supplier</div>
+			<div class="col-sm-1 col-xs-1 heading supDetails listCenter">Items</div>
+			<div class="col-sm-2 col-xs-2 heading supDetails listCenter">Total</div>
+			<div class="col-sm-1 col-xs-1 heading supDetails listCenter">Delete</div>
+			<div class="col-sm-1 col-xs-1 heading supDetails listCenter">Edit</div>
 		</div>
 
 		<!-- Generation of suppliers into grid -->
 		<ui:repeat var="po" value="#{pos.dataModel}">
 			<div class="row table listItem">
-				<div class="col-sm-2 supDetails">
+				<div class="col-sm-2 col-xs-2 supDetails">
 					<h:form>
 						<h:commandLink action="#{pos.view(po)}" value="#{po.id}" />
 					</h:form>
 				</div>
-				<div class="col-sm-5 supDetails">
+				<div class="col-sm-5 col-xs-5 supDetails">
 					<h:form>
 						<h:commandLink action="#{pos.view(po)}"
 							value="#{po.supplier.company}" />
 					</h:form>
 				</div>
-				<div class="col-sm-1 supDetails listCenter">
+				<div class="col-sm-1 col-xs-1 supDetails listCenter">
 					<h:form>
 						<h:commandLink action="#{pos.view(po)}" value="#{po.lines.size()}" />
 					</h:form>
 				</div>
-				<div class="col-sm-2 supDetails listCenter">
+				<div class="col-sm-2 col-xs-2 supDetails listCenter">
 					<h:outputText value="#{pos.calculateTotal(po)}" />
 				</div>
-				<div class="col-sm-1 prodDetails">
+				<div class="col-sm-1 col-xs-1 prodDetails">
 					<h:form>
 						<button id="deleteButton" type="button" onclick="process(#{po.id})"
 							data-toggle="modal" data-target="#myModal" />
 					</h:form>
 				</div>
-				<div class="col-sm-1 prodDetails">
+				<div class="col-sm-1 col-xs-1 prodDetails">
 					<h:form>
 						<h:commandLink action="#{products.test(product.productID)}"
 							value="" class="hovering">
