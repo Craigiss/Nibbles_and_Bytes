@@ -48,38 +48,38 @@
 
 		<!-- Grid for suppliers -->
 		<div class="row table">
-			<div class="col-sm-4 heading supDetails">Supplier Name</div>
-			<div class="col-sm-3 heading supDetails">Supplier Number</div>
-			<div class="col-sm-3 heading supDetails">Contact Person</div>
-			<div class="col-sm-1 heading prodDetails listCenter">Delete</div>
-			<div class="col-sm-1 heading prodDetails listCenter">Edit</div>
+			<div class="col-sm-4 col-xs-4 heading supDetails">Supplier Name</div>
+			<div class="col-sm-3 col-xs-3 heading supDetails">Supplier Number</div>
+			<div class="col-sm-3 col-xs-3 heading supDetails">Contact Person</div>
+			<div class="col-sm-1 col-xs-1 heading prodDetails listCenter">Delete</div>
+			<div class="col-sm-1 col-xs-1 heading prodDetails listCenter">Edit</div>
 		</div>
 
 		<!-- Generation of suppliers into grid -->
 		<ui:repeat var="supplier" value="#{suppliers.dataModel}">
 			<div class="row table listItem">
-				<div class="col-sm-4 supDetails">
+				<div class="col-sm-4 col-xs-4 supDetails">
 					<h:form>
 						<h:commandLink action="#{suppliers.view(supplier)}"
 							value="#{supplier.company}" class="supDetails" />
 					</h:form>
 				</div>
-				<div class="col-sm-3 supDetails">
+				<div class="col-sm-3 col-xs-3 supDetails">
 					<h:form>
 						<h:commandLink action="#{suppliers.view(supplier)}"
 							value="#{supplier.phone}" class="supDetails" />
 					</h:form>
 				</div>
-				<div class="col-sm-3 supDetails">
+				<div class="col-sm-3 col-xs-3 supDetails">
 					<h:outputText value="#{supplier.name}" />
 				</div>
-				<div class="col-sm-1 prodDetails">
+				<div class="col-sm-1 col-xs-1 prodDetails">
 					<h:form>
 							<button id="deleteButton" type="button"  onclick="process(#{supplier.id})"
 								data-toggle="modal" data-target="#myModal"/>
 					</h:form>
 				</div>
-				<div class="col-sm-1 prodDetails">
+				<div class="col-sm-1 col-xs-1 prodDetails">
 					<h:form>
 						<h:commandLink action="#{products.test(product.productID)}"
 							value="" class="hovering">
