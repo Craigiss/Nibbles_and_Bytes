@@ -51,6 +51,6 @@ public class CheckoutService  {
 		order.setStatus("Active");
 		salesOrderManager.persistSalesOrder(order);
 		}
-	
+		
 	}
 }
