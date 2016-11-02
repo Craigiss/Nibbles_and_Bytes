@@ -51,6 +51,7 @@ public class UpdateAccountService {
 				updatedAddress.setLine2(secondLine);
 				updatedAddress.setTown(town);
 				updatedAddress.setPostcode(postcode);
+				updatedAddress.setCounty(county);
 				customersAddresses.add(updatedAddress); // Add the updated address to the collection.
 				break;
 			}
