@@ -202,7 +202,7 @@ a:hover {
 	text-decoration: none;
 }
 
-/*end of homepage css*/
+
 
 
 
@@ -285,6 +285,18 @@ a:hover {
 
 #delete{
 	background-color: #c00000;
+}
+
+#deleteButton{
+	border: none;
+	background-image: url(../img/bin.png);
+	background-size: 25px 25px;
+	background-repeat: no-repeat;
+	width: 65px;
+	height: 25px;
+	background-color: white;
+	background-position: center;
+	outline: none;
 }
 
 /*Page title and breadcrumbs*/
