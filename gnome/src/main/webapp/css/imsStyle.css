@@ -535,6 +535,10 @@ ul {
 	color: white;
 }
 
+.blurb{
+	padding-top: 20px;
+}
+
 @media screen and (max-width: 990px) {
 	.legend div {
 		width: 15px;

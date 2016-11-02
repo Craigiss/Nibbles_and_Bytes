@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import com.nb.gnome.controllers.GraphController;
 import com.nb.gnome.entities.Category;
 import com.nb.gnome.entities.Customer;
 import com.nb.gnome.entities.Product;
@@ -27,11 +28,19 @@ import gnome.InitialData;
 public class ProductRepositoryOffline implements ProductRepository {
 	@Inject
 	private InitialData initialData;
+	@Inject GraphController graph;
 	
 	//Create
 	@Override
-	public void persistProduct(Product p){
-		initialData.addProduct(p);
+	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel){
+		Product prodprod = new Product(findAll().size() +1, mName, mDescription, mPrice, mStockLevel, mporousStockLevel);
+		if (prodprod.getPorousStockLevel() <= 10){
+			graph.setPie3(prodprod.getProductName() + " " + prodprod.getPorousStockLevel() + " products remaining ",prodprod.getPorousStockLevel());
+		}
+		if (prodprod.getStockLevel() <=10){
+			graph.setPie(prodprod.getProductName() + " " + prodprod.getStockLevel() + " products remaining ",prodprod.getStockLevel());
+		}		
+		initialData.addProduct(prodprod);
 	}
 	
 	//Read
