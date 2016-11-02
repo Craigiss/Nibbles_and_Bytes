@@ -3,6 +3,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
 	template="templates/imsTemplateDetails.xhtml">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,9 +32,8 @@
 
 	<!-- Content goes here -->
 	<ui:define name="maincontent">
-		<div class="container">
 			<div class="row">
-				<h3>Purchase Order Details</h3>
+				<h3 id ="purchaseOrderDetials">Purchase Order Details</h3>
 			</div>
 			<div class="row" id="podetails">
 				<div class="col-sm-12 text">
@@ -105,12 +105,12 @@
 
 			<div class="row">
 				<div class="col-sm-12">
-					<p class="detail_headers">Analytics</p>
+					<p class="detail_headers">Analytics - Stock Ordered</p>
+					<rich:chart id="pie4">
+						<rich:chartLegend sorting="descending" />
+						<rich:chartSeries data="#{graphs.pie4}" type="pie" />
+					</rich:chart>
 				</div>
 			</div>
-			<ul>
-				<li><h:graphicImage id="graph" value="img/graph.png" /></li>
-			</ul>
-		</div>
 	</ui:define>
 </ui:composition>

@@ -13,6 +13,7 @@ import org.richfaces.model.StringChartDataModel;
 
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.PurchaseOrder;
+import com.nb.gnome.entities.PurchaseOrderDetails;
 import com.nb.gnome.service.ProductService;
 import com.nb.gnome.service.PurchaseOrderService;
 import com.nb.gnome.service.SupplierService;
@@ -36,13 +37,14 @@ public class GraphController implements Serializable {
 	@Inject
 	SupplierService supplierService;
 	@Inject
-	PurchaseOrderService purchaseOrderService;
-	StringChartDataModel pie;
-	StringChartDataModel pie2;
-	StringChartDataModel pie3;
-	List<PurchaseOrder> po;
-
+	private PurchaseOrderService purchaseOrderService;
+	@Inject SelectedPo selectedPo;
+	private StringChartDataModel pie;
+	private StringChartDataModel pie2;
+	private StringChartDataModel pie3;
+	private List<PurchaseOrder> po;
 	private int count;
+	private StringChartDataModel pie4;
 
 	@PostConstruct
 	public void init() {
@@ -178,6 +180,20 @@ public class GraphController implements Serializable {
 
 	public void removeSegment2(String name) {
 		pie2.remove(name);
+	}
+	
+	public void generateStockItems() {
+		pie4 = new StringChartDataModel(ChartDataModel.ChartType.pie);
+
+		ArrayList<PurchaseOrderDetails> poDetails = (ArrayList<PurchaseOrderDetails>) selectedPo.getListData();
+			for (PurchaseOrderDetails p :poDetails ) {
+				pie4.put(p.getProduct().getProductName() + " " + p.getQuantity(), p.getQuantity() );
+			}
+	}
+	
+	public StringChartDataModel getPie4(){
+		generateStockItems();
+		return pie4;
 	}
 
 }

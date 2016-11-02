@@ -63,22 +63,6 @@ public class ProductRepositoryOffline implements ProductRepository {
 	}
 	
 	@Override
-	public List<Product> getProductByCategory(String category){ // To sort out
-		List<Product> prod = new ArrayList<Product>();
-		for (Product p: initialData.getProducts()){
-			List<Category> categories = new ArrayList<Category>();
-			categories = p.getCategories();			
-			for (Category c : categories){
-				if (c.getName() == category){
-					prod.add(p);
-					break;
-				}
-			}
-		}
-		return prod;
-	}
-	
-	@Override
 	public Product getProductByID(int id){
 		Product prod = new Product();
 		for (Product p: initialData.getProducts()){
@@ -140,14 +124,6 @@ public class ProductRepositoryOffline implements ProductRepository {
     	return products;
     	
     }
-
-	@Override
-	public List<Category> getProductCategories(Product prodprod) {
-		List<Category> cat = new ArrayList<Category>();
-		cat = prodprod.getCategories();	
-		
-		return cat;
-	}
 
 	@Override
 	public void persistProduct(String name, String description, double price, int stockLevel) {

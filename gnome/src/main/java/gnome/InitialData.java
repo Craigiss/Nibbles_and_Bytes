@@ -124,13 +124,13 @@ public class InitialData {
 		
 		PurchaseOrderDetails pod1 = new PurchaseOrderDetails();
 		pod1.setProduct(p1);
-		pod1.setQuantity(2);
+		pod1.setQuantity(40);
 		listOfPOD.add(pod1);
 		purchaseOrderDetails.add(pod1);
 		
 		PurchaseOrderDetails pod2 = new PurchaseOrderDetails();
 		pod2.setProduct(p2);
-		pod2.setQuantity(1);
+		pod2.setQuantity(20);
 		listOfPOD.add(pod2);
 		purchaseOrderDetails.add(pod2);
 
@@ -145,13 +145,13 @@ public class InitialData {
 		
 		PurchaseOrderDetails pod3 = new PurchaseOrderDetails();
 		pod3.setProduct(p3);
-		pod3.setQuantity(1);
+		pod3.setQuantity(30);
 		listOfPOD.add(pod3);
 		purchaseOrderDetails.add(pod3);
 		
 		PurchaseOrderDetails pod4 = new PurchaseOrderDetails();
-		pod4.setProduct(p2);
-		pod4.setQuantity(1);
+		pod4.setProduct(p4);
+		pod4.setQuantity(35);
 		listOfPOD.add(pod4);
 		purchaseOrderDetails.add(pod4);
 		
@@ -165,8 +165,8 @@ public class InitialData {
 		po3.setSupplier(s1);
 		
 		PurchaseOrderDetails pod5 = new PurchaseOrderDetails();
-		pod5.setProduct(p1);
-		pod5.setQuantity(2);
+		pod5.setProduct(p5);
+		pod5.setQuantity(25);
 		listOfPOD.add(pod5);
 		purchaseOrderDetails.add(pod5);
 
@@ -180,17 +180,11 @@ public class InitialData {
 		po4.setSupplier(s3);
 		
 		PurchaseOrderDetails pod7 = new PurchaseOrderDetails();
-		pod7.setProduct(p1);
-		pod7.setQuantity(2);
+		pod7.setProduct(p6);
+		pod7.setQuantity(15);
 		listOfPOD.add(pod7);
 		purchaseOrderDetails.add(pod7);
 		
-		PurchaseOrderDetails pod8 = new PurchaseOrderDetails();
-		pod8.setProduct(p2);
-		pod8.setQuantity(1);
-		listOfPOD.add(pod8);
-		purchaseOrderDetails.add(pod8);
-
 		po4.setLines(listOfPOD);
 		purchaseOrders.add(po4);
 		

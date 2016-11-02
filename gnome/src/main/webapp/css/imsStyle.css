@@ -17,6 +17,10 @@
 	margin-bottom: 20px;
 }
 
+#purchaseOrderDetials{
+	padding-left: 14px;
+}
+
 input{
 	padding:0px;
 	margin: 0px;
@@ -165,6 +169,10 @@ h2{
 	margin-top: 30px;
 }
 
+#help:hover{
+	opacity: 0.6;
+}
+
 #helpImg{
 	width: 90px;
 	margin-top: -27px;
@@ -185,9 +193,10 @@ a:hover {
 	opacity: 0.6;
 }
 
-.mainButton:hover, .col-sm-1:hover, .col-sm-12:hover, .col-sm-3:hover, .listItem:hover{
+.mainButton:hover, .col-sm-1:hover, .col-sm-3:hover, .listItem:hover{
 	opacity: 0.6;
 }
+
 
 .mainButton a, .col-sm-1 a, .col-sm-12 a, .col-sm-3 a, .listItem a {
 	text-decoration: none;

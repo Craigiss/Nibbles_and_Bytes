@@ -44,17 +44,7 @@ public class Product {
 	
 	@Column(name ="deleted")
 	private boolean deleted;
-	
-	@Column(name = "supplierID")
-	@ManyToOne
-	@JoinColumn(name="FKCategoryID",
-	nullable = false)
-	@NotNull
-	private int supplierID;
-	
-	@ManyToMany(targetEntity=Category.class)
-	private List<Category> categories;
-	
+		
 	public Product(){
 		
 	}
@@ -67,7 +57,6 @@ public class Product {
 		this.stockLevel= stockLevel;
 		this.porousStockLevel= porousStockLevel;
 		deleted = false;
-		
 	}
 
 	/**
@@ -139,26 +128,6 @@ public class Product {
 	public void setPorousStockLevel(int porousStockLevel) {
 		this.porousStockLevel = porousStockLevel;
 	}
-
-	/**
-	 * @return the supplierID
-	 */
-	public int getSupplierID() {
-		return supplierID;
-	}
-	/**
-	 * @param supplierID the supplierID to set
-	 */
-	public void setSupplierID(int supplierID) {
-		this.supplierID = supplierID;
-	}
-	/**
-	 * @return the categories
-	 */
-	public List<Category> getCategories() {
-		return categories;
-	}
-	
 	
 	/**
 	 * @return the imgPath
@@ -172,12 +141,12 @@ public class Product {
 	public void setImgPath(String imgPath) {
 		this.imgPath = imgPath;
 	}
-	/**
-	 * @param categories the categories to set
-	 */
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
-	}
+//	/**
+//	 * @param categories the categories to set
+//	 */
+//	public void setCategories(List<Category> categories) {
+//		this.categories = categories;
+//	}
 
 	/**
 	 * @return the deleted
