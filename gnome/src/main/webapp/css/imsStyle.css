@@ -339,6 +339,14 @@ a:hover {
 	color: black;
 }
 
+.heading:hover{
+	opacity: 1!important;
+}
+
+.addButtons:hover{
+	opacity: 0.6!important;
+}
+
 .supDetails, .prodDetails, .pageing {
 	color: black;
 	height: 25px;
@@ -516,7 +524,6 @@ ul {
 .signInButton {
 	padding: 10px;
 	background-color: #92d050 !important;
-	font-style: bold;
 	color: white;
 }
 

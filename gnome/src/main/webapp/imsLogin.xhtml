@@ -46,6 +46,16 @@
 					</center>
 				</div>
 			</h:form>
+			
+			<div id="footer">
+				<h:form rendered="#{isAccount.error ne null}">
+					<div id="alerttt" class="alert alert-danger"
+						style="visiblity: visible">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
+						<h:outputText value="#{isAccount.error}" />
+					</div>
+				</h:form>
+			</div>
 
 
 		</div>
