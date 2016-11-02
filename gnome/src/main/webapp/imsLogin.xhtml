@@ -8,52 +8,47 @@
 <h:head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link href="css/Template.css" rel="stylesheet" />
 	<link href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css"
 		rel="stylesheet" />
+	<link href="css/imsStyle.css" rel="stylesheet" />
 
 	<title>NBGardens IMS Login</title>
 </h:head>
 
 <f:view>
 	<body>
-		<div id="container">
-			<div id="header">
-				<center>
-					<h1>NB Gardens IMS</h1>
-				</center>
+		<div class="container" id="loginPage">
+			<div class="row">
+				<h1>NB Gardens IMS</h1>
+			</div>
+			<div class="row">
+				<h3>Please log in</h3>
 			</div>
 
-			<div id="body">
-				<h:form class="form-signin">
-					<h2 class="form-signin-heading">Please sign in</h2>
+			<h:form class="form-signin">
+				<div class="row">
 					<h:inputText value="#{isAccount.email}" type="email"
-						id="inputEmail" class="form-control" a:placeholder="Email address"
-						autofocus="" requiredMessage="Please Enter Email" />
+						id="inputEmail" class="login-element loginInput uTextInput"
+						a:placeholder="Email address" autofocus=""
+						requiredMessage="Please Enter Email" />
+				</div>
+				<div class="row">
 					<h:inputSecret value="#{isAccount.password}" type="password"
-						id="inputPassword" class="form-control" a:placeholder="Password"
-						requiredMessage="Please Enter Password" />
+						id="inputPassword" class="login-element loginInput uTextInput"
+						a:placeholder="Password" requiredMessage="Please Enter Password" />
+				</div>
+				<div class="row">
+					<center>
+						<h:commandButton
+							class="btn login-element signInButton"
+							type="submit" action="#{isAccount.login()}"
+							value="Log In" />
+					</center>
+				</div>
+			</h:form>
 
-					<h:commandButton class="btn btn-lg btn-primary btn-block"
-						type="submit" action="#{isAccount.login()}" value="Sign In" />
 
-				</h:form>
-
-			</div>
-
-			<div id="footer">
-				<h:form rendered="#{isAccount.error ne null}">
-					<div id="alerttt" class="alert alert-danger"
-						style="visiblity: visible">
-						<a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
-						<h:outputText value="#{isAccount.error}" />
-					</div>
-				</h:form>
-			</div>
 		</div>
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 	</body>
 </f:view>
 </html>
