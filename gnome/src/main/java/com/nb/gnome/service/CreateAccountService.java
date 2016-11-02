@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 import com.nb.gnome.entities.Customer;
 import com.nb.gnome.managers.CustomerRepository;
+import com.nb.gnome.managers.AddressRepository;
 
 import gnome.InitialData;
 
@@ -20,15 +21,21 @@ public class CreateAccountService {
 	CustomerRepository customerManager; 
 	@Inject 
 	InitialData initialData;
-	public void newUser(String firstName, String surname, String email, String firstLine, String postcode, String password){
+	@Inject
+	AddressRepository addressManager; 
+	
+	
+	public void newUser(String firstName, String surname, String email, String firstLine,String secondLine, String postcode, String password){
 		//Hashing and stuff, split the name to first and last 
 		
 		Customer c = new Customer();
 		Address a = new Address();
 		ArrayList<Address> addresses = new ArrayList<Address>();
-		
-		a.setLine1(firstLine);						// Does the addresses stuff
+		a.setId(addressManager.getAddresses().size()+1);
+		a.setLine1(firstLine);	
+		a.setLine2(secondLine);   // Does the addresses stuff
 		a.setPostcode(postcode);
+		initialData.addAddress(a);
 		addresses.add(a);
 		c.setAddresses(addresses);
 		

@@ -76,6 +76,7 @@ public class InitialData {
 		cu.setSurname("surname");
 		cu.setAddresses(addresses);
 		cu.setPassword("password");
+		cu.setId(2);
 		customers.add(cu);
 		
 		Customer cu2 = new Customer();
@@ -84,6 +85,7 @@ public class InitialData {
 		cu2.setSurname("Smart");
 		cu2.setAddresses(addresses2);
 		cu2.setPassword("goaway");
+		cu2.setId(1);
 		customers.add(cu2);
 		
 		
