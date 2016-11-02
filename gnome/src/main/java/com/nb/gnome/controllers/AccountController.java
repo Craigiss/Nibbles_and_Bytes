@@ -28,7 +28,7 @@ public class AccountController implements Serializable {
 	CustomerRepository accountManager;
 	@Inject
 	AddressRepository addressManager;
-	
+	@Inject
 	AddressService addressService;
 	
 
@@ -134,7 +134,6 @@ public class AccountController implements Serializable {
 
 
 	public void updateAccount(){
-		System.out.println("reached");
 		updateAccountService.updateAccount(firstName, surname, email);
 		updateAccountService.updateAddress(userCredentials.getId(), selectedAddress, addressFirstLine, addressSecondLine, town, county, postcode);
 	}
@@ -232,8 +231,9 @@ public class AccountController implements Serializable {
 			{
 				if(a.getId() == selectedAddress)
 					return a.getLine1();
+					
 			}
-			return address.get(selectedAddress).getLine1();		
+			return address.get(0).getLine1();		
 		}
 			// 		 (until we can add a page to view multiple addresses).
 		else
@@ -251,7 +251,7 @@ public class AccountController implements Serializable {
 				if(a.getId() == selectedAddress)
 					return a.getLine2();
 			}
-			return address.get(selectedAddress).getLine2();		
+			return address.get(0).getLine2();		
 		}
 			// 		 (until we can add a page to view multiple addresses).
 		else
@@ -269,7 +269,7 @@ public class AccountController implements Serializable {
 				if(a.getId() == selectedAddress)
 					return a.getCounty();
 			}
-			return address.get(selectedAddress).getCounty();		
+			return address.get(0).getCounty();		
 		}
 			// 		 (until we can add a page to view multiple addresses).
 		else
@@ -286,7 +286,7 @@ public class AccountController implements Serializable {
 				if(a.getId() == selectedAddress)
 					return a.getPostcode();
 			}
-			return address.get(selectedAddress).getPostcode();		
+			return address.get(0).getPostcode();		
 		}
 			// 		 (until we can add a page to view multiple addresses).
 		else
@@ -306,12 +306,25 @@ public class AccountController implements Serializable {
 				if(a.getId() == selectedAddress)
 					return a.getTown();
 			}
-			return address.get(selectedAddress).getTown();		
+			return address.get(0).getTown();		
 		}
 			// 		 (until we can add a page to view multiple addresses).
 		else
 			return "No address found - Please add your address details.";
 
+	}
+	
+	public String addAddress(){
+		
+		addressService.addAddress(addressFirstLine, addressSecondLine, town, county, postcode);
+		return "account";
+		
+	}
+	
+	public String deleteAddress(){
+		
+		addressService.deleteAddress(selectedAddress);
+		return "account";
 	}
 
 	/**

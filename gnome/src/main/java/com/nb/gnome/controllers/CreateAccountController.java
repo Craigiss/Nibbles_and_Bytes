@@ -79,7 +79,9 @@ public class CreateAccountController {
 		}
 		
 		createAccountService.newUser(firstName, surname, email, addressFirstLine,addressSecondLine, postcode, password);
-		String outcome  = login();
+		loginController.setEmail(email);
+		loginController.setPassword(password);
+		String outcome  = loginController.login();
 		return outcome;
 		
 		
