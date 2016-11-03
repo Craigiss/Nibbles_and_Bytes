@@ -27,7 +27,7 @@ public class Address {
 	private String line1;
 	
 	@Column (name = "line2", nullable = true, length = 255)
-	@Size (min = 2, max = 255)
+	@Size (min = 0, max = 255)
 	private String line2;
 	
 	@Column (name = "town", nullable = false, length = 255)
@@ -44,16 +44,20 @@ public class Address {
 	@NotNull
 	@Size (min = 5, max = 8)
 	private String postcode;
-	
-	@ManyToMany(targetEntity=Customer.class, mappedBy="CustomerAccountAddress")
-	private List<Customer> customers;
-
-	
+		
 	/**
 	 * Default constructor taking no arguments
 	 */
 	public Address() {
 
+	}
+	
+	public Address(String line1, String line2, String town, String county, String postcode){
+		this.line1 = line1;
+		this.line2 = line2;
+		this.town = town;
+		this.county = county;
+		this.postcode = postcode;
 	}
 
 	/**

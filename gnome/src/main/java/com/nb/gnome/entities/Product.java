@@ -44,6 +44,10 @@ public class Product {
 	
 	@Column(name ="deleted")
 	private boolean deleted;
+	
+	@ManyToOne
+	@JoinColumn(name="supplier_id")
+	private Supplier supplier;
 		
 	public Product(){
 		
@@ -165,4 +169,20 @@ public class Product {
 	public String toString(){
 		return getProductName() + " " + getStockLevel();
 	}
+
+	/**
+	 * @return the supplier
+	 */
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	/**
+	 * @param supplier the supplier to set
+	 */
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+	
+	
 }

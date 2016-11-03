@@ -535,6 +535,11 @@ ul {
 	color: white;
 }
 
+#productFormatter{
+	margin-left: 158px;
+	margin-right: 158px;
+}
+
 @media screen and (max-width: 990px) {
 	.legend div {
 		width: 15px;
