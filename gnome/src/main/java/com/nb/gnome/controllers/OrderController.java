@@ -1,6 +1,5 @@
 package com.nb.gnome.controllers;
 
-import java.awt.BasicStroke;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

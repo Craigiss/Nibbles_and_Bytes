@@ -72,7 +72,7 @@ padding-left:5px;
 }
 .secondNav{
 
-	padding-left:35% !important;
+	padding-left:27.5% !important;
 	text-decoration: none;
 }
 .secondNav  li, .secondNav a {
@@ -81,7 +81,7 @@ padding-left:5px;
 	padding-right: 15px;
 }
 .navbar-brand{
-	transform:translate(-25%,-80%);
+	transform:translate(-25%,-0%);
 }
 #navButton{
 	float:left;
@@ -89,7 +89,7 @@ padding-left:5px;
 }
 
 #body {
-min-height:799px !important;
+
    padding-top:0px;
 	padding-left:5%;
 	padding-right:5%;

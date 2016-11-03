@@ -2,8 +2,6 @@ package com.nb.gnome.controllers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
-
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -20,12 +18,7 @@ public class SearchController implements Serializable {
 	SearchCatalogueController searchCatController;
 	private ArrayList<Product> products = new ArrayList<Product>();
 	
-	private SelectedProduct selectedProduct;
-	private Product product;
 	private String term;
-	private String categoryTerm;
-	
-	
 	public String search(){
 		products = (ArrayList<Product>) productManager.getProductByKeyword(term);
 		
@@ -36,7 +29,7 @@ public class SearchController implements Serializable {
 	}
 	
 	public String openCategoryPage(String searchTerm){
-		//categoryTerm = "Gnomes";																// ******* CAM | Testing category input 
+		//categoryTerm = "Gnomes";																
 		products = (ArrayList<Product>) productManager.getProductByCategory(searchTerm);
 		
 		searchCatController.getDataModel();

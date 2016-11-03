@@ -2,7 +2,6 @@
  * 
  */
 package com.nb.gnome.mangers.offline;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +10,6 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Category;
-import com.nb.gnome.entities.Customer;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.ProductCategory;
 import com.nb.gnome.managers.ProductRepository;

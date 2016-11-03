@@ -19,6 +19,7 @@ import javax.validation.constraints.NotNull;
 public class Product {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "productID")
 	int productID;
 	
@@ -37,11 +38,7 @@ public class Product {
 	@Column(name = "stockLevel")
 	int stockLevel;
 	
-	@Column(name = "supplierID")
-	@ManyToOne
-	@JoinColumn(name="FKCategoryID",
-	nullable = false)
-	@NotNull
+	@Column
 	int supplierID;
 	
 	

@@ -1,5 +1,4 @@
 package com.nb.gnome.managers;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.nb.gnome.entities.Address;

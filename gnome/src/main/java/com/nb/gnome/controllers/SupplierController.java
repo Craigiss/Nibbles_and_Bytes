@@ -18,7 +18,6 @@ public class SupplierController implements Serializable{
 	private SupplierRepository supplierRepository;
 	private  Supplier supplier;
 	private PaginationHelper pagination;
-	private int selected;
 	private DataModel<Supplier> dataModel = null;
 
 	private void recreateModel() {

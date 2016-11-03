@@ -12,7 +12,6 @@ import com.nb.gnome.entities.Address;
 import com.nb.gnome.managers.AddressRepository;
 import com.nb.gnome.managers.CustomerRepository;
 import com.nb.gnome.service.AddressService;
-import com.nb.gnome.service.LoginService;
 import com.nb.gnome.service.UpdateAccountService;
 import com.nb.gnome.service.UserCredentials;
 
@@ -29,7 +28,7 @@ public class AccountController implements Serializable {
 	@Inject
 	AddressRepository addressManager;
 
-	@Inject
+	
 	AddressService addressService;
 
 	private List<Address> address; // Customer's addresses.
@@ -229,37 +228,25 @@ public class AccountController implements Serializable {
 	}
 
 	public String getFirstName() {
-		try {
-			return accountManager.getCustomerByEmail(userCredentials.getEmail()).getFirstName();
-		} catch (NullPointerException e) {
-			return "loginPage";
 
-		}
+			return accountManager.getCustomerByEmail(userCredentials.getEmail()).getFirstName();
+
 
 	}
 
 	public String getSurname() {
-
-		try {
 			return accountManager.getCustomerByEmail(userCredentials.getEmail()).getSurname();
-		} catch (NullPointerException e) {
-			return "loginPage";
 
-		}
 	}
 
 	public String getEmail() {
 
-		try {
 			return accountManager.getCustomerByEmail(userCredentials.getEmail()).getEmail();
-		} catch (NullPointerException e) {
-			return "loginPage";
-		}
+
 	}
 
 	public String getAddressFirstLine() {
 
-		try {
 			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 			if (address.size() > 0) {
 
@@ -271,14 +258,10 @@ public class AccountController implements Serializable {
 			}
 			else
 				return "No address found - Please add your address details.";
-		} catch (NullPointerException e) {
-			return "loginPage";
-		}
 	}
 
 	public String getAddressSecondLine() {
 		
-		try {
 			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 			if (address.size() > 0) {
 
@@ -291,14 +274,12 @@ public class AccountController implements Serializable {
 			// (until we can add a page to view multiple addresses).
 			else
 				return "No address found - Please add your address details.";
-		} catch (NullPointerException e) {
-			return "loginPage";
-		}
+
 	}
 
 	public String getCounty() {
 		
-		try {
+
 			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 			if (address.size() > 0) {
 
@@ -311,15 +292,11 @@ public class AccountController implements Serializable {
 			// (until we can add a page to view multiple addresses).
 			else
 				return "No address found - Please add your address details.";
-		} catch (NullPointerException e) {
-			return "loginPage";
 
-		}
 	}
 
 	public String getPostcode() {
-		
-		try {
+
 			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 			if (address.size() > 0) {
 
@@ -332,9 +309,7 @@ public class AccountController implements Serializable {
 			// (until we can add a page to view multiple addresses).
 			else
 				return "No address found - Please add your address details.";
-		} catch (NullPointerException e) {
-			return "loginPage";
-		}
+
 	}
 
 	/**
@@ -342,7 +317,7 @@ public class AccountController implements Serializable {
 	 */
 	public String getTown() {
 		
-		try {
+
 			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 			if (address.size() > 0) {
 
@@ -355,10 +330,7 @@ public class AccountController implements Serializable {
 			// (until we can add a page to view multiple addresses).
 			else
 				return "No address found - Please add your address details.";
-		} catch (NullPointerException e) {
-			return "loginPage";
 
-		}
 	}
 	
 	public String addAddress(){

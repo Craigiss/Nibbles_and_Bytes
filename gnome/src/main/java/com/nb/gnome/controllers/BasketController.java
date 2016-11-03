@@ -11,8 +11,6 @@ import com.nb.gnome.managers.ProductRepository;
 import com.nb.gnome.service.CheckoutService;
 import com.nb.gnome.service.UserCredentials;
 
-import javassist.compiler.ast.Pair;
-
 import java.io.Serializable;
 
 
@@ -57,7 +55,7 @@ public class BasketController implements Serializable {
 	ProductRepository productManager;
 	@Inject 
 	UserCredentials userCredentials; 
-	@Inject 
+	 @Inject
 	CheckoutService checkoutService; 
 	private double total; 
 	ArrayList<Product> products = new ArrayList<Product>();

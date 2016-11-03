@@ -20,7 +20,6 @@ public class SearchCatalogueController implements Serializable {
 	@Inject
 	private SelectedProduct product;
 	private PaginationHelper pagination;
-	private int selected;
 	private DataModel<Product> dataModel = null;
 
 	private void recreateModel() {
@@ -31,10 +30,6 @@ public class SearchCatalogueController implements Serializable {
 
 	public PaginationHelper getPagination() {
 		if (pagination == null)
-		
-			
-			
-			
 			pagination = new PaginationHelper(12) {
 				@Override
 				public int getItemsCount() {
@@ -82,7 +77,6 @@ public class SearchCatalogueController implements Serializable {
 	}
 	
 	public String view (int id){
-		System.out.println(">>>> selected ID: " + id);
 		product.setProduct(productRepository.getProductByID(id));
 
 		return "Product";

@@ -20,6 +20,7 @@ import javax.validation.constraints.Size;
  *          variables to model the data needed for the system.
  **/
 
+@SuppressWarnings("unused")
 public class Review {
 	
 	@Id

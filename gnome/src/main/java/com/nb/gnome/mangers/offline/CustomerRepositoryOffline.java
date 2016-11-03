@@ -12,6 +12,7 @@ import com.nb.gnome.entities.Customer;
 import com.nb.gnome.managers.CustomerRepository;
 
 import gnome.InitialData;
+@SuppressWarnings("unused")
 @Default
 @Stateless
 public class CustomerRepositoryOffline implements CustomerRepository {

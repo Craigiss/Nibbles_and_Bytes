@@ -63,11 +63,7 @@ clear:both;
 #relatedSet img {
 	float:left;
 }
-#relatedSet a{
-	padding-right: 60px;
 
-	
-}
 #relatedSet li{
 	float:left;
 	list-style:none;

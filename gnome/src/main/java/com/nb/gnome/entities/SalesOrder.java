@@ -1,6 +1,4 @@
 package com.nb.gnome.entities;
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

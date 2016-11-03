@@ -3,7 +3,6 @@ package com.nb.gnome.service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import javax.ejb.Local;
 import javax.ejb.Stateful;
 import javax.inject.Inject;
 

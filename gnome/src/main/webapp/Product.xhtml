@@ -1,203 +1,215 @@
-<ui:composition
-xmlns="https://www.w3.org/1999/xhtml"
-
-xmlns:f="http://java.sun.com/jsf/core"
-xmlns:h="http://java.sun.com/jsf/html"
-xmlns:ui="http://java.sun.com/jsf/facelets"
-template="templates/Template.xhtml">
-<meta charset="utf-8" />
-<ui:define name="title">
-	<h:outputText value="#{selected.product.productName}"/>
-</ui:define>
-<ui:define name="css">
-	<link href="css/Product.css" rel="stylesheet"/>
-</ui:define>
-<ui:define name="mainContent">
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="templates/Template.xhtml">
+	<meta charset="utf-8" />
+	<ui:define name="title">
+		<h:outputText value="#{selected.product.productName}" />
+	</ui:define>
+	<ui:define name="css">
+		<link href="css/Product.css" rel="stylesheet" />
+	</ui:define>
+	<ui:define name="mainContent">
 		<div class="container">
-		<div class="row">
-			<div class="col-md-3">
-				<div id = "productImage">
-					<h:graphicImage value="#{selected.product.imgPath}" width="300" height="300" />
-				</div> 
-			</div>
-			<div class="col-md-2">
-				<div id = "smallerImages">
-					<h:graphicImage value="img/angle2.jpeg" width="92" height="92" />
-					<br/>
-					<h:graphicImage value="img/angle2.jpeg" width="92" height="92" />
-					<br/>
-					<h:graphicImage value="img/angle3.jpg" width="92" height="92" />
-					<br/>
-					<span style="font-size:80px">&#8681;</span>
+			<div class="row">
+				<div class="col-md-3">
+					<div id="productImage">
+						<h:graphicImage value="#{selected.product.imgPath}" width="300"
+							height="300" />
+					</div>
 				</div>
-			</div>
-			<div class="col-md-7">
+				<div class="col-md-2">
+					<div id="smallerImages">
+						<h:graphicImage value="img/angle2.jpeg" width="92" height="92" />
+						<br />
+						<h:graphicImage value="img/angle2.jpeg" width="92" height="92" />
+						<br />
+						<h:graphicImage value="img/angle3.jpg" width="92" height="92" />
+						<br /> <span style="font-size: 80px">&#8681;</span>
+					</div>
+				</div>
+				<div class="col-md-7">
 
-					<div id = "productTitle">
+					<div id="productTitle">
 						<h1>
-							<h:outputText value="#{selected.product.productName}"/>
+							<h:outputText value="#{selected.product.productName}" />
 						</h1>
 					</div>
 
-					<div id = "descriptionTitle">
-						<h2>
-						Description
-						</h2>
+					<div id="descriptionTitle">
+						<h2>Description</h2>
 					</div>
-					<div id = "price">
+					<div id="price">
 						<p>
-							&#163;<h:outputText value ="#{selected.product.price}" />
+							&#163;
+							<h:outputText value="#{selected.product.price}" />
 						</p>
 					</div>
-					<br/><br/><br/>
-					<div id = "description">
+					<br />
+					<br />
+					<br />
+					<div id="description">
 						<p>
-							<h:outputText value ="#{selected.product.description}" />
+							<h:outputText value="#{selected.product.description}" />
 						</p>
 					</div>
-					<div id = "quantityTitle">
-						<h3>
-							Quantity 
-						</h3>
-					</div> 
+					<div id="quantityTitle">
+						<h3>Quantity</h3>
+					</div>
 					<h:form>
-					<div id="myDropdown">
-						<h:selectOneMenu value="#{products.selectedComboItem}">
-							<f:selectItems value="#{products.availableItems}" />
-						</h:selectOneMenu>
-					</div>
-					
-					<div class = "button" onclick="showAlert()" >
-						 <h:commandButton  class="btn btn-success" action="#{Basket.addProduct(selected.product.productID, products.selectedComboItem, selected.product.price)}" type="submit" value="Add to Basket" />
-					</div>
-					
+						<div id="myDropdown">
+							<h:selectOneMenu value="#{products.selectedComboItem}">
+								<f:selectItems value="#{products.availableItems}" />
+							</h:selectOneMenu>
+						</div>
+
+						<div class="button" onclick="showAlert()">
+							<h:commandButton class="btn btn-success"
+								action="#{Basket.addProduct(selected.product.productID, products.selectedComboItem, selected.product.price)}"
+								type="submit" value="Add to Basket" />
+						</div>
+
 					</h:form>
 					<div id="alertBox">
-					<h:form rendered="#{Basket.submit ne null}" >
-						<div id="alerttt"  class="alert alert-success" style="visiblity:visible"> 
-							<a class="close" data-dismiss="alert" aria-label="close" >X</a>
-							<h:outputText value="#{Basket.submit}" />
-						</div>
-					</h:form>
-					</div>
-<!-- 					<script type="text/javascript">
-				         function showAlert()
-				         {
-				        	 var alert = document.getElementById('alertBox');
-				        	 alert.innerHTML = '<div id="alerttt"  class="alert alert-success" style="visiblity:visible"> <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a><strong>Success!</strong> Item added to basket</div>'
-				        	
-				         }
-				      </script> -->
-
-			</div>
-			</div>
-		</div>
-		<div class="container">
-		<div class = "related">
-			<br/><br/><br/><br/>
-			
-				<div id = "relatedProducts">
-					<h2>
-						Related Products 
-					</h2>
-				</div>
-			
-				<div id = "relatedSet">
-					<div class = "row text-center">
-						<ui:repeat var="product" value="#{products.dataModel}">
-							<div class="col-md-3">						
-								<h:form>			
-									<h:commandLink action="#{products.view(product.productID)}"  >						
-										<h:graphicImage value="#{product.imgPath}" alt="placeholder" height="100" width="100"/>		
-										<h:outputText class="figure-caption" value="#{product.productName}"/>
-										<h:outputText class="figure-caption" value="&#163;#{product.price}" />
-									</h:commandLink>
-								</h:form>
+						<h:form rendered="#{Basket.submit ne null}">
+							<div id="alerttt" class="alert alert-success"
+								style="visiblity: visible">
+								<a class="close" data-dismiss="alert" aria-label="close">X</a>
+								<h:outputText value="#{Basket.submit}" />
 							</div>
-		   				</ui:repeat>
-					</div>
-				</div>
-			</div>
-		</div>
-		<br/><br/><br/>
-		
-		<div id = "reviews">
-			<div class="container">
-				<h2>Reviews</h2>
-					<button class="btn btn-success pull-left" value="Write Review" type="button" data-toggle="modal" data-target="#myModal" >Write a review</button>
-					<!-- Modal -->
-					   <h:form>
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-					  <div class="modal-dialog" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
-					        <h4 class="modal-title" id="myModalLabel">Write Review</h4>
-					      </div>
-					      <div class="modal-body">
-					   
-					      	<div class="container">			
-						       	<div id = "radioButtons">
-							       	<div class = "row text-center">
-										<h:selectOneRadio value ="#{products.score}" >
-											<div class="col-sm-2">
-												<f:selectItem itemValue= "5" itemLabel="Excellent" />
-											</div>
-											<div class="col-sm-2">
-												<f:selectItem itemValue= "4" itemLabel="Very Good" />
-											</div>
-											<div class="col-sm-2">
-												<f:selectItem itemValue= "3" itemLabel="Average" />
-											</div>
-											<div class="col-sm-2">
-												<f:selectItem itemValue= "2" itemLabel="Poor" />
-											</div>
-											<div class="col-sm-4">
-												<f:selectItem itemValue= "1" itemLabel="Terrible" />
-											</div>
-										</h:selectOneRadio>
-									</div>
-								</div>
-								<h:panelGrid id="commentGrid">
-							        <h:outputLabel value="Add Comments: " />
-							        <h:inputTextarea value = "#{products.review}" type ="text" id ="inputReview" />
-							    </h:panelGrid>
-								
-							  </div>
-
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn pull-left btn-danger" data-dismiss="modal">Cancel</button>
-
-					        	<h:commandLink action = "#{products.writeReview()}">
-					       			<h:commandButton class="btn btn-success" value="Confirm" type="submit"  style="right:10px;" />
-					        	</h:commandLink>
-					       
-					      </div>
-					    </div>
-					  </div>
-					</div>
-					 </h:form>
-		
-		
-				<div class="reviewcontainer" style="clear:both">
-					<div class ="row text-center">
-					<ui:repeat var="product" value="#{products.reviewModel}">
-						<div class="col-sm-4">
-							<div class="speech-bubble">
-								<p> <h:outputText value ="#{product.reviewText}" /> </p>
-								<figure class="figure">	
-									<figcaption class="figure-caption"><h:outputText value ="#{product.date}" /></figcaption>
-								</figure>	
-							</div>	
-						</div>
-						</ui:repeat>
-						<h:form rendered="#{products.reviewModel eq null}" class="pull-left">
-							<h3 style="padding-left:15px;"> No Reviews</h3>
 						</h:form>
 					</div>
 				</div>
 			</div>
 		</div>
-</ui:define>
+		<div class="container">
+			<div class="related">
+				<br />
+				<br />
+				<br />
+				<br />
+
+				<div id="relatedProducts">
+					<h2>Related Products</h2>
+				</div>
+
+				<div id="relatedSet">
+					<div class="row text-center">
+						<ui:repeat var="product" value="#{products.dataModel}">
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<h:form>
+									<h:commandLink action="#{products.view(product.productID)}">
+										<h:graphicImage value="#{product.imgPath}" alt="placeholder"
+											height="100" width="100" />
+										<h:outputText class="figure-caption"
+											value="#{product.productName}" />	
+											<br/>
+										<h:outputText class="figure-caption"
+											value=" &#163;#{product.price}" />
+									</h:commandLink>
+								</h:form>
+							</div>
+						</ui:repeat>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+		<br />
+		<br />
+
+		<div id="reviews">
+			<div class="container">
+				<h2>Reviews</h2>
+				<button class="btn btn-success pull-left" value="Write Review"
+					type="button" data-toggle="modal" data-target="#myModal">Write
+					a review</button>
+				<!-- Modal -->
+				<h:form>
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+						aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">X</span>
+									</button>
+									<h4 class="modal-title" id="myModalLabel">Write Review</h4>
+								</div>
+								<div class="modal-body">
+
+									<div class="container">
+										<div id="radioButtons">
+											<div class="row text-center">
+												<h:selectOneRadio value="#{products.score}">
+													<div class="col-sm-2">
+														<f:selectItem itemValue="5" itemLabel="Excellent" />
+													</div>
+													<div class="col-sm-2">
+														<f:selectItem itemValue="4" itemLabel="Very Good" />
+													</div>
+													<div class="col-sm-2">
+														<f:selectItem itemValue="3" itemLabel="Average" />
+													</div>
+													<div class="col-sm-2">
+														<f:selectItem itemValue="2" itemLabel="Poor" />
+													</div>
+													<div class="col-sm-4">
+														<f:selectItem itemValue="1" itemLabel="Terrible" />
+													</div>
+												</h:selectOneRadio>
+											</div>
+										</div>
+										<h:panelGrid id="commentGrid">
+											<h:outputLabel value="Add Comments: " />
+											<h:inputTextarea value="#{products.review}" type="text"
+												id="inputReview" />
+										</h:panelGrid>
+
+									</div>
+
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn pull-left btn-danger"
+										data-dismiss="modal">Cancel</button>
+
+									<h:commandLink action="#{products.writeReview()}">
+										<h:commandButton class="btn btn-success" value="Confirm"
+											type="submit" style="right:10px;" />
+									</h:commandLink>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</h:form>
+
+
+				<div class="reviewcontainer" style="clear: both">
+					<div class="row text-center">
+						<ui:repeat var="product" value="#{products.reviewModel}">
+							<div class="col-sm-4">
+								<div class="speech-bubble">
+									<p>
+										<h:outputText value="#{product.reviewText}" />
+									</p>
+									<figure class="figure">
+										<figcaption class="figure-caption">
+											<h:outputText value="#{product.date}" />
+										</figcaption>
+									</figure>
+								</div>
+							</div>
+						</ui:repeat>
+						<h:form rendered="#{products.reviewModel eq null}"
+							class="pull-left">
+							<h3 style="padding-left: 15px;">No Reviews</h3>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
 </ui:composition>
