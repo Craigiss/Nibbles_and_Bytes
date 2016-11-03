@@ -1,77 +1,24 @@
-<!DOCTYPE html>
-<html lang="en"
-xmlns ="https://www.w3.org/1999/xhtml"
-
-xmlns:f="http://java.sun.com/jsf/core"
-xmlns:h="http://java.sun.com/jsf/html"
-xmlns:ui="http://java.sun.com/jsf/facelets"
-xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
-<h:head>
-
+<ui:composition
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/core"
+template="templates/Template.xhtml">
 <meta charset="utf-8" />
-<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initialscale=1" />
+<ui:define name="title">
+About Us
+</ui:define>
 
-<title>
-	Error
-</title>
-<link href="css/Checkout.css" rel="stylesheet"/>
-<ui:insert name="css"/>
-<link href="css/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"/>
+<ui:define name="css">
+	<link href="css/search.css" rel="stylesheet"/>
+</ui:define>
 
-
-</h:head>
-<f:view>
-<body >
-<div id="container">
-   <div id="header">
-   <nav class="navbar navbar-default">
-			<div class="container-fluid">
-
-				<div class="navbar-header">
-				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-				  data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				  </button>
-				</div>
-				
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<div id="topNav" >
-					<a class="navbar-brand" href="homePage.xhtml">
-						<img src="img/lgo.png" width="150px"/> 
-					</a>
-									
-					  <ul class="nav navbar-nav navbar-right pull-right" >
-
-						<li id="leftBorder">
-							<a href="homePage.xhtml">Home</a>
-						</li>
-			
-					  </ul>
-					  </div>
-				</div>
-			</div>
-		</nav>	
-	</div>
-	
-    <div id="body" style="margin-top: 50px;"> 
+<ui:define name="mainContent">
     <center>
 	    <h1>404</h1>
 		<img src="img/Zombie.jpg"/>
 	</center>
-    </div>   
-
-   <div id="footer"> 
 	
-   </div>
-</div>
+</ui:define>>
+</ui:composition>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-
-</body>
-</f:view>
-</html>

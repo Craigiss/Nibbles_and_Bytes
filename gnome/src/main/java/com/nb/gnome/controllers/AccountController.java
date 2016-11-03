@@ -21,65 +21,69 @@ import com.nb.gnome.service.UserCredentials;
 public class AccountController implements Serializable {
 	@Inject
 	UserCredentials userCredentials;
-	
-	@Inject 
+
+	@Inject
 	UpdateAccountService updateAccountService;
 	@Inject
 	CustomerRepository accountManager;
 	@Inject
 	AddressRepository addressManager;
-	
+
 	AddressService addressService;
-	
 
-	private List<Address> address;									// Customer's addresses.
+	private List<Address> address; // Customer's addresses.
 
+	private String email;
+	private String firstName;
+	private String surname;
+	private String addressFirstLine;
+	private String addressSecondLine;
+	private String town;
+	private String county;
+	private String postcode;
 
-	private String email; 
-    private String firstName; 
-    private String surname; 
-    private String addressFirstLine;
-    private String addressSecondLine;
-    private String town;
-    private String county; 
-    private String postcode;
+	private int selectedAddress; // The ID of the address selected by the
+									// dropdown box.
 
-    private int selectedAddress;								// The ID of the address selected by the dropdown box.
-    
-    public void updateAddresses(ValueChangeEvent e){												// Updates address by drop down box selected address.
-    	address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();		// Gets the customer's addresses.
-    	int addressIdToFind =0;
+	public void updateAddresses(ValueChangeEvent e) { // Updates address by drop
+														// down box selected
+														// address.
+		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses(); // Gets
+																								// the
+																								// customer's
+																								// addresses.
+		int addressIdToFind = 0;
 
-		for(Address a : address)
-		{
-			if(a.getId() == selectedAddress)
-				addressIdToFind =a.getId();
+		for (Address a : address) {
+			if (a.getId() == selectedAddress)
+				addressIdToFind = a.getId();
 		}
-    	for (Address a: address){
-    		if (a.getId()==addressIdToFind){ // if the address id matches the id of the new address we are looking for...
-    			setTown(a.getTown());
-    			setAddressFirstLine(a.getLine1());
-    	    	setAddressSecondLine(a.getLine2());
-    	    	setPostcode(a.getPostcode());
-    	    	setCounty(a.getCounty());
-    	    	break;
-    		}
-    		
-    	}
-    
-   
-    }
-    
-    public String getAddressSummary(){
-    	return(addressService.addressSummary(selectedAddress));
-    }
+		for (Address a : address) {
+			if (a.getId() == addressIdToFind) { // if the address id matches the
+												// id of the new address we are
+												// looking for...
+				setTown(a.getTown());
+				setAddressFirstLine(a.getLine1());
+				setAddressSecondLine(a.getLine2());
+				setPostcode(a.getPostcode());
+				setCounty(a.getCounty());
+				break;
+			}
 
-    public String goHome(){
+		}
+
+	}
+
+	public String getAddressSummary() {
+		return (addressService.addressSummary(selectedAddress));
+	}
+
+	public String goHome() {
 		return "homePage";
-    	
-    }
-    
-    /**
+
+	}
+
+	/**
 	 * @return the selectedAddress
 	 */
 	public int getSelectedAddress() {
@@ -87,7 +91,8 @@ public class AccountController implements Serializable {
 	}
 
 	/**
-	 * @param selectedAddress the selectedAddress to set
+	 * @param selectedAddress
+	 *            the selectedAddress to set
 	 */
 	public void setSelectedAddress(int selectedAddress) {
 		this.selectedAddress = selectedAddress;
@@ -97,11 +102,18 @@ public class AccountController implements Serializable {
 	 * @return the address
 	 */
 	public List<Address> getAddress() {
-		//return addressService.getCustomerAddresses();
+		// return addressService.getCustomerAddresses();
+		try{
+			
+		
 		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
 		return address;
+		}
+		catch(NullPointerException e){
+			return null;
+		}
 	}
-	
+
 	/**
 	 * @return the userCredentials
 	 */
@@ -109,10 +121,9 @@ public class AccountController implements Serializable {
 		return userCredentials;
 	}
 
-
-
 	/**
-	 * @param userCredentials the userCredentials to set
+	 * @param userCredentials
+	 *            the userCredentials to set
 	 */
 	public void setUserCredentials(UserCredentials userCredentials) {
 		this.userCredentials = userCredentials;
@@ -126,199 +137,232 @@ public class AccountController implements Serializable {
 	}
 
 	/**
-	 * @param updateAccountService the updateAccountService to set
+	 * @param updateAccountService
+	 *            the updateAccountService to set
 	 */
 	public void setUpdateAccountService(UpdateAccountService updateAccountService) {
 		this.updateAccountService = updateAccountService;
 	}
 
-
-	public void updateAccount(){
+	public void updateAccount() {
 		System.out.println("reached");
 		updateAccountService.updateAccount(firstName, surname, email);
-		updateAccountService.updateAddress(userCredentials.getId(), selectedAddress, addressFirstLine, addressSecondLine, town, county, postcode);
+		updateAccountService.updateAddress(userCredentials.getId(), selectedAddress, addressFirstLine,
+				addressSecondLine, town, county, postcode);
 	}
 
-	public void testingMethod()
-	{
+	public void testingMethod() {
 		System.out.println("reached");
 	}
 
-	
-	
-	
 	/**
-	 * @param accountManager the accountManager to set
+	 * @param accountManager
+	 *            the accountManager to set
 	 */
 	public void setAccountManager(CustomerRepository accountManager) {
 		this.accountManager = accountManager;
 	}
 
 	/**
-	 * @param address the address to set
+	 * @param address
+	 *            the address to set
 	 */
 	public void setAddress(List<Address> address) {
 		this.address = address;
 	}
 
 	/**
-	 * @param email the email to set
+	 * @param email
+	 *            the email to set
 	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
 	/**
-	 * @param firstName the firstName to set
+	 * @param firstName
+	 *            the firstName to set
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
 	/**
-	 * @param surname the surname to set
+	 * @param surname
+	 *            the surname to set
 	 */
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
 
 	/**
-	 * @param addressFirstLine the addressFirstLine to set
+	 * @param addressFirstLine
+	 *            the addressFirstLine to set
 	 */
 	public void setAddressFirstLine(String addressFirstLine) {
 		this.addressFirstLine = addressFirstLine;
 	}
 
 	/**
-	 * @param postcode the postcode to set
+	 * @param postcode
+	 *            the postcode to set
 	 */
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
 
 	/**
-	 * @param county the county to set
+	 * @param county
+	 *            the county to set
 	 */
 	public void setCounty(String county) {
 		this.county = county;
 	}
 
 	/**
-	 * @param addressSecondLine the addressSecondLine to set
+	 * @param addressSecondLine
+	 *            the addressSecondLine to set
 	 */
 	public void setAddressSecondLine(String addressSecondLine) {
 		this.addressSecondLine = addressSecondLine;
 	}
 
-	public String getFirstName(){
-		return  accountManager.getCustomerByEmail(userCredentials.getEmail()).getFirstName();
+	public String getFirstName() {
+		try {
+			return accountManager.getCustomerByEmail(userCredentials.getEmail()).getFirstName();
+		} catch (NullPointerException e) {
+			return "loginPage";
+			
+		}
+
+	}
+
+	public String getSurname() {
+
+		try {
+			return accountManager.getCustomerByEmail(userCredentials.getEmail()).getSurname();
+		} catch (NullPointerException e) {
+			return "loginPage";
+		}
+	}
+
+	public String getEmail() {
+
+		try {
+			return accountManager.getCustomerByEmail(userCredentials.getEmail()).getEmail();
+		} catch (NullPointerException e) {
+			return "loginPage";
+		}
+	}
+
+	public String getAddressFirstLine() {
+
+		try {
+			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+			if (address.size() > 0) {
+
+				for (Address a : address) {
+					if (a.getId() == selectedAddress)
+						return a.getLine1();
+				}
+				return address.get(selectedAddress).getLine1();
+			}
+			// (until we can add a page to view multiple addresses).
+			else
+				return "No address found - Please add your address details.";
+		} catch (NullPointerException e) {
+			return "loginPage";
+		}
+	}
+
+	public String getAddressSecondLine() {
 		
-	}
-	
-	public String getSurname(){
-		return accountManager.getCustomerByEmail(userCredentials.getEmail()).getSurname();
-	
-	}
-	
-	public String getEmail(){
-		return accountManager.getCustomerByEmail(userCredentials.getEmail()).getEmail(); 
-	}
-	
-	public String getAddressFirstLine(){
-		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
-	if(address.size() > 0)	{
-			
-			for(Address a : address)
-			{
-				if(a.getId() == selectedAddress)
-					return a.getLine1();
+		try {
+			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+			if (address.size() > 0) {
+
+				for (Address a : address) {
+					if (a.getId() == selectedAddress)
+						return a.getLine2();
+				}
+				return address.get(selectedAddress).getLine2();
 			}
-			return address.get(selectedAddress).getLine1();		
+			// (until we can add a page to view multiple addresses).
+			else
+				return "No address found - Please add your address details.";
+		} catch (NullPointerException e) {
+			return "loginPage";
 		}
-			// 		 (until we can add a page to view multiple addresses).
-		else
-			return "No address found - Please add your address details.";
-
-
 	}
-	
-	public String getAddressSecondLine(){
-		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
-	if(address.size() > 0)	{
-			
-			for(Address a : address)
-			{
-				if(a.getId() == selectedAddress)
-					return a.getLine2();
+
+	public String getCounty() {
+		
+		try {
+			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+			if (address.size() > 0) {
+
+				for (Address a : address) {
+					if (a.getId() == selectedAddress)
+						return a.getCounty();
+				}
+				return address.get(selectedAddress).getCounty();
 			}
-			return address.get(selectedAddress).getLine2();		
+			// (until we can add a page to view multiple addresses).
+			else
+				return "No address found - Please add your address details.";
+		} catch (NullPointerException e) {
+			return "loginPage";
 		}
-			// 		 (until we can add a page to view multiple addresses).
-		else
-			return "No address found - Please add your address details.";
-
 	}
-	
 
-	public String getCounty(){
-		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
-	if(address.size() > 0)	{
-			
-			for(Address a : address)
-			{
-				if(a.getId() == selectedAddress)
-					return a.getCounty();
+	public String getPostcode() {
+		
+		try {
+			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+			if (address.size() > 0) {
+
+				for (Address a : address) {
+					if (a.getId() == selectedAddress)
+						return a.getPostcode();
+				}
+				return address.get(selectedAddress).getPostcode();
 			}
-			return address.get(selectedAddress).getCounty();		
+			// (until we can add a page to view multiple addresses).
+			else
+				return "No address found - Please add your address details.";
+		} catch (NullPointerException e) {
+			return "loginPage";
 		}
-			// 		 (until we can add a page to view multiple addresses).
-		else
-			return "No address found - Please add your address details.";
-
 	}
-	
-	public String getPostcode(){
-		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
-	if(address.size() > 0)	{
-			
-			for(Address a : address)
-			{
-				if(a.getId() == selectedAddress)
-					return a.getPostcode();
-			}
-			return address.get(selectedAddress).getPostcode();		
-		}
-			// 		 (until we can add a page to view multiple addresses).
-		else
-			return "No address found - Please add your address details.";
 
-	}
-	
 	/**
 	 * @return the town
 	 */
 	public String getTown() {
-		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
-	if(address.size() > 0)	{
-			
-			for(Address a : address)
-			{
-				if(a.getId() == selectedAddress)
-					return a.getTown();
-			}
-			return address.get(selectedAddress).getTown();		
-		}
-			// 		 (until we can add a page to view multiple addresses).
-		else
-			return "No address found - Please add your address details.";
+		
+		try {
+			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+			if (address.size() > 0) {
 
+				for (Address a : address) {
+					if (a.getId() == selectedAddress)
+						return a.getTown();
+				}
+				return address.get(selectedAddress).getTown();
+			}
+			// (until we can add a page to view multiple addresses).
+			else
+				return "No address found - Please add your address details.";
+		} catch (NullPointerException e) {
+			return "loginPage";
+		}
 	}
 
 	/**
-	 * @param town the town to set
+	 * @param town
+	 *            the town to set
 	 */
 	public void setTown(String town) {
 		this.town = town;
 	}
 }
-
