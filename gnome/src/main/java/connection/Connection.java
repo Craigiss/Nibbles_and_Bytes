@@ -1,4 +1,4 @@
-package connection;
+/*package connection;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class Connection {
 		System.out.println("DCon DONEEEEEE");
 
 		properties.setProperty("hibernate.connection.username", "root");
-		properties.setProperty("hibernate.connection.password", "broly1");
+		properties.setProperty("hibernate.connection.password", "password");
 		
 		System.out.println("U & P DONEEEEEE");
 
@@ -91,3 +91,4 @@ public class Connection {
 	}
 
 }
+*/

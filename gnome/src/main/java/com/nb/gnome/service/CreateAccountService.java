@@ -26,7 +26,7 @@ public class CreateAccountService {
 	@Inject
 	AddressRepository addressManager; 
 	
-	public void newUser(String firstName, String surname, String email, String firstLine,String secondLine, String postcode, String password) throws Exception{
+	public void newUser(String firstName, String surname, String email, String firstLine,String secondLine, String town, String county, String postcode, String password) throws Exception{
 		//Hashing and stuff, split the name to first and last 
 		
 		Customer c = new Customer();
@@ -35,6 +35,8 @@ public class CreateAccountService {
 		a.setId(addressManager.getAddresses().size()+1);
 		a.setLine1(firstLine);	
 		a.setLine2(secondLine);   // Does the addresses stuff
+		a.setTown(town);
+		a.setCounty(county);
 		a.setPostcode(postcode);
 		initialData.addAddress(a);
 		addresses.add(a);
