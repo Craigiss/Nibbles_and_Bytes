@@ -25,15 +25,20 @@ public class ISAccountController implements Serializable{
     private String error;
 
     
-    public String login(){
+    public String login() throws Exception{
     	String pageReturn = "imsLogin";
-    	if(iSAService.logInToIms(email, password).equals("successful")){
+    	if(iSAService.logInToIms(email, seasonAndCook(email, password)).equals("successful")){
     		pageReturn="imsIndex";
     	}else{
     		setError(iSAService.getError());
     	}
      
     	return pageReturn;
+    }
+    
+    public String seasonAndCook(String email, String npassword) throws Exception{
+    	String password = iSAService.seasonAndCook(email, npassword);
+    	return password;
     }
     
     public String logout(){

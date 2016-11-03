@@ -19,6 +19,7 @@ public interface ISAccountRepository {
 	
 	//Read
 	public ISAccount findISAccountByEmail(String email);
+	public String findSaltByEmail(String email);
 	
 	//Update
 	public void updateISAccountName(ISAccount isa);
@@ -27,5 +28,9 @@ public interface ISAccountRepository {
 
 	public List<ISAccount> findAll();
 	
+	//Password Security
+	public String hashSha256(String toHash) throws Exception;
+	public String addSeasoning(String password, String salt);
+	public String seasonAndCook(String email, String password) throws Exception;
 	
 }

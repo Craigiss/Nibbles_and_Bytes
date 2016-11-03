@@ -10,6 +10,9 @@ import com.nb.gnome.entities.ISAccount;
 import com.nb.gnome.managers.ISAccountRepository;
 
 import gnome.InitialData;
+import java.security.SecureRandom;
+import java.math.BigInteger;
+
 
 @Stateless
 
@@ -58,7 +61,7 @@ public class ISAccountService {
 	 * */
 	public void persistISAccount(String nEmail, String nPassword, String nName){
 		if (accountCheck(nEmail)){
-			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName);
+			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName, randomStringGenerator());
 			iSAccountManager.persistISAccount(isaisa);
 		}else{
 			int code=1;
@@ -68,13 +71,23 @@ public class ISAccountService {
 	
 	public void persistISAccountAdmin(String nEmail, String nPassword, String nName, boolean nAdmin){
 		if (accountCheck(nEmail)){
-			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName, nAdmin);
+			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName, nAdmin, randomStringGenerator() );
 			iSAccountManager.persistISAccountAdmin(isaisa);
 		}else{
 			int code=1;
 			accountError(code);
 		}
 	}
+	
+	/**
+	 * Generates a random String for the purposes of a salt for each user account
+	 * @return
+	 */
+	public String randomStringGenerator(){
+		SecureRandom random = new SecureRandom();
+		return new BigInteger(130, random).toString(32);
+	}
+	
 	public String logInToIms(String nEmail, String nPassword){
 		boolean validLogOn= false;
 		boolean check = accountCheck(nEmail);
@@ -105,6 +118,11 @@ public class ISAccountService {
 	public List<ISAccount> findAll(){
 		List<ISAccount> a = iSAccountManager.findAll();
 		return a;
+	}
+	
+	public String seasonAndCook(String email, String npassword) throws Exception{
+		String password = iSAccountManager.seasonAndCook(email, npassword);
+		return password;
 	}
 	
 	// To be adjusted once page is completed

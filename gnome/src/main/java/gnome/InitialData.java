@@ -192,23 +192,26 @@ public class InitialData {
 		
 		ISAccount isa1 = new ISAccount();
 		isa1.setEmail("PaulVanDyke@TranceNation.com");
-		isa1.setPassword("ilovetrance");
+		isa1.setPassword("24871d06dc1dcb6614c7a0dc0f678d53390de44796500c1ca000624471b03c39");
 		isa1.setName("Paul Van Dyke");
 		isa1.setAdmin(false);
+		isa1.setSalt("Y83naas£$Bklaf");
 		iSAccounts.add(isa1);
 		
 		ISAccount isa2 = new ISAccount();
 		isa2.setEmail("CyrilSneer@GreenHavenCottage.com");
-		isa2.setPassword("ihateraccoons");
+		isa2.setPassword("d7d18c04d2eab7deeb363b8c89fb68618e2be0ea34686e085313c627ea4c513a");
 		isa2.setName("Cyril Sneer");
 		isa2.setAdmin(false);
+		isa2.setSalt("IU(979qh097asith");
 		iSAccounts.add(isa2);
 		
 		ISAccount isa3 = new ISAccount();
 		isa3.setEmail("admin");
-		isa3.setPassword("password");
+		isa3.setPassword("6bcf7af8f331e857e69c4a7a748742e549cb1d3af9f4bf920a75a23fbd006ae8");
 		isa3.setName("admin");
 		isa3.setAdmin(true);
+		isa3.setSalt("42");
 		iSAccounts.add(isa3);
 	}
 	
