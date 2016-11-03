@@ -145,12 +145,6 @@ public class Product {
 	public void setImgPath(String imgPath) {
 		this.imgPath = imgPath;
 	}
-//	/**
-//	 * @param categories the categories to set
-//	 */
-//	public void setCategories(List<Category> categories) {
-//		this.categories = categories;
-//	}
 
 	/**
 	 * @return the deleted

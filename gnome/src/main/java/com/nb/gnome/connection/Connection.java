@@ -41,8 +41,8 @@ public class Connection {
 		
 		
 		properties.setProperty("hibernate.show_sql", "true");
-		//properties.setProperty("hibernate.hbm2ddl.auto", "update");
-		properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		//properties.setProperty("hibernate.hbm2ddl.auto", "create");
 					
 		Configuration cfg = new Configuration().addProperties(properties).addAnnotatedClass(Product.class).addAnnotatedClass(Supplier.class).addAnnotatedClass(Address.class).addAnnotatedClass(PurchaseOrder.class).addAnnotatedClass(PurchaseOrderDetails.class);
 		ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).build();
