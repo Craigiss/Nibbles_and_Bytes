@@ -8,14 +8,12 @@ import javax.inject.Inject;
 import com.nb.gnome.controllers.IMSUserCredentials;
 import com.nb.gnome.entities.ISAccount;
 import com.nb.gnome.managers.ISAccountRepository;
-
 import gnome.InitialData;
 import java.security.SecureRandom;
 import java.math.BigInteger;
 
 
 @Stateless
-
 public class ISAccountService {
 	
 	@Inject
@@ -61,7 +59,7 @@ public class ISAccountService {
 	 * */
 	public void persistISAccount(String nEmail, String nPassword, String nName){
 		if (accountCheck(nEmail)){
-			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName, randomStringGenerator());
+			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName, randomStringGenerator(), "user");
 			iSAccountManager.persistISAccount(isaisa);
 		}else{
 			int code=1;
@@ -71,7 +69,7 @@ public class ISAccountService {
 	
 	public void persistISAccountAdmin(String nEmail, String nPassword, String nName, boolean nAdmin){
 		if (accountCheck(nEmail)){
-			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName, nAdmin, randomStringGenerator() );
+			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName, nAdmin, randomStringGenerator(), "user" );
 			iSAccountManager.persistISAccountAdmin(isaisa);
 		}else{
 			int code=1;

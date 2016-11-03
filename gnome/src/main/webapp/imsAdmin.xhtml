@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+		rel="stylesheet" />
+	<link href="css/imsStyle.css" rel="stylesheet" />
+
+	<title>Administrator</title>
+</h:head>
+
+<f:view>
+	<body>
+		<div class="container" id="loginPage">
+			<div class="row">
+				<h1>NB Gardens IMS</h1>
+			</div>
+			<div class="row">
+				<h3>Please log in</h3>
+			</div>
+
+			<h:form class="form-signin">
+				<div class="row">
+					<h:inputText a:placeholder="Enter email address" type="email"
+						id="inputEmail" class="login-element loginInput uTextInput"
+						autofocus="" requiredMessage="Please Enter Email (username)" />
+				</div>
+				<div class="row">
+					<center>
+						<h:inputSecret value="#test2" type="password"
+							class="login-element loginInput uTextInput"
+							a:placeholder="Enter password"
+							requiredMessage="Please Enter Password" />
+					</center>
+				</div>
+				<div class="row">
+					<center>
+						<h:inputSecret value="#test2" type="password"
+							class="login-element loginInput uTextInput"
+							a:placeholder="Re-Enter password"
+							requiredMessage="Please Re-Enter Password" />
+					</center>
+				</div>
+				<div class="row">
+					<center>
+						<h:inputText value="#test3" type="email"
+							class="login-element loginInput uTextInput" autofocus=""
+							a:placeholder="Enter name" requiredMessage="Please Enter Name" />
+					</center>
+				</div>
+				<div class="row">
+					<center>
+						<h:commandButton class="btn login-element signInButton"
+							type="submit" action="#" value="Register User" />
+					</center>
+				</div>
+				<div>
+					<center>
+						<H4>Allow Admin Privileges</H4>
+						<input type="checkbox" checked="checked"></input>
+					</center>
+				</div>
+				<h4>List of Currently Registered Users</h4>
+				<p>Proceed to the main home page for the IMS home page and push
+					the green, log out button in the lower right hand corner of the
+					screen. Wait for acknowledgement that the log out has been
+					completed.</p>
+			</h:form>
+
+			<div id="footer">
+				<h:form rendered="#{isAccount.error ne null}">
+					<div id="alerttt" class="alert alert-danger"
+						style="visiblity: visible">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
+						<h:outputText value="#{isAccount.error}" />
+					</div>
+				</h:form>
+			</div>
+
+
+		</div>
+	</body>
+</f:view>
+</html>

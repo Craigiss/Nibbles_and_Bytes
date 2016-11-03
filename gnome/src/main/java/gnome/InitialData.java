@@ -188,6 +188,7 @@ public class InitialData {
 		isa1.setName("Paul Van Dyke");
 		isa1.setAdmin(false);
 		isa1.setSalt("Y83naas£$Bklaf");
+		isa1.setRole("user");
 		iSAccounts.add(isa1);
 		
 		ISAccount isa2 = new ISAccount();
@@ -196,6 +197,7 @@ public class InitialData {
 		isa2.setName("Cyril Sneer");
 		isa2.setAdmin(false);
 		isa2.setSalt("IU(979qh097asith");
+		isa2.setRole("user");
 		iSAccounts.add(isa2);
 		
 		ISAccount isa3 = new ISAccount();
@@ -204,6 +206,7 @@ public class InitialData {
 		isa3.setName("admin");
 		isa3.setAdmin(true);
 		isa3.setSalt("42");
+		isa3.setRole("admin");
 		iSAccounts.add(isa3);
 	}
 	
