@@ -147,7 +147,10 @@ public class ProductController implements Serializable {
 	}
 
 	public String writeReview(){
-		reviewService.completeReview(review,score);
+		reviewService.completeReview( review,score);
+		view(product.getProduct().getProductID());
+		review = "";
+		
 		return "Product";
 	}
 
