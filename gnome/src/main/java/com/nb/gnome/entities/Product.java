@@ -53,13 +53,14 @@ public class Product {
 		
 	}
 	
-	public Product(int id, String name, String description, double price, int stockLevel, int porousStockLevel){
+	public Product(int id, String name, String description, double price, int stockLevel, int porousStockLevel, Supplier supplier){
 		this.productID = id;
 		this.productName = name;
 		this.description = description;
 		this.price = price;
 		this.stockLevel= stockLevel;
 		this.porousStockLevel= porousStockLevel;
+		this.supplier = supplier;
 		deleted = false;
 	}
 

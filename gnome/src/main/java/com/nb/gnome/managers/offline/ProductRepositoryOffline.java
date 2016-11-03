@@ -12,6 +12,7 @@ import javax.inject.Inject;
 
 import com.nb.gnome.controllers.GraphController;
 import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.ProductRepository;
 
 import gnome.InitialData;
@@ -31,14 +32,15 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	//Create
 	@Override
-	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel){
-		Product prodprod = new Product(findAll().size() +1, mName, mDescription, mPrice, mStockLevel, mporousStockLevel);
+	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel, Supplier supplier){
+		Product prodprod = new Product(findAll().size() +1, mName, mDescription, mPrice, mStockLevel, mporousStockLevel, supplier);
+		supplier.getProducts().add(prodprod);
 		if (prodprod.getPorousStockLevel() <= 10){
 			graph.setPie3(prodprod.getProductName() + " " + prodprod.getPorousStockLevel() + " products remaining ",prodprod.getPorousStockLevel());
 		}
 		if (prodprod.getStockLevel() <=10){
 			graph.setPie(prodprod.getProductName() + " " + prodprod.getStockLevel() + " products remaining ",prodprod.getStockLevel());
-		}		
+		}
 		initialData.addProduct(prodprod);
 	}
 	

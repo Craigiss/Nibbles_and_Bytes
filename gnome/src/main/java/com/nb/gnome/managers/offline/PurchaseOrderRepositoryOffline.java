@@ -1,6 +1,7 @@
 package com.nb.gnome.managers.offline;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -22,8 +23,9 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 	private InitialData initialData;
 	
 	@Override
-	public void persistPurchaseOrder(PurchaseOrder a) {
-		initialData.addPurchaseOrder(a);
+	public void persistPurchaseOrder(int mId, Date mDate, String mStatus, List<PurchaseOrderDetails> mList, Supplier mSup) {
+		PurchaseOrder popo = new PurchaseOrder(initialData.getPurchaseOrders().size() + 1, mDate, mStatus, mList, mSup);
+		initialData.addPurchaseOrder(popo);
 	}
 	@Override
 	public List<PurchaseOrder> findPurchaseOrder() {

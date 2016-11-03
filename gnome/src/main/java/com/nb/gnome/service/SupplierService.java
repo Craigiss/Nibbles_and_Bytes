@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Address;
+import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.SupplierRepository;
@@ -78,6 +79,10 @@ public class SupplierService {
 	 */
 	public List<Supplier> findSupplierByCompany(String company) {
 		return supplierManager.findSupplierByCompany(company);
+	}
+	
+	public List<Product> getProducts(Supplier supplier){
+		return supplierManager.getProducts(supplier);
 	}
 	
 }
