@@ -56,14 +56,13 @@
 			<br/>
 
 			<div class="row table">
-				<div class="col-sm-9 heading supDetails">Product</div>
+				<div class="col-sm-10 heading supDetails">Product</div>
 				<div class="col-sm-2 heading supDetails listCenter">Quantity</div>
-				<div class="col-sm-1" />
 			</div>
 
 			<ui:repeat var="deets" value="#{selectedPo.dataModel}">
 				<div class="row table listItem">
-					<div class="col-sm-9 supDetails">
+					<div class="col-sm-10 supDetails">
 						<h:form>
 							<h:commandLink action="#{products.view(deets.product)}"
 								value="#{deets.product.productName}" />
@@ -75,7 +74,6 @@
 								value="#{deets.quantity}" />
 						</h:form>
 					</div>
-					<div class="col-sm-1" />
 				</div>
 			</ui:repeat>
 

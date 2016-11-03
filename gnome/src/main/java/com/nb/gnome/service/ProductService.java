@@ -26,14 +26,7 @@ public class ProductService {
 	 * Calls Product Manager method, pooling params together to create a new product object
 	 */
 	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel){
-		Product prodprod = new Product(productManager.findAll().size() +1, mName, mDescription, mPrice, mStockLevel, mporousStockLevel);
-		if (prodprod.getPorousStockLevel() <= 10){
-			graph.setPie3(prodprod.getProductName() + " " + prodprod.getPorousStockLevel() + " products remaining ",prodprod.getPorousStockLevel());
-		}
-		if (prodprod.getStockLevel() <=10){
-			graph.setPie(prodprod.getProductName() + " " + prodprod.getStockLevel() + " products remaining ",prodprod.getStockLevel());
-		}		
-		productManager.persistProduct(prodprod);
+		productManager.persistProduct(mName, mDescription, mPrice, mStockLevel, mporousStockLevel);
 	}
 	
 	/**
