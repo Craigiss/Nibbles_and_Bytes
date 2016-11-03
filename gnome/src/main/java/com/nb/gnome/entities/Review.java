@@ -42,6 +42,10 @@ public class Review {
 	@Size (min = 0, max = 5)
 	private int rating;
 	
+	@Column (name = "name", nullable = false)
+	@NotNull
+	private String name;
+	
 	@ManyToOne 
 	@JoinColumn(name = "FKProductid", nullable = false)
 	private int Productid;
@@ -119,5 +123,15 @@ public class Review {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 
 }

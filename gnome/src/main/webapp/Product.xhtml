@@ -38,7 +38,8 @@ template="templates/Template.xhtml">
 							<h:outputText value="#{selected.product.productName}"/>
 						</h1>
 						<h:form>	
-							<p:rating value="#{selected.product.rating}" stars = "5"  />
+							<p:rating value="#{selected.product.rating}" stars = "5" readonly = "true"  />
+							<h:outputText value="#{products.reviewAmount}"/>
 					     </h:form>
 					</div>
 				
@@ -142,23 +143,9 @@ template="templates/Template.xhtml">
 					      	<div class="container">			
 						       	<div id = "radioButtons">
 							       	<div class = "row text-center">
-										<h:selectOneRadio value ="#{products.score}" >
-											<div class="col-sm-2">
-												<f:selectItem itemValue= "5" itemLabel="Excellent" />
-											</div>
-											<div class="col-sm-2">
-												<f:selectItem itemValue= "4" itemLabel="Very Good" />
-											</div>
-											<div class="col-sm-2">
-												<f:selectItem itemValue= "3" itemLabel="Average" />
-											</div>
-											<div class="col-sm-2">
-												<f:selectItem itemValue= "2" itemLabel="Poor" />
-											</div>
-											<div class="col-sm-4">
-												<f:selectItem itemValue= "1" itemLabel="Terrible" />
-											</div>
-										</h:selectOneRadio>
+									<h:form>	
+										<p:rating value="#{products.score}" stars = "5" readonly = "fasle"  />
+					     			</h:form>
 									</div>
 								</div>
 								<h:panelGrid id="commentGrid">
@@ -192,6 +179,8 @@ template="templates/Template.xhtml">
 								<figure class="figure">	
 									<figcaption class="figure-caption"><h:outputText value ="#{product.date}" /></figcaption>
 								</figure>	
+								<p:rating value="#{product.rating}" stars = "5" readonly = "true"  />
+								<p> <h:outputText value ="#{product.name}" /> </p>
 							</div>	
 						</div>
 						</ui:repeat>

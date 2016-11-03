@@ -118,18 +118,21 @@ public class InitialData {
 		r1.setDate("11/12/2016");
 		r1.setRating(4);
 		r1.setReviewText(" Perfect for my garden 1");
+		r1.setName("Connor");
 		reviews.add(r1);
 		Review r2 = new Review();
 		r2.setProductID(1);
 		r2.setDate("11/12/2016");
 		r2.setRating(4);
 		r2.setReviewText(" Perfect for my garden 2");
+		r1.setName("Craig");
 		reviews.add(r2);
 		Review r3 = new Review();
 		r3.setProductID(1);
 		r3.setDate("11/12/2016");
 		r3.setRating(4);
 		r3.setReviewText(" Perfect for my garden 3");
+		r1.setName("Tim");
 		reviews.add(r3);
 		
 		Category c1 = new Category();													// Categories
@@ -176,7 +179,7 @@ public class InitialData {
 		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p2.setPrice(2.99);
 		p2.setStockLevel(115);
-		p2.setRating(4);
+		p2.setRating(0);
 		products.add(p2);
 		
 		Product p3 = new Product();
@@ -186,7 +189,7 @@ public class InitialData {
 		p3.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p3.setPrice(4.99);
 		p3.setStockLevel(115);
-		p3.setRating(4);
+		p3.setRating(0);
 		products.add(p3);
 		
 		Product p4 = new Product();
@@ -196,7 +199,7 @@ public class InitialData {
 		p4.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p4.setPrice(24.99);
 		p4.setStockLevel(115);
-		p4.setRating(4);
+		p4.setRating(0);
 		products.add(p4);
 		
 		Product p5 = new Product();
@@ -206,7 +209,7 @@ public class InitialData {
 		p5.setDescription("when these gnomes are rockin', don't come-a-knockin'!!!");
 		p5.setPrice(7.99);
 		p5.setStockLevel(8008135);
-		p5.setRating(4);
+		p5.setRating(0);
 		products.add(p5);
 		
 		Product p6 = new Product();
@@ -216,7 +219,7 @@ public class InitialData {
 		p6.setDescription("a snazzy pair of sneaks for the Christmas gimp");
 		p6.setPrice(4.99);
 		p6.setStockLevel(8008135);
-		p6.setRating(4);
+		p6.setRating(0);
 		products.add(p6);
 		
 		Product p7 = new Product();
@@ -226,7 +229,7 @@ public class InitialData {
 		p7.setDescription("a dainty pair of Tim's favourite lawn ornaments");
 		p7.setPrice(14.99);
 		p7.setStockLevel(8008135);
-		p7.setRating(4);
+		p7.setRating(0);
 		products.add(p7);
 		
 		Product p8 = new Product();
@@ -236,7 +239,7 @@ public class InitialData {
 		p8.setDescription("the worst gnome in existence; the dumpy little guy from gnomeo and juliet");
 		p8.setPrice(8.99);
 		p8.setStockLevel(8008135);
-		p8.setRating(4);
+		p8.setRating(0);
 		products.add(p8);
 		
 		Product p11 = new Product();
@@ -246,7 +249,7 @@ public class InitialData {
 		p11.setDescription("Every now and again a piece of wordplay comes along that's so sumptuous, so irresistible that it would be a travesty to not bring it to life (Robocup anyone?). We present to you... Game of Gnomes. The original may have been forged from a thousand swords in the fiery exhalation of a dragon named 'Balerion the Black Dread', but this slightly diminutive version is appropriately made up of an assortment of rusty gardening tools.");
 		p11.setPrice(17.99);
 		p11.setStockLevel(115);
-		p11.setRating(4);
+		p11.setRating(0);
 		products.add(p11);
 		
 		Product p12 = new Product();
@@ -256,7 +259,7 @@ public class InitialData {
 		p12.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p12.setPrice(2.99);
 		p12.setStockLevel(115);
-		p12.setRating(4);
+		p12.setRating(0);
 		products.add(p12);
 		
 		Product p13 = new Product();
@@ -266,7 +269,7 @@ public class InitialData {
 		p13.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p13.setPrice(4.99);
 		p13.setStockLevel(115);
-		p13.setRating(4);
+		p13.setRating(0);
 		products.add(p13);
 		
 		Product p14 = new Product();
@@ -276,7 +279,7 @@ public class InitialData {
 		p14.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p14.setPrice(24.99);
 		p14.setStockLevel(115);
-		p14.setRating(4);
+		p14.setRating(0);
 		products.add(p14);
 		
 		Product p15 = new Product();
@@ -286,7 +289,7 @@ public class InitialData {
 		p15.setDescription("when these gnomes are rockin', don't come-a-knockin'!!!");
 		p15.setPrice(7.99);
 		p15.setStockLevel(8008135);
-		p15.setRating(4);
+		p15.setRating(0);
 		products.add(p15);
 		
 		Product p16 = new Product();
@@ -296,7 +299,7 @@ public class InitialData {
 		p16.setDescription("a snazzy pair of sneaks for the Christmas gimp");
 		p16.setPrice(4.99);
 		p16.setStockLevel(8008135);
-		p16.setRating(4);
+		p16.setRating(0);
 		products.add(p16);
 		
 		Product p17 = new Product();
@@ -306,7 +309,7 @@ public class InitialData {
 		p17.setDescription("a dainty pair of Tim's favourite lawn ornaments");
 		p17.setPrice(14.99);
 		p17.setStockLevel(8008135);
-		p17.setRating(4);
+		p17.setRating(0);
 		products.add(p17);
 		
 		Product p18 = new Product();
@@ -316,7 +319,7 @@ public class InitialData {
 		p18.setDescription("the worst gnome in existence; the dumpy little guy from gnomeo and juliet");
 		p18.setPrice(8.99);
 		p18.setStockLevel(8008135);
-		p18.setRating(4);
+		p18.setRating(0);
 		products.add(p18);
 		
 		Product p19 = new Product();
@@ -326,7 +329,7 @@ public class InitialData {
 		p19.setDescription("Dive into the pool table of pure magnificence.");
 		p19.setPrice(209.99);
 		p19.setStockLevel(8008135);
-		p19.setRating(4);
+		p19.setRating(0);
 		products.add(p19);
 		
 																							// Product Categories

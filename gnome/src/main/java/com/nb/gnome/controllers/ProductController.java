@@ -15,6 +15,7 @@ import com.nb.gnome.helper.*;
 import com.nb.gnome.managers.ProductRepository;
 import com.nb.gnome.managers.ReviewRepository;
 import com.nb.gnome.service.ReviewService;
+import com.nb.gnome.service.UserCredentials;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Review;
 import javax.enterprise.context.Dependent;
@@ -32,6 +33,8 @@ public class ProductController implements Serializable {
 	private SelectedProduct product;
 	@Inject 
 	private ReviewService reviewService; 
+	@Inject 
+	private UserCredentials user;
 	private PaginationHelper pagination;
 	private int selected;
 	private DataModel<Product> dataModel = null;
@@ -43,6 +46,7 @@ public class ProductController implements Serializable {
 	private static Map<String,Integer> availableItems;
 	private String review; 
 	private int score; 
+	private String reviewAmount = "";
 	
 	static{
 		availableItems = new LinkedHashMap<String, Integer>();
@@ -141,15 +145,22 @@ public class ProductController implements Serializable {
 	public String view (int id){
 		product.setProduct(productRepository.getProductByID(id));
 		reviewModel = reviewRepository.findReviewByProduct(productRepository.getProductByID(id));
+		
 		if(reviewModel.size() == 0)
 			reviewModel = null;
+		
+		reviewAmount = "(" + reviewRepository.findReviewByProduct(product.getProduct()).size() +")"; 
 		return "Product";
 	}
 
 	public String writeReview(){
+		if(user.getEmail() == null){
+			return "loginPage";
+		}
 		reviewService.completeReview( review,score);
 		view(product.getProduct().getProductID());
 		review = "";
+	
 		return "Product";
 	}
 
@@ -170,6 +181,16 @@ public class ProductController implements Serializable {
 
 	public void setScore(int score) {
 		this.score = score;
+	}
+
+
+	public String getReviewAmount() {
+		return reviewAmount;
+	}
+
+
+	public void setReviewAmount(String reviewAmount) {
+		this.reviewAmount = reviewAmount;
 	}
 	
 	
