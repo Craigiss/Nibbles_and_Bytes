@@ -44,7 +44,7 @@ public class PurchaseOrder {
 	}
 
 	/**
-	 * @param supplierid the supplierid to set
+	 * @param supplier the supplierid to set
 	 */
 	public void setSupplierid(Supplier supplier) {
 		this.supplier = supplier;
