@@ -51,6 +51,7 @@ public class LoginController implements Serializable {
 	public String logout(){
 		userCredentials.setUser(null);
 		userCredentials.setEmail(null);
+		error = null;
 		return "homePage";
 	}
 
