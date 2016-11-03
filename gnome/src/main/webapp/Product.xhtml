@@ -1,6 +1,6 @@
 <ui:composition
 xmlns="https://www.w3.org/1999/xhtml"
-
+xmlns:p="http://primefaces.org/ui"  
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:h="http://java.sun.com/jsf/html"
 xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -37,8 +37,11 @@ template="templates/Template.xhtml">
 						<h1>
 							<h:outputText value="#{selected.product.productName}"/>
 						</h1>
+						<h:form>	
+							<p:rating value="#{selected.product.rating}" stars = "5"  />
+					     </h:form>
 					</div>
-
+				
 					<div id = "descriptionTitle">
 						<h2>
 						Description
