@@ -54,9 +54,9 @@
 		</div>
 
 		<!-- Content -->
-		<div class="row">
-			<div class="col-sm-3"></div>
-			<div class="col-sm-6">
+		<div class="row" id="productFormatter">
+<!-- 			<div class="col-sm-3 col-xs-3"></div> -->
+			<div class="col-sm-12 col-xs-12">
 				<h:form>
 					<div class="addElement">
 						<div class="row"><h4>Product Name</h4></div>
@@ -81,11 +81,11 @@
 					<div class="addElement">
 						<div class="row"><h4>Stock Level</h4></div>
 						<div class="row">
-							<div class="col-sm-5 listCenter">
+							<div class="col-sm-5 col-xs-5 listCenter">
 								Normal
 							</div>
-							<div class="col-sm-2"></div>
-							<div class="col-sm-5 listCenter">
+							<div class="col-sm-2 col-xs-2"></div>
+							<div class="col-sm-5 col-xs-5 listCenter">
 								Porousware
 							</div>
 						</div>
@@ -94,8 +94,8 @@
 								<h:inputText type="text" value="#{products.stockLevel}"
 									required="true" />
 							</div>
-							<div class="col-sm-2"></div>
-							<div class="col-sm-5 uTextInput">
+							<div class="col-sm-2 col-xs-2"></div>
+							<div class="col-sm-5 col-xs-5 uTextInput">
 								<h:inputText type="text" value="#{products.porousStockLevel}"
 									required="true" />
 							</div>
@@ -106,16 +106,16 @@
 					<div class="row addops">
 						<h:commandLink class="listCenter"
 							action="#{products.persistProduct()}">
-							<div class="col-sm-4 addButs listCenter" id="save">Save</div>
+							<div class="col-sm-4 col-xs-4 addButs listCenter" id="save">Save</div>
 						</h:commandLink>
-						<div class="col-sm-4 addButs" />
+						<div class="col-sm-4 col-xs-4 addButs" />
 						<a href="imsProducts.xhtml">
-							<div class="col-sm-4 addButs listCenter" id="cancel">Cancel</div>
+							<div class="col-sm-4 col-xs-4 addButs listCenter" id="cancel">Cancel</div>
 						</a>
 					</div>
 				</h:form>
 			</div>
-			<div class="col-sm-3"></div>
+		<!-- 	<div class="col-sm-3 col-xs-3"></div> -->
 		</div>
 
 		<!-- Footer -->

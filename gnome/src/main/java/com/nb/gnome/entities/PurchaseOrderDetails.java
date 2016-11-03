@@ -18,12 +18,15 @@ public class PurchaseOrderDetails {
 	@GeneratedValue
 	private long id;
 	
-	@OneToMany
+	@ManyToOne
 	private Product product;
 	
 	@Column (name = "quantity", nullable = false)
 	private int quantity;
 	
+	@ManyToOne
+	@JoinColumn(name="po_id")
+	private PurchaseOrder po;
 	
 	/**
 	 * Default constructor taking no arguments
@@ -76,4 +79,19 @@ public class PurchaseOrderDetails {
 		this.product = product;
 	}
 
+	/**
+	 * @return the po
+	 */
+	public PurchaseOrder getPo() {
+		return po;
+	}
+
+	/**
+	 * @param po the po to set
+	 */
+	public void setPo(PurchaseOrder po) {
+		this.po = po;
+	}
+
+	
 }

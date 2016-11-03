@@ -1,5 +1,7 @@
 package com.nb.gnome.entities;
 
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
@@ -19,6 +21,7 @@ public class Supplier {
 	@Id
 	@Column  (name = "supplierId")
 	@GeneratedValue ( strategy = GenerationType.IDENTITY)
+	@NotNull
 	private int id;
 	
 	@Column (name = "company",	nullable = false, length = 225)
@@ -48,13 +51,18 @@ public class Supplier {
 	@Column(name = "deleted")
 	private boolean deleted;
 	
+	@OneToMany(mappedBy ="supplier")
+	private List<Product> products;
+	
+	@OneToOne
+	private Address address;
 	
 	
 	public Supplier(){
 		
 	}
 	
-	public Supplier(int id, String company, String name, String phone, String email, String description){
+	public Supplier(int id, String company, String name, String phone, String email, String description, Address address){
 		this.id = id;
 		this.company = company;
 		this.name = name;
@@ -62,6 +70,7 @@ public class Supplier {
 		this.email = email;
 		this.description = description;
 		deleted = false;
+		this.address = address;
 	}
 
 	/* Getters and Setters */
@@ -189,4 +198,34 @@ public class Supplier {
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
 	}
+
+	/**
+	 * @return the products
+	 */
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	/**
+	 * @param products the products to set
+	 */
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
+	/**
+	 * @return the address
+	 */
+	public Address getAddress() {
+		return address;
+	}
+
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	
 }

@@ -32,12 +32,10 @@ public class PurchaseOrder {
 	@Size (min = 2, max = 60)
 	private String status;
 	
-	@ManyToOne 
-	@JoinColumn(name = "FKSupplierid", nullable = false)
+	@ManyToOne
 	private Supplier supplier;
 	
-
-	@OneToMany(targetEntity=PurchaseOrderDetails.class)
+	@OneToMany(mappedBy ="po")
 	private List<PurchaseOrderDetails> lines;
 	
 	@Column(name = "deleted")
