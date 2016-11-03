@@ -224,10 +224,15 @@ public class CreateAccountController {
 			return "loginPage";
 		}
 		
-		if(!loginService.validateDetails(email, password)){
-			error = "Invalid Input";
-			password = "";
-			return "loginPage";
+		try {
+			if(!loginService.validateDetails(email, password)){
+				error = "Invalid Input";
+				password = "";
+				return "loginPage";
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		userCredentials.setEmail(email);
 		userCredentials.setUser(loginService.getName(email));
