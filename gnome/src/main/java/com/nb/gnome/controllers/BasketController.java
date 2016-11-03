@@ -19,11 +19,6 @@ import java.io.Serializable;
 public class BasketController implements Serializable {
 	
 	
-	/**
-	 * @return the total
-	 */
-	
-
 	public class item{
 		int id;
 		int quantity;
@@ -134,9 +129,9 @@ public class BasketController implements Serializable {
 	
 
 	/**
-	 * @param products the products to set
+
+	 * @return list of products
 	 */
-	
 	public ArrayList<Product> getProducts() {
 		return this.products;
 	}

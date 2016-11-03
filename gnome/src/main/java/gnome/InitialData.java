@@ -551,7 +551,7 @@ public class InitialData {
 	
 	/**
 	 * Adds a purchase order line to the dummy data
-	 * @param po Input is new purchase order to be added
+	 * @param pol Input is new purchase order to be added
 	 */
 	public void addPurchaseOrderDetails(PurchaseOrderDetails pol){
 		purchaseOrderDetails.add(pol);
