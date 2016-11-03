@@ -12,6 +12,7 @@ import javax.inject.Named;
 import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.SalesOrder;
 import com.nb.gnome.managers.AddressRepository;
+import com.nb.gnome.managers.CustomerRepository;
 import com.nb.gnome.service.CheckoutService;
 import com.nb.gnome.service.OrderService;
 import com.nb.gnome.service.UserCredentials;
@@ -30,6 +31,8 @@ public class OrderController implements Serializable {
 	BasketController basketController;
 	@Inject 
 	UserCredentials  userCredentials; 
+	@Inject 
+	CustomerRepository customerManager; 
 	
     private Address savedAddress;
     private int selectedId;
@@ -60,14 +63,19 @@ public class OrderController implements Serializable {
 	}
 
 	public String saveAddress(int id){
-		savedAddress = new Address();
-		savedAddress = addressManager.getAddressById(id);
-		addressSecondLine = savedAddress.getLine2();
-		addressFirstLine = savedAddress.getLine1();
-		town = savedAddress.getTown();
-		county = savedAddress.getCounty();
-		postcode = savedAddress.getPostcode();
-		return "OrderConfirmation";
+		List <Address> Address = customerManager.getCustomerById(userCredentials.getId()).getAddresses();
+		for(Address a : Address){
+			if (a.getId() == id){
+				addressSecondLine = a.getLine2();
+				addressFirstLine = a.getLine1();
+				town = a.getTown();
+				county = a.getCounty();
+				postcode = a.getPostcode();
+				return "OrderConfirmation";}
+		}
+		return null;
+		
+	
 		
 	}
 	
