@@ -20,7 +20,6 @@
 </h:head>
 <f:view>
 	<body>
-	<ui:debug />
 		<div id="container">
 			<div id="header">
 				<nav class="navbar navbar-default">
@@ -40,8 +39,10 @@
 						<div class="collapse navbar-collapse"
 							id="bs-example-navbar-collapse-1">
 							<div id="topNav">
+
 								<a class="navbar-brand" href="homePage.xhtml"> <img
-									src="img/lgo.png" width="75px" />
+									src="img/lgo.png" width="250px" />
+
 								</a>
 
 
@@ -154,9 +155,13 @@
 							<div class="col-md-3"></div>
 							<div class="col-xs-12 col-md-1  ">
 								<ul>
-									<li><h4>
-											<a href="#">Gnomes</a>
-										</h4></li>
+									<li>
+											<h:link outcome="Gnomes">
+												<h:commandLink action="#{search.openCategoryPage('Gnomes')}">
+													<h4> Gnomes </h4>
+												</h:commandLink>
+											</h:link>
+										</li>
 									<li><a href="#">Themed </a></li>
 									<li><a href="#">Seasonal </a></li>
 									<li><a href="#">Classic </a></li>
@@ -165,18 +170,32 @@
 							</div>
 							<div class="col-xs-12 col-md-1">
 								<ul>
-									<li><h4>
-											<a href="#">Pools &amp; Hot Tubs</a>
-										</h4></li>
+									<li>
+											<h:link outcome="PoolsAndHotTubs">
+												<h:commandLink	action="#{search.openCategoryPage('PoolsAndHotTubs')}">
+												<h4>
+												Pools &amp; Hot Tubs
+												</h4>
+												</h:commandLink>
+											</h:link>
+										</li>
 									<li><a href="#">Pools </a></li>
 									<li><a href="#">Hot Tubs </a></li>
 								</ul>
 							</div>
 							<div class="col-xs-12 col-md-1">
 								<ul>
-									<li><h4>
-											<a href="#">Gnomes and accessories</a>
-										</h4></li>
+									<li>
+											<h:link outcome="GnomeAccessories">
+												<h:commandLink
+													action="#{search.openCategoryPage('GnomeAccessories')}"
+													>
+													<h4>
+													Gnome Accessories
+													</h4>
+													</h:commandLink>
+											</h:link>
+										</li>
 									<li><a href="#">Equipment</a></li>
 									<li><a href="#">Clothes </a></li>
 								</ul>
@@ -184,7 +203,14 @@
 							<div class="col-xs-12 col-md-1">
 								<ul>
 									<li><h4>
-											<a href="#">Garden Ornaments</a>
+											<h:link outcome="GardenOrnaments">
+												<h:commandLink
+													action="#{search.openCategoryPage('GardenOrnaments')}">
+													<h4>
+													 Garden Ornaments
+													</h4>
+													</h:commandLink>
+											</h:link>
 										</h4></li>
 									<li><a href="#">Patio </a></li>
 									<li><a href="#">Tree</a></li>
@@ -195,7 +221,14 @@
 							<div class="col-xs-12 col-md-1">
 								<ul>
 									<li><h4>
-											<a href="#">Garden Care</a>
+											<h:link outcome="GnomeCare">
+												<h:commandLink
+													action="#{search.openCategoryPage('GnomeCare')}">
+													<h4>
+													Gnome Care
+													</h4>
+													</h:commandLink>
+											</h:link>
 										</h4></li>
 									<li><a href="#">Brushes </a></li>
 									<li><a href="#">Polish/Wax </a></li>

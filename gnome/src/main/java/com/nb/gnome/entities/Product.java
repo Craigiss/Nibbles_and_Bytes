@@ -35,6 +35,9 @@ public class Product {
 	@Column(name = "price")
 	double price;
 	
+	@Column (name = "rating")
+	int rating; 
+	
 	@Column(name = "stockLevel")
 	int stockLevel;
 	
@@ -148,6 +151,14 @@ public class Product {
 	public List<ProductCategory> getProductCategories() {
 		return productCategories;
 	}
+	public int getRating() {
+		return rating;
+	}
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+	
+	
 	
 
 }

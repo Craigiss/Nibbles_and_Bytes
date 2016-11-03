@@ -81,8 +81,15 @@ padding-left:5px;
 	padding-right: 15px;
 }
 .navbar-brand{
-	transform:translate(-25%,-0%);
+	transform:translate(-25%,-80%);
 }
+
+.navbar-brand img{
+	margin-top: 30px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
 #navButton{
 	float:left;
 	padding-left:40px;
@@ -91,8 +98,8 @@ padding-left:5px;
 #body {
 
    padding-top:0px;
-	padding-left:5%;
-	padding-right:5%;
+	padding-left:8%;
+	padding-right:8%;
    padding-bottom:27px;
    
 }
@@ -105,11 +112,14 @@ padding-left:5px;
 	float:left;
 
 }
+#siteMap h4{
+	color:#6E1DA0;
+}
+
 #siteMap h4 > a{
 	color:#6E1DA0;
-	/*text-decoration:underline;*/
-
 }
+
 #siteMap a {
 	text-decoration:none;
 	color:#494949;

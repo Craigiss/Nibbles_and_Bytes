@@ -11,6 +11,7 @@ import com.nb.gnome.entities.Product;
 @SessionScoped
 public class SelectedProduct implements Serializable {
 	private Product product;
+	private int reviewAmount;
 
 	/**
 	 * @return the product
@@ -24,5 +25,15 @@ public class SelectedProduct implements Serializable {
 	 */
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public int getReviewAmount() {
+		return reviewAmount;
+	}
+
+	public void setReviewAmount(int reviewAmount) {
+		this.reviewAmount = reviewAmount;
 	}	
+	
+	
 }
