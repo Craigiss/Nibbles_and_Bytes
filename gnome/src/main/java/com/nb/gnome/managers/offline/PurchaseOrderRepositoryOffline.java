@@ -1,4 +1,4 @@
-package com.nb.gnome.mangers.offline;
+package com.nb.gnome.managers.offline;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.nb.gnome.mangers.offline;
+package com.nb.gnome.managers.offline;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
