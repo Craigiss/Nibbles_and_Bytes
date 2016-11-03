@@ -8,7 +8,6 @@ import com.nb.gnome.service.CreateAccountService;
 import com.nb.gnome.service.LoginService;
 import com.nb.gnome.service.UserCredentials;
 
-// Created by Cameron & Jacob
 
 @Named(value="CreateAccount")
 @RequestScoped
@@ -33,7 +32,7 @@ public class CreateAccountController {
 	
 	private String error;
 	
-	public String addUser(){	
+	public String addUser() throws Exception{	
 		if(firstName.equals("")){							// Basic validation. If any fields empty return to login page.
 			setError("Please enter your First Name.");
 			return "loginPage";
@@ -77,9 +76,14 @@ public class CreateAccountController {
 			setError("Passwords do not match.");
 			return "loginPage";
 		}
-		
+		try{
 		createAccountService.newUser(firstName, surname, email, addressFirstLine,addressSecondLine, postcode, password);
+		}
+		catch(Exception e){
+			System.out.println("Failed");
+		}
 		loginController.setEmail(email);
+		
 		loginController.setPassword(password);
 		String outcome  = loginController.login();
 		return outcome;
