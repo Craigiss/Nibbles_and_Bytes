@@ -68,11 +68,9 @@
 				</div>
 				<div class="row table">
 					<div class="supDetails">
-						<h:selectOneMenu class="supplierDropdown"
-							value="#{pos.supplierName}">
-							<f:selectItem itemValue="#{null}" itemLabel="Select a supplier" />
-							<f:selectItems value="#{suppliers.findAll()}" var="sup"
-								itemValue="#{sup.company}" itemLabel="#{sup.company}"></f:selectItems>
+						<h:selectOneMenu class="supplierDropdown" value="#{pos.supplier.company}">
+							<f:selectItem itemValue="#{suppliers.findAll()}" itemLabel="Select a supplier" />
+							<f:selectItems value="#{suppliers.findAll()}" var="sup" itemValue="#{sup.company}" itemLabel="#{sup.company}"/>
 						</h:selectOneMenu>
 					</div>
 				</div>
@@ -84,10 +82,10 @@
 				</div>
 				<div class="row table">
 					<div class="col-sm-10 supDetails">
-						<h:selectOneMenu class="productDropdown" value="pods.products[0]">
-							<f:selectItem itemValue="#{null}" itemLabel="Select a product" />
-							<f:selectItems value="#{products.findAll()}" var="prod"
-								itemLabel="#{prod.productName}"></f:selectItems>
+						<h:selectOneMenu class="productDropdown" value="pods.products[0]" rendered="#{pos.supplier != null}">
+							<f:selectItem itemValue="null" itemLabel="Select a product" />
+							<f:selectItems value="#{suppliers.getProducts(pos.supplier)}" var="prod"
+								itemLabel="#{prod.productName}"/>
 						</h:selectOneMenu>
 					</div>
 					<div class="col-sm-2">
