@@ -1,5 +1,6 @@
 package com.nb.gnome.managers;
 
+import java.util.Date;
 import java.util.List;
 
 import com.nb.gnome.entities.PurchaseOrder;
@@ -14,7 +15,7 @@ import com.nb.gnome.entities.Supplier;
 
 public interface PurchaseOrderRepository {
 		//Create
-		public void persistPurchaseOrder(PurchaseOrder a);
+		public void persistPurchaseOrder(int mId, Date mDate, String mStatus, List<PurchaseOrderDetails> mList, Supplier mSup);
 		//Read
 		public List<PurchaseOrder> findPurchaseOrder();
 		

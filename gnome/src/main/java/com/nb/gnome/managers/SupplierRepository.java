@@ -2,6 +2,7 @@ package com.nb.gnome.managers;
 
 import java.util.List;
 
+import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 
 /**
@@ -21,9 +22,9 @@ public interface SupplierRepository {
 	//Read by id
 	public Supplier findSupplierById(long id);
 	
-	
 	public Supplier findSupplierByContact(String s);
 	
 	public List<Supplier> findAll();
 	
+	public List<Product> getProducts(Supplier supplier);
 }

@@ -19,9 +19,8 @@ public class PurchaseOrderService {
 	@Inject
 	private PurchaseOrderRepository purchaseOrderManager;
 
-	public void persistPurchaseOrder(int mId, Date mDate, String mStatus, List<PurchaseOrderDetails> mList) {
-		PurchaseOrder popo = new PurchaseOrder(purchaseOrderManager.findAll().size() + 1, mDate, mStatus, mList);
-		purchaseOrderManager.persistPurchaseOrder(popo);
+	public void persistPurchaseOrder(int mId, Date mDate, String mStatus, List<PurchaseOrderDetails> mList, Supplier mSup) {
+		purchaseOrderManager.persistPurchaseOrder(mId, mDate, mStatus, mList, mSup);
 	}
 
 	/**

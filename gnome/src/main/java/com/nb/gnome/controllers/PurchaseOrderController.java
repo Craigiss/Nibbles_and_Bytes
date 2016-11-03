@@ -32,19 +32,11 @@ public class PurchaseOrderController implements Serializable {
 	private int id;
 	private Date date;
 	private String status;
-	private String supplierName;
+	private Supplier supplier;
 	private List<PurchaseOrderDetails> lines;
 	private PaginationHelper pagination;
 	private DataModel<PurchaseOrder> dataModel = null;
 	private List<PurchaseOrder> listData;
-
-	//
-	//Delete this method after testing
-	//
-	public void printSupplier(String name){
-		supplierName=name;
-		System.out.println(supplierName);
-	}
 	
 	private void recreateModel() {
 		dataModel = null;
@@ -237,12 +229,10 @@ public class PurchaseOrderController implements Serializable {
 		return purchaseOrderService.findPurchaseOrderBySupplier(s);
 	}
 
-	public String persistPurchaseOrder(String name) {
-		supplierName = name;
-		
+	public String persistPurchaseOrder() {
 		//Deal with purchase order details here
 		//Run persist method
-		purchaseOrderService.persistPurchaseOrder(id, date, status, lines);
+		purchaseOrderService.persistPurchaseOrder(id, date, status, lines, supplier);
 		
 		recreateModel();
 
@@ -250,7 +240,7 @@ public class PurchaseOrderController implements Serializable {
 		date = null;
 		status = "";
 		lines = null;
-
+		supplier = null;
 		listData = null;
 
 		return "imsPo";
@@ -272,19 +262,17 @@ public class PurchaseOrderController implements Serializable {
 	}
 
 	/**
-	 * @return the supplierName
+	 * @return the supplier
 	 */
-	public String getSupplierName() {
-		return supplierName;
+	public Supplier getSupplier() {
+		return supplier;
 	}
 
 	/**
-	 * @param supplierName the supplierName to set
+	 * @param supplier the supplier to set
 	 */
-	public void setSupplierName(String supplierName) {
-		this.supplierName = supplierName;
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
 	}
 	
-	
-
 }

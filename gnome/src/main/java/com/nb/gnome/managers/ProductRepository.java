@@ -10,7 +10,7 @@ import com.nb.gnome.entities.*;
 
 public interface ProductRepository {
 	//Create
-	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel);
+	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel, Supplier mSupplier);
 	
 	//Read
 	public List<Product> getProductByKeyword(String keyword);

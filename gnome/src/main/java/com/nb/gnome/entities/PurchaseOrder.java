@@ -49,11 +49,12 @@ public class PurchaseOrder {
 		deleted = false;
 	}
 	
-	public PurchaseOrder(int id, Date date, String status, List<PurchaseOrderDetails> list){
+	public PurchaseOrder(int mId, Date mDate, String mStatus, List<PurchaseOrderDetails> mList, Supplier mSup){
 		this.id=id;
 		this.date=date;
 		this.status=status;
-		this.lines = list;
+		this.lines = mList;
+		this.supplier = mSup;
 	}
 	
 	

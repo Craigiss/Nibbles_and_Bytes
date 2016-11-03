@@ -1,5 +1,6 @@
 package com.nb.gnome.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -59,7 +60,7 @@ public class Supplier {
 	
 	
 	public Supplier(){
-		
+		products = new ArrayList<Product>();
 	}
 	
 	public Supplier(int id, String company, String name, String phone, String email, String description, Address address){
@@ -71,6 +72,7 @@ public class Supplier {
 		this.description = description;
 		deleted = false;
 		this.address = address;
+		products = new ArrayList<Product>();
 	}
 
 	/* Getters and Setters */
@@ -227,5 +229,9 @@ public class Supplier {
 		this.address = address;
 	}
 	
+	@Override
+	public String toString() {
+	    return String.valueOf(id);
+	}
 	
 }

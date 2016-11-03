@@ -14,6 +14,7 @@ import com.nb.gnome.helper.*;
 import com.nb.gnome.managers.ProductRepository;
 import com.nb.gnome.service.ProductService;
 import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.Supplier;
 
 @Named("products")
 @SessionScoped
@@ -36,6 +37,7 @@ public class ProductController implements Serializable {
 	private int stockLevel;
 	private int porousStockLevel;
 	private List<Product> listData;
+	private Supplier supplier;
 
 	private void recreateModel() {
 		dataModel = null;
@@ -119,13 +121,14 @@ public class ProductController implements Serializable {
 	}
 
 	public String persistProduct() {
-		productService.persistProduct(name, description, price, stockLevel, porousStockLevel);
+		productService.persistProduct(name, description, price, stockLevel, porousStockLevel, supplier);
 		recreateModel();
 		name = "";
 		description = "";
 		price = 0;
 		stockLevel = 0;
 		porousStockLevel = 0;
+		supplier=null;
 		reset();
 		return "imsProducts";
 	}
@@ -257,5 +260,21 @@ public class ProductController implements Serializable {
 	public void setListData(List<Product> listData) {
 		this.listData = listData;
 	}
+
+	/**
+	 * @return the supplier
+	 */
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	/**
+	 * @param supplier the supplier to set
+	 */
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+	
+	
 
 }

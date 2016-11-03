@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.SupplierRepository;
 
@@ -72,6 +73,11 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 			}
 		}
 		return sup;
+	}
+
+	@Override
+	public List<Product> getProducts(Supplier supplier) {
+		return supplier.getProducts();
 	}
 	
 }

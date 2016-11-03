@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import com.nb.gnome.controllers.GraphController;
 import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.ProductRepository;
 
 import gnome.InitialData;
@@ -18,15 +19,13 @@ public class ProductService {
 
 	@Inject
 	private ProductRepository productManager;
-	@Inject
-	private InitialData initialData;
 	@Inject GraphController graph;
 	
 	/**
 	 * Calls Product Manager method, pooling params together to create a new product object
 	 */
-	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel){
-		productManager.persistProduct(mName, mDescription, mPrice, mStockLevel, mporousStockLevel);
+	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel, Supplier mSupplier){
+		productManager.persistProduct(mName, mDescription, mPrice, mStockLevel, mporousStockLevel, mSupplier);
 	}
 	
 	/**
@@ -36,8 +35,7 @@ public class ProductService {
 	 */
 	public List<Product> findAll(){
 		List<Product> s = productManager.findAll();
-		return s;
-		
+		return s;	
 	}
 	
 	public List<Product> findCriticalStock(){
