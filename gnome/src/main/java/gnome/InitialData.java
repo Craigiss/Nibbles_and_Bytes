@@ -37,7 +37,7 @@ public class InitialData {
 		aa.setTown("Milton Keynes");
 		aa.setCounty("Bucks");
 		aa.setPostcode("mk76jn");
-		aa.setId(10);
+		aa.setId(1);
 		addresses.add(aa);
 		
 		Address aa1 = new Address();
@@ -46,7 +46,7 @@ public class InitialData {
 		aa1.setTown("Town2");
 		aa1.setCounty("County2");
 		aa1.setPostcode("Post code2");
-		aa1.setId(11);
+		aa1.setId(2);
 		addresses.add(aa1);		
 		
 		Address aa2 = new Address();
@@ -55,7 +55,7 @@ public class InitialData {
 		aa2.setTown("Town3");
 		aa2.setCounty("County3");
 		aa2.setPostcode("Post code3");
-		aa2.setId(12);
+		aa2.setId(3);
 		addresses.add(aa2);
 		
 		Address aa3 = new Address();
@@ -64,7 +64,7 @@ public class InitialData {
 		aa3.setTown("Manchester");
 		aa3.setCounty("Manchester");
 		aa3.setPostcode("M30 0NZ");
-		aa3.setId(13);
+		aa3.setId(4);
 		addresses.add(aa3);
 		
 		addresses2.add(aa3);
@@ -76,7 +76,7 @@ public class InitialData {
 		cu.setSurname("surname");
 		cu.setAddresses(addresses);
 		cu.setPassword("password");
-		cu.setId(2);
+		cu.setId(1);
 		customers.add(cu);
 		
 		Customer cu2 = new Customer();
@@ -85,7 +85,7 @@ public class InitialData {
 		cu2.setSurname("Smart");
 		cu2.setAddresses(addresses2);
 		cu2.setPassword("goaway");
-		cu2.setId(1);
+		cu2.setId(2);
 		customers.add(cu2);
 		
 		

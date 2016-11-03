@@ -40,12 +40,30 @@ public class AddressService {
 	
 	public List<Address> getCustomerAddresses(){
 		int userId = user.getId();
-		System.out.println(userId);
-		
 		return customerRepository.getCustomerById(userId).getAddresses();
 	}
 	
 	
+	public void addAddress(String addressFirstLine, String addressSecondLine, String town, String county, String postcode){
+		Address address = new Address();
+		address.setCounty(county);
+		address.setId(customerRepository.getCustomerById(user.getId()).getAddresses().size()+1);
+		address.setLine1(addressFirstLine);
+		address.setLine2(addressSecondLine);
+		address.setPostcode(postcode);
+		address.setTown(town);
+		customerRepository.getCustomerById(user.getId()).getAddresses().add(address);
+	}
 	
+	public void deleteAddress(int addressId){
+		List<Address> customersAddresses = new ArrayList<Address>();
+		customersAddresses = getCustomerAddresses();
+		for (Address a : customersAddresses){
+			if (a.getId() == addressId){
+				customersAddresses.remove(a);
+				break;
+			}
 
+		}
+	}
 }

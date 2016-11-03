@@ -75,7 +75,7 @@ public class OrderController implements Serializable {
 		checkoutService.completeOrder(basketController.getProducts(), userCredentials.getId());
 		basketController.ClearBasket();
 
-		return "homePage";
+		return "OrderSuccess";
 	}
 	
 
@@ -136,6 +136,9 @@ public class OrderController implements Serializable {
 		this.postcode = postcode;
 	}
 	
+	public String getOrderID(){
+		return checkoutService.getCompletedOrderID();
+	}
 	
 
 

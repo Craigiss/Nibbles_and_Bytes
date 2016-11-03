@@ -29,6 +29,7 @@ public class AccountController implements Serializable {
 	@Inject
 	AddressRepository addressManager;
 
+	@Inject
 	AddressService addressService;
 
 	private List<Address> address; // Customer's addresses.
@@ -144,8 +145,8 @@ public class AccountController implements Serializable {
 		this.updateAccountService = updateAccountService;
 	}
 
-	public void updateAccount() {
-		System.out.println("reached");
+
+	public void updateAccount(){
 		updateAccountService.updateAccount(firstName, surname, email);
 		updateAccountService.updateAddress(userCredentials.getId(), selectedAddress, addressFirstLine,
 				addressSecondLine, town, county, postcode);
@@ -232,7 +233,7 @@ public class AccountController implements Serializable {
 			return accountManager.getCustomerByEmail(userCredentials.getEmail()).getFirstName();
 		} catch (NullPointerException e) {
 			return "loginPage";
-			
+
 		}
 
 	}
@@ -243,6 +244,7 @@ public class AccountController implements Serializable {
 			return accountManager.getCustomerByEmail(userCredentials.getEmail()).getSurname();
 		} catch (NullPointerException e) {
 			return "loginPage";
+
 		}
 	}
 
@@ -267,7 +269,6 @@ public class AccountController implements Serializable {
 				}
 				return address.get(selectedAddress).getLine1();
 			}
-			// (until we can add a page to view multiple addresses).
 			else
 				return "No address found - Please add your address details.";
 		} catch (NullPointerException e) {
@@ -312,6 +313,7 @@ public class AccountController implements Serializable {
 				return "No address found - Please add your address details.";
 		} catch (NullPointerException e) {
 			return "loginPage";
+
 		}
 	}
 
@@ -355,7 +357,21 @@ public class AccountController implements Serializable {
 				return "No address found - Please add your address details.";
 		} catch (NullPointerException e) {
 			return "loginPage";
+
 		}
+	}
+	
+	public String addAddress(){
+		
+		addressService.addAddress(addressFirstLine, addressSecondLine, town, county, postcode);
+		return "account";
+		
+	}
+	
+	public String deleteAddress(){
+		
+		addressService.deleteAddress(selectedAddress);
+		return "account";
 	}
 
 	/**

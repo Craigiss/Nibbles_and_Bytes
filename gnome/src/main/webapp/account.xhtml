@@ -20,6 +20,7 @@ Account Page
 					<li role="presentation" class="active"><a href="#account"
 						data-toggle="tab">Account Options</a></li>
 					<li role="presentation"><a href="#orders" data-toggle="tab">Orders</a></li>
+					<li role="presentation"><a href="#addAddress" data-toggle="tab">Add Address</a></li>
 					<li role="presentation"><h:commandButton
 							action="#{login.logout()}" value="Logout" class="btn btn-danger"
 							style=" width:100%" /></li>
@@ -76,6 +77,8 @@ Account Page
 				
 							<h:commandButton class="btn btn-success pull-right"
 								action="#{Account.updateAccount()}" type="submit" value="Update" />
+							<h:commandButton class="btn btn-danger pull-left"
+								action="#{Account.deleteAddress()}" type="submit" value="Delete" />
 
 						</h:form>
 					</div>
@@ -102,6 +105,34 @@ Account Page
 								</tr>
 							</ui:repeat>
 						</table>
+					</div>
+				</div>
+			</div>
+				
+				<div class="tab-pane" id="addAddress">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Orders</h3>
+					</div>
+					<div class="panel-body">
+					<h:form>
+						<h:inputText  value="#{Account.addressFirstLine}" type="text" id="inputAddrLine1"
+						class="form-control" a:placeholder="Address Line 1"
+						requiredMessage="Please Enter address line 1 including house number"/>
+						<h:inputText  value="#{Account.addressSecondLine}" type="text" id="inputAddrLine2"
+						class="form-control" a:placeholder="Address Line 2"
+						requiredMessage="Please Enter address line 2"/>
+						<h:inputText  value="#{Account.town}" type="town" id="inputTown"
+						class="form-control" a:placeholder="Town"
+						requiredMessage="Please Enter Town"/>
+						<h:inputText  value="#{Account.county}" type="county" id="inputcounty"
+						class="form-control" a:placeholder="County"
+						requiredMessage="Please Enter a County"/>
+						<h:inputText  value="#{Account.postcode}" type="text" id="postcode"
+						class="form-control" a:placeholder="Postcode" 
+						requiredMessage="Please Enter your postcode"/>
+						<h:commandButton class="btn btn-success pull-right" action="#{Account.addAddress()}" type="submit" value="Add Address" />
+						</h:form>
 					</div>
 				</div>
 			</div>
