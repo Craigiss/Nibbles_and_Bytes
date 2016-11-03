@@ -267,7 +267,7 @@ public class AccountController implements Serializable {
 					if (a.getId() == selectedAddress)
 						return a.getLine1();
 				}
-				return address.get(selectedAddress).getLine1();
+				return address.get(0).getLine1();
 			}
 			else
 				return "No address found - Please add your address details.";
@@ -286,7 +286,7 @@ public class AccountController implements Serializable {
 					if (a.getId() == selectedAddress)
 						return a.getLine2();
 				}
-				return address.get(selectedAddress).getLine2();
+				return address.get(0).getLine2();
 			}
 			// (until we can add a page to view multiple addresses).
 			else
@@ -306,7 +306,7 @@ public class AccountController implements Serializable {
 					if (a.getId() == selectedAddress)
 						return a.getCounty();
 				}
-				return address.get(selectedAddress).getCounty();
+				return address.get(0).getCounty();
 			}
 			// (until we can add a page to view multiple addresses).
 			else
@@ -327,7 +327,7 @@ public class AccountController implements Serializable {
 					if (a.getId() == selectedAddress)
 						return a.getPostcode();
 				}
-				return address.get(selectedAddress).getPostcode();
+				return address.get(0).getPostcode();
 			}
 			// (until we can add a page to view multiple addresses).
 			else
@@ -350,7 +350,7 @@ public class AccountController implements Serializable {
 					if (a.getId() == selectedAddress)
 						return a.getTown();
 				}
-				return address.get(selectedAddress).getTown();
+				return address.get(0).getTown();
 			}
 			// (until we can add a page to view multiple addresses).
 			else

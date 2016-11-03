@@ -49,7 +49,7 @@ public class InitialData {
 		aa1.setId(2);
 		addresses.add(aa1);		
 		
-		Address aa2 = new Address();
+		/*Address aa2 = new Address();
 		aa2.setLine1("First Line3");
 		aa2.setLine2("Second Line3");
 		aa2.setTown("Town3");
@@ -67,7 +67,7 @@ public class InitialData {
 		aa3.setId(4);
 		addresses.add(aa3);
 		
-		addresses2.add(aa3);
+		addresses2.add(aa3);*/
 		
 																						// Customers
 		Customer cu = new Customer();
