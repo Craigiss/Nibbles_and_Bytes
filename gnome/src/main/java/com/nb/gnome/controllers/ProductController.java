@@ -30,9 +30,11 @@ public class ProductController implements Serializable {
 	private ReviewRepository reviewRepository;
 	@Inject
 	private SelectedProduct product; 
+	@Inject
 	private ReviewService reviewService; 
 	@Inject 
 	private UserCredentials user;
+	
 	private PaginationHelper pagination;
 	private DataModel<Product> dataModel = null;
 	private List<Review> reviewModel =null;
