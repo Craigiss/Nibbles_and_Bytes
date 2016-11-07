@@ -1,4 +1,4 @@
-/*package connection;
+package connection;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -81,4 +81,4 @@ public class Connection {
 	}
 
 }
-*/
+
