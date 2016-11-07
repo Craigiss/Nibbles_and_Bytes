@@ -12,6 +12,6 @@ public interface CategoryRepository {
 	public void persistCategory(Category c);
 	
 	//Update
-	public void updateCategory(Category c);// TODO
+	public void updateCategory(Category c);
 
 }

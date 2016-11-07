@@ -259,7 +259,6 @@ public class CreateAccountController {
 				return "loginPage";
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		userCredentials.setEmail(email);
