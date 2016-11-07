@@ -1,7 +1,5 @@
 package com.nb.gnome.managers;
 
-import java.util.List;
-
 import com.nb.gnome.entities.ISAccount;
 
 /**

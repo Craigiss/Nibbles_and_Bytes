@@ -24,79 +24,59 @@
 			<div id="header">
 				<nav class="navbar navbar-default">
 					<div class="container-fluid">
+						<div id="topNav">
+							<a class="navbar-brand" href="homePage.xhtml"> <img
+								src="img/lgo.png" width="50px" alt="" />
+							</a>
 
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed"
-								data-toggle="collapse"
-								data-target="#bs-example-navbar-collapse-1"
-								aria-expanded="false">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-							</button>
-						</div>
+							<ul class="nav navbar-nav navbar-right pull-right">
 
-						<div class="collapse navbar-collapse"
-							id="bs-example-navbar-collapse-1">
-							<div id="topNav">
-								<a class="navbar-brand" href="homePage.xhtml"> <img
-									src="img/lgo.png" width="150px" alt="" />
-								</a>
+								<li id="leftBorder"><a href="homePage.xhtml">Home</a></li>
 
-								<ul class="nav navbar-nav navbar-right pull-right">
-
-									<li id="leftBorder"><a href="homePage.xhtml">Home</a></li>
-
-								</ul>
-							</div>
+							</ul>
 						</div>
 					</div>
 				</nav>
 			</div>
 
 			<div id="body" style="margin-top: 50px;">
-				<center>
-					<h1>Order Confirmation</h1>
-				</center>
 
-
-
-
+				<h1 style="text-align: center">Order Confirmation</h1>
 
 				<!-- ORDER CONFIRMATION DETAILS BEGIN -->
 
 				<h:form>
 					<div id="orderConfirmationContainer">
-					<div class="orderConfirmationBlockTop">
-						<div class="row">
-							<div class="col-md-5">
-								<h2>Delivery Address</h2>
-							</div>
+						<div class="orderConfirmationBlockTop">
+							<div class="row">
+								<div class="col-md-5">
+									<h2>Delivery Address</h2>
+								</div>
 
-							<div class="col-md-7">
+								<div class="col-md-7">
 
-								<h:outputText id="firstName" type="text"
-									a:placeholder="First Name" value="#{Account.firstName}" />
-								<h:outputText value=" " />
-								<h:outputText id="surname" type="text" a:placeholder="Surname"
-									value="#{Account.surname}" />
-								<p />
-								<h:outputText id="addressFirstLine" type="text"
-									a:placeholder="Line 1" value="#{order.addressFirstLine}" />
-								<p />
-								<h:outputText id="addressSecondLine" type="text"
-									a:placeholder="Line 2" value="#{order.addressSecondLine}" />
-								<p />
-								<h:outputText id="town" type="text" a:placeholder="County"
-									value="#{order.town}" />
-								<p />
-								<h:outputText id="county" type="text" a:placeholder="County"
-									value="#{order.county}" />
-								<p />
-								<h:outputText id="postcode" type="text"
-									a:placeholder="Postcode" value="#{order.postcode}" />
+									<h:outputText id="firstName" type="text"
+										a:placeholder="First Name" value="#{Account.firstName}" />
+									<h:outputText value=" " />
+									<h:outputText id="surname" type="text" a:placeholder="Surname"
+										value="#{Account.surname}" />
+									<p />
+									<h:outputText id="addressFirstLine" type="text"
+										a:placeholder="Line 1" value="#{order.addressFirstLine}" />
+									<p />
+									<h:outputText id="addressSecondLine" type="text"
+										a:placeholder="Line 2" value="#{order.addressSecondLine}" />
+									<p />
+									<h:outputText id="town" type="text" a:placeholder="County"
+										value="#{order.town}" />
+									<p />
+									<h:outputText id="county" type="text" a:placeholder="County"
+										value="#{order.county}" />
+									<p />
+									<h:outputText id="postcode" type="text"
+										a:placeholder="Postcode" value="#{order.postcode}" />
+								</div>
 							</div>
-						</div>
 						</div>
 						<div class="orderConfirmationBlockMiddle">
 							<div class="row">
@@ -133,37 +113,37 @@
 									</div>
 								</div>
 							</ui:repeat>
-						<div class="row orderConfirmationProductBlock">
-							<div class="col-md-10 price"><b>Order Total:</b></div>
-							<div class="col-md-2 price">
-								<h:outputText value="&#163;#{Basket.total}" />
+
+							<div class="row orderConfirmationProductBlock">
+								<div class="col-md-10 price">Order Total:</div>
+								<div class="col-md-2 price">
+									<h:outputText value="&#163;#{Basket.total}" />
+								</div>
+
 							</div>
 						</div>
-						</div>
 
 
 
-					<div class="orderConfirmationBlockBottom">
+						<div class="orderConfirmationBlockBottom">
 
-						<div class="row">
-							<div class="col-md-5">
-								<h2>Delivery Option</h2>
-							</div>
+							<div class="row">
+								<div class="col-md-5">
+									<h2>Delivery Option</h2>
+								</div>
 
-							<div class="col-md-7">
+								<div class="col-md-7">
 
-								<div class="radio">
-									<label><input type="radio" name="optradio">Super
-											Speedy</input></label>
-									<p></p>
-									<label><input type="radio" name="optradio">Standard</input></label>
-									<p></p>
-									<label><input type="radio" name="optradio">Carrier
-											Pigeon</input></label>
+									<div class="radio">
+										<input type="radio" name="optradio"  />Super Speedy
+										<br/>
+										<input type="radio" name="optradio" />Standard
+										<br/>
+										<input type="radio" name="optradio" />Carrier Pigeon
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 					</div>
 				</h:form>
 
@@ -175,20 +155,20 @@
 
 				<h:form>
 					<div class="row">
-						<div class="col-md-6">
-							<div class="btn-group">
 
-								<h:commandLink action="Basket.xhtml">
-									<h:commandButton class="btn btn-danger" value="Cancel"
-										type="submit" />
-								</h:commandLink>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class=" pull-right">
-								<h:commandLink action = "#{order.completeOrder()}">
-									<h:commandButton class="btn btn-success" value="Complete Order"
+						<div class="col-md-6 col-sm-6 col-xs-4">
+
+							<h:outputLink action="Basket.xhtml">
+								<h:commandButton class="btn btn-danger" value="Cancel"
 									type="submit" />
+							</h:outputLink>
+						</div>
+
+						<div class="col-md-6 col-sm-6 col-xs-8">
+							<div class="pull-right">
+								<h:commandLink action="#{order.completeOrder()}">
+									<h:commandButton class="btn btn-success "
+										value="Complete Order" type="submit" />
 								</h:commandLink>
 							</div>
 						</div>

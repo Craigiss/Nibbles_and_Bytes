@@ -18,7 +18,6 @@ import com.nb.gnome.service.ReviewService;
 import com.nb.gnome.service.UserCredentials;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Review;
-import javax.enterprise.context.Dependent;
 import javax.enterprise.context.SessionScoped;
 
 @Named("products")
@@ -30,13 +29,11 @@ public class ProductController implements Serializable {
 	@Inject 
 	private ReviewRepository reviewRepository;
 	@Inject
-	private SelectedProduct product;
-	@Inject 
+	private SelectedProduct product; 
 	private ReviewService reviewService; 
 	@Inject 
 	private UserCredentials user;
 	private PaginationHelper pagination;
-	private int selected;
 	private DataModel<Product> dataModel = null;
 	private List<Review> reviewModel =null;
 	private void recreateModel() {

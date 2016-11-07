@@ -24,7 +24,6 @@ public class UpdateAccountService {
 	UserCredentials userCredentials;
 	@Inject
 	AddressRepository addressRepository;
-	@Inject
 	AddressService addressService;
 	
 	public void updateAccount(String firstName, String surname, String email){

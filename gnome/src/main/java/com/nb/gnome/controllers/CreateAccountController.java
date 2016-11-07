@@ -8,7 +8,6 @@ import com.nb.gnome.service.CreateAccountService;
 import com.nb.gnome.service.LoginService;
 import com.nb.gnome.service.UserCredentials;
 
-// Created by Cameron & Jacob
 
 @Named(value="CreateAccount")
 @RequestScoped
@@ -27,13 +26,31 @@ public class CreateAccountController {
 	private String email;
 	private String addressFirstLine;
 	private String addressSecondLine;
+	private String town;
+	private String county;
+	public String getTown() {
+		return town;
+	}
+
+	public void setTown(String town) {
+		this.town = town;
+	}
+
+	public String getCounty() {
+		return county;
+	}
+
+	public void setCounty(String county) {
+		this.county = county;
+	}
+
 	private String postcode;
 	private String password;
 	private String reenteredPassword;
 	
 	private String error;
 	
-	public String addUser(){	
+	public String addUser() throws Exception{	
 		if(firstName.equals("")){							// Basic validation. If any fields empty return to login page.
 			setError("Please enter your First Name.");
 			return "loginPage";
@@ -49,6 +66,16 @@ public class CreateAccountController {
 		}
 		
 		if(addressSecondLine.equals("")){
+			setError("Please enter the second line of your address.");
+			return "loginPage";
+		}
+		
+		if (town.equals("")){
+			setError("Please enter the second line of your address.");
+			return "loginPage";
+		}
+		
+		if (county.equals("")){
 			setError("Please enter the second line of your address.");
 			return "loginPage";
 		}
@@ -77,9 +104,14 @@ public class CreateAccountController {
 			setError("Passwords do not match.");
 			return "loginPage";
 		}
-		
-		createAccountService.newUser(firstName, surname, email, addressFirstLine,addressSecondLine, postcode, password);
+		try{
+		createAccountService.newUser(firstName, surname, email, addressFirstLine,addressSecondLine, town, county, postcode, password);
+		}
+		catch(Exception e){
+			System.out.println("Failed");
+		}
 		loginController.setEmail(email);
+		
 		loginController.setPassword(password);
 		String outcome  = loginController.login();
 		return outcome;
@@ -220,10 +252,15 @@ public class CreateAccountController {
 			return "loginPage";
 		}
 		
-		if(!loginService.validateDetails(email, password)){
-			error = "Invalid Input";
-			password = "";
-			return "loginPage";
+		try {
+			if(!loginService.validateDetails(email, password)){
+				error = "Invalid Input";
+				password = "";
+				return "loginPage";
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		userCredentials.setEmail(email);
 		userCredentials.setUser(loginService.getName(email));

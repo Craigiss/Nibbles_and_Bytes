@@ -8,7 +8,6 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.nb.gnome.entities.Returns;
-import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.ReturnsRepository;
 
 import gnome.InitialData;

@@ -22,7 +22,7 @@ public class LoginController implements Serializable {
 	private String error;
 
 	
-	public String login(){
+	public String login() {
 		if(email.equals("")){
 			setError("Please Enter a Email address");
 			return "loginPage";
@@ -31,12 +31,16 @@ public class LoginController implements Serializable {
 			setError("Please Enter a Password");
 			return "loginPage";
 		}
-		
+		try{
 		if(!loginService.validateDetails(email, password)){
 			setError("Invalid Email or Password");
 			password = "";
 			
 			return "loginPage";
+		}
+		}
+		catch(Exception e){
+			System.out.println("LoginController.login() @ validateDetails failed");
 		}
 		userCredentials.setEmail(email);
 		userCredentials.setUser(loginService.getName(email));
@@ -47,6 +51,7 @@ public class LoginController implements Serializable {
 	public String logout(){
 		userCredentials.setUser(null);
 		userCredentials.setEmail(null);
+		error = null;
 		return "homePage";
 	}
 

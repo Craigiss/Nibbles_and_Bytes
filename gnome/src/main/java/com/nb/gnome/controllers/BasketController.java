@@ -11,8 +11,6 @@ import com.nb.gnome.managers.ProductRepository;
 import com.nb.gnome.service.CheckoutService;
 import com.nb.gnome.service.UserCredentials;
 
-import javassist.compiler.ast.Pair;
-
 import java.io.Serializable;
 
 
@@ -21,11 +19,6 @@ import java.io.Serializable;
 public class BasketController implements Serializable {
 	
 	
-	/**
-	 * @return the total
-	 */
-	
-
 	public class item{
 		int id;
 		int quantity;
@@ -57,7 +50,7 @@ public class BasketController implements Serializable {
 	ProductRepository productManager;
 	@Inject 
 	UserCredentials userCredentials; 
-	@Inject 
+	 @Inject
 	CheckoutService checkoutService; 
 	private double total; 
 	ArrayList<Product> products = new ArrayList<Product>();
@@ -136,9 +129,9 @@ public class BasketController implements Serializable {
 	
 
 	/**
-	 * @param products the products to set
+
+	 * @return list of products
 	 */
-	
 	public ArrayList<Product> getProducts() {
 		return this.products;
 	}

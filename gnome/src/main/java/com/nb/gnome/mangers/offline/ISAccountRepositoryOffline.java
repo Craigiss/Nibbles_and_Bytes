@@ -1,12 +1,9 @@
 package com.nb.gnome.mangers.offline;
 
-import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
-import com.nb.gnome.entities.Customer;
 import com.nb.gnome.entities.ISAccount;
 import com.nb.gnome.managers.ISAccountRepository;
 

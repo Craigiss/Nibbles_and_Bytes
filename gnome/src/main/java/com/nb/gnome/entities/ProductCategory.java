@@ -20,19 +20,20 @@ import javax.validation.constraints.NotNull;
 public class ProductCategory {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "categoryID")
-	@ManyToOne
-	@JoinColumn(name="FKcategoryID",
-	nullable = false)
-	@NotNull
+//	@ManyToOne
+//	@JoinColumn(name="FKcategoryID",
+//	nullable = false)
+//	@NotNull
 	int categoryID;
-	
-	@Id
+//	
+//	@Id
 	@Column(name = "productID")
-	@ManyToOne
-	@JoinColumn(name="FKproductID",
-	nullable = false)
-	@NotNull
+//	@ManyToOne
+//	@JoinColumn(name="FKproductID",
+//	nullable = false)
+//	@NotNull
 	int productID;
 	
 	

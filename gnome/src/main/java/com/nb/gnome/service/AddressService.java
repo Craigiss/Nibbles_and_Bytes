@@ -6,13 +6,9 @@ import java.util.List;
 import javax.ejb.Stateful;
 import javax.inject.Inject;
 
-import com.mysql.cj.fabric.xmlrpc.base.Array;
 import com.nb.gnome.entities.Address;
-import com.nb.gnome.entities.Customer;
 import com.nb.gnome.managers.AddressRepository;
 import com.nb.gnome.managers.CustomerRepository;
-
-import gnome.InitialData;
 
 
 @Stateful

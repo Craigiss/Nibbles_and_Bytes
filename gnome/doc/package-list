@@ -1,0 +1,8 @@
+com.nb.gnome.controllers
+com.nb.gnome.entities
+com.nb.gnome.helper
+com.nb.gnome.managers
+com.nb.gnome.mangers.offline
+com.nb.gnome.service
+connection
+gnome

@@ -6,6 +6,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.nb.gnome.service.LoginService;
+
 /**
  * @author Nibbles And Bytes
  * @version 1.0
@@ -56,6 +58,19 @@ public class Customer {
 	@NotNull
 	@Size(min = 2, max = 11)
 	private String status;
+	
+	@Column (name = "salt", nullable = false, length = 32 )
+	@NotNull
+	@Size(min = 32, max = 32)
+	private String salt;
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
 
 	@ManyToMany(targetEntity=Address.class)
 	private List<Address> addresses;
