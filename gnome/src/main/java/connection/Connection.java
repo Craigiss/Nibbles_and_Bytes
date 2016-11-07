@@ -32,15 +32,10 @@ public class Connection {
 	private void createSession() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
-		System.out.println("DRIVER DONEEEEEE");
 		properties.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/cat");
-		System.out.println("DCon DONEEEEEE");
-
 		properties.setProperty("hibernate.connection.username", "root");
 		properties.setProperty("hibernate.connection.password", "password");
 		
-		System.out.println("U & P DONEEEEEE");
-
 		properties.setProperty("hibernate.show_sql", "true");
 		// properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		properties.setProperty("hibernate.hbm2ddl.auto", "create");
@@ -53,18 +48,13 @@ public class Connection {
 	}
 
 	public void persistData(Object... objects) {
-		System.out.println("SDSHGDRYDJUKFDYJKFXERUDYET");
 		createSession();
-		System.out.println("SDSHGDRYDJUKFDYJKFXERUDYET");
 		tx = session.beginTransaction();
-		System.out.println("SDSHGDRYDJUKFDYJKFXERUDYET");
 		for (Object b : objects) {
 			session.save(b);
 		}
 		tx.commit();
-		System.out.println("SDSHGDRYDJUKFDYJKFXERUDYET");
 		session.close();
-		System.out.println("SDSHGDRYDJUKFDYJKFXERUDYET");
 		sessionFactory.close();
 	}
 
@@ -91,3 +81,4 @@ public class Connection {
 	}
 
 }
+
