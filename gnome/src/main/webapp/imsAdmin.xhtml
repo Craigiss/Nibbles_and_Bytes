@@ -34,51 +34,51 @@
 		<!-- Grid for Help -->
 		<h3>Register New User:</h3>
 
-		<br/>
+		<br />
 
 		<h:form class="form-signin" id="loginPage">
-				<div class="row">
-					<h:inputText a:placeholder="Enter email address" type="email"
-						id="inputEmail" class="login-element loginInput uTextInput"
-						autofocus="" requiredMessage="Please Enter Email (username)" />
-				</div>
-				<div class="row">
-					<center>
-						<h:inputSecret  type="password"
-							class="login-element loginInput uTextInput"
-							a:placeholder="Enter password"
-							requiredMessage="Please Enter Password" />
-					</center>
-				</div>
-				<div class="row">
-					<center>
-						<h:inputSecret  type="password"
-							class="login-element loginInput uTextInput"
-							a:placeholder="Re-Enter password"
-							requiredMessage="Please Re-Enter Password" />
-					</center>
-				</div>
-				<div class="row">
-					<center>
-						<h:inputText a:placeholder="Enter name" type="email"
-							class="login-element loginInput uTextInput" autofocus=""
-							requiredMessage="Please Enter Name" />
-					</center>
-				</div>
-				<div class="row">
-					<center>
-						<h:commandButton class="btn login-element signInButton"
-							type="submit" action="#" value="Register User" />
-					</center>
-				</div>
-				<div>
-					<center>
-						<H4>Allow Admin Privileges</H4>
-						<input type="checkbox" checked="checked"></input>
-					</center>
-				</div>
-				<h4>List of Currently Registered Users</h4>
-			</h:form>
+			<div class="row">
+				<center>
+					<h:inputText a:placeholder="Enter name" type="email"
+						class="login-element loginInput uTextInput" autofocus=""
+						requiredMessage="Please Enter Name" />
+				</center>
+			</div>
+			<div class="row">
+				<h:inputText a:placeholder="Enter email address" type="email"
+					id="inputEmail" class="login-element loginInput uTextInput"
+					autofocus="" requiredMessage="Please Enter Email (username)" />
+			</div>
+			<div class="row">
+				<center>
+					<h:inputSecret type="password"
+						class="login-element loginInput uTextInput"
+						a:placeholder="Enter password"
+						requiredMessage="Please Enter Password" />
+				</center>
+			</div>
+			<div class="row">
+				<center>
+					<h:inputSecret type="password"
+						class="login-element loginInput uTextInput"
+						a:placeholder="Re-Enter password"
+						requiredMessage="Please Re-Enter Password" />
+				</center>
+			</div>
+			<div class="row">
+				<center>
+					<h:commandButton class="btn login-element signInButton"
+						type="submit" action="#" value="Register User" />
+				</center>
+			</div>
+			<div>
+				<center>
+					<H4>Allow Admin Privileges</H4>
+					<input type="checkbox" checked="checked"></input>
+				</center>
+			</div>
+			<h3>List of Currently Registered Users:</h3>
+		</h:form>
 	</ui:define>
 
 </ui:composition>
