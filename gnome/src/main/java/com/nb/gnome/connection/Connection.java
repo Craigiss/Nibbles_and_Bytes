@@ -40,7 +40,7 @@ public class Connection {
 		properties.setProperty("hibernate.connection.password", "password");
 		
 		
-		//properties.setProperty("hibernate.show_sql", "true");
+		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		//properties.setProperty("hibernate.hbm2ddl.auto", "create");
 					
@@ -72,14 +72,14 @@ public class Connection {
 		return returnObjects;
 	}
 	
-	public void persistUpdate(String sqlUpdateQuery){
+	public void persistUpdate(Object obj){
 		createSession();
+		session.update(obj);
+		System.out.println("things have happened?");
 		tx = session.beginTransaction();
-		Query query = session.createQuery(sqlUpdateQuery);
-		query.executeUpdate();
 		tx.commit();
 		session.close();
-		sessionFactory.close();
+		sessionFactory.close();	
 	}
 	
 //	@PostConstruct

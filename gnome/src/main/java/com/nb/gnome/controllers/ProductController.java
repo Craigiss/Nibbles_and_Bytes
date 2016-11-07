@@ -121,6 +121,7 @@ public class ProductController implements Serializable {
 	}
 
 	public String persistProduct() {
+		System.out.println("In controller >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		productService.persistProduct(name, description, price, stockLevel, porousStockLevel, supplier);
 		recreateModel();
 		name = "";

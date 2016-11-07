@@ -9,6 +9,7 @@ import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
 import com.nb.gnome.connection.Connection;
+import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.SupplierRepository;
@@ -25,7 +26,9 @@ public class SupplierRepositoryHib implements SupplierRepository{
 	//Create
 	@Override
 	public void persistSupplier(Supplier s){
-		database.persistData(s);
+		Address a1 = new Address("25 Barncombe Close", "", "Benfleet" , "Essex", "SS74AQ");
+		s.setAddress(a1);
+		database.persistData(s,a1);
 	}
 	
 	@Override
@@ -84,13 +87,12 @@ public class SupplierRepositoryHib implements SupplierRepository{
 	@Override
 	public void deleteSupplier(int id) {
 		ArrayList<Supplier> supplierList = (ArrayList)converter.convertToSuppliers(database.returnData("Supplier"));
-		List<Supplier> suppliers = new ArrayList<Supplier>();
-		suppliers = supplierList;
-		for(Supplier s : suppliers)
+		for(Supplier s : supplierList)
 		{
 			if (s.getId() == id)
 			{
 				s.setDeleted(true);
+				database.persistUpdate(s);
 			}
 		}		
 		

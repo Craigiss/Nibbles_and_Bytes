@@ -28,7 +28,8 @@ public class SupplierService {
 	 */
 	public void persistSupplier(String mCompany, String mName, String mPhone, String mEmail, String mDescription){
 		Address a = new Address();
-		Supplier supsup = new Supplier(supplierManager.findAll().size() +1, mCompany, mName, mPhone, mEmail, mDescription, a);
+		//Supplier supsup = new Supplier(supplierManager.findAll().size() +1, mCompany, mName, mPhone, mEmail, mDescription, a);
+		Supplier supsup = new Supplier(mCompany, mName, mPhone, mEmail, mDescription, a);
 		supplierManager.persistSupplier(supsup);
 	}
 	

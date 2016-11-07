@@ -38,25 +38,15 @@ public class ProductRepositoryHib implements ProductRepository {
 	//Create
 	@Override
 	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel, Supplier supplier){
-//		Product prodprod = new Product(mName, mDescription, mPrice, mStockLevel, mporousStockLevel, supplier);
-//		supplier.getProducts().add(prodprod);
-//		if (prodprod.getPorousStockLevel() <= 10){
-//			graph.setPie3(prodprod.getProductName() + " " + prodprod.getPorousStockLevel() + " products remaining ",prodprod.getPorousStockLevel());
-//		}
-//		if (prodprod.getStockLevel() <=10){
-//			graph.setPie(prodprod.getProductName() + " " + prodprod.getStockLevel() + " products remaining ",prodprod.getStockLevel());
-//		}
-//		
-		
-		Product p2 = new Product();
-		p2.setProductName("Godzilla gnome");
-		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
-		p2.setPrice(24.99);
-		p2.setStockLevel(115);
-		p2.setPorousStockLevel(6);
-		p2.setImgPath("img/gnomezilla.png");
-			
-		database.persistData(p2);
+		System.out.println(supplier.getClass() + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		Product prodprod = new Product(mName, mDescription, mPrice, mStockLevel, mporousStockLevel, supplier);
+		if (prodprod.getPorousStockLevel() <= 10){
+			graph.setPie3(prodprod.getProductName() + " " + prodprod.getPorousStockLevel() + " products remaining ",prodprod.getPorousStockLevel());
+		}
+		if (prodprod.getStockLevel() <=10){
+			graph.setPie(prodprod.getProductName() + " " + prodprod.getStockLevel() + " products remaining ",prodprod.getStockLevel());
+		}		
+		database.persistData(prodprod);
 	}
 	
 	//Read
@@ -192,7 +182,7 @@ public class ProductRepositoryHib implements ProductRepository {
 				p.setDeleted(true);
 				if (p.getStockLevel()<=10){graph.removeSegment(p.getProductName() + " " + p.getStockLevel() + " products remaining ");}
 				if (p.getPorousStockLevel()<=10){graph.removeSegment3(p.getProductName() + " " + p.getPorousStockLevel() + " products remaining ");}
-				database.persistData(p);
+				database.persistUpdate(p);
 			}
 		}
 		
