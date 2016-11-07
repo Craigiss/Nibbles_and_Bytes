@@ -546,10 +546,7 @@ ul {
 
 }
 
-.sorry{
-	height: 1000px;
-	width: 1000px;
-}
+
 
 @media screen and (max-width: 990px) {
 	.legend div {
