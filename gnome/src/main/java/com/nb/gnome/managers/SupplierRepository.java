@@ -26,5 +26,5 @@ public interface SupplierRepository {
 	
 	public List<Supplier> findAll();
 	
-	public List<Product> getProducts(Supplier supplier);
+	public void deleteSupplier(int id);
 }

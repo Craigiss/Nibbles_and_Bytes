@@ -9,6 +9,7 @@ import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
 import com.nb.gnome.connection.Connection;
+import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.SupplierRepository;
 
@@ -21,9 +22,6 @@ public class SupplierRepositoryHib implements SupplierRepository{
 	@Inject 
 	private ObjectConverter converter;
 	
-	
-	private ArrayList<Supplier> supplierList;
-
 	//Create
 	@Override
 	public void persistSupplier(Supplier s){
@@ -32,6 +30,7 @@ public class SupplierRepositoryHib implements SupplierRepository{
 	
 	@Override
 	public Supplier findSupplierById(long id){
+		ArrayList<Supplier> supplierList = (ArrayList)converter.convertToSuppliers(database.returnData("Supplier"));
 		Supplier sup = new Supplier();
 		for (Supplier s : supplierList ){
 			if (s.getId() == id)
@@ -44,9 +43,9 @@ public class SupplierRepositoryHib implements SupplierRepository{
 	
 	@Override
 	public List<Supplier> findAll(){
-		ArrayList<Supplier> test = (ArrayList)converter.convertToSuppliers(database.returnData("Supplier"));
+		ArrayList<Supplier> supplierList = (ArrayList)converter.convertToSuppliers(database.returnData("Supplier"));
 		List<Supplier> suppliers = new ArrayList<Supplier>();
-		for (Supplier s: test)
+		for (Supplier s: supplierList)
 		{
 			if (s.isDeleted() ==false)
 			{
@@ -59,6 +58,7 @@ public class SupplierRepositoryHib implements SupplierRepository{
 
 	@Override
 	public List<Supplier> findSupplierByCompany(String company) {
+		ArrayList<Supplier> supplierList = (ArrayList)converter.convertToSuppliers(database.returnData("Supplier"));
 		List<Supplier> sup = new ArrayList<Supplier>();
 		for (Supplier s : supplierList){
 			if (s.getCompany().toLowerCase().contains(company.toLowerCase()))
@@ -71,6 +71,7 @@ public class SupplierRepositoryHib implements SupplierRepository{
 
 	@Override
 	public Supplier findSupplierByContact(String s) {
+		ArrayList<Supplier> supplierList = (ArrayList)converter.convertToSuppliers(database.returnData("Supplier"));
 		Supplier sup = new Supplier();
 		for (Supplier supplier : supplierList){
 			if (supplier.getName().toLowerCase().contains(s.toLowerCase())){
@@ -79,5 +80,19 @@ public class SupplierRepositoryHib implements SupplierRepository{
 		}
 		return sup;
 	}
-	
+
+	@Override
+	public void deleteSupplier(int id) {
+		ArrayList<Supplier> supplierList = (ArrayList)converter.convertToSuppliers(database.returnData("Supplier"));
+		List<Supplier> suppliers = new ArrayList<Supplier>();
+		suppliers = supplierList;
+		for(Supplier s : suppliers)
+		{
+			if (s.getId() == id)
+			{
+				s.setDeleted(true);
+			}
+		}		
+		
+	}
 }

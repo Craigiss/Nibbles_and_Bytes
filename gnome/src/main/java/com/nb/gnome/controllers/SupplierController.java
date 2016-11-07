@@ -151,10 +151,6 @@ public class SupplierController implements Serializable {
 	public void findSupplierByCompany(String comp) {
 		supplierService.findSupplierByCompany(comp);
 	}
-	
-	public List<Product> getProducts(Supplier supplier){
-		return supplierService.getProducts(supplier);
-	}
 
 	/**
 	 * @return the supplierService

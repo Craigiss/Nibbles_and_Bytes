@@ -63,6 +63,17 @@ public class Product {
 		this.supplier = supplier;
 		deleted = false;
 	}
+	
+	public Product(String name, String description, double price, int stockLevel, int porousStockLevel, Supplier supplier){
+		this.productName = name;
+		this.description = description;
+		this.price = price;
+		this.stockLevel= stockLevel;
+		this.porousStockLevel= porousStockLevel;
+		this.supplier = supplier;
+		deleted = false;
+	}
+
 
 	/**
 	 * @return the productID

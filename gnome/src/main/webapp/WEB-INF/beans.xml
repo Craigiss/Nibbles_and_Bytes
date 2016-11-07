@@ -5,11 +5,10 @@
         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
                       http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
         bean-discovery-mode="all">
-        
-        
-        <alternatives>
-         <class>com.nb.gnome.managers.hib.SupplierRepositoryHib</class>
-        </alternatives>
-        
-        
+
+
+	<alternatives>
+		<class>com.nb.gnome.managers.hib.SupplierRepositoryHib</class>
+		<class>com.nb.gnome.managers.hib.ProductRepositoryHib</class>
+	</alternatives>
 </beans>

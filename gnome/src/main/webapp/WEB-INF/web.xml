@@ -1,39 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	version="3.1">
-	<context-param>
-		<param-name>com.sun.faces.enableRestoreView11Compatibility</param-name>
-		<param-value>true</param-value>
-	</context-param>
-	<context-param>
-		<param-name>org.richfaces.enableControlSkinning</param-name>
-		<param-value>false</param-value>
-	</context-param>
-	<context-param>
-		<param-name>org.richfaces.skin</param-name>
-		<param-value>plain</param-value>
-	</context-param>
-	<servlet>
-		<servlet-name>Faces Servlet</servlet-name>
-		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.xhtml</url-pattern>
-	</servlet-mapping>
-	<welcome-file-list>
-		<welcome-file>imsLogin.xhtml</welcome-file>
-	</welcome-file-list>
-	<error-page>
-		<error-code>404</error-code>
-		<location>/404.xhtml</location>
-	</error-page>
-	<error-page>
-		<error-code>500</error-code>
-		<location>/404.xhtml</location>
-	</error-page>
+xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+<context-param>
+<param-name>com.sun.faces.enableRestoreView11Compatibility</param-name>
+<param-value>true</param-value>
+</context-param>
+<context-param>
+    <param-name>org.richfaces.enableControlSkinning</param-name>
+    <param-value>false</param-value>
+</context-param>
+<context-param>
+    <param-name>org.richfaces.skin</param-name>
+    <param-value>plain</param-value>
+</context-param>
+<servlet>
+<servlet-name>Faces Servlet</servlet-name>
+<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+<servlet-name>Faces Servlet</servlet-name>
+<url-pattern>*.xhtml</url-pattern>
+</servlet-mapping>
+<welcome-file-list>
+	<welcome-file>imsLogin.xhtml</welcome-file>
+</welcome-file-list>
+<error-page>
+    <error-code>404</error-code>
+    <location>/404.xhtml</location>
+</error-page>
+<!-- <security-constraint>
+	<display-name>MaintenaceConstraint</display-name>
+	<web-resource-collection>
+		<web-resource-name>UserAccess</web-resource-name>
+		<description>Only for users who are logged in</description>
+		<url-pattern>/addProduct.xhtml</url-pattern>
+		<url-pattern>/addSupplier.xhtml</url-pattern>
+		<url-pattern>/addPurchaseOrder.xhtml</url-pattern>
+		<url-pattern>/imsAnalytics.xhtml</url-pattern>
+		<url-pattern>/imsHelp.xhtml</url-pattern>
+		<url-pattern>/imsPo.xhtml</url-pattern>
+		<url-pattern>/imsPoDeets.xhtml</url-pattern>
+		<url-pattern>/imsProdDeets.xhtml</url-pattern>
+		<url-pattern>/imsProducts.xhtml</url-pattern>
+		<url-pattern>/imsSupplierDeets.xhtml</url-pattern>
+		<url-pattern>/imsSuppliers.xhtml</url-pattern>
+	</web-resource-collection>
+	<auth-constraint>
+		<description/>
+		<role-name>User</role-name>	
+	</auth-constraint>
+</security-constraint> -->
 </web-app>

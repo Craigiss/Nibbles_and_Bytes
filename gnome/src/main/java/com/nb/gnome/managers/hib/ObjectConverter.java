@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 
+import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 
 @Stateless
@@ -18,6 +19,15 @@ public class ObjectConverter implements Serializable {
 			supplierList.add((Supplier)o);
 		}
 		return supplierList;
+	}
+	
+	public List<Product> convertToProducts(List<Object> objectList){
+		List<Product> productList = new ArrayList<Product>();
+		
+		for (Object o : objectList){
+			productList.add((Product)o);
+		}
+		return productList;
 	}
 	
 }

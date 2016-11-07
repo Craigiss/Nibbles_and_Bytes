@@ -26,4 +26,6 @@ public interface PurchaseOrderRepository {
 		public List<PurchaseOrder> findAll();
 		
 		public int findItemsQuantity(PurchaseOrder p);
+		
+		public void deletePurchaseOrder(int id);
 }

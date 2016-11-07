@@ -76,8 +76,16 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 	}
 
 	@Override
-	public List<Product> getProducts(Supplier supplier) {
-		return supplier.getProducts();
+	public void deleteSupplier(int id) {
+		List<Supplier> suppliers = new ArrayList<Supplier>();
+		suppliers = initialData.getSuppliers();
+		for(Supplier s : suppliers)
+		{
+			if (s.getId() == id)
+			{
+				s.setDeleted(true);
+			}
+		}		
 	}
 	
 }

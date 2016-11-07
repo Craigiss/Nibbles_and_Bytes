@@ -33,14 +33,14 @@ public class Connection {
 	private void createSession(){
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
-		properties.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/ims");
+		properties.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/ims?autoReconnect=true&useSSL=false");
 		
 			
 		properties.setProperty("hibernate.connection.username", "root");
 		properties.setProperty("hibernate.connection.password", "password");
 		
 		
-		properties.setProperty("hibernate.show_sql", "true");
+		//properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		//properties.setProperty("hibernate.hbm2ddl.auto", "create");
 					
@@ -72,49 +72,59 @@ public class Connection {
 		return returnObjects;
 	}
 	
-	@PostConstruct
-	public void init(){
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..PRODUCT DONE");
-		Address a1 = new Address("25 Barncombe Close", "", "Benfleet" , "Essex", "SS74AQ");
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..ADDRESS DONE");
-		
-		Supplier s1 = new Supplier();
-		s1.setCompany("Lawn Flamingos Wholesale");
-		s1.setName("Augustine Poutine");
-		s1.setPhone("01645839242");
-		s1.setEmail("augustine@lawnflamingoswholesale.lol");
-		s1.setDescription("These guys sell lawn flamingos in bulk. Low prices but we tend to have their stock for a while."
-				+ " Augustine is friendly enough, but don't talk to them about gnomes. They have incredible delivery time, "
-				+ "as they are able to ship 1,000 flamingos for next day delivery. This is now a test to see how far down the"
-				+ "text will go and if it will collide with the PO table that shows all the POs for this supplier.");
-		s1.setAddress(a1);
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..SUPPLIER DONE");
-		
-		Product p1 = new Product();
-		p1.setProductName("Lawn Flamingo");
-		p1.setDescription("A beautiful pink plastic flamingo to place in your tropical garden");
-		p1.setPrice(15.99);
-		p1.setImgPath("img/Flamingo.gif");
-		p1.setStockLevel(5);
-		p1.setPorousStockLevel(15);
-		p1.setSupplier(s1);
-			
-		List<PurchaseOrderDetails> listOfPOD = new ArrayList<PurchaseOrderDetails>();
-		
-		PurchaseOrder po1 = new PurchaseOrder();
-		po1.setDate(new Date(116,10,22));
-		po1.setStatus("Open");
-		po1.setSupplier(s1);
-		po1.setLines(listOfPOD);
-		
-		PurchaseOrderDetails pod1 = new PurchaseOrderDetails();
-		pod1.setProduct(p1);
-		pod1.setQuantity(40);
-		listOfPOD.add(pod1);
-		pod1.setPo(po1);
-		
-		persistData(p1,a1,s1,po1,pod1);
+	public void persistUpdate(String sqlUpdateQuery){
+		createSession();
+		tx = session.beginTransaction();
+		Query query = session.createQuery(sqlUpdateQuery);
+		query.executeUpdate();
+		tx.commit();
+		session.close();
+		sessionFactory.close();
 	}
+	
+//	@PostConstruct
+//	public void init(){
+//		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..PRODUCT DONE");
+//		Address a1 = new Address("25 Barncombe Close", "", "Benfleet" , "Essex", "SS74AQ");
+//		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..ADDRESS DONE");
+//		
+//		Supplier s1 = new Supplier();
+//		s1.setCompany("Lawn Flamingos Wholesale");
+//		s1.setName("Augustine Poutine");
+//		s1.setPhone("01645839242");
+//		s1.setEmail("augustine@lawnflamingoswholesale.lol");
+//		s1.setDescription("These guys sell lawn flamingos in bulk. Low prices but we tend to have their stock for a while."
+//				+ " Augustine is friendly enough, but don't talk to them about gnomes. They have incredible delivery time, "
+//				+ "as they are able to ship 1,000 flamingos for next day delivery. This is now a test to see how far down the"
+//				+ "text will go and if it will collide with the PO table that shows all the POs for this supplier.");
+//		s1.setAddress(a1);
+//		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..SUPPLIER DONE");
+//		
+//		Product p1 = new Product();
+//		p1.setProductName("Lawn Flamingo");
+//		p1.setDescription("A beautiful pink plastic flamingo to place in your tropical garden");
+//		p1.setPrice(15.99);
+//		p1.setImgPath("img/Flamingo.gif");
+//		p1.setStockLevel(5);
+//		p1.setPorousStockLevel(15);
+//		p1.setSupplier(s1);
+//			
+//		List<PurchaseOrderDetails> listOfPOD = new ArrayList<PurchaseOrderDetails>();
+//		
+//		PurchaseOrder po1 = new PurchaseOrder();
+//		po1.setDate(new Date(116,10,22));
+//		po1.setStatus("Open");
+//		po1.setSupplier(s1);
+//		po1.setLines(listOfPOD);
+//		
+//		PurchaseOrderDetails pod1 = new PurchaseOrderDetails();
+//		pod1.setProduct(p1);
+//		pod1.setQuantity(40);
+//		listOfPOD.add(pod1);
+//		pod1.setPo(po1);
+//		
+//		persistData(p1,a1,s1,po1,pod1);
+//	}
 	
 
 }

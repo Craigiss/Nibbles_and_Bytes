@@ -69,4 +69,16 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 		return p.getLines().size();
 	}
 	
+	@Override
+	public void deletePurchaseOrder(int id) {
+		List<PurchaseOrder> po = new ArrayList<PurchaseOrder>();
+		po = initialData.getPurchaseOrders();
+		for(PurchaseOrder p : po){
+			if (p.getId() == id){
+				p.setDeleted(true);
+			}
+		}
+		
+	}
+	
 }

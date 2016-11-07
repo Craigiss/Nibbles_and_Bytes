@@ -41,26 +41,32 @@ public class ISAccount {
 	@Size (min = 2, max = 255)
 	private String salt;
 	
+	@NotNull
+	@Column (name = "role", nullable = false) 
+	private String role;
+	
 	//constructors
 	
 	public ISAccount(){
 		
 	}
 	
-	public ISAccount(String nEmail, String nPassword, String nName, String nSalt) {
+	public ISAccount(String nEmail, String nPassword, String nName, String nSalt, String nRole) {
 		email = nEmail;
 		password = nPassword;
 		name = nName;
 		admin = false;
 		salt = nSalt;
+		role = nRole;
 	}
 	
-	public ISAccount(String nEmail, String nPassword, String nName, boolean nAdmin, String nSalt) {
+	public ISAccount(String nEmail, String nPassword, String nName, boolean nAdmin, String nSalt, String nRole) {
 		email = nEmail;
 		password = nPassword;
 		name = nName;
 		admin = nAdmin;
 		salt = nSalt;
+		role = nRole;
 	}
 	/**
 	 * Method to get the inventory staff email address 
@@ -132,6 +138,22 @@ public class ISAccount {
 	public void setSalt(String salt) {
 		this.salt = salt;
 	}
+
+	/**
+	 * @return the role
+	 */
+	public String getRole() {
+		return role;
+	}
+
+	/**
+	 * @param role the role to set
+	 */
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	
 
 
 	

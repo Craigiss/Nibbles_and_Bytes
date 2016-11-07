@@ -10,7 +10,9 @@ import javax.inject.Named;
 public class IMSUserCredentials implements Serializable {
     
     private String email = null;
-    private String name = null; 
+    private String name = null;
+    private String role = null;
+    
 
     public String getEmail(){
         return email;
@@ -32,4 +34,22 @@ public class IMSUserCredentials implements Serializable {
     	email=null;
     	name=null;
     }
+
+	/**
+	 * @return the role
+	 */
+	public String getRole() {
+		return role;
+	}
+
+	/**
+	 * @param role the role to set
+	 */
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	
+    
+        
 }
