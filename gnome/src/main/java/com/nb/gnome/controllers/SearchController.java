@@ -12,6 +12,10 @@ import com.nb.gnome.managers.ProductRepository;
 @Named("search")
 @SessionScoped
 public class SearchController implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6376495005008233310L;
 	@Inject
 	ProductRepository productManager;
 	@Inject 

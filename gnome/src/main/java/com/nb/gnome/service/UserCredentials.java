@@ -9,6 +9,10 @@ import javax.inject.Named;
 @SessionScoped
 public class UserCredentials implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7904470505509637902L;
 	private String user = null;
 	private String email = null; 
 	private int id = 0;

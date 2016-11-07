@@ -18,6 +18,11 @@ import com.nb.gnome.service.UserCredentials;
 @Named("Account")
 @SessionScoped
 public class AccountController implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5728992121241605618L;
+
 	@Inject
 	UserCredentials userCredentials;
 

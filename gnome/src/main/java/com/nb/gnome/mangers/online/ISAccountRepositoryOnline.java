@@ -6,24 +6,27 @@ import javax.inject.Inject;
 
 import com.nb.gnome.entities.ISAccount;
 import com.nb.gnome.managers.ISAccountRepository;
+import com.nb.gnome.managers.hib.ObjectConverter;
 
-import gnome.InitialData;
+import connection.Connection;
 @Default
 @Stateless
-public class ISAccountRepositoryOffline implements ISAccountRepository{
+public class ISAccountRepositoryOnline implements ISAccountRepository{
 	
 	@Inject
-	private InitialData initialData;
+	private Connection connection;
 
+	@Inject
+	private ObjectConverter converter;
 	@Override
 	public void persistISAccount(ISAccount isa) {
-		initialData.addInventoryStaffAccount(isa);		
+		connection.persistData(isa);
 	}
 
 	@Override
 	public ISAccount findISAccountByEmail(String email) {
 		ISAccount is = new ISAccount();
-		for (ISAccount isa : initialData.getInventoryStaffAccounts()){
+		for (ISAccount isa : converter.convertToISA(connection.returnData("Staff"))){
 			if (isa.getEmail().equals(email))
 			{
 				is = isa;

@@ -14,6 +14,10 @@ import javax.inject.Named;
 @Named("pos")
 @SessionScoped
 public class PurchaseOrderController implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3081658712002652119L;
 	@Inject
 	private PurchaseOrderRepository purchaseOrderRepository;
 	private PurchaseOrder purchaseOrder;

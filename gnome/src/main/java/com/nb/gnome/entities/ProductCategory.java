@@ -2,7 +2,6 @@ package com.nb.gnome.entities;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 
 

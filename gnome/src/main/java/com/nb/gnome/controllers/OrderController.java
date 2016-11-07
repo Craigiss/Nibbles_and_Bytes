@@ -20,6 +20,10 @@ import com.nb.gnome.service.UserCredentials;
 @Named ("order")
 @SessionScoped
 public class OrderController implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 511045799001243990L;
 	@Inject 
 	OrderService orderService; 
 	@Inject 

@@ -10,6 +10,10 @@ import com.nb.gnome.entities.Product;
 @Named("selected")
 @SessionScoped
 public class SelectedProduct implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5219435126829924070L;
 	private Product product;
 	private int reviewAmount;
 

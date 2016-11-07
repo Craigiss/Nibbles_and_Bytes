@@ -15,6 +15,10 @@ import java.util.ArrayList;
 @Named("searchProducts")
 @SessionScoped
 public class SearchCatalogueController implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5224338881449833591L;
 	@Inject
 	private ProductRepository productRepository;
 	@Inject

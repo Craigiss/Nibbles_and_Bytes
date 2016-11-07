@@ -19,6 +19,10 @@ import java.io.Serializable;
 public class BasketController implements Serializable {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2591203485582035799L;
 	public class item{
 		int id;
 		int quantity;

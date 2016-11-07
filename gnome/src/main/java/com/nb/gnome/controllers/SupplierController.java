@@ -14,6 +14,10 @@ import javax.inject.Named;
 @Named("suppliers")
 @SessionScoped
 public class SupplierController implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1393340570658600722L;
 	@Inject
 	private SupplierRepository supplierRepository;
 	private  Supplier supplier;

@@ -6,23 +6,26 @@ import javax.inject.Inject;
 
 import com.nb.gnome.entities.Category;
 import com.nb.gnome.managers.CategoryRepository;
+import com.nb.gnome.managers.hib.ObjectConverter;
 
-import gnome.InitialData;
+import connection.Connection;
 @Default
 @Stateless
-public class CategoryRepositoryOffline implements CategoryRepository {
+public class CategoryRepositoryOnline implements CategoryRepository {
 	@Inject
-	private InitialData initialData;
-	
+	private Connection connection;
+
+	@Inject
+	private ObjectConverter converter;
 	@Override
 	public void persistCategory(Category c) {
-		initialData.addCategory(c);
+		connection.persistData(c);
 	}
 
 	
 	@Override
 	public void updateCategory(Category c) {
-		for(Category cat : initialData.getCategories())
+		for(Category cat : converter.convertToCategory(connection.returnData("Category")))
 		{
 			if( cat.getId() == c.getId())
 			{

@@ -10,25 +10,30 @@ import javax.inject.Inject;
 import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Customer;
 import com.nb.gnome.managers.CustomerRepository;
+import com.nb.gnome.managers.hib.ObjectConverter;
 
+import connection.Connection;
 import gnome.InitialData;
 @SuppressWarnings("unused")
 @Default
 @Stateless
-public class CustomerRepositoryOffline implements CustomerRepository {
+public class CustomerRepositoryOnline implements CustomerRepository {
 
 	@Inject
-	private InitialData initialData;
+	private Connection connection;
+
+	@Inject
+	private ObjectConverter converter;
 	
 	@Override
 	public void persistCustomer(Customer c) {
-		initialData.addCustomerAccount(c);	
+		connection.persistData(c);
 	}
 
 	@Override
 	public Customer getCustomerById(long id) {
 		Customer cust = new Customer();
-		for (Customer c : initialData.getCustomerAccounts()){
+		for (Customer c : converter.convertToCustomer(connection.returnData("Customer"))){
 			if (c.getId() == id)
 			{
 				cust = c;
@@ -39,7 +44,7 @@ public class CustomerRepositoryOffline implements CustomerRepository {
 
 	@Override
 	public Customer getCustomerByEmail(String email) {
-		for (Customer c : initialData.getCustomerAccounts()){
+		for (Customer c : converter.convertToCustomer(connection.returnData("Customer"))){
 			if (c.getEmail().equals(email))
 				return c;
 		}
@@ -48,7 +53,7 @@ public class CustomerRepositoryOffline implements CustomerRepository {
 
 	@Override
 	public void changeFirstName(String name, int id) {
-		for (Customer c : initialData.getCustomerAccounts()){
+		for (Customer c : converter.convertToCustomer(connection.returnData("Customer"))){
 			if (c.getId()== id)
 			{
 				c.setFirstName(name);
@@ -59,7 +64,7 @@ public class CustomerRepositoryOffline implements CustomerRepository {
 
 	@Override
 	public void changeSurname(String surname, int id) {
-		for (Customer c : initialData.getCustomerAccounts()){
+		for (Customer c : converter.convertToCustomer(connection.returnData("Customer"))){
 			if (c.getId()== id)
 			{
 				c.setSurname(surname);
@@ -69,7 +74,7 @@ public class CustomerRepositoryOffline implements CustomerRepository {
 
 	@Override
 	public void changePassword(String password, int id) {
-		for (Customer c : initialData.getCustomerAccounts()){
+		for (Customer c : converter.convertToCustomer(connection.returnData("Customer"))){
 			if (c.getId()== id)
 			{
 				c.setPassword(password);
@@ -80,7 +85,7 @@ public class CustomerRepositoryOffline implements CustomerRepository {
 
 	@Override
 	public void changeEmailAddress(String email, int id) {
-		for (Customer c : initialData.getCustomerAccounts()){
+		for (Customer c : converter.convertToCustomer(connection.returnData("Customer"))){
 			if (c.getId()== id)
 			{
 				c.setEmail(email);
@@ -90,7 +95,7 @@ public class CustomerRepositoryOffline implements CustomerRepository {
 
 	@Override
 	public void changecustomerStatus(int id) {
-		for (Customer c : initialData.getCustomerAccounts()){
+		for (Customer c : converter.convertToCustomer(connection.returnData("Customer"))){
 			if (c.getId()== id)
 			{
 				c.setStatus("deactivated");
@@ -101,7 +106,7 @@ public class CustomerRepositoryOffline implements CustomerRepository {
 
 	@Override
 	public void changecustomerAddress(List<Address> addresses, int id) {
-		for(Customer c : initialData.getCustomerAccounts()){
+		for(Customer c : converter.convertToCustomer(connection.returnData("Customer"))){
 			if(c.getId() == id){
 				c.setAddresses(addresses);
 			}

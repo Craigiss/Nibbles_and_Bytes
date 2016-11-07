@@ -6,8 +6,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.nb.gnome.service.LoginService;
-
 /**
  * @author Nibbles And Bytes
  * @version 1.0

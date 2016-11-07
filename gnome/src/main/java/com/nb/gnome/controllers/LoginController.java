@@ -13,6 +13,10 @@ import java.io.Serializable;
 @Named("login")
 @SessionScoped
 public class LoginController implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4319438627358789385L;
 	@Inject
 	LoginService loginService;
 	@Inject

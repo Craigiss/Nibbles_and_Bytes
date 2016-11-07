@@ -24,6 +24,10 @@ import javax.enterprise.context.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class ProductController implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5718567156846919976L;
 	@Inject
 	private ProductRepository productRepository;
 	@Inject 

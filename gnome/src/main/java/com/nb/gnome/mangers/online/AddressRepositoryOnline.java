@@ -13,7 +13,6 @@ import com.nb.gnome.managers.hib.ObjectConverter;
 
 import connection.*;
 
-import gnome.InitialData;
 @Default
 @Stateless
 public class AddressRepositoryOnline implements AddressRepository{
@@ -43,7 +42,7 @@ public class AddressRepositoryOnline implements AddressRepository{
 	
 	@Override
 	public Address getAddressById(int id){
-		for(Address a : initialData.getAddresses()){
+		for(Address a : converter.convertToAddress(connection.returnData("Address"))){
 			if (a.getId() == id)
 				return(a);
 		}
@@ -52,7 +51,7 @@ public class AddressRepositoryOnline implements AddressRepository{
 	}
 	
 	public List<Address> getAddresses(){
-		return initialData.getAddresses();
+		return converter.convertToAddress(connection.returnData("Address"));
 	}
 	
 	//Read method called from Customer
