@@ -25,9 +25,4 @@ public class OrderService {
 		return p;
 		
 	}
-    
-    public void cancelOrder(int id){
-    	SalesOrder a = salesOrderManager.findSalesOrderById(id);
-    	a.setStatus("Cancelled");
-    }
 }

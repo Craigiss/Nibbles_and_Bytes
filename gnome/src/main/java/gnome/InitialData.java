@@ -127,14 +127,14 @@ public class InitialData {
 		r2.setDate("11/12/2016");
 		r2.setRating(4);
 		r2.setReviewText(" Perfect for my garden 2");
-		r2.setName("Craig");
+		r1.setName("Craig");
 		reviews.add(r2);
 		Review r3 = new Review();
 		r3.setProductID(1);
 		r3.setDate("11/12/2016");
 		r3.setRating(4);
 		r3.setReviewText(" Perfect for my garden 3");
-		r3.setName("Tim");
+		r1.setName("Tim");
 		reviews.add(r3);
 		
 		Category c1 = new Category();													// Categories
@@ -417,7 +417,6 @@ public class InitialData {
 		po2.setDate(new Date(2016,11,22));
 		po2.setStatus("Waiting Payment");
 		purchaseOrders.add(po2);
-		
 		
 
 	}
