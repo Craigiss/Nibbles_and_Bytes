@@ -50,7 +50,7 @@ public class CheckoutService  {
 			salesOrderDetailsManager.persistSalesOrderDetails(salesOrderDetails);
 		order.setCustomer(customerManager.getCustomerById(i));
 		order.setDate(LocalDate.now().toString());
-		order.setStatus("Active");
+		order.setStatus("Processing");
 		salesOrderManager.persistSalesOrder(order);
 		mostRecentOrderID = salesOrderManager.findAll().size();
 		}
