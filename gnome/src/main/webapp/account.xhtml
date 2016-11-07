@@ -96,12 +96,16 @@ Account Page
 								<th>Id</th>
 								<th>Date</th>
 								<th>Status</th>
+								<th>Cancel</th>
 							</tr>
 							  <ui:repeat var="orders" value="#{order.salesOrders}">
 								<tr>
 									<td><h:outputText value="#{orders.id}" /></td>
 									<td><h:outputText value="#{orders.date}" /></td>
 									<td><h:outputText value="#{orders.status}" /></td>
+									<td><h:form>
+					<h:commandButton class="btn btn-danger btn-xs" value="-" type="submit" action="#{order.cancelOrder(orders.id)}" rendered="#{orders.status eq 'Processing'}"/>
+				</h:form></td>
 								</tr>
 							</ui:repeat>
 						</table>

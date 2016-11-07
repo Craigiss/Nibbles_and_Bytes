@@ -41,35 +41,43 @@ Login Page
 
 	<h:inputText value="#{CreateAccount.firstName}" type="text" id="inputFirstName"
 	class="form-control" a:placeholder="First Name" 
-	requiredMessage="Please Enter Your First Name"/>
+	requiredMessage="Please enter Your First Name"/>
 	
 		<h:inputText value="#{CreateAccount.surname}" type="text" id="inputSurname"
 	class="form-control" a:placeholder="Surname"
-	requiredMessage="Please Enter Your Surname"/>
+	requiredMessage="Please enter Your Surname"/>
 	
 	<h:inputText  value="#{CreateAccount.addressFirstLine}" type="text" id="inputAddrLine1"
 	class="form-control" a:placeholder="Address Line 1"
-	requiredMessage="Please Enter address line 1 including house number"/>
+	requiredMessage="Please enter address line 1 including house number"/>
 	
 	<h:inputText  value="#{CreateAccount.addressSecondLine}" type="text" id="inputAddrLine2"
 	class="form-control" a:placeholder="Address Line 2"
-	requiredMessage="Please Enter address line 2"/>
+	requiredMessage="Please enter address line 2"/>
+	
+	<h:inputText  value="#{CreateAccount.town}" type="text" id="inputTown"
+	class="form-control" a:placeholder="Town"
+	requiredMessage="Please enter your town"/>
+	
+	<h:inputText  value="#{CreateAccount.county}" type="text" id="inputCounty"
+	class="form-control" a:placeholder="County"
+	requiredMessage="Please enter your county"/>
 	
 	<h:inputText  value="#{CreateAccount.postcode}" type="text" id="postcode"
 	class="form-control" a:placeholder="Postcode" 
-	requiredMessage="Please Enter your postcode"/>
+	requiredMessage="Please enter your postcode"/>
 
 	<h:inputText  value="#{CreateAccount.email}" type="email" id="inputEmail"
 	class="form-control" a:placeholder="Email address"
-	requiredMessage="Please Enter Email"/>
+	requiredMessage="Please enter Email"/>
 	
 	<h:inputSecret  type="password" id="inputPassword1" 
 	class="form-control" a:placeholder="Password" 
-	requiredMessage="Please Enter Password" value="#{CreateAccount.password}"/>
+	requiredMessage="Please enter Password" value="#{CreateAccount.password}"/>
 
 	<h:inputSecret value="#{CreateAccount.reenteredPassword}" type="password" id="inputPassword" 
 	class="form-control" a:placeholder="Re-Enter Password" 
-	requiredMessage="Please Enter Password"/> 
+	requiredMessage="Please enter Password"/> 
 
 	
 	<h:commandButton  class="btn btn-lg btn-primary btn-block signupButton" type="submit"  action="#{CreateAccount.addUser()}"  value="Create Account"/>

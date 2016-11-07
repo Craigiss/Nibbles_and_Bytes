@@ -26,6 +26,24 @@ public class CreateAccountController {
 	private String email;
 	private String addressFirstLine;
 	private String addressSecondLine;
+	private String town;
+	private String county;
+	public String getTown() {
+		return town;
+	}
+
+	public void setTown(String town) {
+		this.town = town;
+	}
+
+	public String getCounty() {
+		return county;
+	}
+
+	public void setCounty(String county) {
+		this.county = county;
+	}
+
 	private String postcode;
 	private String password;
 	private String reenteredPassword;
@@ -48,6 +66,16 @@ public class CreateAccountController {
 		}
 		
 		if(addressSecondLine.equals("")){
+			setError("Please enter the second line of your address.");
+			return "loginPage";
+		}
+		
+		if (town.equals("")){
+			setError("Please enter the second line of your address.");
+			return "loginPage";
+		}
+		
+		if (county.equals("")){
 			setError("Please enter the second line of your address.");
 			return "loginPage";
 		}
@@ -77,7 +105,7 @@ public class CreateAccountController {
 			return "loginPage";
 		}
 		try{
-		createAccountService.newUser(firstName, surname, email, addressFirstLine,addressSecondLine, postcode, password);
+		createAccountService.newUser(firstName, surname, email, addressFirstLine,addressSecondLine, town, county, postcode, password);
 		}
 		catch(Exception e){
 			System.out.println("Failed");

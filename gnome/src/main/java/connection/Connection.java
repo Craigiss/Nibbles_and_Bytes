@@ -1,4 +1,4 @@
-package connection;
+/*package connection;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class Connection {
 		properties.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
 		properties.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/cat");
 		properties.setProperty("hibernate.connection.username", "root");
-		properties.setProperty("hibernate.connection.password", "broly1");
+		properties.setProperty("hibernate.connection.password", "password");
 		
 		properties.setProperty("hibernate.show_sql", "true");
 		// properties.setProperty("hibernate.hbm2ddl.auto", "update");
@@ -81,3 +81,4 @@ public class Connection {
 	}
 
 }
+*/
