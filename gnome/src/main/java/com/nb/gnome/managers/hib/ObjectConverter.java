@@ -10,10 +10,18 @@ import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Category;
 import com.nb.gnome.entities.Customer;
 import com.nb.gnome.entities.ISAccount;
+
 import com.nb.gnome.entities.Product;
+
+import com.nb.gnome.entities.ProductCategory;
+import com.nb.gnome.entities.PurchaseOrder;
+import com.nb.gnome.entities.PurchaseOrderDetails;
+
+import com.nb.gnome.entities.Returns;
 import com.nb.gnome.entities.Review;
 import com.nb.gnome.entities.SalesOrder;
 import com.nb.gnome.entities.SalesOrderDetails;
+
 import com.nb.gnome.entities.Supplier;
 
 @Stateless
@@ -76,6 +84,50 @@ public class ObjectConverter implements Serializable {
 		}
 		return ISAList;
 	}
+
+	public List<Category> ConvertToCategory(List<Object> objectList){
+		List<Category> categoryList = new ArrayList<Category>();
+		
+		for (Object o: objectList){
+			categoryList.add((Category)o);
+		}
+		
+		return categoryList;
+		
+	}
+	
+	public List<ProductCategory> ConvertToProductCategory(List<Object> objectList){
+		List<ProductCategory> productCategoryList = new ArrayList<ProductCategory>();
+		
+		for (Object o: objectList){
+			productCategoryList.add((ProductCategory)o);
+		}
+		
+		return productCategoryList;
+		
+	}
+	
+	public List<PurchaseOrderDetails> ConvertToPurchaseOrderDetails(List<Object> objectList){
+		List<PurchaseOrderDetails> purchaseOrderDetailsList = new ArrayList<PurchaseOrderDetails>();
+		
+		for (Object o: objectList){
+			purchaseOrderDetailsList.add((PurchaseOrderDetails)o);
+		}
+		
+		return purchaseOrderDetailsList;
+		
+	}
+	
+	public List<PurchaseOrder> ConvertToPurchaseOrder(List<Object> objectList){
+		List<PurchaseOrder> purchaseOrderList = new ArrayList<PurchaseOrder>();
+		
+		for (Object o: objectList){
+			purchaseOrderList.add((PurchaseOrder)o);
+		}
+		
+		return purchaseOrderList;
+		
+	}
 	public List<Review> convertToReview(List<Object> objectList) {
 		List<Review> reviewList = new ArrayList<Review>();
 
@@ -103,4 +155,15 @@ public class ObjectConverter implements Serializable {
 		
 		return salesOrderList;
 	}
+
+	public List<Returns> convertToReturns(List<Object> objectList) {
+		List<Returns> returnsList = new ArrayList<Returns>();
+		
+		for (Object o : objectList) {
+			returnsList.add((Returns) o);
+		}
+		
+		return returnsList;
+	}
+
 }
