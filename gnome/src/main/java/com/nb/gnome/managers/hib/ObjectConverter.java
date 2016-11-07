@@ -14,15 +14,13 @@ import com.nb.gnome.entities.ISAccount;
 import com.nb.gnome.entities.Product;
 
 import com.nb.gnome.entities.ProductCategory;
-import com.nb.gnome.entities.PurchaseOrder;
-import com.nb.gnome.entities.PurchaseOrderDetails;
 
 import com.nb.gnome.entities.Returns;
 import com.nb.gnome.entities.Review;
 import com.nb.gnome.entities.SalesOrder;
 import com.nb.gnome.entities.SalesOrderDetails;
 
-import com.nb.gnome.entities.Supplier;
+
 
 @Stateless
 public class ObjectConverter implements Serializable {
@@ -32,14 +30,7 @@ public class ObjectConverter implements Serializable {
 	 */
 	private static final long serialVersionUID = 2550336350227866731L;
 
-	public List<Supplier> convertToSuppliers(List<Object> objectList) {
-		List<Supplier> supplierList = new ArrayList<Supplier>();
 
-		for (Object o : objectList) {
-			supplierList.add((Supplier) o);
-		}
-		return supplierList;
-	}
 
 	public List<Product> convertToProducts(List<Object> objectList) {
 		List<Product> productList = new ArrayList<Product>();
@@ -107,27 +98,7 @@ public class ObjectConverter implements Serializable {
 		
 	}
 	
-	public List<PurchaseOrderDetails> ConvertToPurchaseOrderDetails(List<Object> objectList){
-		List<PurchaseOrderDetails> purchaseOrderDetailsList = new ArrayList<PurchaseOrderDetails>();
-		
-		for (Object o: objectList){
-			purchaseOrderDetailsList.add((PurchaseOrderDetails)o);
-		}
-		
-		return purchaseOrderDetailsList;
-		
-	}
-	
-	public List<PurchaseOrder> ConvertToPurchaseOrder(List<Object> objectList){
-		List<PurchaseOrder> purchaseOrderList = new ArrayList<PurchaseOrder>();
-		
-		for (Object o: objectList){
-			purchaseOrderList.add((PurchaseOrder)o);
-		}
-		
-		return purchaseOrderList;
-		
-	}
+
 	public List<Review> convertToReview(List<Object> objectList) {
 		List<Review> reviewList = new ArrayList<Review>();
 

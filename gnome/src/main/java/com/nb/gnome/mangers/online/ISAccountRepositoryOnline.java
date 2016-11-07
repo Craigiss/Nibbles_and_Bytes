@@ -1,6 +1,7 @@
 package com.nb.gnome.mangers.online;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
@@ -9,7 +10,7 @@ import com.nb.gnome.managers.ISAccountRepository;
 import com.nb.gnome.managers.hib.ObjectConverter;
 
 import connection.Connection;
-@Default
+@Alternative
 @Stateless
 public class ISAccountRepositoryOnline implements ISAccountRepository{
 	

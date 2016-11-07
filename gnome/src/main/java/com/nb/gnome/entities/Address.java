@@ -45,8 +45,11 @@ public class Address {
 	@Size (min = 5, max = 8)
 	private String postcode;
 	
-	@ManyToMany(targetEntity=Customer.class, mappedBy="CustomerAccountAddress")
-	private List<Customer> customers;
+	//@ManyToMany(targetEntity=Customer.class, mappedBy="CustomerAccountAddress")
+	@ManyToOne
+	@JoinColumn(name="addresses")
+	private Customer customers;
+	
 
 	
 	/**
@@ -155,7 +158,7 @@ public class Address {
 	/**
 	 * @return the customers
 	 */
-	public List<Customer> getCustomers() {
+	public Customer getCustomers() {
 		return customers;
 	}
 	

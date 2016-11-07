@@ -16,17 +16,15 @@ public class InitialData {
 	private List<Address> addresses2 = new ArrayList<Address>();
 	private List<Category> categories = new ArrayList<Category>();
 	private List<Customer> customers = new ArrayList<Customer>();
-	private List<CustomerAccountAddress> customerAccountAddresses = new ArrayList<CustomerAccountAddress>();
 	private List<ISAccount> iSAccounts = new ArrayList<ISAccount>();
 	private List<Product> products = new ArrayList<Product>();
 	private List<ProductCategory> productCategories = new ArrayList<ProductCategory>();
-	private List<PurchaseOrder> purchaseOrders = new ArrayList<PurchaseOrder>();
-	private List<PurchaseOrderDetails> purchaseOrderDetails = new ArrayList<PurchaseOrderDetails>();
+	
 	private List<Returns> returns = new ArrayList<Returns>();
 	private List<Review> reviews = new ArrayList<Review>();
 	private List<SalesOrder> salesOrders = new ArrayList<SalesOrder>();
 	private List<SalesOrderDetails> salesOrderDetails = new ArrayList<SalesOrderDetails>();
-	private List<Supplier> suppliers = new ArrayList<Supplier>();
+	
 	
 
 	public InitialData(){
@@ -93,12 +91,9 @@ public class InitialData {
 		
 																						// Customer <-> Address
 		
-		CustomerAccountAddress caa1 = new CustomerAccountAddress();
-		caa1.setUsername(cu);
 		List<Address> cuAddr = new ArrayList<Address>();
 		cuAddr.add(aa);
 		cuAddr.add(aa1);
-		caa1.setAddress(cuAddr);				// Cameron | Not sure which one to use yet to link customer to addresses?
 		cu.setAddresses(cuAddr);
 		
 																						// Sales orders
@@ -381,44 +376,7 @@ public class InitialData {
 		productCategories.add(pc8);
 		productCategories.add(pc9);
 		
-		Supplier s1 = new Supplier();
-		s1.setCompany("LawnFlamingosWholesale");
-		s1.setId(001);
-		s1.setName("Augustine Loris Poutine III");
-		s1.setPhone("01645839242");
-		s1.setEmail("mynameisaugustineandmyparentslovepoutine@lawnflamingoswholesale.lol");
-		suppliers.add(s1);
-		
-		Supplier s2 = new Supplier();
-		s2.setCompany("LawnFlamingosWholesale");
-		s2.setId(002);
-		s2.setName("Augustine Loris Poutine III");
-		s2.setPhone("01645839242");
-		s2.setEmail("mynameisaugustineandmyparentslovepoutine@lawnflamingoswholesale.lol");
-		suppliers.add(s2);
-		
-		Supplier s3 = new Supplier();
-		s3.setCompany("LawnFlamingosWholesale");
-		s3.setId(003);
-		s3.setName("Augustine Loris Poutine III");
-		s3.setPhone("01645839242");
-		s3.setEmail("mynameisaugustineandmyparentslovepoutine@lawnflamingoswholesale.lol");
-		suppliers.add(s3);
-		
-		PurchaseOrder po1 = new PurchaseOrder();
-		po1.setId(001);
-		po1.setDate(new Date(2016,05,01));
-		po1.setStatus("Archived");
-		po1.setSupplier(s1);
-		purchaseOrders.add(po1);
-		
-		PurchaseOrder po2 = new PurchaseOrder();
-		po2.setId(002);
-		po2.setDate(new Date(2016,11,22));
-		po2.setStatus("Waiting Payment");
-		purchaseOrders.add(po2);
-		
-
+	
 	}
 	
 	
@@ -467,20 +425,6 @@ public class InitialData {
 		customers.add(ca);
 	}
 
-	/**
-	 * @return the customerAccountAddresses
-	 */
-	public List<CustomerAccountAddress> getCustomerAccountAddresses() {
-		return customerAccountAddresses;
-	}
-	
-	/**
-	 * Adds a customer account address to the data set
-	 * @param cad Input is new customer account address to be added
-	 */
-	public void addCustomerAccountAddress(CustomerAccountAddress cad){
-		customerAccountAddresses.add(cad);
-	}
 
 	/**
 	 * @return the inventoryStaffAccounts
@@ -527,35 +471,7 @@ public class InitialData {
 		productCategories.add(pc);
 	}
 
-	/**
-	 * @return the purchaseOrders
-	 */
-	public List<PurchaseOrder> getPurchaseOrders() {
-		return purchaseOrders;
-	}
-	
-	/**
-	 * Adds a purchase order to the dummy data
-	 * @param po Input is new purchase order to be added
-	 */
-	public void addPurchaseOrder(PurchaseOrder po){
-		purchaseOrders.add(po);
-	}
 
-	/**
-	 * @return the purchaseOrdersDetails
-	 */
-	public List<PurchaseOrderDetails> getPurchaseOrderDetails() {
-		return purchaseOrderDetails;
-	}
-	
-	/**
-	 * Adds a purchase order line to the dummy data
-	 * @param pol Input is new purchase order to be added
-	 */
-	public void addPurchaseOrderDetails(PurchaseOrderDetails pol){
-		purchaseOrderDetails.add(pol);
-	}
 
 	/**
 	 * @return the returns
@@ -616,20 +532,5 @@ public class InitialData {
 	public void addSalesOrderDetails(SalesOrderDetails sod){
 		salesOrderDetails.add(sod);
 	}
-
-	/**
-	 * @return the suppliers
-	 */
-	public List<Supplier> getSuppliers() {
-		return suppliers;
-	}
-	
-	/**
-	 * Adds a supplier to the dummy data
-	 * @param s Input is new supplier to be added
-	 */
-	public void addSupplier(Supplier s){
-		suppliers.add(s);
-	}
-
 }
+

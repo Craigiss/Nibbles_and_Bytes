@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
@@ -15,7 +16,7 @@ import com.nb.gnome.managers.hib.ObjectConverter;
 import connection.Connection;
 import gnome.InitialData;
 @SuppressWarnings("unused")
-@Default
+@Alternative
 @Stateless
 public class CustomerRepositoryOnline implements CustomerRepository {
 
