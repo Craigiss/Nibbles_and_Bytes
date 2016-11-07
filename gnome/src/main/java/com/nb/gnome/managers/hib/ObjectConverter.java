@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 
 import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.Returns;
 import com.nb.gnome.entities.Review;
 import com.nb.gnome.entities.SalesOrder;
 import com.nb.gnome.entities.SalesOrderDetails;
@@ -68,5 +69,15 @@ public class ObjectConverter implements Serializable {
 		}
 		
 		return salesOrderList;
+	}
+
+	public List<Returns> convertToReturns(List<Object> objectList) {
+		List<Returns> returnsList = new ArrayList<Returns>();
+		
+		for (Object o : objectList) {
+			returnsList.add((Returns) o);
+		}
+		
+		return returnsList;
 	}
 }
