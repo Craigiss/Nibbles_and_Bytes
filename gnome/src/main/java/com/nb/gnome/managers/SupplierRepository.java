@@ -25,6 +25,4 @@ public interface SupplierRepository {
 	public Supplier findSupplierByContact(String s);
 	
 	public List<Supplier> findAll();
-	
-	public List<Product> getProducts(Supplier supplier);
 }

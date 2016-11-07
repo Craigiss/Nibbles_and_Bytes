@@ -74,10 +74,5 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 		}
 		return sup;
 	}
-
-	@Override
-	public List<Product> getProducts(Supplier supplier) {
-		return supplier.getProducts();
-	}
 	
 }

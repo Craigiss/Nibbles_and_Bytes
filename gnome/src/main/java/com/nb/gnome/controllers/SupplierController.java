@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.helper.PaginationHelper;
@@ -34,6 +35,7 @@ public class SupplierController implements Serializable {
 	private PaginationHelper pagination;
 	private DataModel<Supplier> dataModel = null;
 	private List<Supplier> listData;
+	private Address address;
 
 	public void recreateModel() {
 		dataModel = null;
@@ -128,6 +130,7 @@ public class SupplierController implements Serializable {
 	 */
 
 	public String persistSupplier() {
+		address = addressController.persistAddress();
 		supplierService.persistSupplier(company, name, phone, email, description);
 		recreateModel();
 		getDataModel();
@@ -150,10 +153,6 @@ public class SupplierController implements Serializable {
 	 */
 	public void findSupplierByCompany(String comp) {
 		supplierService.findSupplierByCompany(comp);
-	}
-	
-	public List<Product> getProducts(Supplier supplier){
-		return supplierService.getProducts(supplier);
 	}
 
 	/**
@@ -276,5 +275,15 @@ public class SupplierController implements Serializable {
 	public void setListData(List<Supplier> listData) {
 		this.listData = listData;
 	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	
 
 }

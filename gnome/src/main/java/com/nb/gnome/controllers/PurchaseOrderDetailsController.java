@@ -40,6 +40,19 @@ public class PurchaseOrderDetailsController implements Serializable{
 	 * No-args constructor
 	 */
 	public PurchaseOrderDetailsController(){
+		product1 = new Product();
+		product2 = new Product();
+		product3 = new Product();
+		product4 = new Product();
+		product5 = new Product();
+		product6 = new Product();
+		product7 = new Product();
+		product8 = new Product();
+		product9 = new Product();
+		product10 = new Product();
+		
+		listProducts = new ArrayList<Product>();
+		
 		listProducts.add(product1);
 		listProducts.add(product2);
 		listProducts.add(product3);
@@ -50,6 +63,20 @@ public class PurchaseOrderDetailsController implements Serializable{
 		listProducts.add(product8);
 		listProducts.add(product9);
 		listProducts.add(product10);
+		
+		quantity1 = 1;
+		quantity2 = 2;
+		quantity3 = 3;
+		quantity4 = 4;
+		quantity5 = 5;
+		quantity6 = 6;
+		quantity7 = 7;
+		quantity8 = 8;
+		quantity9 = 9;
+		quantity10 = 10;
+		
+		listQuantities = new ArrayList<Integer>();
+		
 		listQuantities.add(quantity1);
 		listQuantities.add(quantity2);
 		listQuantities.add(quantity3);

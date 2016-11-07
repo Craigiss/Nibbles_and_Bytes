@@ -67,7 +67,7 @@
 						</div>
 					</div>
 
-					<div class="addElement" >
+					<div class="addElement">
 						<div class="row">
 							<h4>Description</h4>
 						</div>
@@ -102,15 +102,40 @@
 						<div class="row">
 							<h4>Email Address</h4>
 						</div>
+					</div>
+					<div class="addElement">
 						<div class="row uTextInput">
 							<h:inputText type="text" value="#{suppliers.email}"
 								required="true" />
+						</div>
+						<div class="row">
+							<h4>Address</h4>
+						</div>
+						<div class="row uTextInput addElement greyPlace">
+							<h:inputText type="text" value="#{addresses.line1}"
+								required="true" a:placeholder="Line 1" />
+						</div>
+						<div class="row uTextInput addElement greyPlace smallPadding">
+							<h:inputText type="text" value="#{addresses.line2}"
+								a:placeholder="Line 2" />
+						</div>
+						<div class="row uTextInput addElement greyPlace smallPadding">
+							<h:inputText type="text" value="#{addresses.town}"
+								required="true" a:placeholder="Town" />
+						</div>
+						<div class="row uTextInput addElement greyPlace smallPadding">
+							<h:inputText type="text" value="#{addresses.county}"
+								required="true" a:placeholder="County" />
+						</div>
+						<div class="row uTextInput addElement greyPlace smallPadding">
+							<h:inputText type="text" value="#{addresses.postcode}"
+								required="true" a:placeholder="Postcode" />
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-1" />
 			</div>
-			<div class="row addops">
+			<div class="addops">
 				<div class="col-sm-1 addButs" />
 				<h:commandLink class="listCenter"
 					action="#{suppliers.persistSupplier()}">

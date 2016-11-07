@@ -97,7 +97,7 @@ public class InitialData {
 		
 		Supplier s3 = new Supplier();
 		s3.setCompany("Sensibler Middle Aged Home Owners");
-		s3.setId(003);
+		s3.setId(004);
 		s3.setName("Maurice 'the madman' Mortimer");
 		s3.setPhone("026492672555");
 		s3.setEmail("sensiblelawnornamentsatareasonableprice@madmansales.com");

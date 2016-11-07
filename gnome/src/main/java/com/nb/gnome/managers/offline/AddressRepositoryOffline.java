@@ -18,6 +18,7 @@ public class AddressRepositoryOffline implements AddressRepository{
 	//Create
 	@Override
 	public void persistAddress(Address a){
+		a.setId(initialData.getAddresses().size() + 1);
 		initialData.addAddress(a);
 	}
 	
