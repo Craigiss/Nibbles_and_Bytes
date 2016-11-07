@@ -36,7 +36,7 @@ public class ButtonService {
 			}
 		}
 		prodController.reset();
-		return "imsProducts";
+		return "imsProducts?faces-redirect=true";
 	}
 	
 	public String deleteSupplier(int id){
@@ -51,7 +51,7 @@ public class ButtonService {
 		}
 		
 		supplierController.reset();
-		return "imsSupplier";
+		return "imsSupplier?faces-redirect=true";
 	}
 	
 	public String deletePo(int id){	
@@ -64,7 +64,7 @@ public class ButtonService {
 		}
 		
 		poController.reset();
-		return "imsPo";
+		return "imsPo?faces-redirect=true";
 	}
 
 }

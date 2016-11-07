@@ -25,7 +25,7 @@ public class InitialData {
 		p1.setPrice(15.99);
 		p1.setStockLevel(5);
 		p1.setPorousStockLevel(15);
-		p1.setImgPath("img/Flamingo.gif");
+		p1.setImgPath("../img/Flamingo.gif");
 		products.add(p1);
 		
 		Product p2 = new Product();
@@ -35,7 +35,7 @@ public class InitialData {
 		p2.setPrice(24.99);
 		p2.setStockLevel(115);
 		p2.setPorousStockLevel(6);
-		p2.setImgPath("img/gnomezilla.png");
+		p2.setImgPath("../img/gnomezilla.png");
 		products.add(p2);
 		
 		Product p3 = new Product();
@@ -45,6 +45,7 @@ public class InitialData {
 		p3.setPrice(24.99);
 		p3.setStockLevel(1015);
 		p3.setPorousStockLevel(20);
+		p3.setImgPath("../img/sorry.jpg");
 		products.add(p3);
 		
 		Product p4 = new Product();
@@ -54,6 +55,7 @@ public class InitialData {
 		p4.setPrice(14.99);
 		p4.setStockLevel(1);
 		p4.setPorousStockLevel(8);
+		p4.setImgPath("../img/sorry.jpg");
 		products.add(p4);
 		
 		Product p5 = new Product();
@@ -63,6 +65,7 @@ public class InitialData {
 		p5.setPrice(20.99);
 		p5.setStockLevel(6);
 		p5.setPorousStockLevel(3);
+		p5.setImgPath("../img/sorry.jpg");
 		products.add(p5);
 		
 		Product p6 = new Product();
@@ -72,6 +75,7 @@ public class InitialData {
 		p6.setPrice(12.99);
 		p6.setStockLevel(7);
 		p6.setPorousStockLevel(1);
+		p6.setImgPath("../img/sorry.jpg");
 		products.add(p6);
 		
 		Supplier s1 = new Supplier();

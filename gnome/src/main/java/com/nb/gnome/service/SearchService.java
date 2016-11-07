@@ -27,7 +27,7 @@ public class SearchService {
 			return prodRepo.getProductByID(searchId);
 		}
 		catch( Exception e){
-			return null;
+			return null; // Ben?
 		}	
 	}
 	

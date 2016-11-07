@@ -109,7 +109,7 @@ public class ISAccountService {
 			return "successful";
 		}
 		else{
-			return "imsLogin";
+			return "imsLogin?faces-redirect=true";
 		}
 	}
 	

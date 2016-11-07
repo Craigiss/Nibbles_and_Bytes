@@ -104,7 +104,7 @@ public class SearchController{
 		else{
 			returnValue = "imsError";
 		}
-		return returnValue;		
+		return returnValue+"?faces-redirect=true";		
 	}
 	
 	public String searchSuppliers(){
@@ -129,7 +129,7 @@ public class SearchController{
 		else{
 			returnValue = "imsError";
 		}
-		return returnValue;		
+		return returnValue+"?faces-redirect=true";		
 	}
 	
 	public String searchPo(){
@@ -154,7 +154,7 @@ public class SearchController{
 		else{
 			returnValue = "imsError";
 		}
-		return returnValue;		
+		return returnValue+"?faces-redirect=true";		
 	}
 		
 	/**

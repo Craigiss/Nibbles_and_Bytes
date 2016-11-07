@@ -8,9 +8,9 @@
 <h:head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+	<link href="../css/bootstrap-3.3.7-dist/css/bootstrap.min.css"
 		rel="stylesheet" />
-	<link href="css/imsStyle.css" rel="stylesheet" />
+	<link href="../css/imsStyle.css" rel="stylesheet" />
 
 	<title>Inventory Management System</title>
 </h:head>
@@ -49,7 +49,7 @@
 
 			<div class="row">
 				<div class="col-sm-4 mainButton" id="prod">
-					<h:outputLink value="imsProducts.xhtml">Products
+					<h:outputLink value="imsProducts.xhtml?faces-redirect=true">Products
              			 <div>
 							<h:graphicImage id="gnome" value="img/gnome.png" />
 						</div>
@@ -57,7 +57,7 @@
 				</div>
 
 				<div class="col-sm-4 mainButton" id="supplier">
-					<h:outputLink value="imsSuppliers.xhtml">Suppliers
+					<h:outputLink value="imsSuppliers.xhtml?faces-redirect=true">Suppliers
               <div>
 							<h:graphicImage value="img/supplier.png" />
 						</div>
@@ -65,7 +65,7 @@
 				</div>
 
 				<div class="col-sm-4 mainButton" id="po">
-					<h:outputLink value="imsPo.xhtml">Purchase Orders
+					<h:outputLink value="imsPo.xhtml?faces-redirect=true">Purchase Orders
               <div>
 							<h:graphicImage value="img/po.png" />
 						</div>
@@ -75,7 +75,7 @@
 
 			<div class="row">
 				<div class="col-sm-4 mainButton" id="admin">
-					<h:outputLink value="imsAdmin.xhtml">Admin
+					<h:outputLink value="imsAdmin.xhtml?faces-redirect=true">Admin
               <div>
 							<h:graphicImage value="img/admin.png" />
 						</div>
@@ -86,7 +86,7 @@
 					<h:form>
 					<h:commandLink action="#{graph.reCreatePie()}"/>
 					</h:form>
-					<h:outputLink value="imsAnalytics.xhtml">Analytics
+					<h:outputLink value="imsAnalytics.xhtml?faces-redirect=true">Analytics
               <div>
 							<h:graphicImage value="img/anal.png" />
 						</div>
@@ -97,7 +97,7 @@
 				<h:form>
 				<h:commandLink action = "#{IMSUser.resetCredentials()}"/>
 				</h:form>
-					<h:outputLink value="imsLogin.xhtml">Logout
+					<h:outputLink value="../imsLogin.xhtml?faces-redirect=true">Logout
               <div>
 							<h:graphicImage value="img/log.png" />
 						</div>
@@ -107,7 +107,7 @@
 
 			<div class="row">
 				<div class="col-sm-12" id="help">
-					<h:outputLink value="imsHelp.xhtml">Help
+					<h:outputLink value="imsHelp.xhtml?faces-redirect=true">Help
               <div>
 							<h:graphicImage id="helpImg" value="img/help.png" />
 						</div>

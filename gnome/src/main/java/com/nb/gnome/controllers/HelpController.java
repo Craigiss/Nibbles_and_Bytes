@@ -16,14 +16,14 @@ public class HelpController implements Serializable{
 	IMSUserCredentials userCredentials;
 
 	public String reset(){
-		return "imsIndex";
+		return "imsIndex?faces-redirect=true";
 				
 	}
 	
 	public String goToAddProductPage(){
-		String returnPage = "imsHelp";
+		String returnPage = "imsHelp?faces-redirect=true";
 		if ((userCredentials.getName() == null)) {
-			returnPage = "imsLogin";
+			returnPage = "imsLogin?faces-redirect=true";
 		}
 		return returnPage;
 	}
