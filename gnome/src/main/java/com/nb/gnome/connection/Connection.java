@@ -139,7 +139,6 @@ public class Connection {
 //p3.setStockLevel(1015);
 //p3.setPorousStockLevel(20);
 //
-//
 //Product p4 = new Product();
 //p4.setProductName("Gnome Of Gnomes - Ned Gnome");
 //p4.setProductID(004);

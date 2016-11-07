@@ -29,6 +29,7 @@ public class ISAccountController implements Serializable{
     	String pageReturn = "imsLogin";
     	if(iSAService.logInToIms(email, seasonAndCook(email, password)).equals("successful")){
     		pageReturn="imsIndex";
+    		return pageReturn;
     	}else{
     		setError(iSAService.getError());
     	}

@@ -46,7 +46,7 @@ public class ProductController implements Serializable {
 	public String reset() {
 		dataModel = null;
 		listData = null;
-		return "imsIndex";
+		return "ims/imsIndex";
 	}
 
 	public String goToAddProductPage() {
@@ -101,17 +101,17 @@ public class ProductController implements Serializable {
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();
-		return "imsProducts";
+		return "ims/imsProducts";
 	}
 
 	public String previous() {
 		getPagination().previousPage();
 		recreateModel();
-		return "imsProducts";
+		return "ims/imsProducts";
 	}
 
 	public String view(Product p) {
-		String returnPage = "imsProdDeets";
+		String returnPage = "ims/imsProdDeets";
 		if (!(userCredentials.getName() == null)) {
 			product.setProduct(p);
 		} else {
@@ -130,7 +130,7 @@ public class ProductController implements Serializable {
 		porousStockLevel = 0;
 		supplier=null;
 		reset();
-		return "imsProducts";
+		return "ims/imsProducts";
 	}
 
 	public List<Product> findAll() {
