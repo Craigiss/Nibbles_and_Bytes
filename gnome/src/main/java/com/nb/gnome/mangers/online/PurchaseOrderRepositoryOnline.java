@@ -7,33 +7,38 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.PurchaseOrderRepository;
+import com.nb.gnome.managers.hib.ObjectConverter;
 
+import connection.Connection;
 import gnome.InitialData;
 
 @Default
 @Stateless
-public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
+public class PurchaseOrderRepositoryOnline implements PurchaseOrderRepository {
 	@Inject
-	private InitialData initialData;
+	private Connection connection; 
+	@Inject 
+	private ObjectConverter converter; 
 	
 	@Override
 	public void persistPurchaseOrder(PurchaseOrder a) {
-		initialData.addPurchaseOrder(a);
+		connection.persistData(a);
 	}
 	@Override
 	public List<PurchaseOrder> findPurchaseOrder() {
+		List<PurchaseOrder> p = converter.ConvertToPurchaseOrder(connection.returnData("PurchaseOrder"));
 		
-		
-		return initialData.getPurchaseOrders();
+		return p;
 	}
 	
 	@Override
 	public PurchaseOrder findPurchaseOrderById(long id) {
 		PurchaseOrder po = new PurchaseOrder();
-		for(PurchaseOrder p : initialData.getPurchaseOrders()){
+		for(PurchaseOrder p : converter.ConvertToPurchaseOrder(connection.returnData("PurchaseOrder"))){
 			if(p.getId() == id){
 				po = p;
 			}
@@ -42,14 +47,14 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 }
 	@Override
 	public List<PurchaseOrder> findAll() {
-		List<PurchaseOrder> po = initialData.getPurchaseOrders();
+		List<PurchaseOrder> po = converter.ConvertToPurchaseOrder(connection.returnData("PurchaseOrder"));
 		return po;
 	}
 	
 	@Override
 	public List<PurchaseOrder> findPurchaseOrderBySupplier(Supplier s) {
 		List<PurchaseOrder> po = new ArrayList<PurchaseOrder>();
-		for(PurchaseOrder p : initialData.getPurchaseOrders()){
+		for(PurchaseOrder p : converter.ConvertToPurchaseOrder(connection.returnData("PurchaseOrder"))){
 			if(p.getSupplierid().getId() == s.getId()){
 				po.add(p);
 			}
