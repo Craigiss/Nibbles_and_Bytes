@@ -1,0 +1,126 @@
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="../templates/imsTemplateDetails.xhtml">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<ui:define name="title">
+			IMS - Supplier details 
+	</ui:define>
+
+	<!-- Title appearing in top left of the page -->
+	<ui:define name="pagetitle">
+			Supplier Details
+	</ui:define>
+
+	<!-- Breadcrumbs appearing in top right of the page -->
+	<ui:define name="breadcrumbs">
+		<a href="imsIndex.xhtml">Home</a> > <a href="imsSuppliers.xhtml">Suppliers</a>
+		<h:outputText value=" &gt; #{selectedSupplier.supplier.company}" />
+	</ui:define>
+
+	<ui:define name="backFunction">
+		<h:commandLink action="#{selectedSupplier.reset()}" value=""
+			class="hovering">
+			<h:graphicImage class="glass_back" value="img/back.png" />
+		</h:commandLink>
+	</ui:define>
+
+
+	<!-- Content goes here -->
+	<ui:define name="maincontent">
+		<div id="supplierDetails">
+
+			<div>
+				<h3>
+					<h:outputText value="#{selectedSupplier.supplier.getCompany()}" />
+				</h3>
+				<br />
+			</div>
+
+			<div class="row">
+				<div class="col-sm-6">
+					<div>
+						<h4>Description</h4>
+					</div>
+					<div>
+						<h:outputText
+							value="#{selectedSupplier.supplier.getDescription()}" />
+					</div>
+				</div>
+				<div class="col-sm-6" id="contact-details">
+					<div>
+						<h4>Contact</h4>
+					</div>
+					<div>
+						<h:outputText value="#{selectedSupplier.supplier.getName()}" />
+					</div>
+					<div>
+						<h:outputText value="#{selectedSupplier.supplier.getPhone()}" />
+					</div>
+					<div>
+						<h:outputText value="#{selectedSupplier.supplier.getEmail()}" />
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<h4 id="tableTitle">Purchase Orders</h4>
+			</div>
+			<!-- Grid for suppliers -->
+			<div class="row table">
+				<div class="col-sm-3 heading supDetails listCenter">ID</div>
+				<div class="col-sm-3 heading supDetails listCenter">Date</div>
+				<div class="col-sm-3 heading supDetails listCenter">Items</div>
+				<div class="col-sm-3 heading supDetails listCenter">Total</div>
+			</div>
+			<ui:repeat var="po" value="#{selectedSupplier.dataModel}">
+				<div class="row table listItem">
+					<div class="col-sm-3 supDetails listCenter">
+						<h:form>
+							<h:commandLink action="#{pos.view(po)}"
+								value="#{po.id}" />
+						</h:form>
+					</div>
+					<div class="col-sm-3 supDetails listCenter">
+						<h:form>
+							<h:commandLink action="#{pos.view(po)}"
+								value="#{po.date}" />
+						</h:form>
+					</div>
+					<div class="col-sm-3 supDetails listCenter">
+						<h:form>
+							<h:commandLink action="#{pos.view(po)}"
+								value="#{pos.findLines(po)}" />
+						</h:form>
+					</div>
+					<div class="col-sm-3 supDetails listCenter">
+						<h:outputText value="#{pos.calculateTotal(po)}" />
+					</div>
+				</div>
+			</ui:repeat>
+
+			<h:form>
+				<div class="row">
+					<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+						<h:commandLink action="#{selectedSupplier.previous()}"
+							value="Previous"
+							rendered="#{selectedSupplier.pagination.hasPreviousPage}" />
+					</div>
+					<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+						<h:outputText
+							value="Showing POs #{selectedSupplier.pagination.pageFirstItem + 1} to #{selectedSupplier.pagination.getPageLastItem()} of #{pos.findPurchaseOrderBySupplier(selectedSupplier.supplier).size()}" />
+					</div>
+					<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+						<h:commandLink action="#{selectedSupplier.next}"
+							rendered="#{selectedSupplier.pagination.hasNextPage}"
+							value="Next" />
+					</div>
+				</div>
+			</h:form>
+		</div>
+
+	</ui:define>
+</ui:composition>

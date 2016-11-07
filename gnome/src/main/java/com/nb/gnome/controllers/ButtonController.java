@@ -39,7 +39,7 @@ public class ButtonController implements Serializable {
 			returnValue = buttonService.deletePo(idOfProduct);
 		}
 		
-		return returnValue;
+		return returnValue+"?faces-redirect=true";
 	}
 
 

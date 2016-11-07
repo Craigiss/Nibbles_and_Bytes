@@ -139,38 +139,4 @@ public class Connection {
 //p2.setStockLevel(115);
 //p2.setPorousStockLevel(6);
 //p2.setImgPath("img/gnomezilla.png");
-//
-//
-//Product p3 = new Product();
-//p3.setProductName("Timtim the timmy tim gnome");
-//p3.setProductID(003);
-//p3.setDescription("tim loves java and being in the garden");
-//p3.setPrice(24.99);
-//p3.setStockLevel(1015);
-//p3.setPorousStockLevel(20);
-//
-//
-//Product p4 = new Product();
-//p4.setProductName("Gnome Of Gnomes - Ned Gnome");
-//p4.setProductID(004);
-//p4.setDescription("Dont lose your head!");
-//p4.setPrice(14.99);
-//p4.setStockLevel(1);
-//p4.setPorousStockLevel(8);
-//
-//Product p5 = new Product();
-//p5.setProductName("Gnome Trek - Kirk & Spok");
-//p5.setProductID(005);
-//p5.setDescription("Travelling where no gnome has gone before!");
-//p5.setPrice(20.99);
-//p5.setStockLevel(6);
-//p5.setPorousStockLevel(3);
-//
-//
-//Product p6 = new Product();
-//p6.setProductName("Benny - Gnomeo&Juliet");
-//p6.setProductID(006);
-//p6.setDescription("Tragic Gnomes");
-//p6.setPrice(12.99);
-//p6.setStockLevel(7);
-//p6.setPorousStockLevel(1);
+

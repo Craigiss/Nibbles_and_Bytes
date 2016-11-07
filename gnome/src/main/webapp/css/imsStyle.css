@@ -83,11 +83,14 @@ img {
 
 .col-sm-4 {
 	padding-top: 10px;
-	height: 200px;
 	border: 3px solid white;
 	box-sizing: border-box;
 	font-size: 18px;
 	color: white;
+}
+
+.mainButton{
+	height: 200px;
 }
 
 #search {
@@ -445,6 +448,10 @@ ul {
 	text-align: center;
 }
 
+.smallPadding{
+	margin-top: 5px;
+}
+
 .uTextInput {
 	border: 1px solid silver;
 	padding: 0px !important;
@@ -458,10 +465,6 @@ ul {
 .addButs {
 	height: 50px;
 	margin-top: 15px;
-}
-
-.addops {
-	padding-top: 170px;
 }
 
 #addSupplierForm {
@@ -497,19 +500,19 @@ ul {
 	text-align: center;
 }
 
-#loginPage ::-webkit-input-placeholder {
+.greyPlace ::-webkit-input-placeholder {
 	color: silver!important;
 }
 
-#loginPage :-moz-placeholder {
+.greyPlace :-moz-placeholder {
 	color: silver!important;
 }
 
-#loginPage ::-moz-placeholder {
+.greyPlace ::-moz-placeholder {
 	color: silver!important;
 }
 
-#loginPage :-ms-input-placeholder {
+.greyPlace :-ms-input-placeholder {
 	color: silver!important;
 }
 
@@ -535,15 +538,18 @@ ul {
 	color: white;
 }
 
-<<<<<<< HEAD
+
 #productFormatter{
 	margin-left: 158px;
 	margin-right: 158px;
-=======
+}
+
 .blurb{
 	padding-top: 20px;
->>>>>>> 39a05aac5c5151dabfde60ea1d0c0646e15aa6f6
+
 }
+
+
 
 @media screen and (max-width: 990px) {
 	.legend div {
@@ -604,6 +610,7 @@ ul {
 	.addButs{
 	margin-top: 0px;
 	}
+	
 }
 
 @media screen and (max-width: 534px) {

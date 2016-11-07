@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+		rel="stylesheet" />
+	<link href="css/imsStyle.css" rel="stylesheet" />
+	<title>Add new purchase order</title>
+</h:head>
+
+<body>
+	<div class="container">
+
+		<div class="row" id="topline">
+			<div id="title">Add New Purchase Order</div>
+
+			<p id="bread">
+				<a href="imsIndex.xhtml">Home</a> > <a
+					href="imsPurchaseOrders.xhtml">Purchase Orders</a> > Add new
+				purchase order
+			</p>
+			<div style="clear: both;"></div>
+		</div>
+
+		<!-- Back button and search bar -->
+		<div class="row">
+			<div class="col-sm-3" id="back">
+				<a href="imsIndex.xhtml" class="hovering"> <img
+					class="glass_back" src="img/back.png" />
+				</a>
+			</div>
+
+			<div class="col-sm-9" id="search">
+				<div class="col-sm-8" id="searchText">
+					<h:form>
+						<h:inputText a:placeholder="Search..."
+							label="Search Bar IMS System" value="#{search.term}" />
+					</h:form>
+				</div>
+
+				<div class="col-sm-1">
+					<h:form>
+						<h:commandLink class="hovering" action="#{search.searchProd(ims)}">
+							<h:graphicImage class="glass_back" value="img/glass.png" />
+						</h:commandLink>
+					</h:form>
+				</div>
+			</div>
+		</div>
+
+		<!-- Content -->
+		<div class="blurb">
+			<h4>Add a new purchase order by selecting the relevant supplier.
+				Then select the products you wish to purchase and their respective
+				quantities. Press 'Save' when you are done.</h4>
+		</div>
+
+		<h:form>
+			<div class="addElement col-sm-12">
+				<div class="row table">
+					<div class="heading supDetails">Supplier</div>
+				</div>
+				<div class="row table">
+					<div class="supDetails">
+						<h:selectOneMenu class="supplierDropdown" value="#{pos.supplier}" valueChangeListener="#{pos.supplierChangeListener}">
+							<f:selectItem itemValue="#{null}" itemLabel="Select a supplier" />
+							<f:selectItems value="#{suppliers.findAll()}" var="sup"
+								itemValue="#{sup.company}" itemLabel="#{sup.company}" />
+							<a4j:ajax event="change" render="productDrop" immediate="true"/>
+						</h:selectOneMenu>
+					</div>
+				</div>
+			</div>
+			<div class="addElement">
+				<div class="row table">
+					<div class="col-sm-10 heading supDetails">Product</div>
+					<div class="col-sm-2 heading supDetails listCenter">Quantity</div>
+				</div>
+				<div class="row table">
+					<div class="col-sm-10 supDetails">
+						<h:selectOneMenu id="productDrop" class="productDropdown"
+							value="#{pods.listProducts[0]}">
+							<f:selectItem itemValue="null" itemLabel="Select a product" />
+							<f:selectItems value="#{pos.supplier.products}" var="prod"
+								itemLabel="#{prod.productName}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="col-sm-2">
+						<h:inputText style="border: 1px solid silver" />
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- Save and cancel buttons -->
+			<div class="row addops">
+				<div class="col-sm-1 addButs" />
+				<h:commandLink class="listCenter" action="#{pos.printSupplier()}">
+					<div class="col-sm-4 addButs listCenter" id="save">Save</div>
+				</h:commandLink>
+				<div class="col-sm-2 addButs" />
+				<a href="imsPo.xhtml">
+					<div class="col-sm-4 addButs listCenter" id="cancel">Cancel</div>
+				</a>
+				<div class="col-sm-1 addButs" />
+			</div>
+
+
+		</h:form>
+
+		<!-- Footer -->
+		<div class="row">
+			<div class="col-sm-12" id="help">
+				<h:outputLink value="imsHelp.xhtml?faces-redirect=true">Help
+	              <div>
+						<h:graphicImage id="helpImg" value="img/help.png" />
+					</div>
+				</h:outputLink>
+			</div>
+
+		</div>
+
+	</div>
+</body>
+</html>

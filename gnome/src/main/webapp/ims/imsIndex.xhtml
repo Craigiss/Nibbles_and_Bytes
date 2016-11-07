@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="../css/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+		rel="stylesheet" />
+	<link href="../css/imsStyle.css" rel="stylesheet" />
+
+	<title>Inventory Management System</title>
+</h:head>
+
+
+<f:view>
+	<body>
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-12" id="header">Inventory Management System</div>
+			</div>
+
+			<div class="row indexSearch" id="search">
+				<h:form>
+					<div class="col-sm-11" id="searchText">
+						<h:inputText a:placeholder="Search..."
+							label="Search Bar IMS System" value="#{search.term}" />
+					</div>
+					<div class="col-sm-1">
+						<h:commandLink class="hovering"
+							action="#{search.search()}">
+							<h:graphicImage class="glass_back" value="img/glass.png" />
+						</h:commandLink>
+					</div>
+					<div class= "col-sm-12">
+					<h:selectOneRadio value="#{search.searchType}" class="testing">
+   						<f:selectItem itemValue="Products" itemLabel="Products" value="#{search.searchType}"/>
+   						<f:selectItem itemValue="Suppliers" itemLabel="Suppliers" value="#{search.searchType}"/>
+   						<f:selectItem itemValue="PO" itemLabel="PO" value="#{search.searchType}"/>
+   					</h:selectOneRadio>
+   					</div>			
+				</h:form>
+			</div>
+
+
+			<div class="row">
+				<div class="col-sm-4 mainButton" id="prod">
+					<h:outputLink value="imsProducts.xhtml?faces-redirect=true">Products
+             			 <div>
+							<h:graphicImage id="gnome" value="img/gnome.png" />
+						</div>
+					</h:outputLink>
+				</div>
+
+				<div class="col-sm-4 mainButton" id="supplier">
+					<h:outputLink value="imsSuppliers.xhtml?faces-redirect=true">Suppliers
+              <div>
+							<h:graphicImage value="img/supplier.png" />
+						</div>
+					</h:outputLink>
+				</div>
+
+				<div class="col-sm-4 mainButton" id="po">
+					<h:outputLink value="imsPo.xhtml?faces-redirect=true">Purchase Orders
+              <div>
+							<h:graphicImage value="img/po.png" />
+						</div>
+					</h:outputLink>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4 mainButton" id="admin">
+					<h:outputLink value="imsAdmin.xhtml?faces-redirect=true">Admin
+              <div>
+							<h:graphicImage value="img/admin.png" />
+						</div>
+					</h:outputLink>
+				</div>
+
+				<div class="col-sm-4 mainButton" id="analy">
+					<h:form>
+					<h:commandLink action="#{graph.reCreatePie()}"/>
+					</h:form>
+					<h:outputLink value="imsAnalytics.xhtml?faces-redirect=true">Analytics
+              <div>
+							<h:graphicImage value="img/anal.png" />
+						</div>
+					</h:outputLink>
+				</div>
+
+				<div class="col-sm-4 mainButton" id="log">
+				<h:form>
+				<h:commandLink action = "#{IMSUser.resetCredentials()}"/>
+				</h:form>
+					<h:outputLink value="../imsLogin.xhtml?faces-redirect=true">Logout
+              <div>
+							<h:graphicImage value="img/log.png" />
+						</div>
+					</h:outputLink>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12" id="help">
+					<h:outputLink value="imsHelp.xhtml?faces-redirect=true">Help
+              <div>
+							<h:graphicImage id="helpImg" value="img/help.png" />
+						</div>
+					</h:outputLink>
+				</div>
+
+			</div>
+
+		</div>
+
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+	</body>
+</f:view>
+</html>

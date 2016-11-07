@@ -36,19 +36,19 @@ public class ButtonService {
 	public String deleteProduct(int id){
 		productRepro.deleteProduct(id);
 		prodController.reset();
-		return "imsProducts";
+		return "imsProducts?faces-redirect=true";
 	}
 	
 	public String deleteSupplier(int id){
 		supplierRepro.deleteSupplier(id);
 		supplierController.reset();
-		return "imsSupplier";
+		return "imsSupplier?faces-redirect=true";
 	}
 	
 	public String deletePo(int id){	
 		poRepro.deletePurchaseOrder(id);
 		poController.reset();
-		return "imsPo";
+		return "imsPo?faces-redirect=true";
 	}
 
 }

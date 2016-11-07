@@ -1,0 +1,79 @@
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	template="../templates/imsTemplateDetails.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+	<!-- Tab title defined -->
+	<ui:define name="title">
+			IMS - Analytics  
+		</ui:define>
+
+	<!-- Title appearing in top left of the page -->
+	<ui:define name="pagetitle">
+			Analytics
+		</ui:define>
+
+	<!-- Breadcrumbs appearing in top right of the page -->
+	<ui:define name="breadcrumbs">
+		<a href="imsIndex.xhtml">Home</a> > Analytics
+		</ui:define>
+
+	<ui:define name="backFunction">
+		<h:commandLink action="#{graphs.reset()}" value="" class="hovering">
+			<h:graphicImage class="glass_back" value="img/back.png" />
+		</h:commandLink>
+	</ui:define>
+
+	<ui:define name="searchButtonAction">
+		<h:commandLink class="hovering">
+			<h:graphicImage class="glass_back" value="img/glass.png" />
+		</h:commandLink>
+	</ui:define>
+
+
+
+	<!-- Main content of  -->
+	<ui:define name="maincontent">
+
+		<div id="analytics">
+			<div class="row">
+				<div class="col-sm-6" id="admin">
+					<rich:chart id="pie" title="Critical Stock">
+						<rich:chartLegend sorting="descending" />
+						<rich:chartSeries data="#{graphs.pie}" type="pie" />
+					</rich:chart>
+				</div>
+				<div class="col-sm-6" id="analy">
+					<rich:chart id="pie2" title="Supplier Lifetime Usage">
+						<rich:chartLegend sorting="descending" />
+						<rich:chartSeries data="#{graphs.pie2}" type="pie" />
+					</rich:chart>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-6" id="log">
+					<rich:chart id="pie3" title="Critical Pourous Stock">
+						<rich:chartLegend sorting="descending" />
+						<rich:chartSeries data="#{graphs.pie3}" type="pie" />
+					</rich:chart>
+				</div>
+
+				<div class="col-sm-6" id="anButtons1">
+					<div><h2>Order Critical Stock</h2></div>
+				</div>
+				<hr id="lineSep"/>
+				<div class="col-sm-6" id="anButtons2">
+					<div><h2>Order Porous Critical Stock</h2></div>
+				</div>	
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>

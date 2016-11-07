@@ -1,0 +1,84 @@
+<ui:composition
+	xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="../templates/imsTemplateDetails.xhtml">
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<ui:define name="title">
+			IMS - Product details 
+	</ui:define>
+
+	<!-- Title appearing in top left of the page -->
+	<ui:define name="pagetitle">
+			Products
+	</ui:define>
+
+	<!-- Breadcrumbs appearing in top right of the page -->
+	<ui:define name="breadcrumbs">
+			<a href="imsIndex.xhtml">Home</a> > <a href="imsProducts.xhtml">Products</a><h:outputText value=" > #{selected.product.productName}" />
+	</ui:define>
+	
+		<ui:define name="backFunction">
+		 <a href="imsProducts.xhtml" class="hovering">
+             <img class="glass_back" src="img/back.png"/>
+         </a>
+    </ui:define>
+
+
+<!-- Content goes here -->
+<ui:define name="maincontent">
+	<div class = "row">
+		<div class="col-sm-12 detail_headers">
+				<h:outputText value="#{selected.product.productName}" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<h:graphicImage value="#{selected.product.imgPath}"/>		
+		</div>
+		<div class="col-sm-6 text">
+		 	<div class="row"><strong>Retail Price: </strong> £<h:outputText value="#{selected.product.price}" /></div>
+		 	<div class="row"><strong>Standard stock: </strong> <h:outputText value="#{selected.product.stockLevel}" /></div>
+		 	<div class="row"><strong>Porousware stock: </strong> <h:outputText value="#{selected.product.porousStockLevel}" /></div>
+		 	<div class="row"><strong>Location: </strong> Placeholder</div>
+		 	<div class="row"><strong>Supplier: </strong> <h:outputText value="#{selected.product.supplier.company}"/></div>
+		</div>
+	</div>
+	
+	<h4>Description:</h4>
+	<p><h:outputText value="#{selected.product.description}"/>
+	</p>
+
+	<div class = "row">
+		<div class="col-sm-6 buttonOfJoy col-xs-6">
+			<p id="email_text">Email</p>
+		</div>
+		<div class="col-sm-2 buttonOfJoy col-xs-2">
+		    <h:form>	
+            	<h:commandLink class="hovering" action="#{product.email()}"> 
+              		<h:graphicImage class="sys" value="img/email.png"/>
+           		</h:commandLink>
+            </h:form>
+		</div>
+		<div class="col-sm-2 buttonOfJoy col-xs-2">
+			<p id="print_text">Print</p>
+		</div>
+		<div class="col-sm-2 buttonOfJoy col-xs-2">
+			<h:form>	
+            	<h:commandLink class="hovering" action="#{product.print()}"> 
+              		<h:graphicImage class="sys" value="img/print.png"/>
+           		</h:commandLink>
+        	</h:form>
+		</div>
+	</div>
+	<div class = "row">
+		<div class = "col-sm-12">
+			<p class="detail_headers"> Analytics</p>
+		</div>
+	</div>
+		Chart goes here
+	</ui:define>
+</ui:composition>

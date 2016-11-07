@@ -20,8 +20,6 @@ public class SupplierService {
 
 	@Inject
 	private SupplierRepository supplierManager;
-	@Inject
-	private InitialData initialData;
 	
 	/**
 	 * Calls Supplier Manager method, pooling params together to create a new Supplier object
@@ -80,5 +78,9 @@ public class SupplierService {
 	 */
 	public List<Supplier> findSupplierByCompany(String company) {
 		return supplierManager.findSupplierByCompany(company);
+
 	}	
+
 }
+
+

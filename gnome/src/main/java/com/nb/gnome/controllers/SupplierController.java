@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.helper.PaginationHelper;
@@ -35,6 +36,7 @@ public class SupplierController implements Serializable {
 	private PaginationHelper pagination;
 	private DataModel<Supplier> dataModel = null;
 	private List<Supplier> listData;
+	private Address address;
 
 	public void recreateModel() {
 		dataModel = null;
@@ -43,14 +45,14 @@ public class SupplierController implements Serializable {
 	public String reset() {
 		dataModel = null;
 		listData = null;
-		return "imsIndex";
+		return "imsIndex?faces-redirect=true";
 
 	}
 	
 	public String goToAddSupplier(){
-		String returnPage = "addSupplier";
+		String returnPage = "addSupplier?faces-redirect=true";
 		if ((userCredentials.getName() == null)) {
-			returnPage = "imsLogin";
+			returnPage = "imsLogin?faces-redirect=true";
 		}
 		return returnPage;
 	}
@@ -100,21 +102,21 @@ public class SupplierController implements Serializable {
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();
-		return "imsSuppliers";
+		return "imsSuppliers?faces-redirect=true";
 	}
 
 	public String previous() {
 		getPagination().previousPage();
 		recreateModel();
-		return "imsSuppliers";
+		return "imsSuppliers?faces-redirect=true";
 	}
 
 	public String view(Supplier s) {
-		String returnPage = "imsSupplierDeets";
+		String returnPage = "imsSupplierDeets?faces-redirect=true";
 		if (!(userCredentials.getName() == null)) {
 		supplier.setSupplier(s);
 		}else {
-			returnPage = "imsLogin";
+			returnPage = "imsLogin?faces-redirect=true";
 		}		
 		return returnPage;
 	}
@@ -129,6 +131,7 @@ public class SupplierController implements Serializable {
 	 */
 
 	public String persistSupplier() {
+		//address = addressController.persistAddress();
 		supplierService.persistSupplier(company, name, phone, email, description);
 		recreateModel();
 		getDataModel();
@@ -141,7 +144,7 @@ public class SupplierController implements Serializable {
 		
 		reset();
 
-		return "imsSuppliers";
+		return "imsSuppliers?faces-redirect=true";
 	}
 
 	/**
@@ -273,5 +276,15 @@ public class SupplierController implements Serializable {
 	public void setListData(List<Supplier> listData) {
 		this.listData = listData;
 	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	
 
 }

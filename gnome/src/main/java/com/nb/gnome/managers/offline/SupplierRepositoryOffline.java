@@ -75,6 +75,7 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 		return sup;
 	}
 
+
 	@Override
 	public void deleteSupplier(int id) {
 		List<Supplier> suppliers = new ArrayList<Supplier>();
@@ -87,5 +88,6 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 			}
 		}		
 	}
+
 	
 }

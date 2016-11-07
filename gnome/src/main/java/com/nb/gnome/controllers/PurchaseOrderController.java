@@ -45,14 +45,14 @@ public class PurchaseOrderController implements Serializable {
 	public String reset() {
 		dataModel = null;
 		listData = null;
-		return "imsIndex";
+		return "imsIndex?faces-redirect=true";
 
 	}
 	
 	public String goToAddPOPage(){
 		String returnPage = "addPurchaseOrder";
 		if ((userCredentials.getName() == null)) {
-			returnPage = "imsLogin";
+			returnPage = "imsLogin?faces-redirect=true";
 		}
 		return returnPage;
 	}
@@ -102,13 +102,13 @@ public class PurchaseOrderController implements Serializable {
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();
-		return "imsPo";
+		return "imsPo?faces-redirect=true";
 	}
 
 	public String previous() {
 		getPagination().previousPage();
 		recreateModel();
-		return "imsPo";
+		return "imsPo?faces-redirect=true";
 	}
 
 	/**
@@ -131,12 +131,12 @@ public class PurchaseOrderController implements Serializable {
 	}
 
 	public String view(PurchaseOrder p) {
-		String returnPage = "imsPoDeets";
+		String returnPage = "imsPoDeets?faces-redirect=true";
 		if (!(userCredentials.getName() == null)) {
 			purchaseOrder.setPurchaseOrder(p);
 
 		} else {
-			returnPage = "imsLogin";
+			returnPage = "imsLogin?faces-redirect=true";
 		}
 		return returnPage;
 	}
@@ -243,7 +243,7 @@ public class PurchaseOrderController implements Serializable {
 		supplier = null;
 		listData = null;
 
-		return "imsPo";
+		return "imsPo?faces-redirect=true";
 	}
 	
 	/**

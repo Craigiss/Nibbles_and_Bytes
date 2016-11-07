@@ -1,0 +1,72 @@
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="../templates/imsTemplateDetails.xhtml">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Tab title defined -->
+	<ui:define name="title">
+			IMS - Help 
+		</ui:define>
+
+	<!-- Title appearing in top left of the page -->
+	<ui:define name="pagetitle">
+			Help
+		</ui:define>
+
+	<!-- Breadcrumbs appearing in top right of the page -->
+	<ui:define name="breadcrumbs">
+		<a href="imsIndex.xhtml">Home</a> > Help
+		</ui:define>
+
+	<ui:define name="backFunction">
+		<h:commandLink action="#{help.reset()}" value="" class="hovering">
+			<h:graphicImage class="glass_back" value="img/back.png" />
+		</h:commandLink>
+	</ui:define>
+
+	<!-- Main content of  -->
+	<ui:define name="maincontent">
+
+		<!-- Grid for Help -->
+		<h3>FAQs</h3>
+
+		<br/>
+
+		<h4>Q: How do I log out?</h4>
+		<p>Proceed to the main home page for the IMS home page and push
+			the green, log out button in the lower right hand corner of the
+			screen. Wait for acknowledgement that the log out has been completed.
+		</p>
+
+		<br/>
+
+				<h4>Q: What do the analytics show?</h4>
+				<p>The analytics show a comparison between current sale trends
+					that can be toggled against week on week, month on month and year
+					on year sales. They are designed to help you keep certain items in
+					stock during busy seasonal promotional periods.</p>
+
+<br/>
+
+				<h4>Q: Why do I not have access to admin?</h4>
+				<p>Only the warehouse manager has access to admin. You must be
+					logged in as the warehouse manager in order to undertake admin
+					functions.</p>
+
+<br/>
+				<h4>Q: What can I call you?</h4>
+				<p>I can call you Betty. Betty when you call me, you can call me
+					Allllllllllllllll!</p>
+
+<br/>
+				<h4>Q: Not found a solution to your problem?</h4>
+				<p>Contact Belvedere on 01245 777345. He is the Guru of IMS
+					knowledge and is always happy to help 24/7; it's kinda weird.</p>
+
+<br/>
+	</ui:define>
+
+</ui:composition>

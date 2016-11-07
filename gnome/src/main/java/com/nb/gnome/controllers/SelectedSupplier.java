@@ -47,7 +47,7 @@ public class SelectedSupplier implements Serializable {
 	public String reset() {
 		dataModel = null;
 		listData = null;
-		return "imsSuppliers";
+		return "imsSuppliers?faces-redirect=true";
 	}
 
 	public PaginationHelper getPagination() {
@@ -92,13 +92,13 @@ public class SelectedSupplier implements Serializable {
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();
-		return "imsSupplierDeets";
+		return "imsSupplierDeets?faces-redirect=true";
 	}
 
 	public String previous() {
 		getPagination().previousPage();
 		recreateModel();
-		return "imsSupplierDeets";
+		return "imsSupplierDeets?faces-redirect=true";
 	}
 
 	/**

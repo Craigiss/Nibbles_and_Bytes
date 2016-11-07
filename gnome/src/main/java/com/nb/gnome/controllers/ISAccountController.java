@@ -28,7 +28,8 @@ public class ISAccountController implements Serializable{
     public String login() throws Exception{
     	String pageReturn = "imsLogin";
     	if(iSAService.logInToIms(email, seasonAndCook(email, password)).equals("successful")){
-    		pageReturn="imsIndex";
+    		pageReturn="ims/imsIndex?faces-redirect=true";
+    		return pageReturn;
     	}else{
     		setError(iSAService.getError());
     	}
@@ -43,7 +44,7 @@ public class ISAccountController implements Serializable{
     
     public String logout(){
     	iMSUserCredentials.resetCredentials();
-    	return "imsLogin";
+    	return "../imsLogin?faces-redirect=true";
     }
 
 	/**

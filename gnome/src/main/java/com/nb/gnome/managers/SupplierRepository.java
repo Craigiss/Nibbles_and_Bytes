@@ -25,6 +25,7 @@ public interface SupplierRepository {
 	public Supplier findSupplierByContact(String s);
 	
 	public List<Supplier> findAll();
-	
+
 	public void deleteSupplier(int id);
+
 }

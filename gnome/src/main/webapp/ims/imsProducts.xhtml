@@ -1,0 +1,159 @@
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	template="../templates/imsTemplate.xhtml">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Tab title defined -->
+	<ui:define name="title">
+			IMS - Products 
+		</ui:define>
+
+	<!-- Title appearing in top left of the page -->
+	<ui:define name="pagetitle">
+			Products
+		</ui:define>
+
+	<!-- Breadcrumbs appearing in top right of the page -->
+	<ui:define name="breadcrumbs">
+		<a href="imsIndex.xhtml">Home</a> > Products
+		</ui:define>
+
+	<ui:define name="backFunction">
+		<h:commandLink action="#{products.reset()}" value="" class="hovering">
+			<h:graphicImage class="glass_back" value="img/back.png" />
+		</h:commandLink>
+	</ui:define>
+
+	<!-- Operations buttons - add/edit/delete -->
+	<ui:define name="addbtn">
+		<h:form>
+			<h:commandLink action="#{products.goToAddProductPage()}"
+				value="Add New Product" id="add">
+				<img src="img/add.png" class="icon opsicon" />
+			</h:commandLink>
+		</h:form>
+	</ui:define>
+
+	<ui:define name="searchButtonAction">
+		<h:commandLink class="hovering" action="#{search.searchProd()}">
+			<h:graphicImage class="glass_back" value="img/glass.png" />
+		</h:commandLink>
+	</ui:define>
+
+	<!-- Main content of  -->
+	<ui:define name="maincontent">
+
+		<!-- Grid for products -->
+		<div class="row table">
+			<div class="col-sm-2 col-xs-2 heading prodDetails">Product ID</div>
+			<div class="col-sm-4 col-xs-4 heading prodDetails">Product Name</div>
+			<div class="col-sm-2 col-xs-2 heading prodDetails listCenter">Stock</div>
+			<div class="col-sm-2 col-xs-2 heading prodDetails listCenter">
+				Porousware Stock</div>
+			<div class="col-sm-1 col-xs-1 heading prodDetails listCenter">Delete</div>
+			<div class="col-sm-1 col-xs-1 heading prodDetails listCenter">Edit</div>
+		</div>
+
+		<!-- Generation of products into grid -->
+		<ui:repeat var="product" value="#{products.dataModel}">
+			<div class="row table listItem">
+				<div class="col-sm-2 col-xs-2 prodDetails">
+					<h:form>
+						<h:commandLink action="#{products.view(product)}"
+							value="#{product.productID}" />
+					</h:form>
+				</div>
+				<div class="col-sm-4 col-xs-4 prodDetails">
+					<h:form>
+						<h:commandLink action="#{products.view(product)}"
+							value="#{product.productName}" />
+					</h:form>
+				</div>
+				<div class="col-sm-2 col-xs-2 prodDetails listCenter">
+					<h:outputText value="#{product.stockLevel}" />
+				</div>
+				<div class="col-sm-2 col-xs-2 prodDetails listCenter">
+					<h:outputText value="#{product.porousStockLevel}" />
+				</div>
+				<div class="col-sm-1 col-xs-1 prodDetails">
+					<h:form>
+						
+					
+							<button id="deleteButton" type="button"  onclick="process(#{product.productID})"
+								data-toggle="modal" data-target="#myModal"/>
+							
+					
+					</h:form>
+				</div>
+				<div class="col-sm-1 col-xs-1 prodDetails">
+					<h:form>
+						<h:commandLink action="#{products.test(product.productID)}"
+							value="" class="hovering">
+							<h:graphicImage class="editorTools" value="img/edit.png" />
+						</h:commandLink>
+					</h:form>
+				</div>
+			</div>
+		</ui:repeat>
+
+
+		<h:form>
+
+			<div class="row">
+				<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+					<h:commandLink action="#{products.previous()}" value="Previous"
+						rendered="#{products.pagination.hasPreviousPage}" />
+				</div>
+				<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+					<h:outputText
+						value="Showing products #{products.pagination.pageFirstItem + 1} to #{products.pagination.getPageLastItem()} of #{products.listData.size()}" />
+				</div>
+				<div class="col-sm-4 col-xs-4 nbbuttonp pageing page">
+					<h:commandLink action="#{products.next}"
+						rendered="#{products.pagination.hasNextPage}" value="Next" />
+				</div>
+			</div>
+		</h:form>
+		
+		
+		
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+        <h4 class="modal-title" id="myModalLabel">Confirm Product Delete</h4>
+      </div>
+      <div class="modal-body">
+       Are you sure you want to delete this product?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn pull-left btn-danger" data-dismiss="modal">Cancel</button>
+        <h:form id="formSubmission">
+        <h:inputHidden id="id" value="#{button.idOfProduct}" />
+        <h:commandLink class="btn btn-success" value="Confirm" type="submit" action ="#{button.delete('products')}" style="right:10px;" />
+        </h:form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+	<script>
+	function process(x) {
+	     console.log(x);
+	     document.getElementById("formSubmission:id").value = x;
+	};
+	</script>
+
+	</ui:define>
+
+	<!-- Add pagination here -->
+
+</ui:composition>
