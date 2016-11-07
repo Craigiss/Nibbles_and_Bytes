@@ -89,13 +89,6 @@ public class OrderController implements Serializable {
 		return "OrderSuccess";
 	}
 	
-	public String cancelOrder(int id){
-		
-		orderService.cancelOrder(id);
-		return "account";
-		
-	}
-	
 
 	public Address getSavedAddress() {
 		return savedAddress;

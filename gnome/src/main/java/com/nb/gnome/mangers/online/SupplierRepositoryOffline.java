@@ -9,7 +9,9 @@ import javax.inject.Inject;
 
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.SupplierRepository;
+import com.nb.gnome.managers.hib.ObjectConverter;
 
+import connection.Connection;
 import gnome.InitialData;
 
 @Stateless
@@ -17,18 +19,21 @@ import gnome.InitialData;
 public class SupplierRepositoryOffline implements SupplierRepository{
 
 	@Inject
-	private InitialData initialData;
+	private Connection connection;
+
+	@Inject
+	private ObjectConverter converter;
 
 	//Create
 	@Override
 	public void persistSupplier(Supplier s){
-		initialData.addSupplier(s);
+		connection.persistData(s);
 	}
 
 	@Override
 	public Supplier findSupplierById(long id){
 		Supplier sup = new Supplier();
-		for (Supplier s : initialData.getSuppliers()){
+		for (Supplier s : converter.convertToSuppliers(connection.returnData("Suppliers"))){
 			if (s.getId() == id)
 			{
 				sup = s;
@@ -39,7 +44,7 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 	
 	@Override
 	public List<Supplier> findAll(){
-		List<Supplier> s = initialData.getSuppliers();
+		List<Supplier> s = converter.convertToSuppliers(connection.returnData("Suppliers"));
 		return s;
 		
 	}
@@ -47,7 +52,7 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 	@Override
 	public List<Supplier> findSupplierByCompany(String company) {
 		List<Supplier> sup = new ArrayList<Supplier>();
-		for (Supplier s : initialData.getSuppliers()){
+		for (Supplier s : converter.convertToSuppliers(connection.returnData("Suppliers"))){
 			if (s.getCompany().contains(company))
 			{
 				sup.add(s);
