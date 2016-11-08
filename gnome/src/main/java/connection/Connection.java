@@ -104,7 +104,7 @@ public class Connection {
 		cu.setFirstName("firstName");
 		cu.setSurname("surname");
 		cu.setPassword("password");
-		cu.setId(1);
+		//cu.setId(1);
 		cu.setSalt("ks93t1dq74tec1jpua15effjh3");
 		cu.setPhoneNumber("0123456789");
 		cu.setStatus("Active");
@@ -118,12 +118,12 @@ public class Connection {
 		cu2.setFirstName("Cameron");
 		cu2.setSurname("Smart");
 		cu2.setPassword("goaway");
-		cu2.setId(2);
+		//cu2.setId(2);
 		cu2.setSalt("ks93t1dq74tec1jpua15effjh3");
 		cu2.setPhoneNumber("0123456789");
 		cu2.setStatus("Active");
 		List<Address> cu1ad = new ArrayList<Address>();
-		cuad.add(aa);
+		cu1ad.add(aa);
 		cu.setAddresses(cu1ad);
 																			// Customer <-> Address
 //		List<Address> cuAddr = new ArrayList<Address>();
@@ -392,6 +392,7 @@ public class Connection {
 		
 		persistData(aa,aa1, cu,cu2,sO1,sO2,p1,p2,p3,p4,p5,p6,p7,p8,p11,p12,p13,p14,p15,p16,p17,p18,p19,pc1,pc2,pc3,
 				pc4,pc5,pc6,pc7,pc8,pc9,r1,r2,r3);
+		
 		
 		
 		
