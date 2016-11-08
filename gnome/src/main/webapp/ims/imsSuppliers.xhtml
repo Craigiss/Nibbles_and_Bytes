@@ -23,7 +23,7 @@
 
 	<ui:define name="backFunction">
 		<h:commandLink action="#{suppliers.reset()}" value="" class="hovering">
-			<h:graphicImage class="glass_back" value="img/back.png" />
+			<h:graphicImage class="glass_back" value="../img/back.png" />
 		</h:commandLink>
 	</ui:define>
 
@@ -32,14 +32,14 @@
 		<h:form>
 			<h:commandLink action="#{suppliers.goToAddSupplier()}"
 				value="Add New Supplier">
-				<img src="img/add.png" class="icon opsicon" />
+				<img src="../img/add.png" class="icon opsicon" />
 			</h:commandLink>
 		</h:form>
 	</ui:define>
 
 	<ui:define name="searchButtonAction">
 		<h:commandLink class="hovering" action="#{search.searchSuppliers()}">
-			<h:graphicImage class="glass_back" value="img/glass.png" />
+			<h:graphicImage class="glass_back" value="../img/glass.png" />
 		</h:commandLink>
 	</ui:define>
 
@@ -83,7 +83,7 @@
 					<h:form>
 						<h:commandLink action="#{products.test(product.productID)}"
 							value="" class="hovering">
-							<h:graphicImage class="editorTools" value="img/edit.png" />
+							<h:graphicImage class="editorTools" value="../img/edit.png" />
 						</h:commandLink>
 					</h:form>
 				</div>
