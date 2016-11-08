@@ -63,18 +63,6 @@ public class Supplier {
 		products = new ArrayList<Product>();
 	}
 	
-	public Supplier(int id, String company, String name, String phone, String email, String description, Address address){
-		this.id = id;
-		this.company = company;
-		this.name = name;
-		this.phone = phone;
-		this.email = email;
-		this.description = description;
-		deleted = false;
-		this.address = address;
-		products = new ArrayList<Product>();
-	}
-	
 	public Supplier(String company, String name, String phone, String email, String description, Address address){
 		this.company = company;
 		this.name = name;
@@ -240,6 +228,7 @@ public class Supplier {
 		this.address = address;
 		
 	}
+<<<<<<< HEAD
 	
 	@Override
 	public String toString() {
@@ -266,4 +255,7 @@ public class Supplier {
 	    }
 	
 	
+=======
+
+>>>>>>> 06641135be45edc0f87511ce1db5c781cc5a8426
 }

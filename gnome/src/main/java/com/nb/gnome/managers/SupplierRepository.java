@@ -2,6 +2,7 @@ package com.nb.gnome.managers;
 
 import java.util.List;
 
+import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 
@@ -14,7 +15,7 @@ import com.nb.gnome.entities.Supplier;
 public interface SupplierRepository {
 
 	//Create
-	public void persistSupplier(Supplier s);
+	public void persistSupplier(String mCompany, String mName, String mPhone, String mEmail, String mDescription, Address mAddress);
 	
 	//Read
 	public List<Supplier> findSupplierByCompany(String company);

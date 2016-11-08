@@ -23,7 +23,7 @@
 	
 		<ui:define name="backFunction">
 		 <a href="imsProducts.xhtml" class="hovering">
-             <img class="glass_back" src="img/back.png"/>
+             <img class="glass_back" src="../img/back.png"/>
          </a>
     </ui:define>
 
@@ -36,8 +36,8 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-6">
-			<h:graphicImage value="#{selected.product.imgPath}"/>		
+		<div class="col-sm-6" >
+			<h:graphicImage value="#{selected.product.imgPath}" id="imageSize"/>		
 		</div>
 		<div class="col-sm-6 text">
 		 	<div class="row"><strong>Retail Price: </strong> £<h:outputText value="#{selected.product.price}" /></div>
@@ -59,7 +59,7 @@
 		<div class="col-sm-2 buttonOfJoy col-xs-2">
 		    <h:form>	
             	<h:commandLink class="hovering" action="#{product.email()}"> 
-              		<h:graphicImage class="sys" value="img/email.png"/>
+              		<h:graphicImage class="sys" value="../img/email.png"/>
            		</h:commandLink>
             </h:form>
 		</div>
@@ -69,7 +69,7 @@
 		<div class="col-sm-2 buttonOfJoy col-xs-2">
 			<h:form>	
             	<h:commandLink class="hovering" action="#{product.print()}"> 
-              		<h:graphicImage class="sys" value="img/print.png"/>
+              		<h:graphicImage class="sys" value="../img/print.png"/>
            		</h:commandLink>
         	</h:form>
 		</div>

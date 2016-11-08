@@ -23,9 +23,9 @@ public class SupplierController implements Serializable {
 	@Inject
 	private SupplierService supplierService;
 	@Inject
-	IMSUserCredentials userCredentials;
-
-	// private Supplier supplier;
+	private IMSUserCredentials userCredentials;
+	@Inject
+	private AddressController addressController;
 	@Inject
 	private SelectedSupplier supplier;
 	private String company;
@@ -131,8 +131,10 @@ public class SupplierController implements Serializable {
 	 */
 
 	public String persistSupplier() {
+		address = addressController.persistAddress();
+		addressController.clean();
+		supplierService.persistSupplier(company, name, phone, email, description, address);
 		//address = addressController.persistAddress();
-		supplierService.persistSupplier(company, name, phone, email, description);
 		recreateModel();
 		getDataModel();
 
@@ -152,8 +154,8 @@ public class SupplierController implements Serializable {
 	 * 
 	 * @param comp
 	 */
-	public void findSupplierByCompany(String comp) {
-		supplierService.findSupplierByCompany(comp);
+	public List<Supplier> findSupplierByCompany(String comp) {
+		return supplierService.findSupplierByCompany(comp);
 	}
 
 	/**

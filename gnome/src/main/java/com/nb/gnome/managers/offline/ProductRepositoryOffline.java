@@ -34,7 +34,7 @@ public class ProductRepositoryOffline implements ProductRepository {
 	@Override
 	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel, Supplier supplier){
 		Product prodprod = new Product(findAll().size() +1, mName, mDescription, mPrice, mStockLevel, mporousStockLevel, supplier);
-		System.out.println(supplier);
+		System.out.println(supplier.getClass());
 		supplier.getProducts().add(prodprod);
 		if (prodprod.getPorousStockLevel() <= 10){
 			graph.setPie3(prodprod.getProductName() + " " + prodprod.getPorousStockLevel() + " products remaining ",prodprod.getPorousStockLevel());
