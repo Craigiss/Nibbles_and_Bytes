@@ -4,7 +4,7 @@ package com.nb.gnome.service;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.ArrayList;
-
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -31,21 +31,20 @@ public class CreateAccountService {
 		
 		Customer c = new Customer();
 		Address a = new Address();
-		ArrayList<Address> addresses = new ArrayList<Address>();
-		a.setId(addressManager.getAddresses().size()+1);
+		List<Address> addresses = new ArrayList<Address>();
+		//a.setId(addressManager.getAddresses().size()+1);
 		a.setLine1(firstLine);	
 		a.setLine2(secondLine);   // Does the addresses stuff
 		a.setTown(town);
 		a.setCounty(county);
 		a.setPostcode(postcode);
-		initialData.addAddress(a);
 		addresses.add(a);
 		c.setAddresses(addresses);
 		
 		c.setFirstName(firstName);					// Does the customer credentials.
 		c.setSurname(surname);
 		c.setEmail(email);
-		c.setId(initialData.getCustomerAccounts().size() + 1);
+		//c.setId(initialData.getCustomerAccounts().size() + 1);
 		c.setStatus("active");
 		
 		
