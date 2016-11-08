@@ -43,7 +43,6 @@ public class AddressService {
 	public void addAddress(String addressFirstLine, String addressSecondLine, String town, String county, String postcode){
 		Address address = new Address();
 		address.setCounty(county);
-		address.setId(customerRepository.getCustomerById(user.getId()).getAddresses().size()+1);
 		address.setLine1(addressFirstLine);
 		address.setLine2(addressSecondLine);
 		address.setPostcode(postcode);

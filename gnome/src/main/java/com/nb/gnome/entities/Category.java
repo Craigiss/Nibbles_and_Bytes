@@ -31,12 +31,7 @@ public class Category {
 	public int getId() {
 		return id;
 	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		id = id;
-	}
+
 	/**
 	 * @return the name
 	 */

@@ -87,7 +87,6 @@ public class Connection {
 		aa.setTown("Milton Keynes");
 		aa.setCounty("Bucks");
 		aa.setPostcode("mk76jn");
-		aa.setId(1);
 		
 		Address aa1 = new Address();
 		aa1.setLine1("First Line2");
@@ -95,7 +94,6 @@ public class Connection {
 		aa1.setTown("Town2");
 		aa1.setCounty("County2");
 		aa1.setPostcode("Postcode");
-		aa1.setId(2);	
 			
 																						// Customers
 		Customer cu = new Customer();
@@ -133,20 +131,17 @@ public class Connection {
 		
 																						// Sales orders
 		SalesOrder sO1 = new SalesOrder();
-		sO1.setId(1);
 		sO1.setDate("11/12/2016");
 		sO1.setCustomer(cu);
 		sO1.setStatus("Delivered");
 
 		SalesOrder sO2 = new SalesOrder();
-		sO2.setId(2);
 		sO2.setDate("12/12/2016");
 		sO2.setStatus("Processing");
 		sO2.setCustomer(cu);
 
 		Product p1 = new Product();
 		p1.setProductName("King of the 7 Gnomedoms");
-		p1.setProductID(1);
 		p1.setImgPath("img/GameofGnomes.jpg");
 		p1.setDescription("Every now and again a piece of wordplay comes along that's so sumptuous, so irresistible that it would be a travesty to not bring it to life (Robocup anyone?). We present to you... Game of Gnomes. ");
 		//p1.setDescription("tersdt");
@@ -156,7 +151,6 @@ public class Connection {
 
 		Product p2 = new Product();
 		p2.setProductName("The Laundry Line");
-		p2.setProductID(2);
 		p2.setImgPath("img/Laundry.gif");
 		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p2.setPrice(2.99);
@@ -192,30 +186,24 @@ public class Connection {
 		
 		
 		Category c1 = new Category();													// Categories
-		c1.setId(001);
 		c1.setName("Gnomes");
 		
 		Category c2 = new Category();
-		c2.setId(002);
 		c2.setName("PoolsAndHotTubs");
 		
 		Category c3 = new Category();
-		c3.setId(003);
 		c3.setName("GnomeAccessories");
 		
 		Category c4 = new Category();
-		c4.setId(004);
 		c4.setName("GardenOrnaments");
 		
 		Category c5 = new Category();
-		c5.setId(005);
 		c5.setName("GnomeCare");
 		
 	
 		
 		Product p3 = new Product();
 		p3.setProductName("Gnome Trek Set");
-		p3.setProductID(3);
 		p3.setImgPath("img/GnomeTrek.gif");
 		p3.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p3.setPrice(4.99);
@@ -224,7 +212,6 @@ public class Connection {
 		
 		Product p4 = new Product();
 		p4.setProductName("Minimushrooms");
-		p4.setProductID(4);
 		p4.setImgPath("img/mushrooms.gif");
 		p4.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p4.setPrice(24.99);
@@ -233,7 +220,6 @@ public class Connection {
 		
 		Product p5 = new Product();
 		p5.setProductName("Mr and Mrs");
-		p5.setProductID(5);
 		p5.setImgPath("img/MrandMrs.gif");
 		p5.setDescription("when these gnomes are rockin', don't come-a-knockin'!!!");
 		p5.setPrice(7.99);
@@ -242,7 +228,6 @@ public class Connection {
 		
 		Product p6 = new Product();
 		p6.setProductName("Christmas Boots");
-		p6.setProductID(6);
 		p6.setImgPath("img/Boots.gif");
 		p6.setDescription("a snazzy pair of sneaks for the Christmas gimp");
 		p6.setPrice(4.99);
@@ -251,7 +236,6 @@ public class Connection {
 		
 		Product p7 = new Product();
 		p7.setProductName("Lawn Flamingo");
-		p7.setProductID(7);
 		p7.setImgPath("img/Flamingo.gif");
 		p7.setDescription("a dainty pair of Tim's favourite lawn ornaments");
 		p7.setPrice(14.99);
@@ -260,7 +244,6 @@ public class Connection {
 		
 		Product p8 = new Product();
 		p8.setProductName("Benny");
-		p8.setProductID(8);
 		p8.setImgPath("img/Benny.gif");
 		p8.setDescription("the worst gnome in existence; the dumpy little guy from gnomeo and juliet");
 		p8.setPrice(8.99);
@@ -269,7 +252,6 @@ public class Connection {
 		
 		Product p11 = new Product();
 		p11.setProductName("King of the 7 Gnomedoms");
-		p11.setProductID(11);
 		p11.setImgPath("img/GameofGnomes.jpg");
 		p11.setDescription("Every now and again a piece of wordplay comes along that's so sumptuous, so irresistible that it would be a travesty to not bring it to life (Robocup anyone?). We present to you... Game of Gnomes.");
 		p11.setPrice(17.99);
@@ -278,7 +260,6 @@ public class Connection {
 		
 		Product p12 = new Product();
 		p12.setProductName("The Laundry Line");
-		p12.setProductID(12);
 		p12.setImgPath("img/Laundry.gif");
 		p12.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p12.setPrice(2.99);
@@ -287,7 +268,6 @@ public class Connection {
 		
 		Product p13 = new Product();
 		p13.setProductName("Gnome Trek Set");
-		p13.setProductID(13);
 		p13.setImgPath("img/GnomeTrek.gif");
 		p13.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p13.setPrice(4.99);
@@ -296,7 +276,6 @@ public class Connection {
 		
 		Product p14 = new Product();
 		p14.setProductName("Minimushrooms");
-		p14.setProductID(14);
 		p14.setImgPath("img/mushrooms.gif");
 		p14.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
 		p14.setPrice(24.99);
@@ -305,7 +284,6 @@ public class Connection {
 		
 		Product p15 = new Product();
 		p15.setProductName("Mr and Mrs");
-		p15.setProductID(15);
 		p15.setImgPath("img/MrandMrs.gif");
 		p15.setDescription("when these gnomes are rockin', don't come-a-knockin'!!!");
 		p15.setPrice(7.99);
@@ -314,7 +292,6 @@ public class Connection {
 		
 		Product p16 = new Product();
 		p16.setProductName("Christmas Boots");
-		p16.setProductID(16);
 		p16.setImgPath("img/Boots.gif");
 		p16.setDescription("a snazzy pair of sneaks for the Christmas gimp");
 		p16.setPrice(4.99);
@@ -323,7 +300,6 @@ public class Connection {
 		
 		Product p17 = new Product();
 		p17.setProductName("Lawn Flamingo");
-		p17.setProductID(17);
 		p17.setImgPath("img/Flamingo.gif");
 		p17.setDescription("a dainty pair of Tim's favourite lawn ornaments");
 		p17.setPrice(14.99);
@@ -332,7 +308,6 @@ public class Connection {
 		
 		Product p18 = new Product();
 		p18.setProductName("Benny");
-		p18.setProductID(18);
 		p18.setImgPath("img/Benny.gif");
 		p18.setDescription("the worst gnome in existence; the dumpy little guy from gnomeo and juliet");
 		p18.setPrice(8.99);
@@ -342,7 +317,6 @@ public class Connection {
 		
 		Product p19 = new Product();
 		p19.setProductName("Westbury Pool Table");
-		p19.setProductID(19);
 		p19.setImgPath("img/westburyPoolTable019.jpg");
 		p19.setDescription("Dive into the pool table of pure magnificence.");
 		p19.setPrice(209.99);
@@ -353,39 +327,30 @@ public class Connection {
 																						// Product Categories
 		ProductCategory pc1 = new ProductCategory();
 		pc1.setCategoryID(001);
-		pc1.setProductID(1);
 		
 		ProductCategory pc2 = new ProductCategory();
 		pc2.setCategoryID(001);
-		pc2.setProductID(2);
 		
 		ProductCategory pc3 = new ProductCategory();
 		pc3.setCategoryID(001);
-		pc3.setProductID(3);
 		
 		ProductCategory pc4 = new ProductCategory();
 		pc4.setCategoryID(001);
-		pc4.setProductID(4);
 		
 		ProductCategory pc5 = new ProductCategory();
 		pc5.setCategoryID(001);
-		pc5.setProductID(5);
 		
 		ProductCategory pc6 = new ProductCategory();
 		pc6.setCategoryID(001);
-		pc6.setProductID(6);
 		
 		ProductCategory pc7 = new ProductCategory();
 		pc7.setCategoryID(001);
-		pc7.setProductID(7);
 		
 		ProductCategory pc8 = new ProductCategory();
 		pc8.setCategoryID(002);
-		pc8.setProductID(19);
 		
 		ProductCategory pc9 = new ProductCategory();
 		pc9.setCategoryID(001);
-		pc9.setProductID(1);
 																								// Product Categories
 			
 		

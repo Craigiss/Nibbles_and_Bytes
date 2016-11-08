@@ -67,13 +67,7 @@ public class Address {
 		return id;
 	}
 
-	/**
-	 * Method to set the ID of the address instance
-	 * @param id Input to set the ID
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
+
 
 	/**
 	 * Method to get line 1 of the address instance

@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 
 import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Category;
+import com.nb.gnome.entities.ISAccount;
 import com.nb.gnome.entities.Product;
 
 import com.nb.gnome.entities.ProductCategory;
@@ -102,6 +103,10 @@ public class ObjectConverter implements Serializable {
 		}
 		
 		return returnsList;
+	}
+	public List<ISAccount> convertToISA(List<Object> returnData) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
