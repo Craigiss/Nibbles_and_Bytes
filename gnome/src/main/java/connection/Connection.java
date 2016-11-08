@@ -67,6 +67,16 @@ public class Connection {
 		session.close();
 		sessionFactory.close();
 	}
+	
+	public void persistUpdate(Object obj){
+		createSession();
+		session.update(obj);
+		System.out.println("things have happened?");
+		tx = session.beginTransaction();
+		tx.commit();
+		session.close();
+		sessionFactory.close();
+		}
 
 	public List<Object> returnData(String databaseToQuery) {
 		createSession();
