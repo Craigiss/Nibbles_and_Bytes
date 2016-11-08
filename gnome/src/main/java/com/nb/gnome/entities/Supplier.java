@@ -52,7 +52,7 @@ public class Supplier {
 	@Column(name = "deleted")
 	private boolean deleted;
 	
-	@OneToMany(mappedBy ="supplier")
+	@OneToMany(fetch=FetchType.EAGER, mappedBy ="supplier")
 	private List<Product> products;
 	
 	@OneToOne

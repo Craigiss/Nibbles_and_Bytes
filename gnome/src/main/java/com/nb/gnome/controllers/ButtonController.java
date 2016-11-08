@@ -57,10 +57,4 @@ public class ButtonController implements Serializable {
 	public void setIdOfProduct(int idOfProduct) {
 		this.idOfProduct = idOfProduct;
 	}
-
-
-
-
-
-
 }

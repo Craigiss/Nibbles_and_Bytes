@@ -32,9 +32,10 @@
 		<!-- Back button and search bar -->
 		<div class="row">
 			<div class="col-sm-3" id="back">
-				<a href="imsPo.xhtml" class="hovering"> <img
-					class="glass_back" src="../img/back.png" />
-				</a>
+				<h:form class="hovering">
+					<button id="backButton" type="button" data-toggle="modal"
+						data-target="#myModal" />
+				</h:form>
 			</div>
 
 			<div class="col-sm-9" id="search">
@@ -299,5 +300,37 @@
 		</div>
 
 	</div>
+	
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">X</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Confirm Page
+						Navigation</h4>
+				</div>
+				<div class="modal-body">Are you sure you want leave this page
+					without saving?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn pull-left btn-danger"
+						data-dismiss="modal">Cancel</button>
+					<h:form id="formSubmission">
+						<h:outputLink class="btn btn-success" value="imsPo.xhtml?faces-redirect=true"
+							style="right:10px;">Confirm</h:outputLink>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="../css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	
+	
 </body>
 </html>
