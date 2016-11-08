@@ -228,7 +228,7 @@ public class Supplier {
 		this.address = address;
 		
 	}
-<<<<<<< HEAD
+
 	
 	@Override
 	public String toString() {
@@ -253,9 +253,4 @@ public class Supplier {
 	            ? (this.getClass().hashCode() + idAsInt.hashCode())
 	            : super.hashCode();
 	    }
-	
-	
-=======
-
->>>>>>> 06641135be45edc0f87511ce1db5c781cc5a8426
 }

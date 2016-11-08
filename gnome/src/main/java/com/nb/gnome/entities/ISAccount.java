@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
  */
 
 @Entity
-@Table (name = "Account")
+@Table (name = "ISAccount")
 public class ISAccount {
 	//attributes
 	@Id

@@ -38,7 +38,7 @@ public class ISAccountRepositoryHib implements ISAccountRepository{
 
 	@Override
 	public ISAccount findISAccountByEmail(String email) {
-		ArrayList<ISAccount> accountList = (ArrayList)converter.convertToAccount(database.returnData("Account"));
+		ArrayList<ISAccount> accountList = (ArrayList)converter.convertToAccount(database.returnData("ISAccount"));
 		ISAccount is = new ISAccount();
 		for (ISAccount isa : accountList ){
 			if (isa.getEmail().equals(email))
@@ -54,7 +54,7 @@ public class ISAccountRepositoryHib implements ISAccountRepository{
 	@Override
 	public String findSaltByEmail(String email) {
 		@SuppressWarnings("rawtypes")
-		ArrayList<ISAccount> accountList = (ArrayList)converter.convertToAccount(database.returnData("Account"));
+		ArrayList<ISAccount> accountList = (ArrayList)converter.convertToAccount(database.returnData("ISAccount"));
 		String salt="";
 		for (ISAccount isa : accountList){
 			if (isa.getEmail().equals(email))
@@ -67,7 +67,7 @@ public class ISAccountRepositoryHib implements ISAccountRepository{
 
 	@Override
 	public List<ISAccount> findAll(){
-		ArrayList<ISAccount> accountList = (ArrayList)converter.convertToAccount(database.returnData("Account"));
+		ArrayList<ISAccount> accountList = (ArrayList)converter.convertToAccount(database.returnData("ISAccount"));
 		List<ISAccount> accounts = new ArrayList<ISAccount>();
 		for (ISAccount a : accountList)
 			accounts.add(a);

@@ -25,10 +25,9 @@ public class SupplierRepositoryHib implements SupplierRepository{
 	
 	//Create
 	@Override
-	public void persistSupplier(Supplier s){
-		Address a1 = new Address("25 Barncombe Close", "", "Benfleet" , "Essex", "SS74AQ");
-		s.setAddress(a1);
-		database.persistData(s,a1);
+	public void persistSupplier(String mCompany, String mName, String mPhone, String mEmail, String mDescription, Address mAddress){
+		Supplier s = new Supplier(mCompany, mName, mPhone, mEmail, mDescription, mAddress);
+		database.persistData(s);
 	}
 	
 	@Override
