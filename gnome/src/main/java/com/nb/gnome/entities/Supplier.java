@@ -63,8 +63,7 @@ public class Supplier {
 		products = new ArrayList<Product>();
 	}
 	
-	public Supplier(int id, String company, String name, String phone, String email, String description, Address address){
-		this.id = id;
+	public Supplier(String company, String name, String phone, String email, String description, Address address){
 		this.company = company;
 		this.name = name;
 		this.phone = phone;
@@ -227,11 +226,31 @@ public class Supplier {
 	 */
 	public void setAddress(Address address) {
 		this.address = address;
+		
 	}
+
 	
 	@Override
 	public String toString() {
+		
 	    return String.valueOf(id);
 	}
 	
+
+	 @Override
+	    public boolean equals(Object other) {
+	         Integer idAsInt = (Integer) id;
+		 
+		 return (other instanceof Supplier) && (idAsInt != null)
+	            ? idAsInt.equals(((Supplier) other).id)
+	            : (other == this);
+	    }
+
+	    @Override
+	    public int hashCode() {
+	    	  Integer idAsInt = (Integer) id;
+	    	return (idAsInt != null)
+	            ? (this.getClass().hashCode() + idAsInt.hashCode())
+	            : super.hashCode();
+	    }
 }

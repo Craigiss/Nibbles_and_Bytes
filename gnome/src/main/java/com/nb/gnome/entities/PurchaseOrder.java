@@ -50,9 +50,9 @@ public class PurchaseOrder {
 	}
 	
 	public PurchaseOrder(int mId, Date mDate, String mStatus, List<PurchaseOrderDetails> mList, Supplier mSup){
-		this.id=id;
-		this.date=date;
-		this.status=status;
+		this.id=mId;
+		this.date=mDate;
+		this.status=mStatus;
 		this.lines = mList;
 		this.supplier = mSup;
 	}

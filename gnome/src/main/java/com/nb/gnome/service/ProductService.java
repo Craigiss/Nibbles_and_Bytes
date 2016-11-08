@@ -25,6 +25,7 @@ public class ProductService {
 	 * Calls Product Manager method, pooling params together to create a new product object
 	 */
 	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel, Supplier mSupplier){
+		System.out.println("IN SERVICE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		productManager.persistProduct(mName, mDescription, mPrice, mStockLevel, mporousStockLevel, mSupplier);
 	}
 	

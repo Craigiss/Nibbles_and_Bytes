@@ -69,47 +69,217 @@
 				</div>
 				<div class="row table">
 					<div class="supDetails">
-						<h:selectOneMenu class="supplierDropdown" value="#{pos.supplier}" valueChangeListener="#{pos.supplierChangeListener}">
-							<f:selectItem itemValue="#{null}" itemLabel="Select a supplier" />
+						<h:selectOneMenu class="supplierDropdown" value="#{pos.supplier}"
+							valueChangeListener="#{pos.supplierChangeListener}"
+							converter="omnifaces.SelectItemsConverter">
+							<f:selectItem itemValue="#{null}" itemLabel="Select a supplier"
+								noSelectionOption="true" />
 							<f:selectItems value="#{suppliers.findAll()}" var="sup"
-								itemValue="#{sup.company}" itemLabel="#{sup.company}" />
-							<a4j:ajax event="change" render="productDrop" immediate="true"/>
+								itemValue="#{sup}" itemLabel="#{sup.company}" />
+							<a4j:ajax event="valueChange"
+								render="productDrop0 productDrop1 productDrop2 productDrop3 productDrop4 productDrop5 productDrop6 productDrop7 productDrop8 productDrop9"
+								execute="@this" />
 						</h:selectOneMenu>
 					</div>
 				</div>
 			</div>
+
 			<div class="addElement">
 				<div class="row table">
-					<div class="col-sm-10 heading supDetails">Product</div>
-					<div class="col-sm-2 heading supDetails listCenter">Quantity</div>
+					<div class="col-sm-11 heading supDetails">Product</div>
+					<div class="col-sm-1 heading supDetails listCenter">Quantity</div>
 				</div>
-				<div class="row table">
-					<div class="col-sm-10 supDetails">
-						<h:selectOneMenu id="productDrop" class="productDropdown"
-							value="#{pods.listProducts[0]}">
-							<f:selectItem itemValue="null" itemLabel="Select a product" />
-							<f:selectItems value="#{pos.supplier.products}" var="prod"
-								itemLabel="#{prod.productName}" />
-						</h:selectOneMenu>
+				<div class="row">
+					<div class="col-sm-11 supDetails">
+						<a4j:outputPanel id="productDrop0">
+							<h:selectOneMenu class="productDropdown" value="#{pods.product1}"
+								converter="omnifaces.SelectItemsConverter"
+								rendered="#{pos.supplier ne null}">
+								<f:selectItem itemValue="null" itemLabel="Select a product"
+									noSelectionOption="true" />
+								<f:selectItems value="#{pos.listProducts}" var="prod"
+									itemValue="#{prod}" itemLabel="#{prod.productName}" />
+								<a4j:ajax event="valueChange" render="productDrop1" />
+							</h:selectOneMenu>
+						</a4j:outputPanel>
 					</div>
-					<div class="col-sm-2">
-						<h:inputText style="border: 1px solid silver" />
+					<div class="col-sm-1">
+						<h:inputText value="#{pods.quantity1}" style="border: 1px solid silver" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-11 supDetails">
+						<a4j:outputPanel id="productDrop1">
+							<h:selectOneMenu class="productDropdown" value="#{pods.product2}"
+								converter="omnifaces.SelectItemsConverter"
+								rendered="#{pods.product1 ne null}">
+								<f:selectItem itemValue="null" itemLabel="Select a product"
+									noSelectionOption="true" />
+								<f:selectItems value="#{pos.listProducts}" var="prod"
+									itemLabel="#{prod.productName}" />
+									<a4j:ajax event="valueChange" render="productDrop2" />
+							</h:selectOneMenu>
+						</a4j:outputPanel>
+					</div>
+					<div class="col-sm-1">
+						<h:inputText value="#{pods.quantity2}" style="border: 1px solid silver" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-11 supDetails">
+						<a4j:outputPanel id="productDrop2">
+							<h:selectOneMenu class="productDropdown" value="#{pods.product3}"
+								converter="omnifaces.SelectItemsConverter"
+								rendered="#{pods.product2 ne null}">
+								<f:selectItem itemValue="null" itemLabel="Select a product"
+									noSelectionOption="true" />
+								<f:selectItems value="#{pos.listProducts}" var="prod"
+									itemLabel="#{prod.productName}" />
+									<a4j:ajax event="valueChange" render="productDrop3" />
+							</h:selectOneMenu>
+						</a4j:outputPanel>
+					</div>
+					<div class="col-sm-1">
+						<h:inputText value="#{pods.quantity3}" style="border: 1px solid silver" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-11 supDetails">
+						<a4j:outputPanel id="productDrop3">
+							<h:selectOneMenu class="productDropdown" value="#{pods.product4}"
+								converter="omnifaces.SelectItemsConverter"
+								rendered="#{pods.product3 ne null}">
+								<f:selectItem itemValue="null" itemLabel="Select a product"
+									noSelectionOption="true" />
+								<f:selectItems value="#{pos.listProducts}" var="prod"
+									itemLabel="#{prod.productName}" />
+									<a4j:ajax event="valueChange" render="productDrop4" />
+							</h:selectOneMenu>
+						</a4j:outputPanel>
+					</div>
+					<div class="col-sm-1">
+						<h:inputText value="#{pods.quantity4}" style="border: 1px solid silver" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-11 supDetails">
+						<a4j:outputPanel id="productDrop4">
+							<h:selectOneMenu class="productDropdown" value="#{pods.product5}"
+								converter="omnifaces.SelectItemsConverter"
+								rendered="#{pods.product4 ne null}">
+								<f:selectItem itemValue="null" itemLabel="Select a product"
+									noSelectionOption="true" />
+								<f:selectItems value="#{pos.listProducts}" var="prod"
+									itemLabel="#{prod.productName}" />
+									<a4j:ajax event="valueChange" render="productDrop5" />
+							</h:selectOneMenu>
+						</a4j:outputPanel>
+					</div>
+					<div class="col-sm-1">
+						<h:inputText value="#{pods.quantity5}" style="border: 1px solid silver" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-11 supDetails">
+						<a4j:outputPanel id="productDrop5">
+							<h:selectOneMenu class="productDropdown" value="#{pods.product6}"
+								converter="omnifaces.SelectItemsConverter"
+								rendered="#{pods.product5 ne null}">
+								<f:selectItem itemValue="null" itemLabel="Select a product"
+									noSelectionOption="true" />
+								<f:selectItems value="#{pos.listProducts}" var="prod"
+									itemLabel="#{prod.productName}" />
+									<a4j:ajax event="valueChange" render="productDrop6" />
+							</h:selectOneMenu>
+						</a4j:outputPanel>
+					</div>
+					<div class="col-sm-1">
+						<h:inputText value="#{pods.quantity6}" style="border: 1px solid silver" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-11 supDetails">
+						<a4j:outputPanel id="productDrop6">
+							<h:selectOneMenu class="productDropdown" value="#{pods.product7}"
+								converter="omnifaces.SelectItemsConverter"
+								rendered="#{pods.product6 ne null}">
+								<f:selectItem itemValue="null" itemLabel="Select a product"
+									noSelectionOption="true" />
+								<f:selectItems value="#{pos.listProducts}" var="prod"
+									itemLabel="#{prod.productName}" />
+									<a4j:ajax event="valueChange" render="productDrop7" />
+							</h:selectOneMenu>
+						</a4j:outputPanel>
+					</div>
+					<div class="col-sm-1">
+						<h:inputText value="#{pods.quantity7}" style="border: 1px solid silver" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-11 supDetails">
+						<a4j:outputPanel id="productDrop7">
+							<h:selectOneMenu class="productDropdown" value="#{pods.product8}"
+								converter="omnifaces.SelectItemsConverter"
+								rendered="#{pods.product7 ne null}">
+								<f:selectItem itemValue="null" itemLabel="Select a product"
+									noSelectionOption="true" />
+								<f:selectItems value="#{pos.listProducts}" var="prod"
+									itemLabel="#{prod.productName}" />
+									<a4j:ajax event="valueChange" render="productDrop8" />
+							</h:selectOneMenu>
+						</a4j:outputPanel>
+					</div>
+					<div class="col-sm-1">
+						<h:inputText value="#{pods.quantity8}" style="border: 1px solid silver" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-11 supDetails">
+						<a4j:outputPanel id="productDrop8">
+							<h:selectOneMenu class="productDropdown" value="#{pods.product9}"
+								converter="omnifaces.SelectItemsConverter"
+								rendered="#{pods.product8 ne null}">
+								<f:selectItem itemValue="null" itemLabel="Select a product"
+									noSelectionOption="true" />
+								<f:selectItems value="#{pos.listProducts}" var="prod"
+									itemLabel="#{prod.productName}" />
+									<a4j:ajax event="valueChange" render="productDrop9" />
+							</h:selectOneMenu>
+						</a4j:outputPanel>
+					</div>
+					<div class="col-sm-1">
+						<h:inputText value="#{pods.quantity9}" style="border: 1px solid silver" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-11 supDetails">
+						<a4j:outputPanel id="productDrop9">
+							<h:selectOneMenu class="productDropdown" value="#{pods.product10}"
+								converter="omnifaces.SelectItemsConverter"
+								rendered="#{pods.product9 ne null}">
+								<f:selectItem itemValue="null" itemLabel="Select a product"
+									noSelectionOption="true" />
+								<f:selectItems value="#{pos.listProducts}" var="prod"
+									itemLabel="#{prod.productName}" />
+							</h:selectOneMenu>
+						</a4j:outputPanel>
+					</div>
+					<div class="col-sm-1">
+						<h:inputText value="#{pods.quantity10}" style="border: 1px solid silver" />
 					</div>
 				</div>
 			</div>
-
-
 
 			<!-- Save and cancel buttons -->
 			<div class="row addops">
 				<div class="col-sm-1 addButs" />
-				<h:commandLink class="listCenter" action="#{pos.printSupplier()}">
-					<div class="col-sm-4 addButs listCenter" id="save">Save</div>
+				<h:commandLink class="listCenter" action="#{pos.persistPurchaseOrder()}">
+					<div class="col-sm-4 addButs listCenter hovering" id="save">Save</div>
 				</h:commandLink>
 				<div class="col-sm-2 addButs" />
-				<a href="imsPo.xhtml">
-					<div class="col-sm-4 addButs listCenter" id="cancel">Cancel</div>
-				</a>
+				<h:commandLink class="listCenter" action="#{pos.clean()}">
+					<div class="col-sm-4 addButs listCenter hovering" id="cancel">Cancel</div>
+				</h:commandLink>
 				<div class="col-sm-1 addButs" />
 			</div>
 

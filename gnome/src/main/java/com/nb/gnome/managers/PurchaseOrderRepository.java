@@ -15,7 +15,7 @@ import com.nb.gnome.entities.Supplier;
 
 public interface PurchaseOrderRepository {
 		//Create
-		public void persistPurchaseOrder(int mId, Date mDate, String mStatus, List<PurchaseOrderDetails> mList, Supplier mSup);
+		public void persistPurchaseOrder(Date mDate, String mStatus, List<PurchaseOrderDetails> mList, Supplier mSup);
 		//Read
 		public List<PurchaseOrder> findPurchaseOrder();
 		
@@ -26,4 +26,6 @@ public interface PurchaseOrderRepository {
 		public List<PurchaseOrder> findAll();
 		
 		public int findItemsQuantity(PurchaseOrder p);
+		
+		public void deletePurchaseOrder(int id);
 }

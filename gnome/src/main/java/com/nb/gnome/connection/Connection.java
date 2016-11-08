@@ -1,79 +1,88 @@
-//package com.nb.gnome.connection;
-//
-//import java.sql.Date;
-//import java.util.ArrayList;
-//import java.util.List;
-//import java.util.Properties;
-//
-//import javax.annotation.PostConstruct;
-//import javax.ejb.*;
-//
+package com.nb.gnome.connection;
 
-//import org.hibernate.Query;
-//import org.hibernate.Session;
-//import org.hibernate.SessionFactory;
-//import org.hibernate.Transaction;
-//import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-//import org.hibernate.cfg.Configuration;
-//import org.hibernate.service.ServiceRegistry;
-//
-//import com.nb.gnome.entities.Address;
-//import com.nb.gnome.entities.Product;
-//import com.nb.gnome.entities.PurchaseOrder;
-//import com.nb.gnome.entities.PurchaseOrderDetails;
-//import com.nb.gnome.entities.Supplier;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
-//
-//@Startup
-//@Singleton
-//public class Connection {
-//	
-//	private SessionFactory sessionFactory;
-//	private Session session;
-//	private Transaction tx;
-//	
-//	private void createSession(){
-//		Properties properties = new Properties();
-//		properties.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
-//		properties.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/ims");
-//		
-//			
-//		properties.setProperty("hibernate.connection.username", "root");
-//		properties.setProperty("hibernate.connection.password", "password");
-//		
-//		
-//		properties.setProperty("hibernate.show_sql", "true");
-//		//properties.setProperty("hibernate.hbm2ddl.auto", "update");
-//		properties.setProperty("hibernate.hbm2ddl.auto", "create");
-//					
-//		Configuration cfg = new Configuration().addProperties(properties).addAnnotatedClass(Product.class).addAnnotatedClass(Supplier.class).addAnnotatedClass(Address.class).addAnnotatedClass(PurchaseOrder.class).addAnnotatedClass(PurchaseOrderDetails.class);
-//		ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).build();
-//		
-//		
-//		sessionFactory = cfg.buildSessionFactory(serviceRegistry);	
-//		session = sessionFactory.openSession();
-//	}
-//	
-//	public void persistData(Object...objects){
-//		createSession();
-//		tx = session.beginTransaction();
-//		for (Object b : objects){
-//			session.save(b);
-//		}
-//		tx.commit();
-//		session.close();
-//		sessionFactory.close();		
-//	}
-//	
-//	public List<Object> returnData(String databaseToQuery){
-//		createSession();
-//		Query query = session.createQuery("from " + databaseToQuery);
-//		List<Object> returnObjects = query.list();
-//		session.close();
-//		sessionFactory.close();
-//		return returnObjects;
-//	}
-//	
+import javax.annotation.PostConstruct;
+import javax.ejb.*;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+
+import com.nb.gnome.entities.Address;
+import com.nb.gnome.entities.ISAccount;
+import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.PurchaseOrder;
+import com.nb.gnome.entities.PurchaseOrderDetails;
+import com.nb.gnome.entities.Supplier;
+
+@Startup
+@Singleton
+public class Connection {
+	
+	private SessionFactory sessionFactory;
+	private Session session;
+	private Transaction tx;
+	
+	private void createSession(){
+		Properties properties = new Properties();
+		properties.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
+		properties.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/ims?autoReconnect=true&useSSL=false");
+		
+			
+		properties.setProperty("hibernate.connection.username", "root");
+		properties.setProperty("hibernate.connection.password", "password");
+		
+		
+		properties.setProperty("hibernate.show_sql", "true");
+		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		//properties.setProperty("hibernate.hbm2ddl.auto", "create");
+					
+		Configuration cfg = new Configuration().addProperties(properties).addAnnotatedClass(Product.class).addAnnotatedClass(Supplier.class).addAnnotatedClass(Address.class).addAnnotatedClass(PurchaseOrder.class).addAnnotatedClass(PurchaseOrderDetails.class).addAnnotatedClass(ISAccount.class);
+		ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).build();
+		
+		
+		sessionFactory = cfg.buildSessionFactory(serviceRegistry);	
+		session = sessionFactory.openSession();
+	}
+	
+	public void persistData(Object...objects){
+		createSession();
+		tx = session.beginTransaction();
+		for (Object b : objects){
+			session.save(b);
+		}
+		tx.commit();
+		session.close();
+		sessionFactory.close();		
+	}
+	
+	public List<Object> returnData(String databaseToQuery){
+		createSession();
+		Query query = session.createQuery("from " + databaseToQuery);
+		List<Object> returnObjects = query.list();
+		session.close();
+		sessionFactory.close();
+		return returnObjects;
+	}
+	
+	public void persistUpdate(Object obj){
+		createSession();
+		session.update(obj);
+		System.out.println("things have happened?");
+		tx = session.beginTransaction();
+		tx.commit();
+		session.close();
+		sessionFactory.close();	
+	}
+	
 //	@PostConstruct
 //	public void init(){
 //		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..PRODUCT DONE");
@@ -115,54 +124,33 @@
 //		listOfPOD.add(pod1);
 //		pod1.setPo(po1);
 //		
-//		persistData(p1,a1,s1,po1,pod1);
+//		ISAccount isa1 = new ISAccount();
+//		isa1.setEmail("PaulVanDyke@TranceNation.com");
+//		isa1.setPassword("24871d06dc1dcb6614c7a0dc0f678d53390de44796500c1ca000624471b03c39");
+//		isa1.setName("Paul Van Dyke");
+//		isa1.setAdmin(false);
+//		isa1.setSalt("Y83naas£$Bklaf");
+//		isa1.setRole("user");
+//		
+//		ISAccount isa2 = new ISAccount();
+//		isa2.setEmail("CyrilSneer@GreenHavenCottage.com");
+//		isa2.setPassword("d7d18c04d2eab7deeb363b8c89fb68618e2be0ea34686e085313c627ea4c513a");
+//		isa2.setName("Cyril Sneer");
+//		isa2.setAdmin(false);
+//		isa2.setSalt("IU(979qh097asith");
+//		isa2.setRole("user");
+//
+//		ISAccount isa3 = new ISAccount();
+//		isa3.setEmail("admin");
+//		isa3.setPassword("6bcf7af8f331e857e69c4a7a748742e549cb1d3af9f4bf920a75a23fbd006ae8");
+//		isa3.setName("admin");
+//		isa3.setAdmin(true);
+//		isa3.setSalt("42");
+//		isa3.setRole("admin");
+//
+//		
+//		persistData(p1,a1,s1,po1,pod1,isa1,isa2,isa3);
 //	}
-//	
-//
-//}
-//
-//
-//
-////Product p2 = new Product();
-////p2.setProductName("Godzilla gnome");
-////p2.setProductID(002);
-////p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden");
-////p2.setPrice(24.99);
-////p2.setStockLevel(115);
-////p2.setPorousStockLevel(6);
-////p2.setImgPath("img/gnomezilla.png");
-////
-////
-////Product p3 = new Product();
-////p3.setProductName("Timtim the timmy tim gnome");
-////p3.setProductID(003);
-////p3.setDescription("tim loves java and being in the garden");
-////p3.setPrice(24.99);
-////p3.setStockLevel(1015);
-////p3.setPorousStockLevel(20);
-////
-////
-////Product p4 = new Product();
-////p4.setProductName("Gnome Of Gnomes - Ned Gnome");
-////p4.setProductID(004);
-////p4.setDescription("Dont lose your head!");
-////p4.setPrice(14.99);
-////p4.setStockLevel(1);
-////p4.setPorousStockLevel(8);
-////
-////Product p5 = new Product();
-////p5.setProductName("Gnome Trek - Kirk & Spok");
-////p5.setProductID(005);
-////p5.setDescription("Travelling where no gnome has gone before!");
-////p5.setPrice(20.99);
-////p5.setStockLevel(6);
-////p5.setPorousStockLevel(3);
-////
-////
-////Product p6 = new Product();
-////p6.setProductName("Benny - Gnomeo&Juliet");
-////p6.setProductID(006);
-////p6.setDescription("Tragic Gnomes");
-////p6.setPrice(12.99);
-////p6.setStockLevel(7);
-////p6.setPorousStockLevel(1);
+	
+
+}

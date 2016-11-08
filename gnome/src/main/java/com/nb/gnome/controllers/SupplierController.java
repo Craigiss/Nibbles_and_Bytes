@@ -13,6 +13,7 @@ import com.nb.gnome.service.SupplierService;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -22,9 +23,9 @@ public class SupplierController implements Serializable {
 	@Inject
 	private SupplierService supplierService;
 	@Inject
-	IMSUserCredentials userCredentials;
-
-	// private Supplier supplier;
+	private IMSUserCredentials userCredentials;
+	@Inject
+	private AddressController addressController;
 	@Inject
 	private SelectedSupplier supplier;
 	private String company;
@@ -130,8 +131,10 @@ public class SupplierController implements Serializable {
 	 */
 
 	public String persistSupplier() {
+		address = addressController.persistAddress();
+		addressController.clean();
+		supplierService.persistSupplier(company, name, phone, email, description, address);
 		//address = addressController.persistAddress();
-		supplierService.persistSupplier(company, name, phone, email, description);
 		recreateModel();
 		getDataModel();
 
@@ -151,8 +154,8 @@ public class SupplierController implements Serializable {
 	 * 
 	 * @param comp
 	 */
-	public void findSupplierByCompany(String comp) {
-		supplierService.findSupplierByCompany(comp);
+	public List<Supplier> findSupplierByCompany(String comp) {
+		return supplierService.findSupplierByCompany(comp);
 	}
 
 	/**

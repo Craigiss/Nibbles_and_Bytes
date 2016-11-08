@@ -13,56 +13,40 @@ import com.nb.gnome.controllers.SupplierController;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.Supplier;
-
+import com.nb.gnome.managers.ProductRepository;
+import com.nb.gnome.managers.PurchaseOrderRepository;
+import com.nb.gnome.managers.SupplierRepository;
 
 import gnome.InitialData;
 
 @Stateless
 public class ButtonService {
 	@Inject private InitialData initialData; 
+	
+	@Inject private ProductRepository productRepro;
+	@Inject private SupplierRepository supplierRepro;
+	@Inject private PurchaseOrderRepository poRepro;
+	
 	@Inject private ProductController prodController;
 	@Inject private SupplierController supplierController;
 	@Inject private PurchaseOrderController poController;
+	
 	@Inject private GraphController graph;
 		
 	public String deleteProduct(int id){
-		for(Product p : initialData.getProducts())
-		{
-			if (p.getProductID() == id)
-			{
-				p.setDeleted(true);
-				if (p.getStockLevel()<=10){graph.removeSegment(p.getProductName() + " " + p.getStockLevel() + " products remaining ");}
-				if (p.getPorousStockLevel()<=10){graph.removeSegment3(p.getProductName() + " " + p.getPorousStockLevel() + " products remaining ");}
-			}
-		}
+		productRepro.deleteProduct(id);
 		prodController.reset();
 		return "imsProducts?faces-redirect=true";
 	}
 	
 	public String deleteSupplier(int id){
-		List<Supplier> suppliers = new ArrayList<Supplier>();
-		suppliers = initialData.getSuppliers();
-		for(Supplier s : suppliers)
-		{
-			if (s.getId() == id)
-			{
-				s.setDeleted(true);
-			}
-		}
-		
+		supplierRepro.deleteSupplier(id);
 		supplierController.reset();
 		return "imsSupplier?faces-redirect=true";
 	}
 	
 	public String deletePo(int id){	
-		List<PurchaseOrder> po = new ArrayList<PurchaseOrder>();
-		po = initialData.getPurchaseOrders();
-		for(PurchaseOrder p : po){
-			if (p.getId() == id){
-				p.setDeleted(true);
-			}
-		}
-		
+		poRepro.deletePurchaseOrder(id);
 		poController.reset();
 		return "imsPo?faces-redirect=true";
 	}

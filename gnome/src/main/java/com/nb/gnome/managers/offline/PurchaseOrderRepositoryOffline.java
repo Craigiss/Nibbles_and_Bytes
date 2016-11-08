@@ -23,10 +23,16 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 	private InitialData initialData;
 	
 	@Override
-	public void persistPurchaseOrder(int mId, Date mDate, String mStatus, List<PurchaseOrderDetails> mList, Supplier mSup) {
-		PurchaseOrder popo = new PurchaseOrder(initialData.getPurchaseOrders().size() + 1, mDate, mStatus, mList, mSup);
+	public void persistPurchaseOrder(Date mDate, String status, List<PurchaseOrderDetails> mList, Supplier mSup) {
+		int id = initialData.getPurchaseOrders().size() + 1;
+		PurchaseOrder popo = new PurchaseOrder(id, mDate, status, mList, mSup);
 		initialData.addPurchaseOrder(popo);
+		
+		for(PurchaseOrderDetails pod : mList){
+			initialData.addPurchaseOrderDetails(pod);
+		}
 	}
+	
 	@Override
 	public List<PurchaseOrder> findPurchaseOrder() {
 		return initialData.getPurchaseOrders();
@@ -67,6 +73,18 @@ public class PurchaseOrderRepositoryOffline implements PurchaseOrderRepository {
 	@Override
 	public int findItemsQuantity(PurchaseOrder p){
 		return p.getLines().size();
+	}
+	
+	@Override
+	public void deletePurchaseOrder(int id) {
+		List<PurchaseOrder> po = new ArrayList<PurchaseOrder>();
+		po = initialData.getPurchaseOrders();
+		for(PurchaseOrder p : po){
+			if (p.getId() == id){
+				p.setDeleted(true);
+			}
+		}
+		
 	}
 	
 }

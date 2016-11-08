@@ -16,8 +16,41 @@ public class InitialData {
 	private List<PurchaseOrder> purchaseOrders = new ArrayList<PurchaseOrder>();
 	private List<PurchaseOrderDetails> purchaseOrderDetails = new ArrayList<PurchaseOrderDetails>();
 	private List<Supplier> suppliers = new ArrayList<Supplier>();
-	
+
 	public InitialData(){
+	
+		Supplier s1 = new Supplier();
+		s1.setCompany("Lawn Flamingos Wholesale");
+		s1.setId(001);
+		s1.setName("Augustine Poutine");
+		s1.setPhone("01645839242");
+		s1.setEmail("augustine@lawnflamingoswholesale.lol");
+		s1.setDescription("These guys sell lawn flamingos in bulk. Low prices but we tend to have their stock for a while."
+				+ " Augustine is friendly enough, but don't talk to them about gnomes. They have incredible delivery time, "
+				+ "as they are able to ship 1,000 flamingos for next day delivery. This is now a test to see how far down the"
+				+ "text will go and if it will collide with the PO table that shows all the POs for this supplier.");
+		s1.setAddress(new Address("1 Test Road", "second line", "Test Town", "Test County", "Test Postcode"));
+		suppliers.add(s1);
+		
+		Supplier s2 = new Supplier();
+		s2.setCompany("Jacuzzi Babies");
+		s2.setId(002);
+		s2.setName("Howard Schultz");
+		s2.setPhone("07483627292");
+		s2.setEmail("hottubsareawesome@jacuzzibabies.com");
+		s2.setDescription("This supplier sells great jacuzzis. They have always been reliable, and Howard is always very helpful. Require one week to deliver an order.");
+		suppliers.add(s2);
+		
+		Supplier s3 = new Supplier();
+		s3.setCompany("Sensibler Middle Aged Home Owners");
+		s3.setId(003);
+		s3.setName("Maurice 'the madman' Mortimer");
+		s3.setPhone("026492672555");
+		s3.setEmail("sensiblelawnornaments@madmansales.com");
+		s3.setDescription("Good supplier but be careful of Maurice. He can be a bit temperamental at times, so don't haggle too much on the price. "
+				+ "Delivery time depends on the size of the order, but should be safe for 3 business days if order quantity is less than 500. ");
+		suppliers.add(s3);
+		
 		Product p1 = new Product();
 		p1.setProductName("Lawn Flamingo");
 		p1.setProductID(1);
@@ -26,7 +59,9 @@ public class InitialData {
 		p1.setStockLevel(5);
 		p1.setPorousStockLevel(15);
 		p1.setImgPath("../img/Flamingo.gif");
+		p1.setSupplier(s1);
 		products.add(p1);
+		s1.getProducts().add(p1);
 		
 		Product p2 = new Product();
 		p2.setProductName("Godzilla gnome");
@@ -35,8 +70,10 @@ public class InitialData {
 		p2.setPrice(24.99);
 		p2.setStockLevel(115);
 		p2.setPorousStockLevel(6);
-		p2.setImgPath("../img/gnomezilla.png");
+p2.setImgPath("../img/gnomezilla.png");
+		p2.setSupplier(s1);
 		products.add(p2);
+		s1.getProducts().add(p2);
 		
 		Product p3 = new Product();
 		p3.setProductName("Mr and Mrs Gnome");
@@ -56,7 +93,9 @@ public class InitialData {
 		p4.setStockLevel(1);
 		p4.setPorousStockLevel(8);
 		p4.setImgPath("../img/GameofGnomes.jpg");
+		p4.setSupplier(s3);
 		products.add(p4);
+		s3.getProducts().add(p4);
 		
 		Product p5 = new Product();
 		p5.setProductName("Gnome Trek - Kirk & Spok");
@@ -65,8 +104,10 @@ public class InitialData {
 		p5.setPrice(20.99);
 		p5.setStockLevel(6);
 		p5.setPorousStockLevel(3);
+		p5.setSupplier(s3);
 		p5.setImgPath("../img/gnome_trek_set.png");
 		products.add(p5);
+		s3.getProducts().add(p5);
 		
 		Product p6 = new Product();
 		p6.setProductName("Benny - Gnomeo&Juliet");
@@ -75,39 +116,10 @@ public class InitialData {
 		p6.setPrice(12.99);
 		p6.setStockLevel(7);
 		p6.setPorousStockLevel(1);
+		p6.setSupplier(s3);
 		p6.setImgPath("../img/benny.png");
 		products.add(p6);
-		
-		Supplier s1 = new Supplier();
-		s1.setCompany("Lawn Flamingos Wholesale");
-		s1.setId(001);
-		s1.setName("Augustine Poutine");
-		s1.setPhone("01645839242");
-		s1.setEmail("augustine@lawnflamingoswholesale.lol");
-		s1.setDescription("These guys sell lawn flamingos in bulk. Low prices but we tend to have their stock for a while."
-				+ " Augustine is friendly enough, but don't talk to them about gnomes. They have incredible delivery time, "
-				+ "as they are able to ship 1,000 flamingos for next day delivery. This is now a test to see how far down the"
-				+ "text will go and if it will collide with the PO table that shows all the POs for this supplier.");
-		suppliers.add(s1);
-		
-		Supplier s2 = new Supplier();
-		s2.setCompany("Jacuzzi Babies");
-		s2.setId(002);
-		s2.setName("Howard Schultz");
-		s2.setPhone("07483627292");
-		s2.setEmail("hottubsareawesome@jacuzzibabies.com");
-		s2.setDescription("This supplier sells great jacuzzis. They have always been reliable, and Howard is always very helpful. Require one week to deliver an order.");
-		suppliers.add(s2);
-		
-		Supplier s3 = new Supplier();
-		s3.setCompany("Sensibler Middle Aged Home Owners");
-		s3.setId(004);
-		s3.setName("Maurice 'the madman' Mortimer");
-		s3.setPhone("026492672555");
-		s3.setEmail("sensiblelawnornamentsatareasonableprice@madmansales.com");
-		s3.setDescription("Good supplier but be careful of Maurice. He can be a bit temperamental at times, so don't haggle too much on the price. "
-				+ "Delivery time depends on the size of the order, but should be safe for 3 business days if order quantity is less than 500. ");
-		suppliers.add(s3);
+		s3.getProducts().add(p6);
 		
 		//Purchase Orders + Purchase Order Details
 		List<PurchaseOrderDetails> listOfPOD = new ArrayList<PurchaseOrderDetails>();
@@ -213,35 +225,38 @@ public class InitialData {
 		isa3.setRole("admin");
 		iSAccounts.add(isa3);
 	}
-	
-	
+
 	/**
 	 * @return the addresses
 	 */
-	public List<Address> getAddresses(){
+	public List<Address> getAddresses() {
 		return addresses;
 	}
-	
+
 	/**
 	 * Adds an address to the dummy data
-	 * @param a Input is new address to be added
+	 * 
+	 * @param a
+	 *            Input is new address to be added
 	 */
-	public void addAddress(Address a){
+	public void addAddress(Address a) {
 		addresses.add(a);
 	}
-	
+
 	/**
 	 * @return the inventoryStaffAccounts
 	 */
 	public List<ISAccount> getISAccounts() {
 		return iSAccounts;
 	}
-	
+
 	/**
 	 * Adds an inventory staff account to the data set
-	 * @param isa Input is new inventory staff account to be added
+	 * 
+	 * @param isa
+	 *            Input is new inventory staff account to be added
 	 */
-	public void addISAccount(ISAccount isa ){
+	public void addISAccount(ISAccount isa) {
 		iSAccounts.add(isa);
 	}
 
@@ -251,28 +266,31 @@ public class InitialData {
 	public List<Product> getProducts() {
 		return products;
 	}
-	
+
 	/**
 	 * Adds a product to the dummy data
-	 * @param p Input is new product to be added
+	 * 
+	 * @param p
+	 *            Input is new product to be added
 	 */
-	public void addProduct(Product p){
+	public void addProduct(Product p) {
 		products.add(p);
 	}
 
-	
 	/**
 	 * @return the purchaseOrders
 	 */
 	public List<PurchaseOrder> getPurchaseOrders() {
 		return purchaseOrders;
 	}
-	
+
 	/**
 	 * Adds a purchase order to the dummy data
-	 * @param po Input is new purchase order to be added
+	 * 
+	 * @param po
+	 *            Input is new purchase order to be added
 	 */
-	public void addPurchaseOrder(PurchaseOrder po){
+	public void addPurchaseOrder(PurchaseOrder po) {
 		purchaseOrders.add(po);
 	}
 
@@ -282,15 +300,16 @@ public class InitialData {
 	public List<PurchaseOrderDetails> getPurchaseOrderDetails() {
 		return purchaseOrderDetails;
 	}
-	
+
 	/**
 	 * Adds a purchase order line to the dummy data
-	 * @param po Input is new purchase order to be added
+	 * 
+	 * @param po
+	 *            Input is new purchase order to be added
 	 */
-	public void addPurchaseOrderDetails(PurchaseOrderDetails pol){
+	public void addPurchaseOrderDetails(PurchaseOrderDetails pol) {
 		purchaseOrderDetails.add(pol);
 	}
-
 
 	/**
 	 * @return the suppliers
@@ -298,12 +317,14 @@ public class InitialData {
 	public List<Supplier> getSuppliers() {
 		return suppliers;
 	}
-	
+
 	/**
 	 * Adds a supplier to the dummy data
-	 * @param s Input is new supplier to be added
+	 * 
+	 * @param s
+	 *            Input is new supplier to be added
 	 */
-	public void addSupplier(Supplier s){
+	public void addSupplier(Supplier s) {
 		suppliers.add(s);
 	}
 

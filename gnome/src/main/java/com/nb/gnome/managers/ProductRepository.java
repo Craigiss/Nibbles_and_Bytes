@@ -25,12 +25,10 @@ public interface ProductRepository {
 	public void incrementStock(int id, int quantity);
 	public void decrementStock(int id, int quantity);
 
-	public void persistProduct(String name, String description, double price, int stockLevel); 
-	
-	public void deleteProduct(Product p);
-
 	public List<Product> findCritical();
 
 	public List<Product> findCriticalPourous();
+	
+	public void deleteProduct(int id);
 	
 }

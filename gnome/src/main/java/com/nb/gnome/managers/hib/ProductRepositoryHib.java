@@ -1,15 +1,15 @@
 /**
  * 
  */
-package com.nb.gnome.managers.offline;
+package com.nb.gnome.managers.hib;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Default;
+import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
-
+import com.nb.gnome.connection.Connection;
 import com.nb.gnome.controllers.GraphController;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
@@ -19,39 +19,42 @@ import gnome.InitialData;
 
 
 /**
- * Offline Class for Product
-
- * @author Nibbles and Bytes
+ *  * @author Nibbles and Bytes
  */
-@Default
 @Stateless
-public class ProductRepositoryOffline implements ProductRepository {
+@Alternative
+public class ProductRepositoryHib implements ProductRepository {
+	
 	@Inject
-	private InitialData initialData;
-	@Inject GraphController graph;
+	private Connection database;
+	
+	@Inject
+	private ObjectConverter converter;
+	
+	@Inject 
+	private GraphController graph;
 	
 	//Create
 	@Override
 	public void persistProduct(String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel, Supplier supplier){
-		Product prodprod = new Product(findAll().size() +1, mName, mDescription, mPrice, mStockLevel, mporousStockLevel, supplier);
-		System.out.println(supplier.getClass());
-		supplier.getProducts().add(prodprod);
+		System.out.println(supplier.getClass() + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		Product prodprod = new Product(mName, mDescription, mPrice, mStockLevel, mporousStockLevel, supplier);
 		if (prodprod.getPorousStockLevel() <= 10){
 			graph.setPie3(prodprod.getProductName() + " " + prodprod.getPorousStockLevel() + " products remaining ",prodprod.getPorousStockLevel());
 		}
 		if (prodprod.getStockLevel() <=10){
 			graph.setPie(prodprod.getProductName() + " " + prodprod.getStockLevel() + " products remaining ",prodprod.getStockLevel());
-		}
-		initialData.addProduct(prodprod);
+		}		
+		database.persistData(prodprod);
 	}
 	
 	//Read
 	@Override
 	public List<Product> getProductByKeyword(String keyword){ 
-		
+		ArrayList<Product> productList = (ArrayList)converter.convertToProducts(database.returnData("Product"));
 		List<Product> keywordProduct = new ArrayList<Product>();
 		
-		for (Product p: initialData.getProducts()){
+		for (Product p: productList){
 			if (p.getProductName().toLowerCase().contains(keyword.toLowerCase()) || p.getDescription().toLowerCase().contains(keyword.toLowerCase())){
 				keywordProduct.add(p);
 				System.out.println(p.getProductName());
@@ -63,8 +66,9 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	@Override
 	public Product getProductByName(String name){
+		ArrayList<Product> productList = (ArrayList)converter.convertToProducts(database.returnData("Product"));
 		Product prod = new Product();
-		for (Product p: initialData.getProducts()){
+		for (Product p: productList){
 			if (p.getProductName() == name)
 			{
 				prod = p;				
@@ -75,8 +79,9 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	@Override
 	public Product getProductByID(int id){
+		ArrayList<Product> productList = (ArrayList)converter.convertToProducts(database.returnData("Product"));
 		Product prod = new Product();
-		for (Product p: initialData.getProducts()){
+		for (Product p: productList){
 			if (p.getProductID() == id)
 			{
 				prod = p;
@@ -87,9 +92,10 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	@Override
 	public int getStockLevel(int id){
+		ArrayList<Product> productList = (ArrayList)converter.convertToProducts(database.returnData("Product"));
 		int stockLevel=-1;
 		Product prod = new Product();
-		for (Product p: initialData.getProducts()){
+		for (Product p: productList){
 			if (p.getProductID() == id)
 			{
 				prod = p;
@@ -102,7 +108,8 @@ public class ProductRepositoryOffline implements ProductRepository {
 	//Update
 	@Override
 	public void incrementStock(int id, int quantity){
-		for (Product p: initialData.getProducts()){
+		ArrayList<Product> productList = (ArrayList)converter.convertToProducts(database.returnData("Product"));
+		for (Product p: productList){
 			if (p.getProductID() == id)
 			{
 				p.setStockLevel(p.getStockLevel()+quantity);
@@ -115,7 +122,8 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	@Override
 	public void decrementStock(int id, int quantity){
-		for (Product p: initialData.getProducts()){
+		ArrayList<Product> productList = (ArrayList)converter.convertToProducts(database.returnData("Product"));
+		for (Product p: productList){
 			if (p.getProductID() == id)
 			{
 				p.setStockLevel(p.getStockLevel()-quantity);
@@ -126,8 +134,9 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
     @Override
 	public List<Product> findAll(){
+    	ArrayList<Product> productList = (ArrayList)converter.convertToProducts(database.returnData("Product"));
     	List<Product> products = new ArrayList<Product>();
-    	for (Product p : initialData.getProducts())
+    	for (Product p : productList)
     		if(p.isDeleted() == false)
     		{
     			products.add(p);
@@ -135,11 +144,12 @@ public class ProductRepositoryOffline implements ProductRepository {
     	return products;
     	
     }
-    
+
 	@Override
 	public List<Product> findCritical() {
+		ArrayList<Product> productList = (ArrayList)converter.convertToProducts(database.returnData("Product"));
 		List<Product> products = new ArrayList<Product>();
-		for (Product p : initialData.getProducts())
+		for (Product p : productList)
 		{
 			if (p.getStockLevel() <= 10){
 				products.add(p);
@@ -150,8 +160,9 @@ public class ProductRepositoryOffline implements ProductRepository {
 	
 	@Override
 	public List<Product> findCriticalPourous() {
+		ArrayList<Product> productList = (ArrayList)converter.convertToProducts(database.returnData("Product"));
 		List<Product> products = new ArrayList<Product>();
-		for (Product p : initialData.getProducts())
+		for (Product p : productList)
 		{
 			if (p.getPorousStockLevel() <= 10){
 				products.add(p);
@@ -162,13 +173,15 @@ public class ProductRepositoryOffline implements ProductRepository {
 
 	@Override
 	public void deleteProduct(int id) {
-		for(Product p : initialData.getProducts())
+		ArrayList<Product> productList = (ArrayList)converter.convertToProducts(database.returnData("Product"));
+		for(Product p : productList)
 		{
 			if (p.getProductID() == id)
 			{
 				p.setDeleted(true);
 				if (p.getStockLevel()<=10){graph.removeSegment(p.getProductName() + " " + p.getStockLevel() + " products remaining ");}
 				if (p.getPorousStockLevel()<=10){graph.removeSegment3(p.getProductName() + " " + p.getPorousStockLevel() + " products remaining ");}
+				database.persistUpdate(p);
 			}
 		}
 		

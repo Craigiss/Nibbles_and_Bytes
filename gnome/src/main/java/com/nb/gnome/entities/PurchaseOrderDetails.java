@@ -35,6 +35,11 @@ public class PurchaseOrderDetails {
 		
 	}
 
+	public PurchaseOrderDetails(Product product, int quantity) {
+		this.product = product;
+		this.quantity = quantity;
+	}
+
 	/**
 	 * Method to return quantity of products ordered within the purchase order detail instance
 	 * @return Returns quantity of products ordered within the purchase order detail instance
