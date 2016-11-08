@@ -16,7 +16,7 @@ public class InitialData {
 	private List<PurchaseOrder> purchaseOrders = new ArrayList<PurchaseOrder>();
 	private List<PurchaseOrderDetails> purchaseOrderDetails = new ArrayList<PurchaseOrderDetails>();
 	private List<Supplier> suppliers = new ArrayList<Supplier>();
-	
+
 	public InitialData(){
 	
 		Supplier s1 = new Supplier();
@@ -58,7 +58,7 @@ public class InitialData {
 		p1.setPrice(15.99);
 		p1.setStockLevel(5);
 		p1.setPorousStockLevel(15);
-		p1.setImgPath("img/Flamingo.gif");
+		p1.setImgPath("../img/Flamingo.gif");
 		p1.setSupplier(s1);
 		products.add(p1);
 		s1.getProducts().add(p1);
@@ -70,21 +70,10 @@ public class InitialData {
 		p2.setPrice(24.99);
 		p2.setStockLevel(115);
 		p2.setPorousStockLevel(6);
-		p2.setImgPath("img/gnomezilla.png");
+p2.setImgPath("../img/gnomezilla.png");
 		p2.setSupplier(s1);
 		products.add(p2);
 		s1.getProducts().add(p2);
-		
-		Product p3 = new Product();
-		p3.setProductName("Timtim the timmy tim gnome");
-		p3.setProductID(003);
-		p3.setDescription("tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden ");
-		p3.setPrice(24.99);
-		p3.setStockLevel(1015);
-		p3.setPorousStockLevel(20);
-		p3.setSupplier(s2);
-		products.add(p3);
-		s2.getProducts().add(p3);
 		
 		Product p4 = new Product();
 		p4.setProductName("Gnome Of Gnomes - Ned Gnome");
@@ -93,6 +82,7 @@ public class InitialData {
 		p4.setPrice(14.99);
 		p4.setStockLevel(1);
 		p4.setPorousStockLevel(8);
+		p4.setImgPath("../img/GameofGnomes.jpg");
 		p4.setSupplier(s3);
 		products.add(p4);
 		s3.getProducts().add(p4);
@@ -105,6 +95,7 @@ public class InitialData {
 		p5.setStockLevel(6);
 		p5.setPorousStockLevel(3);
 		p5.setSupplier(s3);
+		p5.setImgPath("../img/gnome_trek_set.png");
 		products.add(p5);
 		s3.getProducts().add(p5);
 		
@@ -116,6 +107,7 @@ public class InitialData {
 		p6.setStockLevel(7);
 		p6.setPorousStockLevel(1);
 		p6.setSupplier(s3);
+		p6.setImgPath("../img/benny.png");
 		products.add(p6);
 		s3.getProducts().add(p6);
 		
@@ -149,11 +141,11 @@ public class InitialData {
 		po2.setStatus("Waiting Payment");
 		po2.setSupplier(s1);
 		
-		PurchaseOrderDetails pod3 = new PurchaseOrderDetails();
+/*		PurchaseOrderDetails pod3 = new PurchaseOrderDetails();
 		pod3.setProduct(p3);
 		pod3.setQuantity(30);
 		listOfPOD.add(pod3);
-		purchaseOrderDetails.add(pod3);
+		purchaseOrderDetails.add(pod3);*/
 		
 		PurchaseOrderDetails pod4 = new PurchaseOrderDetails();
 		pod4.setProduct(p4);
@@ -223,35 +215,38 @@ public class InitialData {
 		isa3.setRole("admin");
 		iSAccounts.add(isa3);
 	}
-	
-	
+
 	/**
 	 * @return the addresses
 	 */
-	public List<Address> getAddresses(){
+	public List<Address> getAddresses() {
 		return addresses;
 	}
-	
+
 	/**
 	 * Adds an address to the dummy data
-	 * @param a Input is new address to be added
+	 * 
+	 * @param a
+	 *            Input is new address to be added
 	 */
-	public void addAddress(Address a){
+	public void addAddress(Address a) {
 		addresses.add(a);
 	}
-	
+
 	/**
 	 * @return the inventoryStaffAccounts
 	 */
 	public List<ISAccount> getISAccounts() {
 		return iSAccounts;
 	}
-	
+
 	/**
 	 * Adds an inventory staff account to the data set
-	 * @param isa Input is new inventory staff account to be added
+	 * 
+	 * @param isa
+	 *            Input is new inventory staff account to be added
 	 */
-	public void addISAccount(ISAccount isa ){
+	public void addISAccount(ISAccount isa) {
 		iSAccounts.add(isa);
 	}
 
@@ -261,28 +256,31 @@ public class InitialData {
 	public List<Product> getProducts() {
 		return products;
 	}
-	
+
 	/**
 	 * Adds a product to the dummy data
-	 * @param p Input is new product to be added
+	 * 
+	 * @param p
+	 *            Input is new product to be added
 	 */
-	public void addProduct(Product p){
+	public void addProduct(Product p) {
 		products.add(p);
 	}
 
-	
 	/**
 	 * @return the purchaseOrders
 	 */
 	public List<PurchaseOrder> getPurchaseOrders() {
 		return purchaseOrders;
 	}
-	
+
 	/**
 	 * Adds a purchase order to the dummy data
-	 * @param po Input is new purchase order to be added
+	 * 
+	 * @param po
+	 *            Input is new purchase order to be added
 	 */
-	public void addPurchaseOrder(PurchaseOrder po){
+	public void addPurchaseOrder(PurchaseOrder po) {
 		purchaseOrders.add(po);
 	}
 
@@ -292,15 +290,16 @@ public class InitialData {
 	public List<PurchaseOrderDetails> getPurchaseOrderDetails() {
 		return purchaseOrderDetails;
 	}
-	
+
 	/**
 	 * Adds a purchase order line to the dummy data
-	 * @param po Input is new purchase order to be added
+	 * 
+	 * @param po
+	 *            Input is new purchase order to be added
 	 */
-	public void addPurchaseOrderDetails(PurchaseOrderDetails pol){
+	public void addPurchaseOrderDetails(PurchaseOrderDetails pol) {
 		purchaseOrderDetails.add(pol);
 	}
-
 
 	/**
 	 * @return the suppliers
@@ -308,12 +307,14 @@ public class InitialData {
 	public List<Supplier> getSuppliers() {
 		return suppliers;
 	}
-	
+
 	/**
 	 * Adds a supplier to the dummy data
-	 * @param s Input is new supplier to be added
+	 * 
+	 * @param s
+	 *            Input is new supplier to be added
 	 */
-	public void addSupplier(Supplier s){
+	public void addSupplier(Supplier s) {
 		suppliers.add(s);
 	}
 

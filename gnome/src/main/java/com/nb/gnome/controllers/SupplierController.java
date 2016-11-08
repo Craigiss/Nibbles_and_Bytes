@@ -44,14 +44,14 @@ public class SupplierController implements Serializable {
 	public String reset() {
 		dataModel = null;
 		listData = null;
-		return "imsIndex";
+		return "imsIndex?faces-redirect=true";
 
 	}
 	
 	public String goToAddSupplier(){
-		String returnPage = "addSupplier";
+		String returnPage = "addSupplier?faces-redirect=true";
 		if ((userCredentials.getName() == null)) {
-			returnPage = "imsLogin";
+			returnPage = "imsLogin?faces-redirect=true";
 		}
 		return returnPage;
 	}
@@ -101,21 +101,21 @@ public class SupplierController implements Serializable {
 	public String next() {
 		getPagination().nextPage();
 		recreateModel();
-		return "imsSuppliers";
+		return "imsSuppliers?faces-redirect=true";
 	}
 
 	public String previous() {
 		getPagination().previousPage();
 		recreateModel();
-		return "imsSuppliers";
+		return "imsSuppliers?faces-redirect=true";
 	}
 
 	public String view(Supplier s) {
-		String returnPage = "imsSupplierDeets";
+		String returnPage = "imsSupplierDeets?faces-redirect=true";
 		if (!(userCredentials.getName() == null)) {
 		supplier.setSupplier(s);
 		}else {
-			returnPage = "imsLogin";
+			returnPage = "imsLogin?faces-redirect=true";
 		}		
 		return returnPage;
 	}
@@ -133,6 +133,7 @@ public class SupplierController implements Serializable {
 		address = addressController.persistAddress();
 		addressController.clean();
 		supplierService.persistSupplier(company, name, phone, email, description, address);
+		//address = addressController.persistAddress();
 		recreateModel();
 		getDataModel();
 
@@ -144,7 +145,7 @@ public class SupplierController implements Serializable {
 		
 		reset();
 
-		return "imsSuppliers";
+		return "imsSuppliers?faces-redirect=true";
 	}
 
 	/**

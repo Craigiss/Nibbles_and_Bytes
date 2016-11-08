@@ -160,7 +160,7 @@ public class GraphController implements Serializable {
 	}
 
 	public String reset() {
-		return "imsIndex";
+		return "imsIndex?faces-redirect=true";
 	}
 
 	/**

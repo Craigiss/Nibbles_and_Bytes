@@ -3,8 +3,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions"
-	template="templates/imsTemplate.xhtml">
+	xmlns:pe="http://primefaces.org/ui/extensions" 
+	template="../templates/imsTemplate.xhtml">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -25,7 +25,7 @@
 
 	<ui:define name="backFunction">
 		<h:commandLink action="#{products.reset()}" value="" class="hovering">
-			<h:graphicImage class="glass_back" value="img/back.png" />
+			<h:graphicImage class="glass_back" value="../img/back.png" />
 		</h:commandLink>
 	</ui:define>
 
@@ -34,14 +34,14 @@
 		<h:form>
 			<h:commandLink action="#{products.goToAddProductPage()}"
 				value="Add New Product" id="add">
-				<img src="img/add.png" class="icon opsicon" />
+				<img src="../img/add.png" class="icon opsicon" />
 			</h:commandLink>
 		</h:form>
 	</ui:define>
 
 	<ui:define name="searchButtonAction">
 		<h:commandLink class="hovering" action="#{search.searchProd()}">
-			<h:graphicImage class="glass_back" value="img/glass.png" />
+			<h:graphicImage class="glass_back" value="../img/glass.png" />
 		</h:commandLink>
 	</ui:define>
 
@@ -94,7 +94,7 @@
 					<h:form>
 						<h:commandLink action="#{products.test(product.productID)}"
 							value="" class="hovering">
-							<h:graphicImage class="editorTools" value="img/edit.png" />
+							<h:graphicImage class="editorTools" value="../img/edit.png" />
 						</h:commandLink>
 					</h:form>
 				</div>

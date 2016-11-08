@@ -9,9 +9,9 @@
 <h:head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+	<link href="../css/bootstrap-3.3.7-dist/css/bootstrap.min.css"
 		rel="stylesheet" />
-	<link href="css/imsStyle.css" rel="stylesheet" />
+	<link href="../css/imsStyle.css" rel="stylesheet" />
 	<title>Add new purchase order</title>
 </h:head>
 
@@ -32,8 +32,8 @@
 		<!-- Back button and search bar -->
 		<div class="row">
 			<div class="col-sm-3" id="back">
-				<a href="imsIndex.xhtml" class="hovering"> <img
-					class="glass_back" src="img/back.png" />
+				<a href="imsPo.xhtml" class="hovering"> <img
+					class="glass_back" src="../img/back.png" />
 				</a>
 			</div>
 
@@ -48,7 +48,7 @@
 				<div class="col-sm-1">
 					<h:form>
 						<h:commandLink class="hovering" action="#{search.searchProd(ims)}">
-							<h:graphicImage class="glass_back" value="img/glass.png" />
+							<h:graphicImage class="glass_back" value="../img/glass.png" />
 						</h:commandLink>
 					</h:form>
 				</div>
@@ -289,9 +289,9 @@
 		<!-- Footer -->
 		<div class="row">
 			<div class="col-sm-12" id="help">
-				<h:outputLink value="index.xhtml">Help
+				<h:outputLink value="imsHelp.xhtml?faces-redirect=true">Help
 	              <div>
-						<h:graphicImage id="helpImg" value="img/help.png" />
+						<h:graphicImage id="helpImg" value="../img/help.png" />
 					</div>
 				</h:outputLink>
 			</div>

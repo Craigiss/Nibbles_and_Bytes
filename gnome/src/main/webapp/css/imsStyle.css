@@ -538,15 +538,25 @@ ul {
 	color: white;
 }
 
-<<<<<<< HEAD
+
 #productFormatter{
 	margin-left: 158px;
 	margin-right: 158px;
-=======
+}
+
 .blurb{
 	padding-top: 20px;
->>>>>>> 39a05aac5c5151dabfde60ea1d0c0646e15aa6f6
+
 }
+
+#imageSize{
+	height: auto;
+	width: auto;
+	max-height: 300px;
+	max-width: 300px;
+}
+
+
 
 @media screen and (max-width: 990px) {
 	.legend div {
@@ -607,6 +617,7 @@ ul {
 	.addButs{
 	margin-top: 0px;
 	}
+	
 }
 
 @media screen and (max-width: 534px) {
