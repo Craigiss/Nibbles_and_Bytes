@@ -40,16 +40,16 @@ public class PurchaseOrderDetailsController implements Serializable{
 	 * No-args constructor
 	 */
 	public PurchaseOrderDetailsController(){
-		product1 = new Product();
-		product2 = new Product();
-		product3 = new Product();
-		product4 = new Product();
-		product5 = new Product();
-		product6 = new Product();
-		product7 = new Product();
-		product8 = new Product();
-		product9 = new Product();
-		product10 = new Product();
+//		product1 = new Product();
+//		product2 = new Product();
+//		product3 = new Product();
+//		product4 = new Product();
+//		product5 = new Product();
+//		product6 = new Product();
+//		product7 = new Product();
+//		product8 = new Product();
+//		product9 = new Product();
+//		product10 = new Product();
 		
 		listProducts = new ArrayList<Product>();
 		
@@ -87,6 +87,33 @@ public class PurchaseOrderDetailsController implements Serializable{
 		listQuantities.add(quantity8);
 		listQuantities.add(quantity9);
 		listQuantities.add(quantity10);
+	}
+	
+	public void clean(){
+		System.out.println("Cleaning the 'Add new PO' form");
+		product1 = null;
+		product2 = null;
+		product3 = null;
+		product4 = null;
+		product5 = null;
+		product6 = null;
+		product7 = null;
+		product8 = null;
+		product9 = null;
+		product10 = null;
+		listProducts.clear();
+		
+		quantity1 = 0;
+		quantity2 = 0;
+		quantity3 = 0;
+		quantity4 = 0;
+		quantity5 = 0;
+		quantity6 = 0;
+		quantity7 = 0;
+		quantity8 = 0;
+		quantity9 = 0;
+		quantity10 = 0;
+		listQuantities.clear();		
 	}
 	
 	/**

@@ -53,15 +53,33 @@
 				<div class="col-sm-6" id="contact-details">
 					<div>
 						<h4>Contact</h4>
-					</div>
-					<div>
-						<h:outputText value="#{selectedSupplier.supplier.getName()}" />
-					</div>
-					<div>
-						<h:outputText value="#{selectedSupplier.supplier.getPhone()}" />
-					</div>
-					<div>
-						<h:outputText value="#{selectedSupplier.supplier.getEmail()}" />
+						<div>
+							<h:outputText value="#{selectedSupplier.supplier.getName()}" />
+						</div>
+						<div>
+							<h:outputText value="#{selectedSupplier.supplier.getPhone()}" />
+						</div>
+						<div>
+							<h:outputText value="#{selectedSupplier.supplier.getEmail()}" />
+						</div>
+						<div class="addElement">
+							<h:outputText value="#{selectedSupplier.supplier.getAddress().getLine1()}" />
+						</div>
+						<div>
+							<h:outputText value="#{selectedSupplier.supplier.address.line2}"
+								rendered="#{selectedSupplier.supplier.address.line2 ne null}" />
+						</div>
+						<div>
+							<h:outputText value="#{selectedSupplier.supplier.address.town}" />
+						</div>
+						<div>
+							<h:outputText value="#{selectedSupplier.supplier.address.county}" />
+						</div>
+						<div>
+							<h:outputText
+								value="#{selectedSupplier.supplier.address.postcode}" />
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -80,14 +98,12 @@
 				<div class="row table listItem">
 					<div class="col-sm-3 supDetails listCenter">
 						<h:form>
-							<h:commandLink action="#{pos.view(po)}"
-								value="#{po.id}" />
+							<h:commandLink action="#{pos.view(po)}" value="#{po.id}" />
 						</h:form>
 					</div>
 					<div class="col-sm-3 supDetails listCenter">
 						<h:form>
-							<h:commandLink action="#{pos.view(po)}"
-								value="#{po.date}" />
+							<h:commandLink action="#{pos.view(po)}" value="#{po.date}" />
 						</h:form>
 					</div>
 					<div class="col-sm-3 supDetails listCenter">

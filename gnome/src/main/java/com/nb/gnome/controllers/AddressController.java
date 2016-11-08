@@ -27,6 +27,14 @@ public class AddressController implements Serializable {
 		return newAddress;
 	}
 	
+	public void clean(){
+		line1 = "";
+		line2 = "";
+		town = "";
+		county = "";
+		postcode = "";
+	}
+	
 	/**
 	 * @return the line1
 	 */

@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.managers.SupplierRepository;
@@ -22,7 +23,9 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 
 	//Create
 	@Override
-	public void persistSupplier(Supplier s){
+	public void persistSupplier(String mCompany, String mName, String mPhone, String mEmail, String mDescription, Address mAddress){
+		Supplier s = new Supplier(mCompany, mName, mPhone, mEmail, mDescription, mAddress);
+		s.setId(initialData.getSuppliers().size() + 1);
 		initialData.addSupplier(s);
 	}
 	

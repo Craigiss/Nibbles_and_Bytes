@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.PurchaseOrderDetails;
 import com.nb.gnome.entities.Supplier;
@@ -13,6 +14,7 @@ import com.nb.gnome.helper.PaginationHelper;
 import com.nb.gnome.service.PurchaseOrderService;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
@@ -23,12 +25,19 @@ import javax.inject.Named;
 public class PurchaseOrderController implements Serializable {
 	@Inject
 	private PurchaseOrderService purchaseOrderService;
-	
+
+	@Inject
+	private SupplierController supplierController;
+
 	@Inject
 	IMSUserCredentials userCredentials;
 
 	@Inject
 	private SelectedPo purchaseOrder;
+	
+	@Inject
+	private PurchaseOrderDetailsController podController;
+	
 	private int id;
 	private Date date;
 	private String status;
@@ -37,7 +46,8 @@ public class PurchaseOrderController implements Serializable {
 	private PaginationHelper pagination;
 	private DataModel<PurchaseOrder> dataModel = null;
 	private List<PurchaseOrder> listData;
-	
+	private List<Product> listProducts;
+
 	private void recreateModel() {
 		dataModel = null;
 	}
@@ -48,8 +58,8 @@ public class PurchaseOrderController implements Serializable {
 		return "imsIndex";
 
 	}
-	
-	public String goToAddPOPage(){
+
+	public String goToAddPOPage() {
 		String returnPage = "addPurchaseOrder";
 		if ((userCredentials.getName() == null)) {
 			returnPage = "imsLogin";
@@ -230,10 +240,10 @@ public class PurchaseOrderController implements Serializable {
 	}
 
 	public String persistPurchaseOrder() {
-		//Deal with purchase order details here
-		//Run persist method
+		// Deal with purchase order details here
+		// Run persist method
 		purchaseOrderService.persistPurchaseOrder(id, date, status, lines, supplier);
-		
+
 		recreateModel();
 
 		id = 0;
@@ -245,7 +255,7 @@ public class PurchaseOrderController implements Serializable {
 
 		return "imsPo";
 	}
-	
+
 	/**
 	 * @return the listData
 	 */
@@ -269,10 +279,56 @@ public class PurchaseOrderController implements Serializable {
 	}
 
 	/**
-	 * @param supplier the supplier to set
+	 * @param supplier
+	 *            the supplier to set
 	 */
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
 	}
+
+	/**
+	 * @return the listProducts
+	 */
+	public List<Product> getListProducts() {
+		return listProducts;
+	}
+
+	/**
+	 * @param listProducts
+	 *            the listProducts to set
+	 */
+	public void setListProducts(List<Product> listProducts) {
+		this.listProducts = listProducts;
+	}
 	
+	/**
+	 * @return the podController
+	 */
+	public PurchaseOrderDetailsController getPodController() {
+		return podController;
+	}
+
+	/**
+	 * @param podController the podController to set
+	 */
+	public void setPodController(PurchaseOrderDetailsController podController) {
+		this.podController = podController;
+	}
+
+	public void supplierChangeListener(ValueChangeEvent event) {
+		listProducts = new ArrayList<Product>();
+		if (event.getNewValue() != null) {
+			Supplier sup = (Supplier) event.getNewValue();
+			if (sup.getProducts() != null){
+				listProducts = sup.getProducts();
+			}
+		}
+	}
+	
+	public String clean(){
+		supplier = null;
+		podController.clean();
+		return "imsHome.xhtml";
+	}
+
 }

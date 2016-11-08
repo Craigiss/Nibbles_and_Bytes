@@ -18,62 +18,7 @@ public class InitialData {
 	private List<Supplier> suppliers = new ArrayList<Supplier>();
 	
 	public InitialData(){
-		Product p1 = new Product();
-		p1.setProductName("Lawn Flamingo");
-		p1.setProductID(1);
-		p1.setDescription("A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden ");
-		p1.setPrice(15.99);
-		p1.setStockLevel(5);
-		p1.setPorousStockLevel(15);
-		p1.setImgPath("img/Flamingo.gif");
-		products.add(p1);
-		
-		Product p2 = new Product();
-		p2.setProductName("Godzilla gnome");
-		p2.setProductID(002);
-		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden ");
-		p2.setPrice(24.99);
-		p2.setStockLevel(115);
-		p2.setPorousStockLevel(6);
-		p2.setImgPath("img/gnomezilla.png");
-		products.add(p2);
-		
-		Product p3 = new Product();
-		p3.setProductName("Timtim the timmy tim gnome");
-		p3.setProductID(003);
-		p3.setDescription("tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden ");
-		p3.setPrice(24.99);
-		p3.setStockLevel(1015);
-		p3.setPorousStockLevel(20);
-		products.add(p3);
-		
-		Product p4 = new Product();
-		p4.setProductName("Gnome Of Gnomes - Ned Gnome");
-		p4.setProductID(004);
-		p4.setDescription("Dont lose your head!");
-		p4.setPrice(14.99);
-		p4.setStockLevel(1);
-		p4.setPorousStockLevel(8);
-		products.add(p4);
-		
-		Product p5 = new Product();
-		p5.setProductName("Gnome Trek - Kirk & Spok");
-		p5.setProductID(005);
-		p5.setDescription("Travelling where no gnome has gone before!");
-		p5.setPrice(20.99);
-		p5.setStockLevel(6);
-		p5.setPorousStockLevel(3);
-		products.add(p5);
-		
-		Product p6 = new Product();
-		p6.setProductName("Benny - Gnomeo&Juliet");
-		p6.setProductID(006);
-		p6.setDescription("Tragic Gnomes");
-		p6.setPrice(12.99);
-		p6.setStockLevel(7);
-		p6.setPorousStockLevel(1);
-		products.add(p6);
-		
+	
 		Supplier s1 = new Supplier();
 		s1.setCompany("Lawn Flamingos Wholesale");
 		s1.setId(001);
@@ -84,6 +29,7 @@ public class InitialData {
 				+ " Augustine is friendly enough, but don't talk to them about gnomes. They have incredible delivery time, "
 				+ "as they are able to ship 1,000 flamingos for next day delivery. This is now a test to see how far down the"
 				+ "text will go and if it will collide with the PO table that shows all the POs for this supplier.");
+		s1.setAddress(new Address("1 Test Road", "second line", "Test Town", "Test County", "Test Postcode"));
 		suppliers.add(s1);
 		
 		Supplier s2 = new Supplier();
@@ -97,13 +43,81 @@ public class InitialData {
 		
 		Supplier s3 = new Supplier();
 		s3.setCompany("Sensibler Middle Aged Home Owners");
-		s3.setId(004);
+		s3.setId(003);
 		s3.setName("Maurice 'the madman' Mortimer");
 		s3.setPhone("026492672555");
-		s3.setEmail("sensiblelawnornamentsatareasonableprice@madmansales.com");
+		s3.setEmail("sensiblelawnornaments@madmansales.com");
 		s3.setDescription("Good supplier but be careful of Maurice. He can be a bit temperamental at times, so don't haggle too much on the price. "
 				+ "Delivery time depends on the size of the order, but should be safe for 3 business days if order quantity is less than 500. ");
 		suppliers.add(s3);
+		
+		Product p1 = new Product();
+		p1.setProductName("Lawn Flamingo");
+		p1.setProductID(1);
+		p1.setDescription("A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden A beautiful pink plastic flamingo to place in your tropical garden ");
+		p1.setPrice(15.99);
+		p1.setStockLevel(5);
+		p1.setPorousStockLevel(15);
+		p1.setImgPath("img/Flamingo.gif");
+		p1.setSupplier(s1);
+		products.add(p1);
+		s1.getProducts().add(p1);
+		
+		Product p2 = new Product();
+		p2.setProductName("Godzilla gnome");
+		p2.setProductID(002);
+		p2.setDescription("A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden A giant lizard beast perfect for keeping pesky cats out of your garden ");
+		p2.setPrice(24.99);
+		p2.setStockLevel(115);
+		p2.setPorousStockLevel(6);
+		p2.setImgPath("img/gnomezilla.png");
+		p2.setSupplier(s1);
+		products.add(p2);
+		s1.getProducts().add(p2);
+		
+		Product p3 = new Product();
+		p3.setProductName("Timtim the timmy tim gnome");
+		p3.setProductID(003);
+		p3.setDescription("tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden ");
+		p3.setPrice(24.99);
+		p3.setStockLevel(1015);
+		p3.setPorousStockLevel(20);
+		p3.setSupplier(s2);
+		products.add(p3);
+		s2.getProducts().add(p3);
+		
+		Product p4 = new Product();
+		p4.setProductName("Gnome Of Gnomes - Ned Gnome");
+		p4.setProductID(004);
+		p4.setDescription("Dont lose your head!");
+		p4.setPrice(14.99);
+		p4.setStockLevel(1);
+		p4.setPorousStockLevel(8);
+		p4.setSupplier(s3);
+		products.add(p4);
+		s3.getProducts().add(p4);
+		
+		Product p5 = new Product();
+		p5.setProductName("Gnome Trek - Kirk & Spok");
+		p5.setProductID(005);
+		p5.setDescription("Travelling where no gnome has gone before!");
+		p5.setPrice(20.99);
+		p5.setStockLevel(6);
+		p5.setPorousStockLevel(3);
+		p5.setSupplier(s3);
+		products.add(p5);
+		s3.getProducts().add(p5);
+		
+		Product p6 = new Product();
+		p6.setProductName("Benny - Gnomeo&Juliet");
+		p6.setProductID(006);
+		p6.setDescription("Tragic Gnomes");
+		p6.setPrice(12.99);
+		p6.setStockLevel(7);
+		p6.setPorousStockLevel(1);
+		p6.setSupplier(s3);
+		products.add(p6);
+		s3.getProducts().add(p6);
 		
 		//Purchase Orders + Purchase Order Details
 		List<PurchaseOrderDetails> listOfPOD = new ArrayList<PurchaseOrderDetails>();
