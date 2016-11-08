@@ -75,6 +75,16 @@ p2.setImgPath("../img/gnomezilla.png");
 		products.add(p2);
 		s1.getProducts().add(p2);
 		
+		Product p3 = new Product();
+		p3.setProductName("Mr and Mrs Gnome");
+		p3.setProductID(003);
+		p3.setDescription("When these gnomes are rockin', don't come-a-knockin'!!");
+		p3.setPrice(14.99);
+		p3.setStockLevel(10);
+		p3.setPorousStockLevel(8);
+		p3.setImgPath("../img/MrandMrs.gif");
+		products.add(p3);
+		
 		Product p4 = new Product();
 		p4.setProductName("Gnome Of Gnomes - Ned Gnome");
 		p4.setProductID(004);
@@ -141,11 +151,11 @@ p2.setImgPath("../img/gnomezilla.png");
 		po2.setStatus("Waiting Payment");
 		po2.setSupplier(s1);
 		
-/*		PurchaseOrderDetails pod3 = new PurchaseOrderDetails();
+		PurchaseOrderDetails pod3 = new PurchaseOrderDetails();
 		pod3.setProduct(p3);
 		pod3.setQuantity(30);
 		listOfPOD.add(pod3);
-		purchaseOrderDetails.add(pod3);*/
+		purchaseOrderDetails.add(pod3);
 		
 		PurchaseOrderDetails pod4 = new PurchaseOrderDetails();
 		pod4.setProduct(p4);
