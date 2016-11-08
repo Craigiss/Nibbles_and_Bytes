@@ -57,7 +57,7 @@ public class ProductCategory {
 	/**
 	 * @param productID the productID to set
 	 */
-	public void setProductID(int productID) {
-		this.productID = productID;
-	}
+//	public void setProductID(int productID) {
+//		this.productID = productID;
+//	}
 }
