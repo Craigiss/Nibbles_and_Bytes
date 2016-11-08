@@ -23,7 +23,6 @@ public class PurchaseOrderDetailsController implements Serializable{
 	private Product product8;
 	private Product product9;
 	private Product product10;
-	private List<Product> listProducts;
 	private int quantity1;
 	private int quantity2;
 	private int quantity3;
@@ -34,59 +33,25 @@ public class PurchaseOrderDetailsController implements Serializable{
 	private int quantity8;
 	private int quantity9;
 	private int quantity10;
-	private List<Integer> listQuantities;
 	
 	/**
-	 * No-args constructor
+	 * Converts attributes into a list of PurchaseOrderDetails
+	 * @return
 	 */
-	public PurchaseOrderDetailsController(){
-//		product1 = new Product();
-//		product2 = new Product();
-//		product3 = new Product();
-//		product4 = new Product();
-//		product5 = new Product();
-//		product6 = new Product();
-//		product7 = new Product();
-//		product8 = new Product();
-//		product9 = new Product();
-//		product10 = new Product();
-		
-		listProducts = new ArrayList<Product>();
-		
-		listProducts.add(product1);
-		listProducts.add(product2);
-		listProducts.add(product3);
-		listProducts.add(product4);
-		listProducts.add(product5);
-		listProducts.add(product6);
-		listProducts.add(product7);
-		listProducts.add(product8);
-		listProducts.add(product9);
-		listProducts.add(product10);
-		
-		quantity1 = 1;
-		quantity2 = 2;
-		quantity3 = 3;
-		quantity4 = 4;
-		quantity5 = 5;
-		quantity6 = 6;
-		quantity7 = 7;
-		quantity8 = 8;
-		quantity9 = 9;
-		quantity10 = 10;
-		
-		listQuantities = new ArrayList<Integer>();
-		
-		listQuantities.add(quantity1);
-		listQuantities.add(quantity2);
-		listQuantities.add(quantity3);
-		listQuantities.add(quantity4);
-		listQuantities.add(quantity5);
-		listQuantities.add(quantity6);
-		listQuantities.add(quantity7);
-		listQuantities.add(quantity8);
-		listQuantities.add(quantity9);
-		listQuantities.add(quantity10);
+	public List<PurchaseOrderDetails> convert(){
+		List<PurchaseOrderDetails> list = new ArrayList<PurchaseOrderDetails>();
+		if(product1 != null && quantity1 > 0) list.add(new PurchaseOrderDetails(product1, quantity1));
+		if(product2 != null && quantity2 > 0) list.add(new PurchaseOrderDetails(product2, quantity2));
+		if(product3 != null && quantity3 > 0) list.add(new PurchaseOrderDetails(product3, quantity3));
+		if(product4 != null && quantity4 > 0) list.add(new PurchaseOrderDetails(product4, quantity4));
+		if(product5 != null && quantity5 > 0) list.add(new PurchaseOrderDetails(product5, quantity5));
+		if(product6 != null && quantity6 > 0) list.add(new PurchaseOrderDetails(product6, quantity6));
+		if(product7 != null && quantity7 > 0) list.add(new PurchaseOrderDetails(product7, quantity7));
+		if(product8 != null && quantity8 > 0) list.add(new PurchaseOrderDetails(product8, quantity8));
+		if(product9 != null && quantity9 > 0) list.add(new PurchaseOrderDetails(product9, quantity9));
+		if(product10 != null && quantity10 > 0) list.add(new PurchaseOrderDetails(product10, quantity10));
+
+		return list;
 	}
 	
 	public void clean(){
@@ -101,7 +66,6 @@ public class PurchaseOrderDetailsController implements Serializable{
 		product8 = null;
 		product9 = null;
 		product10 = null;
-		listProducts.clear();
 		
 		quantity1 = 0;
 		quantity2 = 0;
@@ -112,25 +76,7 @@ public class PurchaseOrderDetailsController implements Serializable{
 		quantity7 = 0;
 		quantity8 = 0;
 		quantity9 = 0;
-		quantity10 = 0;
-		listQuantities.clear();		
-	}
-	
-	/**
-	 * Converts attributes into a list of PurchaseOrderDetails
-	 * @return
-	 */
-	public List<PurchaseOrderDetails> convert(){
-		List<PurchaseOrderDetails> list = new ArrayList<PurchaseOrderDetails>();
-		for(int i = 0; i<10; i++){
-			if(listProducts.get(i) != null){
-				PurchaseOrderDetails pod = new PurchaseOrderDetails();
-				pod.setProduct(listProducts.get(i));
-				pod.setQuantity(listQuantities.get(i));
-				list.add(pod);
-			}
-		}
-		return list;
+		quantity10 = 0;	
 	}
 	
 	/**
@@ -373,34 +319,5 @@ public class PurchaseOrderDetailsController implements Serializable{
 	public void setQuantity10(int quantity10) {
 		this.quantity10 = quantity10;
 	}
-
-	/**
-	 * @return the listProducts
-	 */
-	public List<Product> getListProducts() {
-		return listProducts;
-	}
-
-	/**
-	 * @param listProducts the listProducts to set
-	 */
-	public void setListProducts(List<Product> listProducts) {
-		this.listProducts = (ArrayList<Product>) listProducts;
-	}
-
-	/**
-	 * @return the listQuantities
-	 */
-	public List<Integer> getListQuantities() {
-		return listQuantities;
-	}
-
-	/**
-	 * @param listQuantities the listQuantities to set
-	 */
-	public void setListQuantities(List<Integer> listQuantities) {
-		this.listQuantities = listQuantities;
-	}
-	
 	
 }

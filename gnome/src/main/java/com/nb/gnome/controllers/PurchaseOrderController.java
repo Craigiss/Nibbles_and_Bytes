@@ -1,7 +1,6 @@
 package com.nb.gnome.controllers;
 
 import java.io.Serializable;
-
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +26,6 @@ public class PurchaseOrderController implements Serializable {
 	private PurchaseOrderService purchaseOrderService;
 
 	@Inject
-	private SupplierController supplierController;
-
-	@Inject
 	IMSUserCredentials userCredentials;
 
 	@Inject
@@ -37,87 +33,32 @@ public class PurchaseOrderController implements Serializable {
 	
 	@Inject
 	private PurchaseOrderDetailsController podController;
-	
-	private int id;
-	private Date date;
-	private String status;
+
 	private Supplier supplier;
 	private List<PurchaseOrderDetails> lines;
 	private PaginationHelper pagination;
 	private DataModel<PurchaseOrder> dataModel = null;
 	private List<PurchaseOrder> listData;
 	private List<Product> listProducts;
+	
+	public String persistPurchaseOrder() {
+		// Set the current date and status
+		Date theDate = new Date();
+		
+		// Retrieve purchase order details
+		lines = podController.convert();
+		
+		// Run persist method
+		String status = "Awaiting Approval";
+		purchaseOrderService.persistPurchaseOrder(theDate, status, lines, supplier);
 
-	private void recreateModel() {
-		dataModel = null;
-	}
+		recreateModel();
 
-	public String reset() {
-		dataModel = null;
+		//Reset fields
+		lines = null;
+		supplier = null;
 		listData = null;
-		return "imsIndex";
 
-	}
-
-	public String goToAddPOPage() {
-		String returnPage = "addPurchaseOrder";
-		if ((userCredentials.getName() == null)) {
-			returnPage = "imsLogin";
-		}
-		return returnPage;
-	}
-
-	public PaginationHelper getPagination() {
-		if (pagination == null)
-			pagination = new PaginationHelper(10) {
-				@Override
-				public int getItemsCount() {
-					if (listData == null) {
-						return purchaseOrderService.findAll().size();
-					} else {
-						return listData.size();
-					}
-				}
-
-				@Override
-				public DataModel<PurchaseOrder> createPageDataModel() {
-					// Return products to fill page
-					try {
-						return new ListDataModel<PurchaseOrder>(
-								listData.subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
-					}
-					// Or if there aren't enough, return the rest of them
-					catch (Exception e) {
-						return new ListDataModel<PurchaseOrder>(listData.subList(getPageFirstItem(), getItemsCount()));
-					}
-				}
-			};
-
-		return pagination;
-	}
-
-	public DataModel<PurchaseOrder> getDataModel() {
-		if (listData == null) {
-			listData = purchaseOrderService.findAll();
-		}
-		dataModel = getPagination().createPageDataModel();
-		return dataModel;
-
-	}
-
-	public void setData(ArrayList<PurchaseOrder> model) {
-		listData = model;
-	}
-
-	public String next() {
-		getPagination().nextPage();
-		recreateModel();
-		return "imsPo";
-	}
-
-	public String previous() {
-		getPagination().previousPage();
-		recreateModel();
 		return "imsPo";
 	}
 
@@ -160,51 +101,6 @@ public class PurchaseOrderController implements Serializable {
 	}
 
 	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	/**
-	 * @return the date
-	 */
-	public Date getDate() {
-		return date;
-	}
-
-	/**
-	 * @param date
-	 *            the date to set
-	 */
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	/**
-	 * @return the status
-	 */
-	public String getStatus() {
-		return status;
-	}
-
-	/**
-	 * @param status
-	 *            the status to set
-	 */
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	/**
 	 * @return the lines
 	 */
 	public List<PurchaseOrderDetails> getLines() {
@@ -237,23 +133,6 @@ public class PurchaseOrderController implements Serializable {
 
 	public List<PurchaseOrder> findPurchaseOrderBySupplier(Supplier s) {
 		return purchaseOrderService.findPurchaseOrderBySupplier(s);
-	}
-
-	public String persistPurchaseOrder() {
-		// Deal with purchase order details here
-		// Run persist method
-		purchaseOrderService.persistPurchaseOrder(id, date, status, lines, supplier);
-
-		recreateModel();
-
-		id = 0;
-		date = null;
-		status = "";
-		lines = null;
-		supplier = null;
-		listData = null;
-
-		return "imsPo";
 	}
 
 	/**
@@ -329,6 +208,84 @@ public class PurchaseOrderController implements Serializable {
 		supplier = null;
 		podController.clean();
 		return "imsHome.xhtml";
+	}
+	
+
+	private void recreateModel() {
+		dataModel = null;
+	}
+
+	public String reset() {
+		dataModel = null;
+		listData = null;
+		return "imsIndex";
+
+	}
+
+	//
+	// PAGINATION
+	// METHODS
+	//
+	public String goToAddPOPage() {
+		String returnPage = "addPurchaseOrder";
+		if ((userCredentials.getName() == null)) {
+			returnPage = "imsLogin";
+		}
+		return returnPage;
+	}
+
+	public PaginationHelper getPagination() {
+		if (pagination == null)
+			pagination = new PaginationHelper(10) {
+				@Override
+				public int getItemsCount() {
+					if (listData == null) {
+						return purchaseOrderService.findAll().size();
+					} else {
+						return listData.size();
+					}
+				}
+
+				@Override
+				public DataModel<PurchaseOrder> createPageDataModel() {
+					// Return products to fill page
+					try {
+						return new ListDataModel<PurchaseOrder>(
+								listData.subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+					}
+					// Or if there aren't enough, return the rest of them
+					catch (Exception e) {
+						return new ListDataModel<PurchaseOrder>(listData.subList(getPageFirstItem(), getItemsCount()));
+					}
+				}
+			};
+
+		return pagination;
+	}
+
+	public DataModel<PurchaseOrder> getDataModel() {
+		if (listData == null) {
+			listData = purchaseOrderService.findAll();
+		}
+		dataModel = getPagination().createPageDataModel();
+		return dataModel;
+
+	}
+
+	public void setData(ArrayList<PurchaseOrder> model) {
+		listData = model;
+	}
+
+	public String next() {
+		getPagination().nextPage();
+		recreateModel();
+		return "imsPo";
+	}
+
+	public String previous() {
+		getPagination().previousPage();
+		recreateModel();
+		return "imsPo";
 	}
 
 }
