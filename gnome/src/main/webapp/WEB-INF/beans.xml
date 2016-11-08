@@ -10,5 +10,6 @@
 	<alternatives>
 		<class>com.nb.gnome.managers.hib.SupplierRepositoryHib</class>
 		<class>com.nb.gnome.managers.hib.ProductRepositoryHib</class>
+		<class>com.nb.gnome.managers.hib.ISAccountRepositoryHib</class>
 	</alternatives>
 </beans>

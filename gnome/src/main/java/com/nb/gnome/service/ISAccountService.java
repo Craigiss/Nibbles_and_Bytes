@@ -18,8 +18,8 @@ public class ISAccountService {
 	
 	@Inject
 	private ISAccountRepository iSAccountManager;
-	@Inject
-	private InitialData initialData;
+//	@Inject
+	//private InitialData initialData;
 	@Inject
 	private IMSUserCredentials  userCredentials;
 	

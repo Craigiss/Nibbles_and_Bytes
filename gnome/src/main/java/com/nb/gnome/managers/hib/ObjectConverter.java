@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 
+import com.nb.gnome.entities.ISAccount;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 
@@ -29,5 +30,16 @@ public class ObjectConverter implements Serializable {
 		}
 		return productList;
 	}
+	
+	public List<ISAccount> convertToAccount(List<Object> objectList){
+		List<ISAccount> accountList = new ArrayList<ISAccount>();
+		
+		for (Object o : objectList){
+			accountList.add((ISAccount)o);
+		}
+		return accountList;
+	}
+	
+	
 	
 }
