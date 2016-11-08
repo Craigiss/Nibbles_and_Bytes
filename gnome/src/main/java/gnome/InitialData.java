@@ -38,16 +38,6 @@ public class InitialData {
 		p2.setImgPath("../img/gnomezilla.png");
 		products.add(p2);
 		
-		Product p3 = new Product();
-		p3.setProductName("Timtim the timmy tim gnome");
-		p3.setProductID(003);
-		p3.setDescription("tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden tim loves java and being in the garden ");
-		p3.setPrice(24.99);
-		p3.setStockLevel(1015);
-		p3.setPorousStockLevel(20);
-		p3.setImgPath("../img/sorry.jpg");
-		products.add(p3);
-		
 		Product p4 = new Product();
 		p4.setProductName("Gnome Of Gnomes - Ned Gnome");
 		p4.setProductID(004);
@@ -55,7 +45,7 @@ public class InitialData {
 		p4.setPrice(14.99);
 		p4.setStockLevel(1);
 		p4.setPorousStockLevel(8);
-		p4.setImgPath("../img/sorry.jpg");
+		p4.setImgPath("../img/GameofGnomes.jpg");
 		products.add(p4);
 		
 		Product p5 = new Product();
@@ -65,7 +55,7 @@ public class InitialData {
 		p5.setPrice(20.99);
 		p5.setStockLevel(6);
 		p5.setPorousStockLevel(3);
-		p5.setImgPath("../img/sorry.jpg");
+		p5.setImgPath("../img/gnome_trek_set.png");
 		products.add(p5);
 		
 		Product p6 = new Product();
@@ -75,7 +65,7 @@ public class InitialData {
 		p6.setPrice(12.99);
 		p6.setStockLevel(7);
 		p6.setPorousStockLevel(1);
-		p6.setImgPath("../img/sorry.jpg");
+		p6.setImgPath("../img/benny.png");
 		products.add(p6);
 		
 		Supplier s1 = new Supplier();
@@ -139,11 +129,11 @@ public class InitialData {
 		po2.setStatus("Waiting Payment");
 		po2.setSupplier(s1);
 		
-		PurchaseOrderDetails pod3 = new PurchaseOrderDetails();
+/*		PurchaseOrderDetails pod3 = new PurchaseOrderDetails();
 		pod3.setProduct(p3);
 		pod3.setQuantity(30);
 		listOfPOD.add(pod3);
-		purchaseOrderDetails.add(pod3);
+		purchaseOrderDetails.add(pod3);*/
 		
 		PurchaseOrderDetails pod4 = new PurchaseOrderDetails();
 		pod4.setProduct(p4);
