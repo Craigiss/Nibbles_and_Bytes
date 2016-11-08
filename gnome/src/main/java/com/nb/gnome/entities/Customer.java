@@ -53,13 +53,12 @@ public class Customer {
 	private String phoneNumber;
 	
 	@Column (name = "status", nullable = false, length = 11 )
-	@NotNull
 	@Size(min = 2, max = 11)
 	private String status;
 	
 	@Column (name = "salt", nullable = false, length = 32 )
 	@NotNull
-	@Size(min = 32, max = 32)
+	@Size(min = 26, max = 32)
 	private String salt;
 
 	public String getSalt() {
@@ -70,8 +69,11 @@ public class Customer {
 		this.salt = salt;
 	}
 
-	@ManyToMany(targetEntity=Address.class)
+	@OneToMany(mappedBy ="customers")
 	private List<Address> addresses;
+	
+	@OneToMany(mappedBy = "Customerid")
+	private List<Review> reviews;
 	
 	public Customer(){	
 	}

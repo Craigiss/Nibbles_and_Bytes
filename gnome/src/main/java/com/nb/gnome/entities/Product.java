@@ -25,7 +25,7 @@ public class Product {
 	@Column(name = "productName")
 	String productName;
 	
-	@Column(name = "description")
+	@Column(name = "description", length = 255)
 	String description;
 	
 	@Column(name = "image")
@@ -43,6 +43,8 @@ public class Product {
 	@Column
 	int supplierID;
 	
+	@OneToMany(mappedBy = "Product_id")
+	private List<Review> reviews;
 	
 	int Quantity;
 	/**

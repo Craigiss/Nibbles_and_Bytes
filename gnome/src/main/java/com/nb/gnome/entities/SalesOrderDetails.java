@@ -21,16 +21,16 @@ public class SalesOrderDetails {
 	@GeneratedValue ( strategy = GenerationType.IDENTITY)
 	private long id;	
 
-	@OneToMany
+
 	@Column  (name = "FKproductId", nullable = false)
 	private long FKproductId;
 	
 	@Column (name = "quantity",	nullable = false, length = 225)
-	@NotNull
+
 	@Size (min = 2, max = 225)	
 	private int quantity;
 	
-	@OneToMany
+
 	@Column  (name = "FKsalesOrderId", nullable = false)
 	private long FKsalesOrderId;
 	

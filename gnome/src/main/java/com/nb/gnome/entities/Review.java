@@ -3,11 +3,13 @@ package com.nb.gnome.entities;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
@@ -20,7 +22,9 @@ import javax.validation.constraints.Size;
  *          variables to model the data needed for the system.
  **/
 
-@SuppressWarnings("unused")
+
+@Entity
+@Table (name = "Review")
 public class Review {
 	
 	@Id
@@ -33,14 +37,15 @@ public class Review {
 	@NotNull
 	private String date;
 	
-	@Column (name = "reviewText", nullable = true, length = 255 )
-	@Null 
+	@Column (name = "reviewText",  length = 255 )
 	@Size (min = 2, max = 255)
 	private String reviewText;
 	
-	@Column (name = "rating", nullable = true)
-	@Null
-	@Size (min = 0, max = 5)
+	public void setCustomerid(Customer customerid) {
+		Customerid = customerid;
+	}
+
+	@Column (name = "rating")
 	private int rating;
 	
 	@Column (name = "name", nullable = false)
@@ -49,12 +54,15 @@ public class Review {
 	
 	@ManyToOne 
 	@JoinColumn(name = "FKProductid", nullable = false)
-	private int Productid;
+	private Product Product_id;
 	
 	@ManyToOne 
 	@JoinColumn(name = "FKCustomerid", nullable = false)
-	private int Customerid;
+	private Customer Customerid;
 	
+	//this will break if we change it to Product
+	private int Productid;
+	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	/**
 	 * Default Constructor
 	 */
@@ -74,7 +82,7 @@ public class Review {
 	}
 
 	public int getCustomerid() {
-		return Customerid;
+		return Customerid.getId();
 	}
 
 	/**
@@ -91,6 +99,14 @@ public class Review {
 	 */
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public Product getProduct_id() {
+		return Product_id;
+	}
+
+	public void setProduct_id(Product product_id) {
+		Product_id = product_id;
 	}
 
 	/**

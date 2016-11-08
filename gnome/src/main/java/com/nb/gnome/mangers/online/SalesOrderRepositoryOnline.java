@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
@@ -16,9 +17,9 @@ import connection.Connection;
 import gnome.InitialData;
 
 
-@Default
+@Alternative
 @Stateless
-public class SalesOrderRepositoryOffline implements SalesOrderRepository  {
+public class SalesOrderRepositoryOnline implements SalesOrderRepository  {
 	@Inject
 	private Connection connection;
 	@Inject

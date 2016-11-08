@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<beans
+xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+bean-discovery-mode="all">
 
-<beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<alternatives>
+<class>com.nb.gnome.managers.online.AddressRepositoryOnline</class>
+<class>com.nb.gnome.managers.online.CategoryRepositoryOnline</class>
+<class>com.nb.gnome.managers.online.ISAccountRepositoryOnline</class>
+<class>com.nb.gnome.managers.online.ProductRepositoryOnline</class>
+<class>com.nb.gnome.managers.online.PurchaseOrderDetailsRepositoryOnline</class>
+<class>com.nb.gnome.managers.online.PurchaseOrderRepositoryOnline</class>
+<class>com.nb.gnome.managers.online.ReturnsRepositoryOnline</class>
+<class>com.nb.gnome.managers.online.ReviewRepositoryOnline</class>
+<class>com.nb.gnome.managers.online.SalesOrderDetailsRepositoryOnline</class>
+<class>com.nb.gnome.managers.online.SalesOrderRepositoryOnline</class>
+<class>com.nb.gnome.managers.online.SupplierRepositoryOnline</class>
+
+</alternatives>
 </beans>

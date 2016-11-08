@@ -4,6 +4,7 @@ package com.nb.gnome.mangers.online;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
@@ -13,7 +14,7 @@ import com.nb.gnome.managers.hib.ObjectConverter;
 
 import connection.*;
 
-@Default
+@Alternative
 @Stateless
 public class AddressRepositoryOnline implements AddressRepository{
 	

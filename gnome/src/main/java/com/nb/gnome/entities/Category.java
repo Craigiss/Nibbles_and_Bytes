@@ -14,11 +14,13 @@ import javax.validation.constraints.*;
 @Entity
 @Table(name = "Category")
 public class Category {
-
-	@OneToMany
-	@JoinColumn(name = "id", nullable = false)
-	private int Id;
+	
 	@Id
+	@Column(name = "id")
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private int id;
+	
+
 	@Column(name = "name", nullable = false, length =225)
 	@NotNull
 	@Size(min = 2, max = 225)
@@ -27,13 +29,13 @@ public class Category {
 	 * @return the id
 	 */
 	public int getId() {
-		return Id;
+		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
-		Id = id;
+		id = id;
 	}
 	/**
 	 * @return the name
