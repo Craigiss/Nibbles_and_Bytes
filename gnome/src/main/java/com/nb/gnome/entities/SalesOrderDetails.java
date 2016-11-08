@@ -50,9 +50,9 @@ public class SalesOrderDetails {
 	 * 
 	 * @param id - sets id of sales order details
 	 **/
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 	
 	/**
 	 * Gets Id of product in an order
