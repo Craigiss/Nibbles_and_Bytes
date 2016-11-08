@@ -52,9 +52,9 @@ public class ProductController implements Serializable {
 	public String goToAddProductPage() {
 		String returnPage = "addProduct";
 		if ((userCredentials.getName() == null)) {
-			returnPage = "imsLogin?faces-redirect=true";
+			returnPage = "imsLogin";
 		}
-		return returnPage;
+		return returnPage+"?faces-redirect=true";
 	}
 
 	public PaginationHelper getPagination() {

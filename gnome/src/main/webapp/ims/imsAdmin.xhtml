@@ -2,6 +2,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions" 
 	template="../templates/imsTemplateDetails.xhtml"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 	<meta charset="utf-8" />
@@ -24,7 +26,7 @@
 
 	<ui:define name="backFunction">
 		<h:commandLink action="#{help.reset()}" value="" class="hovering">
-			<h:graphicImage class="glass_back" value="img/back.png" />
+			<h:graphicImage class="glass_back" value="../img/back.png" />
 		</h:commandLink>
 	</ui:define>
 
