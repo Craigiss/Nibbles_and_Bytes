@@ -25,9 +25,7 @@ public class SalesOrderDetails {
 	@Column  (name = "FKproductId", nullable = false)
 	private long FKproductId;
 	
-	@Column (name = "quantity",	nullable = false, length = 225)
-
-	@Size (min = 2, max = 225)	
+	@Column (name = "quantity",	nullable = false)
 	private int quantity;
 	
 
