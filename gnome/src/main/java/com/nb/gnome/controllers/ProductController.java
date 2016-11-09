@@ -74,11 +74,10 @@ public class ProductController implements Serializable {
 	public String goToAddProductPage() {
 		String returnPage = "addProduct.xhtml?faces-redirect=true";
 		if ((userCredentials.getName() == null)) {
-			returnPage = "imsLogin.xhtml?faces-redirect=true";
-			
-			if (isUserAdmin()==false){
-				returnPage = "imsProducts.xhtml?faces-redirect=true";
-			}
+			returnPage = "imsLogin.xhtml?faces-redirect=true";			
+		}
+		if (isUserAdmin()==false){
+			returnPage = "imsProducts.xhtml?faces-redirect=true";
 		}
 		return returnPage;
 	}
