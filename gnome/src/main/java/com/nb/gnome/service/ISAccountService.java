@@ -42,6 +42,11 @@ public class ISAccountService {
 		return accountValid;
 	}
 	
+	public ISAccount findISAccountByEmail(String email) {
+	ISAccount is = iSAccountManager.findISAccountByEmail(email);
+		return is;
+	}
+	
 /*	// Connors code
 	public boolean validateDetails(String email, String pass){
 		if(iSAccountManager.findISAccountByEmail(email)==null){
