@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.nb.gnome.entities.Address;
+import com.nb.gnome.entities.ISAccount;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.helper.PaginationHelper;
+import com.nb.gnome.service.ISAccountService;
 import com.nb.gnome.service.SupplierService;
 
 import javax.enterprise.context.SessionScoped;
@@ -20,6 +22,9 @@ import javax.inject.Named;
 @Named(value = "suppliers")
 @SessionScoped
 public class SupplierController implements Serializable {
+	
+	@Inject
+	private ISAccountService iSAService;
 	@Inject
 	private SupplierService supplierService;
 	@Inject
@@ -50,10 +55,22 @@ public class SupplierController implements Serializable {
 
 	}
 	
+	public boolean isUserAdmin(){
+    	boolean delete = false;
+    	ISAccount isis = iSAService.findISAccountByEmail(userCredentials.getEmail());    	
+    	if(isis.isAdmin()){
+    		delete=true;
+    	}
+    	return delete;    	
+    }
+	
 	public String goToAddSupplier(){
-		String returnPage = "addSupplier?faces-redirect=true";
+		String returnPage = "addSupplier.xhtml?faces-redirect=true";
 		if ((userCredentials.getName() == null)) {
-			returnPage = "imsLogin?faces-redirect=true";
+			returnPage = "imsLogin.xhtml?faces-redirect=true";
+		}
+		if (isUserAdmin()==false){
+			returnPage = "imsSuppliers.xhtml?faces-redirect=true";
 		}
 		return returnPage;
 	}
