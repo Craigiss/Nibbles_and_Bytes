@@ -7,6 +7,7 @@ import java.util.Properties;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.*;
+import javax.inject.Inject;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -26,6 +27,7 @@ import com.nb.gnome.entities.ProductCategory;
 import com.nb.gnome.entities.Review;
 import com.nb.gnome.entities.SalesOrder;
 import com.nb.gnome.entities.SalesOrderDetails;
+import com.nb.gnome.service.CreateAccountService;
 
 
 
@@ -37,17 +39,20 @@ public class Connection {
 	private Session session;
 	private Transaction tx;
 
+	@Inject
+	CreateAccountService cas;
+	
 	private void createSession() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
 		properties.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/cat?autoReconnect=true&useSSL=false");
 		properties.setProperty("hibernate.connection.username", "root");
-		properties.setProperty("hibernate.connection.password", "broly1");
+		properties.setProperty("hibernate.connection.password", "password");
 		
 		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		//properties.setProperty("hibernate.hbm2ddl.auto", "create");
-
+		// REMEMBER to comment createData(); inside init() method if you're only updating the database!!
 		Configuration cfg = new Configuration().addProperties(properties).addAnnotatedClass(Product.class).addAnnotatedClass(ProductCategory.class)
 				.addAnnotatedClass(Address.class).addAnnotatedClass(Category.class).addAnnotatedClass(Customer.class).addAnnotatedClass(ISAccount.class)
 				.addAnnotatedClass(Review.class).addAnnotatedClass(SalesOrder.class).addAnnotatedClass(SalesOrderDetails.class);
@@ -89,8 +94,12 @@ public class Connection {
 
 	@PostConstruct
 	public void init() {
+		//createData();
 		
-		
+	}
+	
+	public void createData(){
+		System.out.println("Creating data");
 		Category c1 = new Category();													// Categories
 		c1.setName("Gnomes");
 		
@@ -108,24 +117,42 @@ public class Connection {
 			
 																						// Customers
 		Customer cu = new Customer();
-		cu.setTitle("Mr");
-		cu.setEmail("Email");
+		cu.setTitle("Mr");							// USER: email // PASSWORD: password
+		cu.setEmail("email");
 		cu.setFirstName("firstName");
 		cu.setSurname("surname");
-		cu.setPassword("802081c5b0f35d03c23f8d951c71b72d71d5cc97d346dfeafbdb5a8763669a62");
-		//cu.setId(1);
-		cu.setSalt("ks93t1dq74tec1jpua15effjh3");
+		// Start password hashing
+		String salt = "ks93t1dq74tec1jpua15effjh3";
+		cu.setSalt(salt);
+		String hashedPassword = "";
+		try {
+			hashedPassword = cas.hashPassword("password", salt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		cu.setSalt(salt);
+		cu.setPassword(hashedPassword);
+		// End password hashing
 		cu.setPhoneNumber("0123456789");
 		cu.setStatus("Active");
 		
-		Customer cu2 = new Customer();
+		Customer cu2 = new Customer();			// USER: cameron@smart.com // PASSWORD: goaway
 		cu2.setTitle("Mr");
 		cu2.setEmail("cameron@smart.com");
 		cu2.setFirstName("Cameron");
 		cu2.setSurname("Smart");
-		cu2.setPassword("goaway");
-		//cu2.setId(2);
-		cu2.setSalt("ks93t1dq74tec1jpua15effjh3");
+		// Start password hashing
+		String salt2 = "ks93t1dq74tec1jpua15effjh3";
+		cu2.setSalt(salt2);
+		String hashedPassword2 = "";
+		try {
+			hashedPassword2 = cas.hashPassword("goaway", salt2);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		cu2.setSalt(salt2);
+		cu2.setPassword(hashedPassword2);
+		// End password hashing
 		cu2.setPhoneNumber("0123456789");
 		cu2.setStatus("Active");
 
@@ -386,7 +413,6 @@ public class Connection {
 		
 		persistData(aa,aa1, cu,cu2,sO1,sO2,p1,p2,p3,p4,p5,p6,p7,p8,p11,p12,p13,p14,p15,p16,p17,p18,p19,pc1,pc2,pc3,
 				pc4,pc5,pc6,pc7,pc8,pc9,r1,r2,r3,c1,c2,c3,c4,c5);
-		
 		
 		
 		
