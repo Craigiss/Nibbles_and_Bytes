@@ -72,7 +72,7 @@ public class Customer {
 	@OneToMany(mappedBy ="customer", fetch = FetchType.EAGER)
 	private List<Address> addresses;
 	
-	@OneToMany(mappedBy = "Customerid")
+	@OneToMany(mappedBy = "FKCustomerid")
 	private List<Review> reviews;
 	
 	public Customer(){	

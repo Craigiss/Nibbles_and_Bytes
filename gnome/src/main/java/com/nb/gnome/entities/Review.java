@@ -41,10 +41,6 @@ public class Review {
 	@Size (min = 2, max = 255)
 	private String reviewText;
 	
-	public void setCustomerid(Customer customerid) {
-		Customerid = customerid;
-	}
-
 	@Column (name = "rating")
 	private int rating;
 	
@@ -53,12 +49,12 @@ public class Review {
 	private String name;
 	
 	@ManyToOne 
-	@JoinColumn(name = "FKProductid", nullable = false)
+	@JoinColumn(name = "FKProductid", nullable = true)
 	private Product Product_id;
 	
 	@ManyToOne 
 	@JoinColumn(name = "FKCustomerid", nullable = false)
-	private Customer Customerid;
+	private Customer FKCustomerid;
 	
 	//this will break if we change it to Product
 	private int Productid;
@@ -81,8 +77,8 @@ public class Review {
 		return Productid;
 	}
 
-	public int getCustomerid() {
-		return Customerid.getId();
+	public Customer getFKCustomerid() {
+		return FKCustomerid;
 	}
 
 	/**
@@ -148,6 +144,12 @@ public class Review {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public void setFKCustomerid(Customer customerid) {
+		FKCustomerid = customerid;
+	}
+	
+	
 	
 	
 
