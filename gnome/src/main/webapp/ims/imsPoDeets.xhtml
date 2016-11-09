@@ -24,9 +24,10 @@
 	</ui:define>
 
 	<ui:define name="backFunction">
-		<a href="imsPo.xhtml" class="hovering"> <img class="glass_back"
-			src="../img/back.png" />
-		</a>
+		<h:commandLink action="#{selectedPo.reset()}" value=""
+			class="hovering">
+			<h:graphicImage class="glass_back" value="../img/back.png" />
+		</h:commandLink>
 	</ui:define>
 
 
@@ -83,7 +84,6 @@
 				</div>
 				<div class="col-sm-2 buttonOfJoy col-xs-2">
 					<h:form>
-						<!-- SORT OUT THIS LINE LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  -->
 						<h:commandLink class="hovering" action="#{supplier.email()}">
 							<h:graphicImage class="sys" value="../img/email.png" />
 						</h:commandLink>

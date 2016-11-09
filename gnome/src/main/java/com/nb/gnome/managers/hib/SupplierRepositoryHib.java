@@ -27,7 +27,7 @@ public class SupplierRepositoryHib implements SupplierRepository{
 	@Override
 	public void persistSupplier(String mCompany, String mName, String mPhone, String mEmail, String mDescription, Address mAddress){
 		Supplier s = new Supplier(mCompany, mName, mPhone, mEmail, mDescription, mAddress);
-		database.persistData(s);
+		database.persistData(mAddress, s);
 	}
 	
 	@Override

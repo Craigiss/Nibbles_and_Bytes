@@ -172,10 +172,6 @@ public class Product {
 		this.deleted = deleted;
 	}
 	
-	public String toString(){
-		return getProductName() + " " + getStockLevel();
-	}
-
 	/**
 	 * @return the supplier
 	 */
@@ -189,6 +185,31 @@ public class Product {
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
 	}
+	
+	
+	@Override
+	public String toString() {
+		
+	    return String.valueOf(productID);
+	}
+	
+
+	 @Override
+	    public boolean equals(Object other) {
+	         Integer idAsInt = (Integer) productID;
+		 
+		 return (other instanceof Product) && (idAsInt != null)
+	            ? idAsInt.equals(((Product) other).productID)
+	            : (other == this);
+	    }
+
+	    @Override
+	    public int hashCode() {
+	    	  Integer idAsInt = (Integer) productID;
+	    	return (idAsInt != null)
+	            ? (this.getClass().hashCode() + idAsInt.hashCode())
+	            : super.hashCode();
+	    }
 	
 	
 }

@@ -12,13 +12,21 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import com.nb.gnome.helper.*;
 import com.nb.gnome.managers.ProductRepository;
+import com.nb.gnome.service.ISAccountService;
 import com.nb.gnome.service.ProductService;
+import com.nb.gnome.entities.ISAccount;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 
 @Named("products")
 @SessionScoped
 public class ProductController implements Serializable {
+	
+	@Inject
+	private ISAccountService iSAService;
+	
+	@Inject 
+	private IMSUserCredentials iMSUserCredentials;
 
 	@Inject
 	private ProductService productService;
@@ -53,13 +61,26 @@ public class ProductController implements Serializable {
 		listData = null;
 		return "imsIndex?faces-redirect=true";
 	}
+	
+	public boolean isUserAdmin(){
+    	boolean delete = false;
+    	ISAccount isis = iSAService.findISAccountByEmail(iMSUserCredentials.getEmail());    	
+    	if(isis.isAdmin()){
+    		delete=true;
+    	}
+    	return delete;    	
+    }
 
 	public String goToAddProductPage() {
-		String returnPage = "addProduct";
+		String returnPage = "addProduct.xhtml?faces-redirect=true";
 		if ((userCredentials.getName() == null)) {
-			returnPage = "imsLogin";
+			returnPage = "imsLogin.xhtml?faces-redirect=true";
+			
+			if (isUserAdmin()==false){
+				returnPage = "imsProducts.xhtml?faces-redirect=true";
+			}
 		}
-		return returnPage+"?faces-redirect=true";
+		return returnPage;
 	}
 
 	public PaginationHelper getPagination() {
