@@ -22,8 +22,11 @@ public class PurchaseOrderDetailsController implements Serializable{
 	}
 	
 	public void addLine(){
-		System.out.println(product.getProductName() + " " + quantity);
-		listPOD.add(new PurchaseOrderDetails(product, quantity));
+		if ((quantity > 0) &&(product !=null)){
+			System.out.println(product.getProductName() + " " + quantity);
+			listPOD.add(new PurchaseOrderDetails(product, quantity));
+		}
+		
 	}
 	
 	public void clean(){
