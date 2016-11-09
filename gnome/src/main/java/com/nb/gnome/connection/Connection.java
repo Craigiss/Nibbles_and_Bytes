@@ -101,14 +101,14 @@ public class Connection {
 //		s1.setAddress(a1);
 //		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..SUPPLIER DONE");
 //		
-//		Product p1 = new Product();
-//		p1.setProductName("Lawn Flamingo");
-//		p1.setDescription("A beautiful pink plastic flamingo to place in your tropical garden");
-//		p1.setPrice(15.99);
-//		p1.setImgPath("img/Flamingo.gif");
-//		p1.setStockLevel(5);
-//		p1.setPorousStockLevel(15);
-//		p1.setSupplier(s1);
+//		Product p2 = new Product();
+//		p2.setProductName("Lawn Flamingo");
+//		p2.setDescription("A beautiful pink plastic flamingo to place in your tropical garden");
+//		p2.setPrice(15.99);
+//		p2.setImgPath("img/Flamingo.gif");
+//		p2.setStockLevel(5);
+//		p2.setPorousStockLevel(15);
+//		p2.setSupplier(s1);
 //			
 //		List<PurchaseOrderDetails> listOfPOD = new ArrayList<PurchaseOrderDetails>();
 //		
@@ -119,7 +119,7 @@ public class Connection {
 //		po1.setLines(listOfPOD);
 //		
 //		PurchaseOrderDetails pod1 = new PurchaseOrderDetails();
-//		pod1.setProduct(p1);
+//		pod1.setProduct(p2);
 //		pod1.setQuantity(40);
 //		listOfPOD.add(pod1);
 //		pod1.setPo(po1);
@@ -149,7 +149,7 @@ public class Connection {
 //		isa3.setRole("admin");
 //
 //		
-//		persistData(p1,a1,s1,po1,pod1,isa1,isa2,isa3);
+//		persistData(p2,a1,s1,po1,pod1,isa1,isa2,isa3);
 //	}
 	
 
