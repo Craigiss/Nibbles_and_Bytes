@@ -34,9 +34,15 @@ public class AddressService {
 		
 	}
 	
-	public List<Address> getCustomerAddresses(){
+	public List<Address> getActiveCustomerAddresses(){
 		int userId = user.getId();
-		return customerRepository.getCustomerById(userId).getAddresses();
+		List<Address> activeAddresses = new ArrayList<Address>();
+		for(Address a : customerRepository.getCustomerById(userId).getAddresses()){
+			if (a.isActive() == true){
+				activeAddresses.add(a);
+			}
+		}
+		return activeAddresses;
 	}
 	
 	
@@ -53,13 +59,17 @@ public class AddressService {
 	
 	public void deleteAddress(int addressId){
 		List<Address> customersAddresses = new ArrayList<Address>();
-		customersAddresses = getCustomerAddresses();
+		customersAddresses = getActiveCustomerAddresses();
+		int customerID = customersAddresses.get(0).getCustomer().getId();
 		for (Address a : customersAddresses){
 			if (a.getId() == addressId){
+				Address addressMarkedForDelete = a;
+				addressMarkedForDelete.setActive(false);
 				customersAddresses.remove(a);
+				customersAddresses.add(addressMarkedForDelete);
 				break;
 			}
-
 		}
+		customerRepository.changecustomerAddress(customersAddresses, customerID);
 	}
 }

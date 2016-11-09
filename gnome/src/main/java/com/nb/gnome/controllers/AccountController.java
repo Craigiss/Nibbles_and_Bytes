@@ -53,7 +53,7 @@ public class AccountController implements Serializable {
 	public void updateAddresses(ValueChangeEvent e) { // Updates address by drop
 														// down box selected
 														// address.
-		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses(); // Gets
+		address = addressService.getActiveCustomerAddresses(); 									// Gets
 																								// the
 																								// customer's
 																								// addresses.
@@ -111,7 +111,7 @@ public class AccountController implements Serializable {
 		try{
 			
 		
-		address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+		address = addressService.getActiveCustomerAddresses();
 		return address;
 		}
 		catch(NullPointerException e){
@@ -252,7 +252,7 @@ public class AccountController implements Serializable {
 
 	public String getAddressFirstLine() {
 
-			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+			address = addressService.getActiveCustomerAddresses();
 			if (address.size() > 0) {
 
 				for (Address a : address) {
@@ -267,7 +267,7 @@ public class AccountController implements Serializable {
 
 	public String getAddressSecondLine() {
 		
-			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+			address = addressService.getActiveCustomerAddresses();
 			if (address.size() > 0) {
 
 				for (Address a : address) {
@@ -285,7 +285,7 @@ public class AccountController implements Serializable {
 	public String getCounty() {
 		
 
-			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+			address = addressService.getActiveCustomerAddresses();
 			if (address.size() > 0) {
 
 				for (Address a : address) {
@@ -302,7 +302,7 @@ public class AccountController implements Serializable {
 
 	public String getPostcode() {
 
-			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+			address = addressService.getActiveCustomerAddresses();
 			if (address.size() > 0) {
 
 				for (Address a : address) {
@@ -323,7 +323,7 @@ public class AccountController implements Serializable {
 	public String getTown() {
 		
 
-			address = accountManager.getCustomerByEmail(userCredentials.getEmail()).getAddresses();
+			address = addressService.getActiveCustomerAddresses();
 			if (address.size() > 0) {
 
 				for (Address a : address) {

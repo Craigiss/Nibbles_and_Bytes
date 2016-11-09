@@ -39,7 +39,7 @@ public class UpdateAccountService {
 	
 	public void updateAddress(int customerId, int addressId, String firstLine, String secondLine, String town, String county, String postcode){
 		List<Address> customersAddresses = new ArrayList<Address>();
-		customersAddresses = addressService.getCustomerAddresses();
+		customersAddresses = addressService.getActiveCustomerAddresses();
 		for (Address a : customersAddresses){
 			if (a.getId() == addressId){
 				Customer c = a.getCustomer();
