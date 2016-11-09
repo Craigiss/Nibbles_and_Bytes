@@ -100,6 +100,15 @@ public class ProductRepositoryOffline implements ProductRepository {
 	}
 	
 	//Update
+	
+	@Override
+	public void persistUpdateProduct(Product prod){
+		/*Product prodprod = new Product(findAll().size() +1, mName, mDescription, mPrice, mStockLevel, mporousStockLevel, supplier);
+		System.out.println(supplier.getClass());
+		supplier.getProducts().add(prodprod);
+		initialData.addProduct(prodprod);*/
+	}
+	
 	@Override
 	public void incrementStock(int id, int quantity){
 		for (Product p: initialData.getProducts()){

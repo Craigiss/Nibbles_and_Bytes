@@ -28,6 +28,10 @@ public class ProductController implements Serializable {
 
 	@Inject
 	private SelectedProduct product;
+	
+	@Inject
+	ProductRepository productRepository;
+	
 	private PaginationHelper pagination;
 	private DataModel<Product> dataModel = null;
 	private int productID;
@@ -111,16 +115,30 @@ public class ProductController implements Serializable {
 		return "imsProducts?faces-redirect=true";
 	}
 
-	public String view(Product p) {
+	//view for the edit page
+	public String view(int id) {
 		String returnPage = "imsProdDeets?faces-redirect=true";
 		if (!(userCredentials.getName() == null)) {
-			product.setProduct(p);
+			//product.setProduct(p);
+			product.setProduct(productRepository.getProductByID(id));
+			returnPage = "editProduct?faces-redirect=true";
 		} else {
 			returnPage = "imsLogin?faces-redirect=true";
 		}
 		return returnPage;
 	}
-
+	
+	//view for product details
+	public String view(Product p) {
+			String returnPage = "imsProdDeets?faces-redirect=true";
+			if (!(userCredentials.getName() == null)) {
+				product.setProduct(p);
+			} else {
+				returnPage = "imsLogin?faces-redirect=true";
+			}
+			return returnPage;
+		}
+	
 	public String persistProduct() {
 		System.out.println("In controller >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		if(name.length() <2 || description.length() <2 || price < 0 || stockLevel < 0|| porousStockLevel <0 || supplier == null )
@@ -137,6 +155,26 @@ public class ProductController implements Serializable {
 		stockLevel = 0;
 		porousStockLevel = 0;
 		supplier=null;
+		reset();
+		return "imsProducts?faces-redirect=true";
+	}
+	
+	public String persistUpdateProduct(int productID, String description, double price, int stockLevel, int porousStockLevel, String productName, Supplier supplier) {
+		System.out.println("In controller >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		if(productName.length() <2 || description.length() <2 || price < 0 || stockLevel < 0|| porousStockLevel <0 || supplier == null )
+		{
+			setError("Invalid details used for entries for new product");
+			return "editProduct";
+		}
+		
+		productService.persistUpdateProduct(productID,productName, description, price, stockLevel, porousStockLevel, supplier);
+		/*recreateModel();
+		name = "";
+		description = "";
+		price = 0;
+		stockLevel = 0;
+		porousStockLevel = 0;
+		supplier=null;*/
 		reset();
 		return "imsProducts?faces-redirect=true";
 	}

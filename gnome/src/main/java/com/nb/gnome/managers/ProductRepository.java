@@ -24,6 +24,7 @@ public interface ProductRepository {
 	//Update
 	public void incrementStock(int id, int quantity);
 	public void decrementStock(int id, int quantity);
+	public void persistUpdateProduct(Product a);
 
 	public List<Product> findCritical();
 

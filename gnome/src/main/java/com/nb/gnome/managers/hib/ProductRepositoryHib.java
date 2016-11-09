@@ -106,6 +106,13 @@ public class ProductRepositoryHib implements ProductRepository {
 	}
 	
 	//Update
+	
+	@Override
+	public void persistUpdateProduct(Product a){
+		
+		database.persistUpdate(a);
+	}
+	
 	@Override
 	public void incrementStock(int id, int quantity){
 		ArrayList<Product> productList = (ArrayList)converter.convertToProducts(database.returnData("Product"));
