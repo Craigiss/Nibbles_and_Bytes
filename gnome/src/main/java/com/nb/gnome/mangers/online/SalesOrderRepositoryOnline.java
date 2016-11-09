@@ -35,7 +35,7 @@ public class SalesOrderRepositoryOnline implements SalesOrderRepository  {
 	public ArrayList<SalesOrder> findSalesOrderByCustomer(Customer c) {
 		ArrayList<SalesOrder> so = new ArrayList<SalesOrder>();
 		for(SalesOrder s: converter.convertToSalesOrder(connection.returnData("SalesOrder"))){
-			if(s.getCustomer() == c){
+			if(s.getCustomer().getId() == c.getId()){
 				so.add(s);
 			}
 		}
