@@ -104,10 +104,14 @@ public class CustomerRepositoryOnline implements CustomerRepository {
 
 	@Override
 	public void changecustomerAddress(List<Address> addresses, int id) {
-		for(Customer c : converter.convertToCustomer(connection.returnData("Customer"))){
+		for(Customer c : converter.convertToCustomer(connection.returnData("Customer"))){		// Updates the customer end
 			if(c.getId() == id){
 				c.setAddresses(addresses);
+				connection.persistUpdate(c);
 			}
+		}
+		for(Address a : addresses){			// Updates the address end
+			connection.persistUpdate(a);
 		}
 	}
 }

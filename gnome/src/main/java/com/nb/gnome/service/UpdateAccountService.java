@@ -22,6 +22,7 @@ public class UpdateAccountService {
 	UserCredentials userCredentials;
 	@Inject
 	AddressRepository addressRepository;
+	@Inject
 	AddressService addressService;
 	
 	public void updateAccount(String firstName, String surname, String email){
@@ -41,6 +42,7 @@ public class UpdateAccountService {
 		customersAddresses = addressService.getCustomerAddresses();
 		for (Address a : customersAddresses){
 			if (a.getId() == addressId){
+				Customer c = a.getCustomer();
 				customersAddresses.remove(a);			// Remove the address that we are changing.
 				Address updatedAddress = new Address();	// Edit the new address.
 				updatedAddress.setLine1(firstLine);
@@ -48,6 +50,9 @@ public class UpdateAccountService {
 				updatedAddress.setTown(town);
 				updatedAddress.setPostcode(postcode);
 				updatedAddress.setCounty(county);
+				updatedAddress.setID(addressId);
+				updatedAddress.setId(addressId);
+				updatedAddress.setCustomer(c);
 				customersAddresses.add(updatedAddress); // Add the updated address to the collection.
 				break;
 			}
