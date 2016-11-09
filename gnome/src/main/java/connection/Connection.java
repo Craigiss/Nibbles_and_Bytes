@@ -167,6 +167,7 @@ public class Connection {
 		aa.setCounty("Bucks");
 		aa.setPostcode("mk76jn");
 		aa.setCustomer(cu);
+		
 	
 		
 		Address aa1 = new Address();
@@ -177,11 +178,14 @@ public class Connection {
 		aa1.setPostcode("Postcode");
 		aa1.setCustomer(cu2);
 		
-//		 Customer <-> Address
-//		List<Address> cuAddr = new ArrayList<Address>();
-//		cuAddr.add(aa);
-//		cuAddr.add(aa1);
-//		cu.setAddresses(cuAddr);
+		 // Customer <-> Address
+		List<Address> cuAddr = new ArrayList<Address>();
+		cuAddr.add(aa);
+		cu.setAddresses(cuAddr);
+		
+		List<Address> cuAddr2 = new ArrayList<Address>();
+		cuAddr2.add(aa1);
+		cu2.setAddresses(cuAddr2);
 		
 																						// Sales orders
 		SalesOrder sO1 = new SalesOrder();
