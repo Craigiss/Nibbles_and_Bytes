@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+	bean-discovery-mode="all">
+
+
+	<alternatives>
+		<class>com.nb.gnome.mangers.online.AddressRepositoryOnline</class>
+		<class>com.nb.gnome.mangers.online.CustomerRepositoryOnline</class>
+		<!-- <class>com.nb.gnome.mangers.online.CategoryRepositoryOnline</class> -->
+		<class>com.nb.gnome.mangers.online.ISAccountRepositoryOnline</class>
+		<class>com.nb.gnome.mangers.online.ProductRepositoryOnline</class>
+		<!-- <class>com.nb.gnome.mangers.online.PurchaseOrderDetailsRepositoryOnline</class> -->
+		<!-- <class>com.nb.gnome.mangers.online.PurchaseOrderRepositoryOnline</class> -->
+		<!-- <class>com.nb.gnome.mangers.online.ReturnsRepositoryOnline</class> -->
+		<class>com.nb.gnome.mangers.online.ReviewRepositoryOnline</class>
+		<class>com.nb.gnome.mangers.online.SalesOrderDetailsRepositoryOnline</class>
+		<class>com.nb.gnome.mangers.online.SalesOrderRepositoryOnline</class>
+		<!-- <class>com.nb.gnome.mangers.online.SupplierRepositoryOnline</class> -->
+	</alternatives>
+</beans>

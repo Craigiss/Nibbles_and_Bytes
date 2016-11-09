@@ -1,5 +1,7 @@
 package com.nb.gnome.entities;
 
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 /**
@@ -28,15 +30,16 @@ public class Category {
 	/**
 	 * @return the id
 	 */
+	
+	
+	@OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
+	private List<Product> products;
+	
+	
 	public int getId() {
 		return id;
 	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		id = id;
-	}
+
 	/**
 	 * @return the name
 	 */
@@ -48,6 +51,11 @@ public class Category {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public void setId(int i) {
+		this.id = i;
+		
 	}
 	
 }

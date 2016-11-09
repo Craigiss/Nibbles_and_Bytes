@@ -56,9 +56,9 @@ public class SalesOrder {
 	 * Sets order id of a customer order
 	 * @param id - email address of customer
 	 * */
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
 	/**
 	 * Returns Date that a customer order was placed
@@ -106,6 +106,11 @@ public class SalesOrder {
 	 * */
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public void setId(int i) {
+		this.id = i;
+		
 	}
 
 }

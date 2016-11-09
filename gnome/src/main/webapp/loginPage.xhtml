@@ -39,6 +39,10 @@ Login Page
 <h:form class="form-signUp">
 	<h2 class="form-signUp-heading">New User</h2>
 
+	<h:inputText value="#{CreateAccount.title}" type="text" id="inputTitle"
+	class="form-control" a:placeholder="Title" 
+	requiredMessage="Please enter Your Title"/>
+
 	<h:inputText value="#{CreateAccount.firstName}" type="text" id="inputFirstName"
 	class="form-control" a:placeholder="First Name" 
 	requiredMessage="Please enter Your First Name"/>
@@ -46,6 +50,10 @@ Login Page
 		<h:inputText value="#{CreateAccount.surname}" type="text" id="inputSurname"
 	class="form-control" a:placeholder="Surname"
 	requiredMessage="Please enter Your Surname"/>
+	
+		<h:inputText value="#{CreateAccount.phoneNumber}" type="text" id="inputPhoneNumber"
+	class="form-control" a:placeholder="Phone Number" 
+	requiredMessage="Please enter Your Phone Number"/>
 	
 	<h:inputText  value="#{CreateAccount.addressFirstLine}" type="text" id="inputAddrLine1"
 	class="form-control" a:placeholder="Address Line 1"

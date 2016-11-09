@@ -40,10 +40,10 @@ public class CheckoutService  {
 	public void completeOrder(ArrayList<Product> products, int i){
 		SalesOrder order = new SalesOrder();
 		SalesOrderDetails salesOrderDetails = new SalesOrderDetails();
-		order.setId(salesOrderManager.findAll().size()+1);	
+		//order.setId(salesOrderManager.findAll().size()+1);	
 		for (Product p: products){
 			salesOrderDetails.setFKSalesOrderId(order.getId());
-			salesOrderDetails.setId(salesOrderDetailsManager.findAll().size()+1);
+//			salesOrderDetails.setId(salesOrderDetailsManager.findAll().size()+1);
 			salesOrderDetails.setProductId(p.getProductID());
 			salesOrderDetails.setQuantity(p.getQuantity());
 			salesOrderDetailsManager.persistSalesOrderDetails(salesOrderDetails);

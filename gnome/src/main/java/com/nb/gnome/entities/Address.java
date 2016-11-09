@@ -45,13 +45,20 @@ public class Address {
 	@Size (min = 5, max = 8)
 	private String postcode;
 	
-	//@ManyToMany(targetEntity=Customer.class, mappedBy="CustomerAccountAddress")
 	@ManyToOne
-	@JoinColumn(name="addresses")
-	private Customer customers;
+	@JoinColumn(name="customer")
+	private Customer customer;
 	
 
 	
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
 	/**
 	 * Default constructor taking no arguments
 	 */
@@ -66,14 +73,10 @@ public class Address {
 	public int getId() {
 		return id;
 	}
-
-	/**
-	 * Method to set the ID of the address instance
-	 * @param id Input to set the ID
-	 */
-	public void setId(int id) {
+	public void setID(int id){
 		this.id = id;
 	}
+
 
 	/**
 	 * Method to get line 1 of the address instance
@@ -159,7 +162,12 @@ public class Address {
 	 * @return the customers
 	 */
 	public Customer getCustomers() {
-		return customers;
+		return customer;
+	}
+
+	public void setId(int i) {
+		this.id = i;
+		
 	}
 	
 	

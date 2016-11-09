@@ -13,7 +13,7 @@ import com.nb.gnome.entities.Customer;
 import com.nb.gnome.managers.CustomerRepository;
 import com.nb.gnome.managers.AddressRepository;
 
-import gnome.InitialData;
+
 
 import com.nb.gnome.entities.Address;
 
@@ -21,28 +21,29 @@ import com.nb.gnome.entities.Address;
 public class CreateAccountService {
 	@Inject 
 	CustomerRepository customerManager; 
-	@Inject 
-	InitialData initialData;
+
 	@Inject
 	AddressRepository addressManager; 
 	
-	public void newUser(String firstName, String surname, String email, String firstLine,String secondLine, String town, String county, String postcode, String password) throws Exception{
+	public void newUser(String title, String firstName, String surname, String email, String phone, String firstLine,String secondLine, String town, String county, String postcode, String password) throws Exception{
 		//Hashing and stuff, split the name to first and last 
 		
 		Customer c = new Customer();
 		Address a = new Address();
-		List<Address> addresses = new ArrayList<Address>();
+		//List<Address> addresses = new ArrayList<Address>();
 		//a.setId(addressManager.getAddresses().size()+1);
 		a.setLine1(firstLine);	
 		a.setLine2(secondLine);   // Does the addresses stuff
 		a.setTown(town);
 		a.setCounty(county);
 		a.setPostcode(postcode);
-		addresses.add(a);
-		c.setAddresses(addresses);
-		
+		a.setCustomer(c);
+		//addresses.add(a);
+		//c.setAddresses(addresses);
+		c.setTitle(title);
 		c.setFirstName(firstName);					// Does the customer credentials.
 		c.setSurname(surname);
+		c.setPhoneNumber(phone);
 		c.setEmail(email);
 		//c.setId(initialData.getCustomerAccounts().size() + 1);
 		c.setStatus("active");
@@ -57,6 +58,7 @@ public class CreateAccountService {
 
 
 		customerManager.persistCustomer(c);	
+		addressManager.persistAddress(a);
 	}
 	
 	public String hashPassword(String password, String salt) throws Exception{  // WARNING *** This MUST be kept the same as LoginService.getHashFromPassword() ***

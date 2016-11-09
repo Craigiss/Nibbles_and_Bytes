@@ -14,7 +14,7 @@ import com.nb.gnome.managers.SalesOrderRepository;
 import com.nb.gnome.managers.hib.ObjectConverter;
 
 import connection.Connection;
-import gnome.InitialData;
+
 
 
 @Alternative

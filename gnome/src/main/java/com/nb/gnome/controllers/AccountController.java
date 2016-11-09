@@ -33,7 +33,7 @@ public class AccountController implements Serializable {
 	@Inject
 	AddressRepository addressManager;
 
-	
+	@Inject
 	AddressService addressService;
 
 	private List<Address> address; // Customer's addresses.

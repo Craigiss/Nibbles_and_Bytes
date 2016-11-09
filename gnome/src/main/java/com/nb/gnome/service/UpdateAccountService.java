@@ -11,15 +11,13 @@ import com.nb.gnome.entities.Customer;
 import com.nb.gnome.managers.AddressRepository;
 import com.nb.gnome.managers.CustomerRepository;
 
-import gnome.InitialData;
 
 @Stateless
 
 public class UpdateAccountService {
     @Inject 
     CustomerRepository  customerRepository; 
-	@Inject 
-	InitialData initialData;  
+
 	@Inject 
 	UserCredentials userCredentials;
 	@Inject
@@ -45,7 +43,6 @@ public class UpdateAccountService {
 			if (a.getId() == addressId){
 				customersAddresses.remove(a);			// Remove the address that we are changing.
 				Address updatedAddress = new Address();	// Edit the new address.
-				updatedAddress.setId(addressId);
 				updatedAddress.setLine1(firstLine);
 				updatedAddress.setLine2(secondLine);
 				updatedAddress.setTown(town);

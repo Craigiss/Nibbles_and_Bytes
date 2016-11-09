@@ -26,7 +26,7 @@ public class CategoryRepositoryOffline implements CategoryRepository {
 		{
 			if( cat.getId() == c.getId())
 			{
-				cat.setId(c.getId());
+				
 				cat.setName(c.getName());
 			}
 		}

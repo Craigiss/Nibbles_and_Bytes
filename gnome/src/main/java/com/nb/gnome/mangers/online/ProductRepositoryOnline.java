@@ -17,7 +17,7 @@ import com.nb.gnome.managers.ProductRepository;
 import com.nb.gnome.managers.hib.ObjectConverter;
 
 import connection.Connection;
-import gnome.InitialData;
+
 
 @Alternative
 @Stateless
@@ -38,7 +38,7 @@ public class ProductRepositoryOnline implements ProductRepository {
 
 	List<Product> keywordProduct = new ArrayList<Product>();
 
-	for (Product p: converter.convertToProducts(connection.returnData("Products"))){
+	for (Product p: converter.convertToProducts(connection.returnData("Product"))){
 		if (p.getProductName().toLowerCase().contains(keyword.toLowerCase()) || p.getDescription().contains(keyword.toLowerCase())){
 				keywordProduct.add(p);
 				System.out.println(p.getProductName());
@@ -51,7 +51,7 @@ public class ProductRepositoryOnline implements ProductRepository {
 	@Override
 	public Product getProductByName(String name){
 		Product prod = new Product();
-		for (Product p: converter.convertToProducts(connection.returnData("Products"))){
+		for (Product p: converter.convertToProducts(connection.returnData("Product"))){
 			if (p.getProductName() == name)
 			{
 				prod = p;				
@@ -72,9 +72,9 @@ public class ProductRepositoryOnline implements ProductRepository {
 			}
 		}
 		if (categoryIdToFind != -1){											// If the category id is valid
-				for (ProductCategory pc : converter.ConvertToProductCategory(connection.returnData("ProductCatagory"))){	// For each of the productCategories.
-					if (pc.getCategoryID() == categoryIdToFind){				// If any of the product match the category we are looking for
-						prod.add(getProductByID(pc.getProductID()));			// Add the product
+				for (Product p : converter.convertToProducts(connection.returnData("Product"))){	// For each of the productCategories.
+					if (p.getCategory().getId() == categoryIdToFind){				// If any of the product match the category we are looking for
+						prod.add(getProductByID(p.getProductID()));			// Add the product
 					}
 				}
 		}
@@ -84,7 +84,7 @@ public class ProductRepositoryOnline implements ProductRepository {
 	@Override
 	public Product getProductByID(int id){
 		Product prod = new Product();
-		for (Product p: converter.convertToProducts(connection.returnData("Products"))){
+		for (Product p: converter.convertToProducts(connection.returnData("Product"))){
 			if (p.getProductID() == id)
 			{
 				prod = p;
@@ -97,7 +97,7 @@ public class ProductRepositoryOnline implements ProductRepository {
 	public int getStockLevel(int id){
 		int stockLevel=-1;
 		Product prod = new Product();
-		for (Product p:converter.convertToProducts(connection.returnData("Products"))){
+		for (Product p:converter.convertToProducts(connection.returnData("Product"))){
 			if (p.getProductID() == id)
 			{
 				prod = p;
@@ -110,7 +110,7 @@ public class ProductRepositoryOnline implements ProductRepository {
 	//Update
 	@Override
 	public void incrementStock(int id, int quantity){
-		for (Product p: converter.convertToProducts(connection.returnData("Products"))){
+		for (Product p: converter.convertToProducts(connection.returnData("Product"))){
 			if (p.getProductID() == id)
 			{
 				p.setStockLevel(p.getStockLevel()+quantity);
@@ -123,7 +123,7 @@ public class ProductRepositoryOnline implements ProductRepository {
 	
 	@Override
 	public void decrementStock(int id, int quantity){
-		for (Product p: converter.convertToProducts(connection.returnData("Products"))){
+		for (Product p: converter.convertToProducts(connection.returnData("Product"))){
 			if (p.getProductID() == id)
 			{
 				p.setStockLevel(p.getStockLevel()-quantity);
@@ -134,7 +134,7 @@ public class ProductRepositoryOnline implements ProductRepository {
 	
     @Override
 	public List<Product> findAll(){
-    	List<Product> p = converter.convertToProducts(connection.returnData("Products"));
+    	List<Product> p = converter.convertToProducts(connection.returnData("Product"));
     	
     	return p;
     	
@@ -142,7 +142,7 @@ public class ProductRepositoryOnline implements ProductRepository {
 
 	@Override
 	public void setQuantity(int id, int quantity) {
-		for (Product p: converter.convertToProducts(connection.returnData("Products"))){
+		for (Product p: converter.convertToProducts(connection.returnData("Product"))){
 			if (p.getProductID() == id)
 			{
 			 	p.setQuantity(quantity);	
