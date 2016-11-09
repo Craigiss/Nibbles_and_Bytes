@@ -30,9 +30,10 @@
 		<!-- Back button and search bar -->
 		<div class="row">
 			<div class="col-sm-3" id="back">
-				<a href="imsProducts.xhtml" class="hovering"> <img
-					class="glass_back" src="../img/back.png" />
-				</a>
+				<h:form class="hovering">
+					<button id="backButton" type="button" data-toggle="modal"
+						data-target="#myModal" />
+				</h:form>
 			</div>
 
 			<div class="col-sm-9" id="search">
@@ -55,39 +56,44 @@
 
 		<!-- Content -->
 		<div class="row" id="productFormatter">
-<!-- 			<div class="col-sm-3 col-xs-3"></div> -->
+			<!-- 			<div class="col-sm-3 col-xs-3"></div> -->
 			<div class="col-sm-12 col-xs-12">
 				<h:form>
 					<div class="addElement">
-						<div class="row"><h4>Product Name</h4></div>
+						<div class="row">
+							<h4>Product Name</h4>
+						</div>
 						<div class="row uTextInput">
 							<h:inputText type="text" value="#{products.name}" required="true" />
 						</div>
 					</div>
 					<div class="addElement">
-						<div class="row"><h4>Description</h4></div>
 						<div class="row">
-							<h:inputTextarea id="descriptionInput" rows="10" value="#{products.description}"
-								required="true" style="min-width: 100%; resize:none; max-length:1000; border: 1px solid silver;"/>
+							<h4>Description</h4>
+						</div>
+						<div class="row">
+							<h:inputTextarea id="descriptionInput" rows="10"
+								value="#{products.description}" required="true"
+								style="min-width: 100%; resize:none; max-length:1000; border: 1px solid silver;" />
 						</div>
 					</div>
 					<div class="addElement">
-						<div class="row"><h4>Selling Price</h4></div>
+						<div class="row">
+							<h4>Selling Price</h4>
+						</div>
 						<div class="row uTextInput">
 							<h:inputText type="text" value="#{products.price}"
-								required="true"/>
+								required="true" />
 						</div>
 					</div>
 					<div class="addElement">
-						<div class="row"><h4>Stock Level</h4></div>
 						<div class="row">
-							<div class="col-sm-5 col-xs-5 listCenter">
-								Normal
-							</div>
+							<h4>Stock Level</h4>
+						</div>
+						<div class="row">
+							<div class="col-sm-5 col-xs-5 listCenter">Normal</div>
 							<div class="col-sm-2 col-xs-2"></div>
-							<div class="col-sm-5 col-xs-5 listCenter">
-								Porousware
-							</div>
+							<div class="col-sm-5 col-xs-5 listCenter">Porousware</div>
 						</div>
 						<div class="row">
 							<div class="col-sm-5 uTextInput">
@@ -102,13 +108,18 @@
 						</div>
 					</div>
 					<div class="addElement">
-						<div class="row"><h4>Supplier</h4></div>
-						<h:selectOneMenu class="supplierDropdown" value="#{products.supplier}" converter="omnifaces.SelectItemsConverter">
+						<div class="row">
+							<h4>Supplier</h4>
+						</div>
+						<h:selectOneMenu class="supplierDropdown"
+							value="#{products.supplier}"
+							converter="omnifaces.SelectItemsConverter">
 							<f:selectItem itemValue="#{null}" itemLabel="Select a supplier" />
-							<f:selectItems value="#{suppliers.findAll()}" var="sup" itemValue="#{sup}" itemLabel="#{sup.company}"></f:selectItems>
+							<f:selectItems value="#{suppliers.findAll()}" var="sup"
+								itemValue="#{sup}" itemLabel="#{sup.company}"></f:selectItems>
 						</h:selectOneMenu>
 					</div>
-					
+
 					<div class="row addops">
 						<h:commandLink class="listCenter"
 							action="#{products.persistProduct()}">
@@ -121,7 +132,7 @@
 					</div>
 				</h:form>
 			</div>
-		<!-- 	<div class="col-sm-3 col-xs-3"></div> -->
+			<!-- 	<div class="col-sm-3 col-xs-3"></div> -->
 		</div>
 
 		<!-- Footer -->
@@ -135,7 +146,37 @@
 			</div>
 
 		</div>
-
 	</div>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">X</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Confirm Page
+						Navigation</h4>
+				</div>
+				<div class="modal-body">Are you sure you want leave this page
+					without saving?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn pull-left btn-danger"
+						data-dismiss="modal">Cancel</button>
+					<h:form id="formSubmission">
+						<h:outputLink class="btn btn-success" value="imsProducts.xhtml?faces-redirect=true"
+							style="right:10px;">Confirm</h:outputLink>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="../css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>

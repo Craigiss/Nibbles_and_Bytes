@@ -31,18 +31,20 @@
 							label="Search Bar IMS System" value="#{search.term}" />
 					</div>
 					<div class="col-sm-1">
-						<h:commandLink class="hovering"
-							action="#{search.search()}">
+						<h:commandLink class="hovering" action="#{search.search()}">
 							<h:graphicImage class="glass_back" value="../img/glass.png" />
 						</h:commandLink>
 					</div>
-					<div class= "col-sm-12">
-					<h:selectOneRadio value="#{search.searchType}" class="testing">
-   						<f:selectItem itemValue="Products" itemLabel="Products" value="#{search.searchType}"/>
-   						<f:selectItem itemValue="Suppliers" itemLabel="Suppliers" value="#{search.searchType}"/>
-   						<f:selectItem itemValue="PO" itemLabel="PO" value="#{search.searchType}"/>
-   					</h:selectOneRadio>
-   					</div>			
+					<div class="col-sm-12">
+						<h:selectOneRadio value="#{search.searchType}" class="testing">
+							<f:selectItem itemValue="Products" itemLabel="Products"
+								value="#{search.searchType}" />
+							<f:selectItem itemValue="Suppliers" itemLabel="Suppliers"
+								value="#{search.searchType}" />
+							<f:selectItem itemValue="PO" itemLabel="PO"
+								value="#{search.searchType}" />
+						</h:selectOneRadio>
+					</div>
 				</h:form>
 			</div>
 
@@ -84,7 +86,7 @@
 
 				<div class="col-sm-4 mainButton" id="analy">
 					<h:form>
-					<h:commandLink action="#{graph.reCreatePie()}"/>
+						<h:commandLink action="#{graph.reCreatePie()}" />
 					</h:form>
 					<h:outputLink value="imsAnalytics.xhtml?faces-redirect=true">Analytics
               <div>
@@ -94,14 +96,13 @@
 				</div>
 
 				<div class="col-sm-4 mainButton" id="log">
-				<h:form>
-				<h:commandLink action = "#{IMSUser.resetCredentials()}"/>
-				</h:form>
-					<h:outputLink value="../imsLogin.xhtml?faces-redirect=true">Logout
-              <div>
-							<h:graphicImage value="../img/log.png" />
-						</div>
-					</h:outputLink>
+					<h:form>
+						<h:commandLink action="#{IMSUser.resetCredentials()}" />
+					</h:form>
+					<h:form>
+						<button id ="logButton" type="button" data-toggle="modal"
+							data-target="#myModal" />
+					</h:form>
 				</div>
 			</div>
 
@@ -116,6 +117,32 @@
 
 			</div>
 
+
+
+		</div>
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">X</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Confirm Logout</h4>
+					</div>
+					<div class="modal-body">Are you sure you want to log out?</div>
+					<div class="modal-footer">
+						<button type="button" class="btn pull-left btn-danger"
+							data-dismiss="modal">Cancel</button>
+						<h:form id="formSubmission">
+								<h:outputLink class="btn btn-success" value = "../imsLogin.xhtml?faces-redirect=true"
+								style="right:10px;">Confirm</h:outputLink>
+						</h:form>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<script

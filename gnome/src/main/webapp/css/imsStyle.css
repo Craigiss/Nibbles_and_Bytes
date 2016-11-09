@@ -115,6 +115,18 @@ img {
 	padding-top: 3px;
 }
 
+#backButton {
+    border: none;
+    background-image: url(../img/back.png);
+    background-size: 39px 39px;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 44px;
+    background-color: #C00002;
+    background-position: center;
+    outline: none;
+}
+
 #prod {
 	background-color: #C00002;
 }
@@ -162,6 +174,17 @@ h2 {
 
 #log {
 	background-color: #92D14F;
+}
+
+#logButton {
+    border: none;
+    background-image: url(../img/log.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 177px;
+    background-color: #92D14F;
+    background-position: center;
+    outline: none;
 }
 
 #help {
