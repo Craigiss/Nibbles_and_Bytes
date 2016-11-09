@@ -46,18 +46,14 @@ public class PurchaseOrderController implements Serializable {
 		Date theDate = new Date();
 		
 		// Retrieve purchase order details
-		lines = podController.convert();
+		lines = podController.getListPOD();
 		
 		// Run persist method
 		String status = "Awaiting Approval";
 		purchaseOrderService.persistPurchaseOrder(theDate, status, lines, supplier);
 
-		// Reset fields
-		lines = null;
-		supplier = null;
-		listData = null;
-
-		return "imsPo?faces-redirect=true";
+		// Reset fields		
+		return clean();
 	}
 
 	/**
@@ -204,8 +200,10 @@ public class PurchaseOrderController implements Serializable {
 	
 	public String clean(){
 		supplier = null;
+		lines = null;
+		listProducts = null;
 		podController.clean();
-		return "imsIndex?faces-redirect=true";
+		return "imsPo?faces-redirect=true";
 	}
 	
 

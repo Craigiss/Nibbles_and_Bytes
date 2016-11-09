@@ -13,71 +13,69 @@ import com.nb.gnome.entities.PurchaseOrderDetails;
 @Named (value="pods")
 @SessionScoped
 public class PurchaseOrderDetailsController implements Serializable{
-	private List<Product> listProducts;
-	private List<Integer> listQuantities;
+	private List<PurchaseOrderDetails> listPOD;
+	private Product product;
+	private int quantity;
 		
 	{
-		listProducts = new ArrayList<Product>();
-		listProducts.add(new Product());
+		listPOD = new ArrayList<PurchaseOrderDetails>();
 	}
 	
-	public void extend(){
-		listProducts.add(new Product());
-	}
-	
-	
-	/**
-	 * Converts attributes into a list of PurchaseOrderDetails
-	 * @return
-	 */
-	public List<PurchaseOrderDetails> convert(){
-		List<PurchaseOrderDetails> list = new ArrayList<PurchaseOrderDetails>();
-		for(int i = 0; i < listProducts.size(); i++){
-			System.out.println(listProducts.get(i).getProductName());
-			PurchaseOrderDetails a = new PurchaseOrderDetails(listProducts.get(i), listQuantities.get(i));
-			list.add(a);
-		}
-
-		return list;
+	public void addLine(){
+		System.out.println(product.getProductName() + " " + quantity);
+		listPOD.add(new PurchaseOrderDetails(product, quantity));
 	}
 	
 	public void clean(){
 		System.out.println("Cleaning the 'Add new PO' form");
-		listProducts = new ArrayList<Product>();
-		listQuantities = new ArrayList<Integer>();
+		listPOD = new ArrayList<PurchaseOrderDetails>();
+		product = null;
+		quantity = 0;
 	}
 
 	/**
-	 * @return the listProducts
+	 * @return the listPOD
 	 */
-	public List<Product> getListProducts() {
-		return listProducts;
+	public List<PurchaseOrderDetails> getListPOD() {
+		return listPOD;
 	}
-
 
 	/**
-	 * @param listProducts the listProducts to set
+	 * @param listPOD the listPOD to set
 	 */
-	public void setListProducts(List<Product> listProducts) {
-		this.listProducts = listProducts;
+	public void setListPOD(List<PurchaseOrderDetails> listPOD) {
+		this.listPOD = listPOD;
 	}
-
 
 	/**
-	 * @return the listQuantities
+	 * @return the product
 	 */
-	public List<Integer> getListQuantities() {
-		return listQuantities;
+	public Product getProduct() {
+		return product;
 	}
-
 
 	/**
-	 * @param listQuantities the listQuantities to set
+	 * @param product the product to set
 	 */
-	public void setListQuantities(List<Integer> listQuantities) {
-		this.listQuantities = listQuantities;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
-	
+
+	/**
+	 * @return the quantity
+	 */
+	public int getQuantity() {
+		return quantity;
+	}
+
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+
 	
 	
 }

@@ -15,6 +15,8 @@ public class ButtonController implements Serializable {
 	
 	@Inject
 	private ButtonService buttonService;
+	@Inject
+	private PurchaseOrderController poController;
 	private int idOfProduct;
 	
 	
@@ -56,5 +58,10 @@ public class ButtonController implements Serializable {
 	 */
 	public void setIdOfProduct(int idOfProduct) {
 		this.idOfProduct = idOfProduct;
+	}
+	
+	public String resetAddPO(){
+		return poController.clean();
+		
 	}
 }
