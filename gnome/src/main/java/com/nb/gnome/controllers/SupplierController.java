@@ -37,6 +37,7 @@ public class SupplierController implements Serializable {
 	private DataModel<Supplier> dataModel = null;
 	private List<Supplier> listData;
 	private Address address;
+	private String error =  null;
 
 	public void recreateModel() {
 		dataModel = null;
@@ -131,8 +132,16 @@ public class SupplierController implements Serializable {
 	 */
 
 	public String persistSupplier() {
+		
 		address = addressController.persistAddress();
 		addressController.clean();
+		if(name.length() <2 || description.length() <2 || company.length() < 2 || phone.length() < 2|| email.length() <2 || address == null )
+		{
+			setError("Invalid details used for entries for new supplier");
+			return "addSupplier";
+		}	
+		
+		setError(null);
 		supplierService.persistSupplier(company, name, phone, email, description, address);
 		//address = addressController.persistAddress();
 		recreateModel();
@@ -285,6 +294,14 @@ public class SupplierController implements Serializable {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
 	}
 	
 	

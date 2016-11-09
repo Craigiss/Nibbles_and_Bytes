@@ -15,6 +15,7 @@
 </h:head>
 
 <body>
+
 	<div class="container">
 
 		<div class="row" id="topline">
@@ -53,9 +54,19 @@
 				</div>
 			</div>
 		</div>
+		<br/>
+		<br/>
+		<h:form rendered="#{products.error ne null}">
+			<div id="alerttt" class="alert alert-danger"
+				style="visiblity: visible">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
+				<h:outputText value="#{products.error}" />
+			</div>
+		</h:form>
+
 
 		<!-- Content -->
-		<div class="row" id="productFormatter">
+		<div class="row">
 			<!-- 			<div class="col-sm-3 col-xs-3"></div> -->
 			<div class="col-sm-12 col-xs-12">
 				<h:form>
@@ -120,7 +131,7 @@
 						</h:selectOneMenu>
 					</div>
 
-					<div class="row addops">
+					<div class="addops">
 						<h:commandLink class="listCenter"
 							action="#{products.persistProduct()}">
 							<div class="col-sm-4 col-xs-4 addButs listCenter" id="save">Save</div>
@@ -129,11 +140,15 @@
 						<a href="imsProducts.xhtml">
 							<div class="col-sm-4 col-xs-4 addButs listCenter" id="cancel">Cancel</div>
 						</a>
+
 					</div>
+
 				</h:form>
+
 			</div>
 			<!-- 	<div class="col-sm-3 col-xs-3"></div> -->
 		</div>
+
 
 		<!-- Footer -->
 		<div class="row">
@@ -166,16 +181,16 @@
 					<button type="button" class="btn pull-left btn-danger"
 						data-dismiss="modal">Cancel</button>
 					<h:form id="formSubmission">
-						<h:outputLink class="btn btn-success" value="imsProducts.xhtml?faces-redirect=true"
-							style="right:10px;">Confirm</h:outputLink>
+						<h:outputLink class="btn btn-success"
+							value="imsProducts.xhtml?faces-redirect=true" style="right:10px;">Confirm</h:outputLink>
 					</h:form>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="../css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 </body>
