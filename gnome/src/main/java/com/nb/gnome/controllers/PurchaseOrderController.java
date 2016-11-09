@@ -53,6 +53,8 @@ public class PurchaseOrderController implements Serializable {
 		
 		purchaseOrderService.persistPurchaseOrder(theDate, status, lines, supplier);
 
+		reset();
+		
 		// Reset fields		
 		return clean();
 	}
@@ -222,7 +224,6 @@ public class PurchaseOrderController implements Serializable {
 		dataModel = null;
 		listData = null;
 		return "imsIndex?faces-redirect=true";
-
 	}
 	
 	public String goToAddPOPage(){
