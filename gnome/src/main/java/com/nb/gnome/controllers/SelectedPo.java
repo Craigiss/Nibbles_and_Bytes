@@ -62,5 +62,11 @@ public class SelectedPo implements Serializable {
 	public void setListData(List<PurchaseOrderDetails> listData) {
 		this.listData = listData;
 	}
+	
+	public String reset() {
+		dataModel = null;
+		listData = null;
+		return "imsPo?faces-redirect=true";
+	}
 
 }
