@@ -123,12 +123,16 @@
 					<div class="row addops">
 						<h:commandLink class="listCenter"
 							action="#{products.persistProduct()}">
-							<div class="col-sm-4 col-xs-4 addButs listCenter hovering" id="save">Save</div>
+							<div class="col-sm-4 col-xs-4 addButs listCenter hovering"
+								id="save">Save</div>
 						</h:commandLink>
 						<div class="col-sm-4 col-xs-4 addButs hovering" />
-						<a href="imsProducts.xhtml">
-							<div class="col-sm-4 col-xs-4 addButs listCenter hovering" id="cancel">Cancel</div>
-						</a>
+						<h:form class="hovering">
+							<div class="col-sm-4 addButs listCenter" id="cancel">
+								<button id="cancelButton" class="addButs listCenter"
+									type="button" data-toggle="modal" data-target="#myModal">Cancel</button>
+							</div>
+						</h:form>
 					</div>
 				</h:form>
 			</div>
@@ -166,16 +170,16 @@
 					<button type="button" class="btn pull-left btn-danger"
 						data-dismiss="modal">Cancel</button>
 					<h:form id="formSubmission">
-						<h:outputLink class="btn btn-success" value="imsProducts.xhtml?faces-redirect=true"
-							style="right:10px;">Confirm</h:outputLink>
+						<h:outputLink class="btn btn-success"
+							value="imsProducts.xhtml?faces-redirect=true" style="right:10px;">Confirm</h:outputLink>
 					</h:form>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="../css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 </body>

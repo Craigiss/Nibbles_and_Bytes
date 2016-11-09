@@ -15,6 +15,7 @@
 </h:head>
 
 <body>
+
 	<div class="container">
 		<div class="row" id="topline">
 			<div id="title">Add New Supplier</div>
@@ -52,6 +53,15 @@
 				</div>
 			</div>
 		</div>
+		<br/>
+		<br/>
+		<h:form rendered="#{suppliers.error ne null}">
+			<div id="alerttt" class="alert alert-danger"
+				style="visiblity: visible">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
+				<h:outputText value="#{suppliers.error}" />
+			</div>
+		</h:form>
 
 		<!-- Content -->
 		<h:form>
@@ -143,12 +153,16 @@
 					<div class="col-sm-4 addButs listCenter hovering" id="save">Save</div>
 				</h:commandLink>
 				<div class="col-sm-2 addButs" />
-				<a href="imsSuppliers.xhtml">
-					<div class="col-sm-4 addButs listCenter hovering" id="cancel">Cancel</div>
-				</a>
+				<h:form class="hovering">
+					<div class="col-sm-4 addButs listCenter" id="cancel">
+					<button id="cancelButton" class="addButs listCenter" type="button" data-toggle="modal"
+						data-target="#myModal">Cancel</button>
+					</div>
+				</h:form>
 				<div class="col-sm-1 addButs" />
 			</div>
 		</h:form>
+		
 
 		<!-- Footer -->
 		<div class="row">
@@ -181,16 +195,17 @@
 					<button type="button" class="btn pull-left btn-danger"
 						data-dismiss="modal">Cancel</button>
 					<h:form id="formSubmission">
-						<h:outputLink class="btn btn-success" value="imsSuppliers.xhtml?faces-redirect=true"
+						<h:outputLink class="btn btn-success"
+							value="imsSuppliers.xhtml?faces-redirect=true"
 							style="right:10px;">Confirm</h:outputLink>
 					</h:form>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="../css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 </body>

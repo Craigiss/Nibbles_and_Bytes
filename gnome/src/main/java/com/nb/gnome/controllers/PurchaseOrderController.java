@@ -50,6 +50,7 @@ public class PurchaseOrderController implements Serializable {
 		
 		// Run persist method
 		String status = "Awaiting Approval";
+		
 		purchaseOrderService.persistPurchaseOrder(theDate, status, lines, supplier);
 
 		// Reset fields		

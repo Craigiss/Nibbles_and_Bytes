@@ -77,7 +77,7 @@
 
 			<div class="row">
 				<div class="col-sm-4 mainButton" id="admin">
-					<h:outputLink value="imsAdmin.xhtml?faces-redirect=true">Admin
+					<h:outputLink value="#{isAccount.isUserAdmin()}">Admin
               <div>
 							<h:graphicImage value="../img/admin.png" />
 						</div>
@@ -100,8 +100,9 @@
 						<h:commandLink action="#{IMSUser.resetCredentials()}" />
 					</h:form>
 					<h:form>
+						<p>Logout</p>
 						<button id ="logButton" type="button" data-toggle="modal"
-							data-target="#myModal" />
+							data-target="#myModal"/>
 					</h:form>
 				</div>
 			</div>

@@ -38,6 +38,7 @@ public class ProductController implements Serializable {
 	private int porousStockLevel;
 	private List<Product> listData;
 	private Supplier supplier;
+	private String error = null;
 
 	private void recreateModel() {
 		dataModel = null;
@@ -122,6 +123,12 @@ public class ProductController implements Serializable {
 
 	public String persistProduct() {
 		System.out.println("In controller >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		if(name.length() <2 || description.length() <2 || price < 0 || stockLevel < 0|| porousStockLevel <0 || supplier == null )
+		{
+			setError("Invalid details used for entries for new product");
+			return "addProduct";
+		}
+		
 		productService.persistProduct(name, description, price, stockLevel, porousStockLevel, supplier);
 		recreateModel();
 		name = "";
@@ -274,6 +281,14 @@ public class ProductController implements Serializable {
 	 */
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
+	}
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
 	}
 	
 	

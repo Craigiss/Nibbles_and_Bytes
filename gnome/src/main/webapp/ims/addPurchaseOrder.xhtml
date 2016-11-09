@@ -147,9 +147,12 @@
 					<div class="col-sm-4 addButs listCenter hovering" id="save">Save</div>
 				</h:commandLink>
 				<div class="col-sm-2 addButs" />
-				<h:commandLink class="listCenter" action="#{pos.clean()}">
-					<div class="col-sm-4 addButs listCenter hovering" id="cancel">Cancel</div>
-				</h:commandLink>
+				<h:form class="hovering">
+					<div class="col-sm-4 addButs listCenter" id="cancel">
+					<button id="cancelButton" class="addButs listCenter" type="button" data-toggle="modal"
+						data-target="#myModal">Cancel</button>
+					</div>
+				</h:form>
 				<div class="col-sm-1 addButs" />
 			</div>
 
