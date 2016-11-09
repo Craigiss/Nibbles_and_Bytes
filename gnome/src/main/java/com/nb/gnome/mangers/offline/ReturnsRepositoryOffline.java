@@ -1,4 +1,4 @@
-package com.nb.gnome.mangers.offline;
+/*package com.nb.gnome.mangers.offline;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,3 +36,4 @@ public class ReturnsRepositoryOffline implements ReturnsRepository{
 	}
 
 }
+*/

@@ -108,4 +108,9 @@ public class SalesOrder {
 		this.status = status;
 	}
 
+	public void setId(int i) {
+		this.id = i;
+		
+	}
+
 }

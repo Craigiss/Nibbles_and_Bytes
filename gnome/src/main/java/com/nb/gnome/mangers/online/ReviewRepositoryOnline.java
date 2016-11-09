@@ -14,7 +14,6 @@ import com.nb.gnome.managers.ReviewRepository;
 import com.nb.gnome.managers.hib.ObjectConverter;
 
 import connection.Connection;
-import gnome.InitialData;
 @Alternative
 @Stateless
 public class ReviewRepositoryOnline implements ReviewRepository {
@@ -33,7 +32,7 @@ public class ReviewRepositoryOnline implements ReviewRepository {
 	@Override
 	public List<Review> findReviewByProduct(Product p) {
 		List<Review> list = new ArrayList<Review>();
-		for(Review r : converter.convertToReview(connection.returnData("Reviews"))){
+		for(Review r : converter.convertToReview(connection.returnData("Review"))){
 			if(r.getProductid() == p.getProductID()){
 				list.add(r);
 			}
@@ -43,7 +42,7 @@ public class ReviewRepositoryOnline implements ReviewRepository {
 
 	 @Override
 		public List<Product> findAll(){
-	    	List<Product> p = converter.convertToProducts(connection.returnData("Products"));
+	    	List<Product> p = converter.convertToProducts(connection.returnData("Product"));
 	    	return p;
 	    }
 

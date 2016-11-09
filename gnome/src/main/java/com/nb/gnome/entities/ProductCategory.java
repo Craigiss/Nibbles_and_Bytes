@@ -60,4 +60,8 @@ public class ProductCategory {
 //	public void setProductID(int productID) {
 //		this.productID = productID;
 //	}
+	public void setProductID(int i) {
+ this.productID =i;
+		
+	}
 }

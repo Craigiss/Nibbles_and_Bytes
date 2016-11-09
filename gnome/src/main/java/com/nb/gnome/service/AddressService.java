@@ -47,7 +47,8 @@ public class AddressService {
 		address.setLine2(addressSecondLine);
 		address.setPostcode(postcode);
 		address.setTown(town);
-		customerRepository.getCustomerById(user.getId()).getAddresses().add(address);
+		address.setCustomer(customerRepository.getCustomerById(user.getId()));
+		addressRepository.persistAddress(address);
 	}
 	
 	public void deleteAddress(int addressId){

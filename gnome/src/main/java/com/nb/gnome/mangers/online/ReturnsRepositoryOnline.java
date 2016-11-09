@@ -1,4 +1,4 @@
-package com.nb.gnome.mangers.online;
+/*package com.nb.gnome.mangers.online;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,4 +36,4 @@ public class ReturnsRepositoryOnline implements ReturnsRepository{
 		return ret;
 	}
 
-}
+}*/

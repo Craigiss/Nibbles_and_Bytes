@@ -69,7 +69,7 @@ public class Customer {
 		this.salt = salt;
 	}
 
-	@OneToMany(mappedBy ="customers")
+	@OneToMany(mappedBy ="customer", fetch = FetchType.EAGER)
 	private List<Address> addresses;
 	
 	@OneToMany(mappedBy = "Customerid")

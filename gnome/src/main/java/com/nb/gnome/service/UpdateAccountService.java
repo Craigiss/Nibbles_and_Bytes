@@ -11,15 +11,13 @@ import com.nb.gnome.entities.Customer;
 import com.nb.gnome.managers.AddressRepository;
 import com.nb.gnome.managers.CustomerRepository;
 
-import gnome.InitialData;
 
 @Stateless
 
 public class UpdateAccountService {
     @Inject 
     CustomerRepository  customerRepository; 
-	@Inject 
-	InitialData initialData;  
+
 	@Inject 
 	UserCredentials userCredentials;
 	@Inject

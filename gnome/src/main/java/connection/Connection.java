@@ -40,13 +40,13 @@ public class Connection {
 	private void createSession() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
-		properties.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/cat");
+		properties.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/cat?autoReconnect=true&useSSL=false");
 		properties.setProperty("hibernate.connection.username", "root");
 		properties.setProperty("hibernate.connection.password", "broly1");
 		
 		properties.setProperty("hibernate.show_sql", "true");
-		// properties.setProperty("hibernate.hbm2ddl.auto", "update");
-		properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		//properties.setProperty("hibernate.hbm2ddl.auto", "create");
 
 		Configuration cfg = new Configuration().addProperties(properties).addAnnotatedClass(Product.class).addAnnotatedClass(ProductCategory.class)
 				.addAnnotatedClass(Address.class).addAnnotatedClass(Category.class).addAnnotatedClass(Customer.class).addAnnotatedClass(ISAccount.class)
@@ -91,19 +91,20 @@ public class Connection {
 	public void init() {
 		
 		
-		Address aa = new Address();
-		aa.setLine1("95 Crowborough Lane");
-		aa.setLine2("Kents Hill");
-		aa.setTown("Milton Keynes");
-		aa.setCounty("Bucks");
-		aa.setPostcode("mk76jn");
+		Category c1 = new Category();													// Categories
+		c1.setName("Gnomes");
 		
-		Address aa1 = new Address();
-		aa1.setLine1("First Line2");
-		aa1.setLine2("Second Line2");
-		aa1.setTown("Town2");
-		aa1.setCounty("County2");
-		aa1.setPostcode("Postcode");
+		Category c2 = new Category();
+		c2.setName("PoolsAndHotTubs");
+		
+		Category c3 = new Category();
+		c3.setName("GnomeAccessories");
+		
+		Category c4 = new Category();
+		c4.setName("GardenOrnaments");
+		
+		Category c5 = new Category();
+		c5.setName("GnomeCare");
 			
 																						// Customers
 		Customer cu = new Customer();
@@ -111,14 +112,11 @@ public class Connection {
 		cu.setEmail("Email");
 		cu.setFirstName("firstName");
 		cu.setSurname("surname");
-		cu.setPassword("password");
+		cu.setPassword("802081c5b0f35d03c23f8d951c71b72d71d5cc97d346dfeafbdb5a8763669a62");
 		//cu.setId(1);
 		cu.setSalt("ks93t1dq74tec1jpua15effjh3");
 		cu.setPhoneNumber("0123456789");
 		cu.setStatus("Active");
-		List<Address> cuad = new ArrayList<Address>();
-		cuad.add(aa1);
-		cu.setAddresses(cuad);
 		
 		Customer cu2 = new Customer();
 		cu2.setTitle("Mr");
@@ -130,10 +128,27 @@ public class Connection {
 		cu2.setSalt("ks93t1dq74tec1jpua15effjh3");
 		cu2.setPhoneNumber("0123456789");
 		cu2.setStatus("Active");
-		List<Address> cu1ad = new ArrayList<Address>();
-		cu1ad.add(aa);
-		cu.setAddresses(cu1ad);
-																			// Customer <-> Address
+
+				
+		
+		Address aa = new Address();
+		aa.setLine1("95 Crowborough Lane");
+		aa.setLine2("Kents Hill");
+		aa.setTown("Milton Keynes");
+		aa.setCounty("Bucks");
+		aa.setPostcode("mk76jn");
+		aa.setCustomer(cu);
+	
+		
+		Address aa1 = new Address();
+		aa1.setLine1("First Line2");
+		aa1.setLine2("Second Line2");
+		aa1.setTown("Town2");
+		aa1.setCounty("County2");
+		aa1.setPostcode("Postcode");
+		aa1.setCustomer(cu2);
+		
+//		 Customer <-> Address
 //		List<Address> cuAddr = new ArrayList<Address>();
 //		cuAddr.add(aa);
 //		cuAddr.add(aa1);
@@ -158,6 +173,7 @@ public class Connection {
 		p1.setPrice(17.99);
 		p1.setStockLevel(115);
 		p1.setRating(4);
+		p1.setCategory(c1);
 
 		Product p2 = new Product();
 		p2.setProductName("The Laundry Line");
@@ -166,6 +182,7 @@ public class Connection {
 		p2.setPrice(2.99);
 		p2.setStockLevel(115);
 		p2.setRating(0);
+		p2.setCategory(c4);
 		// Reviews
 		Review r1 = new Review();
 		r1.setProductID(1);
@@ -195,20 +212,7 @@ public class Connection {
 		r3.setProduct_id(p1);
 		
 		
-		Category c1 = new Category();													// Categories
-		c1.setName("Gnomes");
 		
-		Category c2 = new Category();
-		c2.setName("PoolsAndHotTubs");
-		
-		Category c3 = new Category();
-		c3.setName("GnomeAccessories");
-		
-		Category c4 = new Category();
-		c4.setName("GardenOrnaments");
-		
-		Category c5 = new Category();
-		c5.setName("GnomeCare");
 		
 	
 		
@@ -219,6 +223,7 @@ public class Connection {
 		p3.setPrice(4.99);
 		p3.setStockLevel(115);
 		p3.setRating(0);
+		p3.setCategory(c1);
 		
 		Product p4 = new Product();
 		p4.setProductName("Minimushrooms");
@@ -227,6 +232,7 @@ public class Connection {
 		p4.setPrice(24.99);
 		p4.setStockLevel(115);
 		p4.setRating(0);
+		p4.setCategory(c4);
 		
 		Product p5 = new Product();
 		p5.setProductName("Mr and Mrs");
@@ -235,6 +241,7 @@ public class Connection {
 		p5.setPrice(7.99);
 		p5.setStockLevel(8008135);
 		p5.setRating(0);
+		p5.setCategory(c1);
 		
 		Product p6 = new Product();
 		p6.setProductName("Christmas Boots");
@@ -243,6 +250,7 @@ public class Connection {
 		p6.setPrice(4.99);
 		p6.setStockLevel(8008135);
 		p6.setRating(0);
+		p6.setCategory(c3);
 		
 		Product p7 = new Product();
 		p7.setProductName("Lawn Flamingo");
@@ -251,6 +259,7 @@ public class Connection {
 		p7.setPrice(14.99);
 		p7.setStockLevel(8008135);
 		p7.setRating(0);
+		p7.setCategory(c4);
 		
 		Product p8 = new Product();
 		p8.setProductName("Benny");
@@ -259,6 +268,7 @@ public class Connection {
 		p8.setPrice(8.99);
 		p8.setStockLevel(8008135);
 		p8.setRating(0);
+		p8.setCategory(c1);
 		
 		Product p11 = new Product();
 		p11.setProductName("King of the 7 Gnomedoms");
@@ -267,6 +277,7 @@ public class Connection {
 		p11.setPrice(17.99);
 		p11.setStockLevel(115);
 		p11.setRating(0);
+		p11.setCategory(c1);
 		
 		Product p12 = new Product();
 		p12.setProductName("The Laundry Line");
@@ -275,6 +286,7 @@ public class Connection {
 		p12.setPrice(2.99);
 		p12.setStockLevel(115);
 		p12.setRating(0);
+		p12.setCategory(c4);
 		
 		Product p13 = new Product();
 		p13.setProductName("Gnome Trek Set");
@@ -283,6 +295,7 @@ public class Connection {
 		p13.setPrice(4.99);
 		p13.setStockLevel(115);
 		p13.setRating(0);
+		p13.setCategory(c1);
 		
 		Product p14 = new Product();
 		p14.setProductName("Minimushrooms");
@@ -291,6 +304,7 @@ public class Connection {
 		p14.setPrice(24.99);
 		p14.setStockLevel(115);
 		p14.setRating(0);
+		p14.setCategory(c4);
 		
 		Product p15 = new Product();
 		p15.setProductName("Mr and Mrs");
@@ -299,6 +313,7 @@ public class Connection {
 		p15.setPrice(7.99);
 		p15.setStockLevel(8008135);
 		p15.setRating(0);
+		p15.setCategory(c1);
 		
 		Product p16 = new Product();
 		p16.setProductName("Christmas Boots");
@@ -307,6 +322,7 @@ public class Connection {
 		p16.setPrice(4.99);
 		p16.setStockLevel(8008135);
 		p16.setRating(0);
+		p16.setCategory(c3);
 		
 		Product p17 = new Product();
 		p17.setProductName("Lawn Flamingo");
@@ -315,6 +331,7 @@ public class Connection {
 		p17.setPrice(14.99);
 		p17.setStockLevel(8008135);
 		p17.setRating(0);
+		p17.setCategory(c4);
 		
 		Product p18 = new Product();
 		p18.setProductName("Benny");
@@ -323,6 +340,7 @@ public class Connection {
 		p18.setPrice(8.99);
 		p18.setStockLevel(8008135);
 		p18.setRating(0);
+		p18.setCategory(c1);
 
 		
 		Product p19 = new Product();
@@ -332,6 +350,7 @@ public class Connection {
 		p19.setPrice(209.99);
 		p19.setStockLevel(8008135);
 		p19.setRating(0);
+		p19.setCategory(c2);
 
 		
 																						// Product Categories
@@ -366,7 +385,7 @@ public class Connection {
 		
 		
 		persistData(aa,aa1, cu,cu2,sO1,sO2,p1,p2,p3,p4,p5,p6,p7,p8,p11,p12,p13,p14,p15,p16,p17,p18,p19,pc1,pc2,pc3,
-				pc4,pc5,pc6,pc7,pc8,pc9,r1,r2,r3);
+				pc4,pc5,pc6,pc7,pc8,pc9,r1,r2,r3,c1,c2,c3,c4,c5);
 		
 		
 		

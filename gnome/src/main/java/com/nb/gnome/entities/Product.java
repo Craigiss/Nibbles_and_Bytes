@@ -14,7 +14,7 @@ import javax.persistence.*;
  **/
 
 @Entity
-@Table (name = "Product")
+@Table (name = "product")
 public class Product {
 
 	@Id
@@ -45,6 +45,10 @@ public class Product {
 	
 	@OneToMany(mappedBy = "Product_id")
 	private List<Review> reviews;
+	
+	@ManyToOne
+	@JoinColumn(name="category")
+	private Category category;
 	
 	int Quantity;
 	/**
@@ -157,6 +161,16 @@ public class Product {
 	}
 	public void setRating(int rating) {
 		this.rating = rating;
+	}
+	public void setProductID(int i) {
+		this.productID =i;
+		
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 	
 	

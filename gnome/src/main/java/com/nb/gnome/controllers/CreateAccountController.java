@@ -19,15 +19,19 @@ public class CreateAccountController {
 	@Inject 
 	LoginService loginService; 
 	@Inject 
-	UserCredentials userCredentials; 
+	UserCredentials userCredentials;
 	
+	private String title;
 	private String firstName;
 	private String surname;
 	private String email;
+	private String phoneNumber;
 	private String addressFirstLine;
 	private String addressSecondLine;
 	private String town;
 	private String county;
+	
+
 	public String getTown() {
 		return town;
 	}
@@ -38,6 +42,22 @@ public class CreateAccountController {
 
 	public String getCounty() {
 		return county;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public void setCounty(String county) {
@@ -51,6 +71,12 @@ public class CreateAccountController {
 	private String error;
 	
 	public String addUser() throws Exception{	
+		
+		if(title.equals("")){
+			setError("Please enter your title.");
+			return "loginPage";
+		}
+		
 		if(firstName.equals("")){							// Basic validation. If any fields empty return to login page.
 			setError("Please enter your First Name.");
 			return "loginPage";
@@ -60,6 +86,12 @@ public class CreateAccountController {
 			setError("Please enter your Surname.");
 			return "loginPage";
 		}
+		
+		if(phoneNumber.equals("")){
+			setError("Please enter your phone number.");
+			return "loginPage";
+		}
+		
 		if(addressFirstLine.equals("")){
 			setError("Please enter the first line of your address.");
 			return "loginPage";
@@ -105,7 +137,7 @@ public class CreateAccountController {
 			return "loginPage";
 		}
 		try{
-		createAccountService.newUser(firstName, surname, email, addressFirstLine,addressSecondLine, town, county, postcode, password);
+		createAccountService.newUser(title, firstName, surname, email, phoneNumber, addressFirstLine,addressSecondLine, town, county, postcode, password);
 		}
 		catch(Exception e){
 			System.out.println("Failed");
