@@ -93,6 +93,7 @@ public class Connection {
 		return returnObjects;
 	}
 
+
 	@PostConstruct
 	public void init() {
 		//createData();
@@ -217,7 +218,7 @@ public class Connection {
 		r1.setDate("11/12/2016");
 		r1.setRating(4);
 		r1.setReviewText(" Perfect for my garden 1");
-		r1.setCustomerid(cu);
+		r1.setFKCustomerid(cu);
 		r1.setName("Connor");
 		r1.setProduct_id(p1);
 		
@@ -227,7 +228,7 @@ public class Connection {
 		r2.setRating(4);
 		r2.setReviewText(" Perfect for my garden 2");
 		r2.setName("Craig");
-		r2.setCustomerid(cu);
+		r2.setFKCustomerid(cu);
 		r2.setProduct_id(p1);
 		
 		Review r3 = new Review();
@@ -236,7 +237,7 @@ public class Connection {
 		r3.setRating(4);
 		r3.setReviewText(" Perfect for my garden 3");
 		r3.setName("Tim");
-		r3.setCustomerid(cu);
+		r3.setFKCustomerid(cu);
 		r3.setProduct_id(p1);
 		
 		
