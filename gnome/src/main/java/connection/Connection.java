@@ -53,6 +53,7 @@ public class Connection {
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		//properties.setProperty("hibernate.hbm2ddl.auto", "create");
 		// REMEMBER to comment createData(); inside init() method if you're only updating the database!!
+		
 		Configuration cfg = new Configuration().addProperties(properties).addAnnotatedClass(Product.class).addAnnotatedClass(ProductCategory.class)
 				.addAnnotatedClass(Address.class).addAnnotatedClass(Category.class).addAnnotatedClass(Customer.class).addAnnotatedClass(ISAccount.class)
 				.addAnnotatedClass(Review.class).addAnnotatedClass(SalesOrder.class).addAnnotatedClass(SalesOrderDetails.class);
