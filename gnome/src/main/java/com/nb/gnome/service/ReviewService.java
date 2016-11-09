@@ -10,7 +10,10 @@ import javax.inject.Inject;
 
 import com.nb.gnome.controllers.SelectedProduct;
 import com.nb.gnome.entities.Review;
+import com.nb.gnome.managers.CustomerRepository;
 import com.nb.gnome.managers.ReviewRepository;
+
+import connection.Connection;
 @Stateful 
 public class ReviewService {
 		@Inject 
@@ -19,6 +22,10 @@ public class ReviewService {
 		SelectedProduct selectedProduct; 
 		@Inject 
 		UserCredentials user;
+		@Inject 
+		CustomerRepository customerManager; 
+		@Inject 
+		Connection connection;
 		
 		
 		
@@ -33,6 +40,8 @@ public class ReviewService {
 			r.setRating(score);
 			r.setReviewText(Comment);
 			r.setName(user.getUser());
+			r.setFKCustomerid(customerManager.getCustomerById(user.getId()));
+			r.setProduct_id(selectedProduct.getProduct());
 			reviewRepository.persistReview(r);
 			List<Review> reviews = reviewRepository.findReviewByProduct(selectedProduct.getProduct());
 			for(Review a: reviews){
@@ -42,6 +51,7 @@ public class ReviewService {
 			}
 			total = total/c;
 			selectedProduct.getProduct().setRating(total);
+			connection.persistUpdate(selectedProduct.getProduct());
 		}
 
 }
