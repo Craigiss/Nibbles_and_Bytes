@@ -37,6 +37,15 @@ public class ISAccountController implements Serializable{
     	return pageReturn;
     }
     
+    public String isUserAdmin(){
+    	String page = "imsIndex.xhtml?faces-redirect=true";
+    	ISAccount isis = iSAService.findISAccountByEmail(iMSUserCredentials.getEmail());    	
+    	if(isis.isAdmin()){
+    		page="imsAdmin.xhtml?faces-redirect=true";
+    	}
+    	return page;    	
+    }
+    
     public String seasonAndCook(String email, String npassword) throws Exception{
     	String password = iSAService.seasonAndCook(email, npassword);
     	return password;
