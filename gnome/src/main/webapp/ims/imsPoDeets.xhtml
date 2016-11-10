@@ -33,17 +33,17 @@
 
 	<!-- Content goes here -->
 	<ui:define name="maincontent">
-			<div class="row">
-				<h3 id ="purchaseOrderDetials">Purchase Order Details</h3>
-			</div>
-			<div class="row" id="podetails">
-				<div class="col-sm-12 text">
+		<div class="row">
+			<h3 id="purchaseOrderDetials">Purchase Order Details</h3>
+		</div>
+		<div class="row" id="podetails">
+			<div class="col-sm-12 text">
 				<h:form>
 					<h:outputText value="Purchase Order ID: " />
 					<h:outputText value="#{selectedPo.purchaseOrder.id}" />
 					<br />
 					<h:outputText value="Date: " />
-					<h:outputText value="#{selectedPo.purchaseOrder.date}" />
+					<h:outputText value="#{selectedPo.purchaseOrder.date}"><f:convertDateTime pattern="yyyy-MM-dd" /></h:outputText>
 					<br />
 					<h:outputText value="Supplier: " />
 					<h:outputText value="#{selectedPo.purchaseOrder.supplier.company}" />
@@ -51,64 +51,74 @@
 					<h:outputText value="Purchase Order Status: " />
 					<h:outputText value="#{selectedPo.purchaseOrder.status}" />
 				</h:form>
-				</div>
 			</div>
-			
-			<br/>
+		</div>
 
-			<div class="row table">
-				<div class="col-sm-10 heading supDetails">Product</div>
-				<div class="col-sm-2 heading supDetails listCenter">Quantity</div>
-			</div>
+		<br />
 
-			<ui:repeat var="deets" value="#{selectedPo.dataModel}">
-				<div class="row table listItem">
-					<div class="col-sm-10 supDetails">
-						<h:form>
-							<h:commandLink action="#{products.view(deets.product)}"
-								value="#{deets.product.productName}" />
-						</h:form>
-					</div>
-					<div class="col-sm-2 supDetails listCenter">
-						<h:form>
-							<h:commandLink action="#{products.view(deets.product)}"
-								value="#{deets.quantity}" />
-						</h:form>
-					</div>
-				</div>
-			</ui:repeat>
+		<div class="row table">
+			<div class="col-sm-8 heading supDetails">Product</div>
+			<div class="col-sm-2 heading supDetails listCenter">Quantity</div>
+			<div class="col-sm-2 heading supDetails listCenter">Cost</div>
+		</div>
 
-			<div class="row">
-				<div class="col-sm-6 buttonOfJoy col-xs-6">
-					<p id="email_text">Email</p>
-				</div>
-				<div class="col-sm-2 buttonOfJoy col-xs-2">
+		<ui:repeat var="deets" value="#{selectedPo.dataModel}">
+			<div class="row table listItem">
+				<div class="col-sm-8 supDetails">
 					<h:form>
-						<h:commandLink class="hovering" action="#{supplier.email()}">
-							<h:graphicImage class="sys" value="../img/email.png" />
-						</h:commandLink>
+						<h:commandLink action="#{products.view(deets.product)}"
+							value="#{deets.product.productName}" />
 					</h:form>
 				</div>
-				<div class="col-sm-2 buttonOfJoy col-xs-2">
-					<p id="print_text">Print</p>
-				</div>
-				<div class="col-sm-2 buttonOfJoy col-xs-2">
+				<div class="col-sm-2 supDetails listCenter">
 					<h:form>
-						<h:commandLink class="hovering" action="#{product.print()}">
-							<h:graphicImage class="sys" value="../img/print.png" />
+						<h:commandLink action="#{products.view(deets.product)}"
+							value="#{deets.quantity}" />
+					</h:form>
+				</div>
+				<div class="col-sm-2 supDetails listCenter">
+					<h:form>
+						<h:commandLink action="#{products.view(deets.product)}">
+							<h:outputText value="#{deets.subtotal()}">
+								<f:convertNumber pattern="£###,###,##0.00"/>
+								</h:outputText>
 						</h:commandLink>
 					</h:form>
 				</div>
 			</div>
+		</ui:repeat>
 
-			<div class="row">
-				<div class="col-sm-12">
-					<p class="detail_headers">Analytics - Stock Ordered</p>
-					<rich:chart id="pie4">
-						<rich:chartLegend sorting="descending" />
-						<rich:chartSeries data="#{graphs.pie4}" type="pie" />
-					</rich:chart>
-				</div>
+		<div class="row">
+			<div class="col-sm-6 buttonOfJoy col-xs-6">
+				<p id="email_text">Email</p>
 			</div>
+			<div class="col-sm-2 buttonOfJoy col-xs-2">
+				<h:form>
+					<h:commandLink class="hovering" action="#{supplier.email()}">
+						<h:graphicImage class="sys" value="../img/email.png" />
+					</h:commandLink>
+				</h:form>
+			</div>
+			<div class="col-sm-2 buttonOfJoy col-xs-2">
+				<p id="print_text">Print</p>
+			</div>
+			<div class="col-sm-2 buttonOfJoy col-xs-2">
+				<h:form>
+					<h:commandLink class="hovering" action="#{product.print()}">
+						<h:graphicImage class="sys" value="../img/print.png" />
+					</h:commandLink>
+				</h:form>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<p class="detail_headers">Analytics - Stock Ordered</p>
+				<rich:chart id="pie4">
+					<rich:chartLegend sorting="descending" />
+					<rich:chartSeries data="#{graphs.pie4}" type="pie" />
+				</rich:chart>
+			</div>
+		</div>
 	</ui:define>
 </ui:composition>

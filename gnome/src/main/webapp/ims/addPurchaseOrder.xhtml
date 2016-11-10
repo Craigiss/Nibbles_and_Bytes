@@ -60,15 +60,13 @@
 		<div class="blurb">
 			<h5>Add a new purchase order by selecting the relevant supplier.
 				Then select the products you wish to purchase and their respective
-				quantities. You can continue to add new lines until you are done, by using the 'Add Line' button below. 
-				Press 'Save' when you are done.</h5>
+				quantities. You can continue to add new lines until you are done, by
+				using the 'Add Line' button below. Press 'Save' when you are done.</h5>
 		</div>
 
 		<h:form>
 			<div class="addElement col-sm-12">
-				<div class="row table supDetails heading">
-					Supplier
-				</div>
+				<div class="row table supDetails heading">Supplier</div>
 				<div class="row table">
 					<div class="supDetails">
 						<h:selectOneMenu class="supplierDropdown" value="#{pos.supplier}"
@@ -87,12 +85,8 @@
 
 			<div class="addElement">
 				<div class="row table supDetails heading">
-					<div class="col-sm-11 supDetails">
-						Product
-					</div>
-					<div class="col-sm-1 listCenter">
-						Quantity
-					</div>
+					<div class="col-sm-11 supDetails">Product</div>
+					<div class="col-sm-1 listCenter">Quantity</div>
 				</div>
 
 				<div class="row table">
@@ -131,11 +125,16 @@
 			<h:outputText rendered="#{pods.getListPOD().size() lt 1}">No items added</h:outputText>
 			<ui:repeat value="#{pods.listPOD}" var="iPOD">
 				<div class="row table">
-					<div class="col-sm-11 supDetails">
+					<div class="col-sm-10 supDetails">
 						<h:outputText value="#{iPOD.product.productName}" />
 					</div>
 					<div class="col-sm-1 supDetails listCenter">
 						<h:outputText value="#{iPOD.quantity}" />
+					</div>
+					<div class="col-sm-1 supDetails listCenter">
+						<h:outputText value="#{iPOD.subtotal()}">
+							<f:convertNumber pattern="£###,###,##0.00" />
+						</h:outputText>
 					</div>
 				</div>
 

@@ -184,8 +184,7 @@ public class GraphController implements Serializable {
 	
 	public void generateStockItems() {
 		pie4 = new StringChartDataModel(ChartDataModel.ChartType.pie);
-
-		ArrayList<PurchaseOrderDetails> poDetails = (ArrayList<PurchaseOrderDetails>) selectedPo.getListData();
+		List<PurchaseOrderDetails> poDetails = selectedPo.getListData();
 			for (PurchaseOrderDetails p :poDetails ) {
 				pie4.put(p.getProduct().getProductName() + " " + p.getQuantity(), p.getQuantity() );
 			}

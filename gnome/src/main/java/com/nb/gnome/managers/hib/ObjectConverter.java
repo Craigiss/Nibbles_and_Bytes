@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 
 import com.nb.gnome.entities.ISAccount;
 import com.nb.gnome.entities.Product;
+import com.nb.gnome.entities.PurchaseOrder;
 import com.nb.gnome.entities.Supplier;
 
 @Stateless
@@ -38,6 +39,15 @@ public class ObjectConverter implements Serializable {
 			accountList.add((ISAccount)o);
 		}
 		return accountList;
+	}
+	
+	public List<PurchaseOrder> convertToPO(List<Object> objectList){
+		List<PurchaseOrder> poList = new ArrayList<PurchaseOrder>();
+		
+		for (Object o : objectList){
+			poList.add((PurchaseOrder)o);
+		}
+		return poList;
 	}
 	
 	

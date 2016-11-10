@@ -1,5 +1,7 @@
 package com.nb.gnome.entities;
 
+import java.math.BigDecimal;
+
 import javax.persistence.*;
 
 /**
@@ -96,6 +98,11 @@ public class PurchaseOrderDetails {
 	 */
 	public void setPo(PurchaseOrder po) {
 		this.po = po;
+	}
+	
+	public double subtotal(){
+		double bd = quantity* product.getPrice();
+		return bd;
 	}
 
 	
