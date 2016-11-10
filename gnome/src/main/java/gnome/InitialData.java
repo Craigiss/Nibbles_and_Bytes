@@ -18,7 +18,7 @@ public class InitialData {
 	private List<Supplier> suppliers = new ArrayList<Supplier>();
 
 	public InitialData(){
-	
+	/*
 		Supplier s1 = new Supplier();
 		s1.setCompany("Lawn Flamingos Wholesale");
 		s1.setId(001);
@@ -70,7 +70,7 @@ public class InitialData {
 		p2.setPrice(24.99);
 		p2.setStockLevel(115);
 		p2.setPorousStockLevel(6);
-p2.setImgPath("../img/gnomezilla.png");
+		p2.setImgPath("../img/gnomezilla.png");
 		p2.setSupplier(s1);
 		products.add(p2);
 		s1.getProducts().add(p2);
@@ -223,7 +223,7 @@ p2.setImgPath("../img/gnomezilla.png");
 		isa3.setAdmin(true);
 		isa3.setSalt("42");
 		isa3.setRole("admin");
-		iSAccounts.add(isa3);
+		iSAccounts.add(isa3);*/
 	}
 
 	/**

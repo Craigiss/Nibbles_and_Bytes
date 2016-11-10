@@ -7,6 +7,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 /**
  * @author Nibbles and Bytes
  * @version 1.0
@@ -35,7 +38,8 @@ public class PurchaseOrder {
 	@ManyToOne
 	private Supplier supplier;
 	
-	@OneToMany(mappedBy ="po")
+	@OneToMany(mappedBy ="po", fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SELECT)
 	private List<PurchaseOrderDetails> lines;
 	
 	@Column(name = "deleted")
@@ -51,6 +55,13 @@ public class PurchaseOrder {
 	
 	public PurchaseOrder(int mId, Date mDate, String mStatus, List<PurchaseOrderDetails> mList, Supplier mSup){
 		this.id=mId;
+		this.date=mDate;
+		this.status=mStatus;
+		this.lines = mList;
+		this.supplier = mSup;
+	}
+	
+	public PurchaseOrder(Date mDate, String mStatus, List<PurchaseOrderDetails> mList, Supplier mSup){
 		this.date=mDate;
 		this.status=mStatus;
 		this.lines = mList;
