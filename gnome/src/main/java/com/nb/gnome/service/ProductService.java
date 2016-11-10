@@ -30,6 +30,15 @@ public class ProductService {
 	}
 	
 	/**
+	 * Updates the product page according to the params entered 
+	 */
+	public void persistUpdateProduct(int id, String mName, String mDescription, double mPrice, int mStockLevel, int mporousStockLevel, Supplier mSupplier){
+		Product p = new Product(id, mName, mDescription, mPrice, mStockLevel, mporousStockLevel, mSupplier );
+		productManager.persistUpdateProduct(p);
+	}
+	
+	
+	/**
 	 *  finds all products and returns these deets as a list
 	 * @return
 	 * 
