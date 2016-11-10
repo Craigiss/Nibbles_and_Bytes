@@ -43,7 +43,7 @@ public class SalesOrderRepositoryOnline implements SalesOrderRepository  {
 	}
 
 	@Override
-	public SalesOrder findSalesOrderById(long id) {
+	public SalesOrder findSalesOrderById(int id) {
 		SalesOrder mSales = new SalesOrder();
 		for(SalesOrder p : converter.convertToSalesOrder(connection.returnData("SalesOrder"))){
 			if(p.getId() == id){
@@ -57,6 +57,14 @@ public class SalesOrderRepositoryOnline implements SalesOrderRepository  {
 	@Override
 	public List<SalesOrder> findAll() {
 		return converter.convertToSalesOrder(connection.returnData("SalesOrder"));
+	}
+	
+
+
+	@Override
+	public void updateOrder(SalesOrder a) {
+		connection.persistUpdate(a);
+		
 	}
 
 }

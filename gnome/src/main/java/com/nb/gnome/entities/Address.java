@@ -45,6 +45,18 @@ public class Address {
 	@Size (min = 5, max = 8)
 	private String postcode;
 	
+	@Column (name = "active", nullable = false)
+	@NotNull
+	private boolean active = true;
+	
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	@ManyToOne
 	@JoinColumn(name="customer")
 	private Customer customer;

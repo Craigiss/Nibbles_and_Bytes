@@ -163,7 +163,7 @@ public class ProductController implements Serializable {
 		reviewService.completeReview( review,score);
 		view(product.getProduct().getProductID());
 		review = "";
-	
+	    score = 0;
 		return "Product";
 	}
 

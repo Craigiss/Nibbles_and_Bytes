@@ -24,8 +24,9 @@ public class SearchController implements Serializable {
 	
 	private String term;
 	public String search(){
+		searchCatController.recreateModel();
 		products = (ArrayList<Product>) productManager.getProductByKeyword(term);
-		
+		searchCatController.setTerm(term);
 		searchCatController.getDataModel();
 		searchCatController.setDataModel(products);
 		
@@ -33,7 +34,8 @@ public class SearchController implements Serializable {
 	}
 	
 	public String openCategoryPage(String searchTerm){
-		//categoryTerm = "Gnomes";																
+		//categoryTerm = "Gnomes";				
+		searchCatController.recreateModel();
 		products = (ArrayList<Product>) productManager.getProductByCategory(searchTerm);
 		
 		searchCatController.getDataModel();

@@ -1,6 +1,7 @@
 //Kieran Working On
 package com.nb.gnome.controllers;
 
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
@@ -12,6 +13,8 @@ import com.nb.gnome.helper.PaginationHelper;
 import com.nb.gnome.managers.ProductRepository;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+
 @Named("searchProducts")
 @SessionScoped
 public class SearchCatalogueController implements Serializable {
@@ -25,29 +28,42 @@ public class SearchCatalogueController implements Serializable {
 	private SelectedProduct product;
 	private PaginationHelper pagination;
 	private DataModel<Product> dataModel = null;
+	private List<Product> listData;
+	private String term;
 
-	private void recreateModel() {
-		dataModel = null;
+	public String getTerm() {
+		return term;
 	}
-	
-	//method that will set
+
+	public void setTerm(String term) {
+		this.term = term;
+	}
+
+	public void recreateModel() {
+		dataModel = null;
+		listData = null;
+	}
+
+	// method that will set
 
 	public PaginationHelper getPagination() {
 		if (pagination == null)
-			pagination = new PaginationHelper(12) {
+			pagination = new PaginationHelper(8) {
 				@Override
 				public int getItemsCount() {
-					return productRepository.findAll().size();
+					if (listData == null)
+						return productRepository.findAll().size();
+					else
+						return listData.size();
 				}
 
 				@Override
-				public DataModel<Product>createPageDataModel() {
+				public DataModel<Product> createPageDataModel() {
 					try {
 						return new ListDataModel<Product>(
-								productRepository.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+								listData.subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
-						return new ListDataModel<Product>(
-								productRepository.findAll().subList(getPageFirstItem(), getItemsCount()));
+						return new ListDataModel<Product>(listData.subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 
@@ -57,32 +73,41 @@ public class SearchCatalogueController implements Serializable {
 	}
 
 	public DataModel<Product> getDataModel() {
-		if (dataModel == null)
-			dataModel = getPagination().createPageDataModel();
+		if (listData == null)
+			listData = productRepository.getProductByKeyword(term);
+
+		dataModel = getPagination().createPageDataModel();
 		return dataModel;
 	}
-	
-	public void setDataModel(ArrayList<Product> model){
+
+	public List<Product> getListData() {
+		return listData;
+	}
+
+	public void setListData(List<Product> listData) {
+		this.listData = listData;
+	}
+
+	public void setDataModel(ArrayList<Product> model) {
 		dataModel.setWrappedData(model);
 	}
-	
-	
-	
-	public String next(){
+
+	public String next() {
 		getPagination().nextPage();
-		recreateModel();
+		
 		return "browse";
 	}
-	
-	public String previous(){
+
+	public String previous() {
 		getPagination().previousPage();
-		recreateModel();
+	
 		return "browse";
 	}
-	
-	public String view (int id){
+
+	public String view(int id) {
 		product.setProduct(productRepository.getProductByID(id));
 
 		return "Product";
 	}
+
 }

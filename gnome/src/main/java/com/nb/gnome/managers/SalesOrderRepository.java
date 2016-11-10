@@ -10,7 +10,7 @@ public interface SalesOrderRepository {
 
 	List<SalesOrder> findAll();
 
-	SalesOrder findSalesOrderById(long id);
+	SalesOrder findSalesOrderById(int id);
 
 	//ArrayList<SalesOrder> findSalesOrderByCustomerID(int id);
 
@@ -18,4 +18,5 @@ public interface SalesOrderRepository {
 
 	ArrayList<SalesOrder> findSalesOrderByCustomer(Customer c);
 
+	void updateOrder(SalesOrder a);
 }

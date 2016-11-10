@@ -20,7 +20,8 @@ Account Page
 					<li role="presentation" class="active"><a href="#account"
 						data-toggle="tab">Account Options</a></li>
 					<li role="presentation"><a href="#orders" data-toggle="tab">Orders</a></li>
-					<li role="presentation"><a href="#addAddress" data-toggle="tab">Add Address</a></li>
+					<li role="presentation"><a href="#addAddress"
+						data-toggle="tab">Add Address</a></li>
 					<li role="presentation"><h:commandButton
 							action="#{login.logout()}" value="Logout" class="btn btn-danger"
 							style=" width:100%" /></li>
@@ -46,35 +47,46 @@ Account Page
 								<h:inputText id="email" type="text" a:placeholder="Email"
 									class="col-md-6" value="#{Account.email}" />
 							</div>
-				
-				<p> Select an address </p>
-				
 
-								
-						
-			 	<h:selectOneMenu value="#{Account.selectedAddress}" onchange="submit()" valueChangeListener="#{Account.updateAddresses}"> 
-					<f:selectItems value="#{Account.address}" var="customerAddress"	itemLabel="#{customerAddress.line1}" itemValue="#{customerAddress.id}"/>
-					
-				</h:selectOneMenu>
-				
-				<div class="input-group">
-				    <h:inputText id ="Line1" type="text" a:placeholder="Address Line 1" class="form-control" value="#{Account.addressFirstLine}"/>
-				</div>
-				<div class="input-group">
-				    <h:inputText id="Line2" type="text" a:placeholder="Address Line 2" class="form-control" value="#{Account.addressSecondLine}" />
-				</div>
-				<div class="input-group">
-				    <h:inputText id="Town" type="text" a:placeholder="Town" class="form-control" value="#{Account.town}" />
-				</div>
-				<div class="input-group">
-				    <h:inputText id="County" type="text" a:placeholder="County" class="form-control" value="#{Account.county}" />
-				</div>
-				<div class="input-group">
-				    <h:inputText id="postCode" type="text" a:placeholder="Postcode" class="form-control" value="#{Account.postcode}" />
-				</div>
-	
+							<p>Select an address</p>
 
-				
+
+
+
+							<h:selectOneMenu value="#{Account.selectedAddress}"
+								onchange="submit()"
+								valueChangeListener="#{Account.updateAddresses}">
+								<f:selectItems value="#{Account.address}" var="customerAddress"
+									itemLabel="#{customerAddress.line1}"
+									itemValue="#{customerAddress.id}" />
+
+							</h:selectOneMenu>
+
+							<div class="input-group">
+								<h:inputText id="Line1" type="text"
+									a:placeholder="Address Line 1" class="form-control"
+									value="#{Account.addressFirstLine}" />
+							</div>
+							<div class="input-group">
+								<h:inputText id="Line2" type="text"
+									a:placeholder="Address Line 2" class="form-control"
+									value="#{Account.addressSecondLine}" />
+							</div>
+							<div class="input-group">
+								<h:inputText id="Town" type="text" a:placeholder="Town"
+									class="form-control" value="#{Account.town}" />
+							</div>
+							<div class="input-group">
+								<h:inputText id="County" type="text" a:placeholder="County"
+									class="form-control" value="#{Account.county}" />
+							</div>
+							<div class="input-group">
+								<h:inputText id="postCode" type="text" a:placeholder="Postcode"
+									class="form-control" value="#{Account.postcode}" />
+							</div>
+
+
+
 							<h:commandButton class="btn btn-success pull-right"
 								action="#{Account.updateAccount()}" type="submit" value="Update" />
 							<h:commandButton class="btn btn-danger pull-left"
@@ -96,42 +108,63 @@ Account Page
 								<th>Id</th>
 								<th>Date</th>
 								<th>Status</th>
+								<th>Cancel</th>
 							</tr>
-							  <ui:repeat var="orders" value="#{order.salesOrders}">
+							<ui:repeat var="orders" value="#{order.salesOrders}">
 								<tr>
 									<td><h:outputText value="#{orders.id}" /></td>
 									<td><h:outputText value="#{orders.date}" /></td>
 									<td><h:outputText value="#{orders.status}" /></td>
+									<h:form>
+										<td><h:commandButton
+												rendered="#{orders.status eq 'Active'}"
+												class="btn btn-danger btn-xs" value="-" type="submit"
+												action="#{order.cancelOrder(orders.id)}" /></td>
+									</h:form>
 								</tr>
 							</ui:repeat>
 						</table>
 					</div>
 				</div>
 			</div>
-				
-				<div class="tab-pane" id="addAddress">
+
+			<div class="tab-pane" id="addAddress">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title">Orders</h3>
+						<h3 class="panel-title">Add Address</h3>
 					</div>
 					<div class="panel-body">
-					<h:form>
-						<h:inputText  value="#{Account.addressFirstLine}" type="text" id="inputAddrLine1"
-						class="form-control" a:placeholder="Address Line 1"
-						requiredMessage="Please Enter address line 1 including house number"/>
-						<h:inputText  value="#{Account.addressSecondLine}" type="text" id="inputAddrLine2"
-						class="form-control" a:placeholder="Address Line 2"
-						requiredMessage="Please Enter address line 2"/>
-						<h:inputText  value="#{Account.town}" type="town" id="inputTown"
-						class="form-control" a:placeholder="Town"
-						requiredMessage="Please Enter Town"/>
-						<h:inputText  value="#{Account.county}" type="county" id="inputcounty"
-						class="form-control" a:placeholder="County"
-						requiredMessage="Please Enter a County"/>
-						<h:inputText  value="#{Account.postcode}" type="text" id="postcode"
-						class="form-control" a:placeholder="Postcode" 
-						requiredMessage="Please Enter your postcode"/>
-						<h:commandButton class="btn btn-success pull-right" action="#{Account.addAddress()}" type="submit" value="Add Address" />
+						<h:form>
+							<h:inputText value="#{Account.addressFirstLine}" type="text"
+								id="inputAddrLine1" class="form-control"
+								a:placeholder="Address Line 1"
+								requiredMessage="Please Enter address line 1 including house number" />
+							<h:inputText value="#{Account.addressSecondLine}" type="text"
+								id="inputAddrLine2" class="form-control"
+								a:placeholder="Address Line 2"
+								requiredMessage="Please Enter address line 2" />
+							<h:inputText value="#{Account.town}" type="town" id="inputTown"
+								class="form-control" a:placeholder="Town"
+								requiredMessage="Please Enter Town" />
+							<h:inputText value="#{Account.county}" type="county"
+								id="inputcounty" class="form-control" a:placeholder="County"
+								requiredMessage="Please Enter a County" />
+							<h:inputText value="#{Account.postcode}" type="text"
+								id="postcode" class="form-control" a:placeholder="Postcode"
+								requiredMessage="Please Enter your postcode" />
+							<h:commandButton class="btn btn-success pull-right"
+								action="#{Account.addAddress()}" type="submit"
+								value="Add Address" />
+
+							<h:form rendered="#{Account.error ne null}">
+								<div id="alerttt" class="alert alert-danger"
+									style="visiblity: visible">
+									<a href="#" class="close" data-dismiss="alert"
+										aria-label="close">X</a>
+									<h:outputText value="#{Account.error}" />
+								</div>
+							</h:form>
+
 						</h:form>
 					</div>
 				</div>
