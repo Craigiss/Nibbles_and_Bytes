@@ -24,7 +24,10 @@ public class ISAccountService {
 	private IMSUserCredentials  userCredentials;
 	
 	private String error;
+	private String salt;
 	
+	
+
 	/**
 	 * Method to check that an email address used for an account does/doesn't already exist - CMON TIM!!
 	 */
@@ -62,9 +65,9 @@ public class ISAccountService {
 	/**
 	 * Calls the ISAccount manager method, pooling params together to create a new account object
 	 * */
-	public void persistISAccount(String nEmail, String nPassword, String nName){
+	public void persistISAccount(String nEmail, String nPassword, String nName, String nSalt){
 		if (accountCheck(nEmail)){
-			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName, randomStringGenerator(), "user");
+			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName, nSalt, "user");
 			iSAccountManager.persistISAccount(isaisa);
 		}else{
 			int code=1;
@@ -72,9 +75,9 @@ public class ISAccountService {
 		}
 	}
 	
-	public void persistISAccountAdmin(String nEmail, String nPassword, String nName, boolean nAdmin){
+	public void persistISAccountAdmin(String nEmail, String nPassword, String nName, boolean nAdmin, String nSalt){
 		if (accountCheck(nEmail)){
-			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName, nAdmin, randomStringGenerator(), "user" );
+			ISAccount isaisa = new ISAccount(nEmail, nPassword, nName, nAdmin, nSalt, "user" );
 			iSAccountManager.persistISAccountAdmin(isaisa);
 		}else{
 			int code=1;
@@ -128,6 +131,13 @@ public class ISAccountService {
 		return password;
 	}
 	
+	public String seasonAndCook(String email, String npassword, String salt) throws Exception{
+		salt = randomStringGenerator();
+		setSalt(salt);
+		String password = iSAccountManager.seasonAndCook(email, npassword, salt );
+		return password;
+	}
+	
 	// To be adjusted once page is completed
 	private void accountError(int code){
 		if(code == 1){
@@ -158,6 +168,20 @@ public class ISAccountService {
 	 */
 	public void setError(String error) {
 		this.error = error;
+	}
+	
+	/**
+	 * @return the salt
+	 */
+	public String getSalt() {
+		return salt;
+	}
+
+	/**
+	 * @param salt the salt to set
+	 */
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 	
 	
