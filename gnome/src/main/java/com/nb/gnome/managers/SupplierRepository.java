@@ -21,12 +21,16 @@ public interface SupplierRepository {
 	public List<Supplier> findSupplierByCompany(String company);
 	
 	//Read by id
-	public Supplier findSupplierById(long id);
+	public Supplier findSupplierById(int id);
 	
 	public Supplier findSupplierByContact(String s);
 	
 	public List<Supplier> findAll();
-
+	
+	//Update
+	public void persistUpdateSupplier(Supplier sup);
+	
+	//Delete
 	public void deleteSupplier(int id);
 
 }

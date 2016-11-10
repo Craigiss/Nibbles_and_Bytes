@@ -11,19 +11,18 @@
 	<link href="../css/bootstrap-3.3.7-dist/css/bootstrap.min.css"
 		rel="stylesheet" />
 	<link href="../css/imsStyle.css" rel="stylesheet" />
-	<title>Edit product</title>
+	<title>Edit supplier</title>
 </h:head>
 
 <body>
 
 	<div class="container">
-
 		<div class="row" id="topline">
-			<div id="title">Edit Product</div>
+			<div id="title">Edit Supplier</div>
 
 			<p id="bread">
-				<a href="imsIndex.xhtml">Home</a> > <a href="imsProducts.xhtml">Products</a>
-				> Edit product
+				<a href="imsIndex.xhtml">Home</a> > <a href="imsSuppliers.xhtml">Suppliers</a>
+				> Edit supplier
 			</p>
 			<div style="clear: both;"></div>
 		</div>
@@ -56,99 +55,114 @@
 		</div>
 		<br/>
 		<br/>
-		<h:form rendered="#{products.error ne null}">
+		<h:form rendered="#{suppliers.error ne null}">
 			<div id="alerttt" class="alert alert-danger"
 				style="visiblity: visible">
 				<a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
-				<h:outputText value="#{products.error}" />
+				<h:outputText value="#{suppliers.error}" />
 			</div>
 		</h:form>
 
-
 		<!-- Content -->
-		<div class="row">
-			<!-- 			<div class="col-sm-3 col-xs-3"></div> -->
-			<div class="col-sm-12 col-xs-12">
-				<h:form>
+		<h:form>
+			<div class="row">
+				<div class="col-sm-1" />
+				<div class="col-sm-4">
 					<div class="addElement">
 						<div class="row">
-							<h4>Product Name</h4>
+							<h4>Company Name</h4>
 						</div>
 						<div class="row uTextInput">
-							<h:inputText type="text" value="#{selected.product.productName}" required="true" />
+							<h:inputText type="text" value="#{selectedSupplier.supplier.company}"
+								required="true" />
 						</div>
 					</div>
+
 					<div class="addElement">
 						<div class="row">
 							<h4>Description</h4>
 						</div>
 						<div class="row">
-							<h:inputTextarea id="descriptionInput" rows="10"
-								value="#{selected.product.description}" required="true"
+							<h:inputTextarea id="descriptionInput" rows="7"
+								value="#{suppliers.description}" required="true"
 								style="min-width: 100%; resize:none; max-length:1000; border: 1px solid silver;" />
 						</div>
 					</div>
+				</div>
+				<div class="col-sm-2" />
+				<div class="col-sm-4">
 					<div class="addElement">
 						<div class="row">
-							<h4>Selling Price</h4>
+							<h4 id="nameContact">Name of Contact</h4>
 						</div>
 						<div class="row uTextInput">
-							<h:inputText type="text" value="#{selected.product.price}"
+							<h:inputText type="text" value="#{selectedSupplier.supplier.name}"
 								required="true" />
 						</div>
 					</div>
 					<div class="addElement">
 						<div class="row">
-							<h4>Stock Level</h4>
+							<h4>Phone Number</h4>
 						</div>
-						<div class="row">
-							<div class="col-sm-5 col-xs-5 listCenter">Normal</div>
-							<div class="col-sm-2 col-xs-2"></div>
-							<div class="col-sm-5 col-xs-5 listCenter">Porousware</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-5 uTextInput">
-								<h:inputText type="text" value="#{selected.product.stockLevel}"
-									required="true" />
-							</div>
-							<div class="col-sm-2 col-xs-2"></div>
-							<div class="col-sm-5 col-xs-5 uTextInput">
-								<h:inputText type="text" value="#{selected.product.porousStockLevel}"
-									required="true" />
-							</div>
+						<div class="row uTextInput">
+							<h:inputText type="text" value="#{selectedSupplier.supplier.phone}"
+								required="true" />
 						</div>
 					</div>
 					<div class="addElement">
 						<div class="row">
-							<h4>Supplier</h4>
+							<h4>Email Address</h4>
 						</div>
-						<h:selectOneMenu class="supplierDropdown"
-							value="#{products.supplier}"
-							converter="omnifaces.SelectItemsConverter">
-							<f:selectItem itemValue="#{null}" itemLabel="Select a supplier" />
-							<f:selectItems value="#{suppliers.findAll()}" var="sup"
-								itemValue="#{sup}" itemLabel="#{sup.company}"></f:selectItems>
-						</h:selectOneMenu>
 					</div>
-
-					<div class="addops">
-						<h:commandLink class="listCenter"
-							action="#{products.persistUpdateProduct(selected.product.productID, selected.product.description, selected.product.price, selected.product.stockLevel, selected.product.porousStockLevel, selected.product.productName, selected.product.supplier)}">
-							<div class="col-sm-4 col-xs-4 addButs listCenter" id="save">Update</div>
-						</h:commandLink>
-						<div class="col-sm-4 col-xs-4 addButs" />
-						<a href="imsProducts.xhtml">
-							<div class="col-sm-4 col-xs-4 addButs listCenter" id="cancel">Cancel</div>
-						</a>
-
+					<div class="addElement">
+						<div class="row uTextInput">
+							<h:inputText type="text" value="#{selectedSupplier.supplier.email}"
+								required="true" />
+						</div>
+						<div class="row">
+							<h4>Address</h4>
+						</div>
+						<div class="row uTextInput addElement greyPlace">
+							<h:inputText type="text" value="#{addresses.line1}"
+								required="true" a:placeholder="Line 1" />
+						</div>
+						<div class="row uTextInput addElement greyPlace smallPadding">
+							<h:inputText type="text" value="#{addresses.line2}"
+								a:placeholder="Line 2" />
+						</div>
+						<div class="row uTextInput addElement greyPlace smallPadding">
+							<h:inputText type="text" value="#{addresses.town}"
+								required="true" a:placeholder="Town" />
+						</div>
+						<div class="row uTextInput addElement greyPlace smallPadding">
+							<h:inputText type="text" value="#{addresses.county}"
+								required="true" a:placeholder="County" />
+						</div>
+						<div class="row uTextInput addElement greyPlace smallPadding">
+							<h:inputText type="text" value="#{addresses.postcode}"
+								required="true" a:placeholder="Postcode" />
+						</div>
 					</div>
-
-				</h:form>
-
+				</div>
+				<div class="col-sm-1" />
 			</div>
-			<!-- 	<div class="col-sm-3 col-xs-3"></div> -->
-		</div>
-
+			<div class="addops">
+				<div class="col-sm-1 addButs" />
+				<h:commandLink class="listCenter"
+					action="#{suppliers.persistUpdateSupplier(selectedSupplier.supplier.id, selectedSupplier.supplier.company, selectedSupplier.supplier.name, selectedSupplier.supplier.phone, selectedSupplier.supplier.email, selectedSupplier.supplier.description, selectedSupplier.supplier.address)}">
+					<div class="col-sm-4 addButs listCenter hovering" id="save">Update</div>
+				</h:commandLink>
+				<div class="col-sm-2 addButs" />
+				<h:form class="hovering">
+					<div class="col-sm-4 addButs listCenter" id="cancel">
+					<button id="cancelButton" class="addButs listCenter" type="button" data-toggle="modal"
+						data-target="#myModal">Cancel</button>
+					</div>
+				</h:form>
+				<div class="col-sm-1 addButs" />
+			</div>
+		</h:form>
+		
 
 		<!-- Footer -->
 		<div class="row">
@@ -182,7 +196,8 @@
 						data-dismiss="modal">Cancel</button>
 					<h:form id="formSubmission">
 						<h:outputLink class="btn btn-success"
-							value="imsProducts.xhtml?faces-redirect=true" style="right:10px;">Confirm</h:outputLink>
+							value="imsSuppliers.xhtml?faces-redirect=true"
+							style="right:10px;">Confirm</h:outputLink>
 					</h:form>
 				</div>
 			</div>

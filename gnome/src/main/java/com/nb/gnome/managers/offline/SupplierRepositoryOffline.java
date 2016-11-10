@@ -29,8 +29,9 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 		initialData.addSupplier(s);
 	}
 	
+	//Read
 	@Override
-	public Supplier findSupplierById(long id){
+	public Supplier findSupplierById(int id){
 		Supplier sup = new Supplier();
 		for (Supplier s : initialData.getSuppliers()){
 			if (s.getId() == id)
@@ -90,6 +91,14 @@ public class SupplierRepositoryOffline implements SupplierRepository{
 				s.setDeleted(true);
 			}
 		}		
+	}
+	
+	//Update
+	@Override
+	public void persistUpdateSupplier(Supplier sup){
+/*		Supplier s = new Supplier(mCompany, mName, mPhone, mEmail, mDescription, mAddress);
+		s.setId(initialData.getSuppliers().size() + 1);
+		initialData.addSupplier(s);*/
 	}
 
 	

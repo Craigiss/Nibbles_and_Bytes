@@ -73,6 +73,18 @@ public class Supplier {
 		this.address = address;
 		products = new ArrayList<Product>();
 	}
+	
+	public Supplier(int id, String company, String name, String phone, String email, String description, Address address){
+		this.id = id;
+		this.company = company;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.description = description;
+		deleted = false;
+		this.address = address;
+		products = new ArrayList<Product>();
+	}
 
 	/* Getters and Setters */
 

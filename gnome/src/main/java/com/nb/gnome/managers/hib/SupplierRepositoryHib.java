@@ -30,8 +30,9 @@ public class SupplierRepositoryHib implements SupplierRepository{
 		database.persistData(mAddress, s);
 	}
 	
+	//Read
 	@Override
-	public Supplier findSupplierById(long id){
+	public Supplier findSupplierById(int id){
 		ArrayList<Supplier> supplierList = (ArrayList)converter.convertToSuppliers(database.returnData("Supplier"));
 		Supplier sup = new Supplier();
 		for (Supplier s : supplierList ){
@@ -95,5 +96,11 @@ public class SupplierRepositoryHib implements SupplierRepository{
 			}
 		}		
 		
+	}
+	
+	//Update
+	@Override
+	public void persistUpdateSupplier(Supplier sup){
+		database.persistUpdate(sup);
 	}
 }

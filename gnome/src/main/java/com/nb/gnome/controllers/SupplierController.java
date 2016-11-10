@@ -9,6 +9,7 @@ import com.nb.gnome.entities.ISAccount;
 import com.nb.gnome.entities.Product;
 import com.nb.gnome.entities.Supplier;
 import com.nb.gnome.helper.PaginationHelper;
+import com.nb.gnome.managers.SupplierRepository;
 import com.nb.gnome.service.ISAccountService;
 import com.nb.gnome.service.SupplierService;
 
@@ -33,6 +34,8 @@ public class SupplierController implements Serializable {
 	private AddressController addressController;
 	@Inject
 	private SelectedSupplier supplier;
+	@Inject
+	SupplierRepository supplierRepository;
 	private String company;
 	private String name;
 	private String email;
@@ -128,7 +131,20 @@ public class SupplierController implements Serializable {
 		recreateModel();
 		return "imsSuppliers?faces-redirect=true";
 	}
+	
+	//view for the edit page
+	public String view(int id) {
+		String returnPage = "imsSupplierDeets?faces-redirect=true";
+		if (!(userCredentials.getName() == null)) {
+			supplier.setSupplier(supplierRepository.findSupplierById(id));
+			returnPage = "editSupplier?faces-redirect=true";
+		}else {
+			returnPage = "imsLogin?faces-redirect=true";
+		}		
+		return returnPage;
+	}
 
+	//view for supplier details
 	public String view(Supplier s) {
 		String returnPage = "imsSupplierDeets?faces-redirect=true";
 		if (!(userCredentials.getName() == null)) {
@@ -169,6 +185,32 @@ public class SupplierController implements Serializable {
 		phone = "";
 		email = "";
 		description = "";
+		
+		reset();
+
+		return "imsSuppliers?faces-redirect=true";
+	}
+	
+	public String persistUpdateSupplier(int id, String company,	String name, String phone, String email, String description, Address address) {
+		address = addressController.persistAddress();
+		addressController.clean();
+		if(name.length() <2 || description.length() <2 || company.length() < 2 || phone.length() < 2|| email.length() <2 || address == null )
+		{
+			setError("Invalid details used for entries for new supplier");
+			return "addSupplier";
+		}	
+		
+		setError(null);
+		supplierService.persistUpdateSupplier(id, company, name, phone, email, description, address);
+		//address = addressController.persistAddress();
+/*		recreateModel();
+		getDataModel();
+
+		company = "";
+		name = "";
+		phone = "";
+		email = "";
+		description = "";*/
 		
 		reset();
 

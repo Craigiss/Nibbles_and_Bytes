@@ -29,6 +29,14 @@ public class SupplierService {
 	}
 	
 	/**
+	 * Updates the supplier page according to params entered
+	 */
+	public void persistUpdateSupplier(int id, String mCompany, String mName, String mPhone, String mEmail, String mDescription, Address mAddress){
+		Supplier sup = new Supplier(id, mCompany, mName, mPhone, mEmail, mDescription, mAddress);
+		supplierManager.persistUpdateSupplier(sup);
+	}
+	
+	/**
 	 *  finds all suppliers and returns these deets as a list
 	 * @return
 	 */
@@ -45,7 +53,7 @@ public class SupplierService {
 	 */
 	public Supplier findSupplierById(String id){
 		try{
-			long searchId = Long.parseLong(id);
+			int searchId = Integer.parseInt(id);
 			return supplierManager.findSupplierById(searchId);
 		}
 		catch( Exception e){
