@@ -103,7 +103,11 @@
 					</div>
 					<div class="col-sm-3 supDetails listCenter">
 						<h:form>
-							<h:commandLink action="#{pos.view(po)}" value="#{po.date}" />
+							<h:commandLink action="#{pos.view(po)}">
+								<h:outputText value="#{po.date}">
+									<f:convertDateTime pattern="yyyy-MM-dd" />
+								</h:outputText>
+							</h:commandLink>
 						</h:form>
 					</div>
 					<div class="col-sm-3 supDetails listCenter">
@@ -113,7 +117,9 @@
 						</h:form>
 					</div>
 					<div class="col-sm-3 supDetails listCenter">
-						<h:outputText value="#{pos.calculateTotal(po)}" />
+						<h:outputText value="#{pos.calculateTotal(po)}">
+							<f:convertNumber pattern="£###,###,##0.00" />
+						</h:outputText>
 					</div>
 				</div>
 			</ui:repeat>

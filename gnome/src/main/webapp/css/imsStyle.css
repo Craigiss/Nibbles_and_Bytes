@@ -91,6 +91,7 @@ img {
 
 .mainButton{
 	height: 200px;
+	
 }
 
 #search {
@@ -321,6 +322,11 @@ a:hover {
 
 #delete {
 	background-color: #c00000;
+}
+
+.mainButIcon{
+	width: 125px;
+	height: auto;
 }
 
 #deleteButton{
