@@ -137,6 +137,32 @@ int saltLength = salt.length();
 				
 	}
 	
+	//Runs multiple password hashes with salt combined  (this method is for persisting new accounts)
+			@Override
+			public String seasonAndCook(String email, String npassword, String nsalt) throws Exception{
+				// Hash password
+				String password = npassword;
+				
+				String hashedPassword = hashSha256(password);
+				
+
+				String salt = nsalt;
+				
+			
+				String saltedPassword = addSeasoning(hashedPassword, salt);
+				
+				// Hashing password + salt
+				String finalPassword = hashSha256(saltedPassword);
+				
+				for(int hashCounter = 0; hashCounter < 5000; hashCounter++){
+					finalPassword = hashSha256(finalPassword);
+				}
+
+				return finalPassword;
+				
+						
+			}
+	
 	
 
 	

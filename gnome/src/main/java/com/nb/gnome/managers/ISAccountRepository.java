@@ -32,5 +32,6 @@ public interface ISAccountRepository {
 	public String hashSha256(String toHash) throws Exception;
 	public String addSeasoning(String password, String salt);
 	public String seasonAndCook(String email, String password) throws Exception;
+	String seasonAndCook(String email, String npassword, String nsalt) throws Exception;
 	
 }
