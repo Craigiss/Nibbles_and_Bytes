@@ -221,7 +221,6 @@ public class PurchaseOrderController implements Serializable {
 		dataModel = null;
 	}
 
-
 	public String reset() {
 		dataModel = null;
 		listData = null;

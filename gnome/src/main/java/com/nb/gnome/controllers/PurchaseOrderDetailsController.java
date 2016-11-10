@@ -77,6 +77,31 @@ public class PurchaseOrderDetailsController implements Serializable{
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	
+	public String calculateTotal(){
+		int pounds = 0;
+		int pence = 0;
+		for(PurchaseOrderDetails d : listPOD){
+			int mpounds = 0;
+			int mpence = 0;
+			mpounds += (int) (d.getProduct().getPrice() / 1);
+			mpence += (int) ((d.getProduct().getPrice()) * 100) % 100;
+			mpounds = mpounds * d.getQuantity();
+			mpence = mpence * d.getQuantity();
+			while(mpence >= 100){
+				mpounds++;
+				mpence -= 100;
+			}
+			pounds += mpounds;
+			pence += mpence;
+			
+			while(pence >= 100){
+				pounds++;
+				pence -= 100;
+			}
+		}
+		return "£" + pounds + "." + pence;
+	}
 
 
 	

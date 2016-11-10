@@ -122,6 +122,7 @@
 			<div class="addElement">
 				<div class="heading supDetails">Your Order:</div>
 			</div>
+			
 			<h:outputText rendered="#{pods.getListPOD().size() lt 1}">No items added</h:outputText>
 			<ui:repeat value="#{pods.listPOD}" var="iPOD">
 				<div class="row table">
@@ -139,6 +140,14 @@
 				</div>
 
 			</ui:repeat>
+			<div class="row">
+				<div class="col-sm-10"/>
+				<div class="col-sm-2">
+					<h:outputText value="#{pods.calculateTotal()}">
+						<f:convertNumber pattern="£###,###,##0.00" />
+					</h:outputText>
+				</div>
+			</div>
 
 			<br />
 			<hr />

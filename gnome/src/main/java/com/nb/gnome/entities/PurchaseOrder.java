@@ -139,9 +139,11 @@ public class PurchaseOrder {
 		for(PurchaseOrderDetails d : lines){
 			pounds += (int) (d.getProduct().getPrice() / 1);
 			pence += (int) ((d.getProduct().getPrice()) * 100) % 100;
-			if(pence >= 100){
+			pounds = pounds * d.getQuantity();
+			pence = pence * d.getQuantity();
+			while(pence >= 100){
 				pounds++;
-				pence =- 100;
+				pence -= 100;
 			}
 		}
 		return "£" + pounds + "." + pence;

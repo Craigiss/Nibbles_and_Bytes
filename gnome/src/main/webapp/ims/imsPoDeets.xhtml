@@ -43,7 +43,9 @@
 					<h:outputText value="#{selectedPo.purchaseOrder.id}" />
 					<br />
 					<h:outputText value="Date: " />
-					<h:outputText value="#{selectedPo.purchaseOrder.date}"><f:convertDateTime pattern="yyyy-MM-dd" /></h:outputText>
+					<h:outputText value="#{selectedPo.purchaseOrder.date}">
+						<f:convertDateTime pattern="yyyy-MM-dd" />
+					</h:outputText>
 					<br />
 					<h:outputText value="Supplier: " />
 					<h:outputText value="#{selectedPo.purchaseOrder.supplier.company}" />
@@ -80,8 +82,8 @@
 					<h:form>
 						<h:commandLink action="#{products.view(deets.product)}">
 							<h:outputText value="#{deets.subtotal()}">
-								<f:convertNumber pattern="£###,###,##0.00"/>
-								</h:outputText>
+								<f:convertNumber pattern="£###,###,##0.00" />
+							</h:outputText>
 						</h:commandLink>
 					</h:form>
 				</div>
