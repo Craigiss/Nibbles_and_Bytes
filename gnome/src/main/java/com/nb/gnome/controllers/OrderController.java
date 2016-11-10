@@ -12,6 +12,7 @@ import com.nb.gnome.entities.Address;
 import com.nb.gnome.entities.SalesOrder;
 import com.nb.gnome.managers.AddressRepository;
 import com.nb.gnome.managers.CustomerRepository;
+import com.nb.gnome.managers.SalesOrderRepository;
 import com.nb.gnome.service.CheckoutService;
 import com.nb.gnome.service.OrderService;
 import com.nb.gnome.service.UserCredentials;
@@ -36,6 +37,8 @@ public class OrderController implements Serializable {
 	UserCredentials  userCredentials; 
 	@Inject 
 	CustomerRepository customerManager; 
+	
+	
 	
     private Address savedAddress;
     private int selectedId;
@@ -151,6 +154,11 @@ public class OrderController implements Serializable {
 		return checkoutService.getCompletedOrderID();
 	}
 	
+	public void cancelOrder(int id){
+		orderService.cancelOrder(id);
+		
+		
+	}
 
 
 }

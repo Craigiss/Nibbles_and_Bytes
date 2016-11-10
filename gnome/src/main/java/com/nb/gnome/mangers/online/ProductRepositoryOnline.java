@@ -39,6 +39,8 @@ public class ProductRepositoryOnline implements ProductRepository {
 	List<Product> keywordProduct = new ArrayList<Product>();
 
 	for (Product p: converter.convertToProducts(connection.returnData("Product"))){
+		// NULL POINTER HERE
+		//!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		if (p.getProductName().toLowerCase().contains(keyword.toLowerCase()) || p.getDescription().contains(keyword.toLowerCase())){
 				keywordProduct.add(p);
 				System.out.println(p.getProductName());

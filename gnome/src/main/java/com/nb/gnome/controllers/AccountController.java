@@ -48,7 +48,17 @@ public class AccountController implements Serializable {
 	private String postcode;
 
 	private int selectedAddress; // The ID of the address selected by the
+
+	private String error = null;
 									// dropdown box.
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
+	}
 
 	public void updateAddresses(ValueChangeEvent e) { // Updates address by drop
 														// down box selected
@@ -339,7 +349,12 @@ public class AccountController implements Serializable {
 	}
 	
 	public String addAddress(){
-		
+		if(addressFirstLine.length()  < 2 || addressSecondLine.length() < 2 || town.length() <2 || county.length() < 2 || postcode.length() <5)
+		{
+			error  = "Enter Data of a valid length";
+			return "account#addAddress";
+		}
+		error = null;
 		addressService.addAddress(addressFirstLine, addressSecondLine, town, county, postcode);
 		return "account";
 		

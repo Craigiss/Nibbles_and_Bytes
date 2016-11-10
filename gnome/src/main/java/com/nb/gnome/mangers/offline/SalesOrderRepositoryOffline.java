@@ -38,7 +38,7 @@ public class SalesOrderRepositoryOffline implements SalesOrderRepository  {
 	}
 
 	@Override
-	public SalesOrder findSalesOrderById(long id) {
+	public SalesOrder findSalesOrderById(int id) {
 		SalesOrder mSales = new SalesOrder();
 		for(SalesOrder p : initialData.getSalesOrders()){
 			if(p.getId() == id){
@@ -53,5 +53,14 @@ public class SalesOrderRepositoryOffline implements SalesOrderRepository  {
 	public List<SalesOrder> findAll() {
 		return initialData.getSalesOrders();
 	}
+
+	@Override
+	public void updateOrder(SalesOrder a) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 
 }

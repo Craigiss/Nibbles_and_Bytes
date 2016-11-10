@@ -47,7 +47,7 @@ public class Connection {
 		properties.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
 		properties.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/cat?autoReconnect=true&useSSL=false");
 		properties.setProperty("hibernate.connection.username", "root");
-		properties.setProperty("hibernate.connection.password", "password");
+		properties.setProperty("hibernate.connection.password", "broly1");
 		
 		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
@@ -96,7 +96,7 @@ public class Connection {
 
 	@PostConstruct
 	public void init() {
-		//createData();
+	//	createData();
 		
 	}
 	
